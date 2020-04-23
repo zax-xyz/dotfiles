@@ -1,0 +1,9 @@
+/* Prevent large images from extending past the screen */
+
+[data-qb-domain="www.messenger.com"] ._3zvs {
+  max-width: calc(100% - 80px);
+}
+
+[data-qb-domain="www.messenger.com"] ._2n8i ._4tsk > div {
+  width: auto !important;
+}
