@@ -1,0 +1,400 @@
+# vim:filetype=i3config
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Dots2.png
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+set $mod Mod4
+
+font pango:Lato 9
+
+for_window [class=".*"] border pixel 0
+for_window [title="^dropdown$"] floating enable
+for_window [title="^dropdown$"] move scratchpad
+for_window [title="^dropdown$"] scratchpad show
+for_window [class="^deepin-calculator$"] move scratchpad
+for_window [class="^WM_FLOATING$"] floating enable
+# for_window [class="^deepin-calculator$"] border pixel 0
+# for_window [class="^deepin-calculator$"] scratchpad show
+assign [class="^discord$"] 1
+
+exec --no-startup-id picom --experimental-backends
+exec --no-startup-id conky
+exec --no-startup-id dunst
+exec --no-startup-id nm-applet
+exec --no-startup-id xset dpms 0 0 360
+exec --no-startup-id xset s 180 0
+exec --no-startup-id xss-lock -n ~/.scripts/dim-screen.sh ~/.scripts/lock.sh
+exec --no-startup-id xset r rate 200 35
+# exec --no-startup-id fcitx -d
+# exec --no-startup-id ~/.scripts/capslk.sh
+# exec --no-startup-id xautolock -time 5 -locker "~/lock.sh"
+# exec --no-startup-id xautolock -time 6 -locker "systemctl suspend"
+exec --no-startup-id redshift
+# exec --no-startup-id clipster -d
+# exec --no-startup-id krunner
+# exec --no-startup-id indicator-kdeconnect
+# exec --no-startup-id blueman-applet
+exec --no-startup-id nextcloud
+# exec --no-startup-id unclutter
+exec --no-startup-id flameshot
+exec --no-startup-id clipmenud
+exec --no-startup-id flashfocus
+exec --no-startup-id qdbus org.kde.kded5 /kded  loadModule wacomtablet
+exec --no-startup-id deepin-calculator
+exec --no-startup-id mpd
+exec --no-startup-id ~/.scripts/setxkb
+# exec --no-startup-id sxhkd
+# exec --no-startup-id sxhkd -c ~/.config/sxhkd/i3wm
+
+set $term st
+# set $transparent #00000000
+
+gaps inner 15
+#gaps outer 5
+
+# smart_gaps on
+# smart_borders on
+
+# set $bg-color 	         #2f343fee
+# set $inactive-bg-color   #2f343fee
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color     #E53935
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Ctrl+minus scratchpad show
+
+bindsym $mod+t [class="^St$"] scratchpad show
+bindsym $mod+c [class="^deepin-calculator$"] scratchpad show
+
+# Sticky
+bindsym $mod+Shift+Ctrl+s sticky toggle
+
+bindsym $mod+Ctrl+Shift+d xdg-open https://www.desmos.com/calculator
+
+# Custom scripts
+bindsym $mod+Ctrl+a exec --no-startup-id ~/.scripts/text/main
+bindsym $mod+shift+m exec --no-startup-id ~/.scripts/man_menu
+bindsym $mod+ctrl+shift+m exec --no-startup-id st -e pulsemixer
+bindsym $mod+e exec --no-startup-id ~/bin/dmenuunicode
+bindsym $mod+p exec --no-startup-id ~/bin/get-color
+bindsym $mod+Shift+p exec --no-startup-id ~/.scripts/powermenu
+bindsym $mod+Shift+t exec --no-startup-id todo
+bindsym $mod+Shift+b exec --no-startup-id ~/cloned/polybar-bluetooth/toggle_bluetooth.sh
+bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/ping-msg
+bindsym $mod+Ctrl+k exec --no-startup-id ~/.scripts/show-kdeconnect-menu
+# bindsym $mod+o exec --no-startup-id get_order
+# bindsym $mod+Shift+o exec --no-startup-id st -f "Monaco for Powerline:pixelsize=55:antialias=true:autohint=true" python -i Code/get_order
+# bindsym $mod+Ctrl+r exec --no-startup-id ~/cloned/voidrice/.scripts/i3cmds/dmenurecord
+bindsym $mod+m exec --no-startup-id ~/.scripts/ncmpcpp_toggle
+bindsym $mod+Ctrl+c exec --no-startup-id ~/.scripts/compton_toggle
+
+bindsym $mod+Ctrl+Shift+V exec --no-startup-id ~/.vim-anywhere/bin/run
+
+# KDE Connect stuff
+bindsym $mod+grave exec --no-startup-id ping-phone
+bindsym $mod+Escape exec --no-startup-id kdeconnect-cli --refresh
+bindsym Ctrl+Insert exec --no-startup-id notify-activity
+bindsym Ctrl+Shift+Insert exec --no-startup-id pkill notify-activity
+
+# # Flash window
+# bindsym $mod+Shift+f exec --no-startup-id nc_flash_window
+
+# # Start Write Stylus
+# bindsym $mod+Ctrl+s exec --no-startup-id write_stylus
+
+# # Basic calculator
+# bindsym $mod+equal exec --no-startup-id =
+
+# # Start file manager
+bindsym $mod+Shift+v exec --no-startup-id $term -e vifm
+
+# # Spotify volume control
+# bindsym Ctrl+Up exec --no-startup-id ~/.scripts/spotify_volume_up
+# bindsym Ctrl+Down exec --no-startup-id ~/.scripts/spotify_volume_down
+
+# maximise floating
+bindsym $mod+Shift+f floating enable, resize set 1338 705, move position 14 14
+
+# toggle compton
+# bindsym $mod+ctrl+c exec --no-startup-id pkill compton
+# bindsym $mod+shift+ctrl+c exec --no-startup-id compton --respect-prop-shadow
+
+# toggle gaps
+bindsym $mod+g gaps inner all set 15, gaps outer all set 0
+bindsym $mod+ctrl+g gaps inner all set 0, gaps outer all set 0
+
+# lock screen
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id ~/.scripts/lock.sh
+
+# start screenshot tool
+bindsym Print exec --no-startup-id flameshot gui
+bindsym $mos+Print exec --no-startup-id flameshot gui --raw | ~/.scripts/web_screenshot
+
+# drag windows with $mod+mouse
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id $term
+
+# start floating terminal
+#bindsym $mod+Shift+Return exec --no-startup-id $term -t float -e tmux new -A -s 1
+bindsym $mod+Shift+Return exec --no-startup-id $term -t dropdown
+
+# open vim
+bindsym $mod+Ctrl+v exec --no-startup-id $term -c WM_FLOATING -e vim
+
+# start browser
+bindsym $mod+W exec --no-startup-id firefox
+# bindsym $mod+Ctrl+W exec --no-startup-id tabbed -c surf -e
+bindsym $mod+Ctrl+w exec --no-startup-id chromium
+
+# start nautilus
+bindsym $mod+n exec --no-startup-id thunar
+
+# start networkmanager_dmenu
+bindsym $mod+Shift+n exec --no-startup-id networkmanager_dmenu
+
+# network manager tui
+bindsym $mod+Ctrl+Shift+w exec --no-startup-id $term -e nmtui
+
+# start discord
+bindsym $mod+Shift+d exec --no-startup-id discord
+
+# kill focused window
+# bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+bindsym $mod+Ctrl+Shift+q exec --no-startup-id xkill
+
+# switch to "urgent" workspace
+bindsym $mod+x [urgent=latest] focus
+
+# start dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run
+
+# start rofi
+# bindsym $mod+Ctrl+d exec --no-startup-id "rofi -combi-modi window,drun -modi combi -show-icons -show combi -display-combi '' -display-drun '' -display-window ' Window'"
+bindsym $mod+Ctrl+d exec --no-startup-id rofi -show drun
+
+# start clipster selection widget
+#bindsym $mod+c exec --no-startup-id clipster -sp
+
+# start clipmenu
+bindsym $mod+Ctrl+Shift+c exec --no-startup-id CM_HISTLENGTH=10 clipmenu
+
+# maths reference sheet
+bindsym $mod+r exec --no-startup-id evince ~/Downloads/School/maths-ref-sheet.pdf
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right 
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Tab focus right
+
+focus_follows_mouse no
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# splits
+# horizontal
+bindsym $mod+b split h
+# vertical
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+bindsym $mod+shift+w layout tabbed
+bindsym $mod+ctrl+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+s floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+i focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# bindsym $mod+r mode "resize"
+
+# Media controls
+# bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+# bindsym XF86AudioNext exec --no-startup-id playerctl next
+# bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 2%+
+# bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 2%-
+# bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master -- toggle
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle -q
+bindsym XF86AudioNext exec --no-startup-id mpc next -q
+bindsym XF86AudioPrev exec --no-startup-id mpc prev -q
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+bindsym XF86Search exec --no-startup-id rofi -show drun
+
+bindsym $mod+Minus exec --no-startup-id mpc -q volume -2
+bindsym $mod+Plus exec --no-startup-id mpc -q volume +2
+
+# bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/brightness_down 5
+# bindsym XF86MonBrightnessUp exec --no-startup-id light -A 2.5
+# bindsym XF86MonBrightnessDown exec --no-startup-id light -U 2.5
+# bindsym XF86MonBrightnessUp exec --no-startup-id lux -a 5%
+# bindsym XF86MonBrightnessDown exec --no-startup-id lux -s 5%
+
+# STOP/HIDE EVERYTHING:
+bindsym $mod+Shift+Delete workspace 0; exec $term -e htop; exec $term -e lf
+
+# Resize windows
+bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
+bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
+
+# Resize windows by 10
+bindsym $mod+Ctrl+Shift+Right resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Left resize shrink width 10 px or 10 ppt
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+ 
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+ 
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+ 
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+ 
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+ 
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+ 
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Plasma Integration
+# Try to kill the wallpaper set up by plasma
+# (it takes up the entire workspace and hides everything)
+# exec --no-startup-id wmctrl -c Plasma
+# for_window [title="Desktop — Plasma"]   kill, floating enable, border none
+
+# # Avoid tiling popups, dropdown windows from plasma.
+# for_window [class="plasmashell"]        floating enable
+# for_window [class="Plasma"]             floating enable, border none
+# for_window [class="plasma-desktop"]     floating enable, border none
+# for_window [class="Klipper"]            floating enable, border none
+# for_window [class="Plasmoidviewer"]     floating enable, border none
