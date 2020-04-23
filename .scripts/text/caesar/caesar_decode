@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "Decode Caesar shift") | ~/.scripts/text/caesar/caesar_decode.py | xclip -selection clipboard

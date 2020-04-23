@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "Emoji Text") | ~/.scripts/text/emoji/emoji.py | xclip -selection clipboard

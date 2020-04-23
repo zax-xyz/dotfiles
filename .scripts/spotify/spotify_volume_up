@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+# Original Author: Marcin Kocur, attribution license:
+#     https://creativecommons.org/licenses/by/4.0/
+# Modified to not be horrendous and five billion lines long
+# Also implemented workaround for spotify bug
+import subprocess
+
+app = '"Spotify"'
+pactl = subprocess.check_output(['pactl', 'list',
+                                 'sink-inputs']).decode().strip()
+
+for p in reversed(pactl.split('\n\n')):
+    if app in p:
+        pactl = p.split()
+        break
+
+volume = pactl[pactl.index("Volume:") + 4][:-1]
+sink_id = pactl[2][1:]
+
+if int(volume) < 95:
+    subprocess.run(['pactl', 'set-sink-input-volume', sink_id, '+5%'])
+elif int(volume) < 100:
+    subprocess.run(['pactl', 'set-sink-input-volume', sink_id, '100%'])

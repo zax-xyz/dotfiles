@@ -1,0 +1,7 @@
+#!/bin/sh
+id="$(pidof compton)"
+if [ -z "$id" ]; then
+  compton & disown
+else
+  kill $id
+fi

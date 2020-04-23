@@ -1,0 +1,8 @@
+#!/bin/bash
+str=$(cat ~/.kdeconnect-com)
+IFS=":"
+array=( $str )
+
+for i in ${array[@]}; do
+    echo $i | grep "\-n 'Sony'" > /dev/null && eval $i && break
+done

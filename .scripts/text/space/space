@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "s p a c e") | python -c "print(' '.join(open(0).read()), end='')" | xclip -selection clipboard

@@ -1,0 +1,72 @@
+#!/bin/sh
+ext="${1##*.}"
+
+markdown() {
+  sf="${1%.*}"
+  sf_html="md_export_html/$sf.html"
+  sf_pdf="md_export_pdf/$sf.pdf"
+
+  mkdir -p md_export_html md_export_pdf
+
+  common_params="-q -B 25mm -T 25mm --footer-right '[page] | [topage]' --footer-font-name 'Lato, Calibri, Roboto, Helvetica, Helvetica Neue, Arial, sans-serif' --footer-font-size 10 --footer-spacing 5 '$sf_html' '$sf_pdf'"
+
+  if [ -n "$2" ]; then
+    pandoc "$1" -thtml --standalone --mathjax > "$sf_html"
+    eval wkhtmltopdf --javascript-delay $2 $common_params
+  else
+    pandoc "$1" -thtml --standalone > "$sf_html"
+    eval wkhtmltopdf $common_params
+  fi
+}
+
+latex() {
+  pdflatex "$1"
+  pdflatex "$1"
+}
+
+groff() {
+  sf="${1%.*}"
+  sf_pdf="md_export_pdf/$sf.pdf"
+
+  groff -ms "$1" -T pdf > "$sf.pdf"
+}
+
+rmarkdown() {
+  R -e "rmarkdown::render('$1')"
+}
+
+conf() {
+  if [ "$(basename $1)" = "compton.conf" ]; then
+    pkill compton
+    nohup compton --respect-prop-shadow > /dev/null
+  fi
+
+  if [ "$(basename $1)" = "picom.conf" ]; then
+    pkill picom
+    nohup picom --experimental-backends > /dev/null
+  fi
+}
+
+yml() {
+  if [ "$(basename $1)" = "flashfocus.yml" ]; then
+    pkill flashfocus
+    nohup flashfocus > /dev/null
+  fi
+}
+
+go() {
+  go build "$1"
+}
+
+case $ext in
+  md) markdown "$@" ;;
+  Xresources) xrdb $1 ;;
+  tex) latex "$@" ;;
+  ms) groff "$@" ;;
+  Rmd) rmarkdown "$@" ;;
+  h) make ;;
+  c) make ;;
+  conf) conf "$@" ;;
+  yml) yml "$@" ;;
+  go) go "$@" ;;
+esac

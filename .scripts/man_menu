@@ -1,0 +1,2 @@
+#!/bin/sh
+man -k . | rofi -dmenu | awk '{print $1$2}' | xargs -r man -Tpdf | ifne zathura -

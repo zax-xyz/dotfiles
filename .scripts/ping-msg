@@ -1,0 +1,5 @@
+#!/bin/sh
+msg=$(echo -n | rofi -dmenu -p "Send message")
+if [ -n "$msg" ]; then
+    kdeconnect-cli -d a55b88c5a89c7b9a --ping-msg "${msg}"
+fi

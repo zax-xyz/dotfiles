@@ -1,0 +1,9 @@
+#!/bin/sh
+delay=0.1
+
+for i in $(seq 1 2); do
+    xset led named "Caps Lock"
+    sleep $delay
+    xset -led named "Caps Lock"
+    sleep $delay
+done

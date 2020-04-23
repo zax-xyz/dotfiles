@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "Superscript") | ~/.scripts/text/super/super.py | xclip -selection clipboard

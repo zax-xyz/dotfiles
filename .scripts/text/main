@@ -1,0 +1,34 @@
+#!/bin/sh
+BASE_DIR="$HOME/.scripts/text"
+
+options="emoji
+emoji (red)
+owo
+uwu
+owo uwu
+owo uwu w
+w
+superscript
+s p a c e
+S P A C E
+rot13
+decode caesar shift
+shruggie"
+
+choice=$(rofi -dmenu -p "Text manipulation" <<< "$options")
+
+case $choice in 
+    "emoji") $BASE_DIR/emoji/emoji ;;
+    "emoji (red)") $BASE_DIR/emoji/emoji2 ;;
+    "owo") $BASE_DIR/owo/owo ;;
+    "uwu") $BASE_DIR/owo/uwu ;;
+    "owo uwu") $BASE_DIR/owo/owo-uwu ;;
+    "owo uwu w") $BASE_DIR/owo/owo-uwu-w ;;
+    "w") $BASE_DIR/owo/w ;;
+    "superscript") $BASE_DIR/super/super ;;
+    "s p a c e") $BASE_DIR/space/space ;;
+    "S P A C E") $BASE_DIR/space/SPACE ;;
+    "rot13") $BASE_DIR/caesar/rot13 ;;
+    "decode caesar shift") $BASE_DIR/caesar/caesar_decode ;;
+    "shruggie") $BASE_DIR/main/shruggie ;;
+esac

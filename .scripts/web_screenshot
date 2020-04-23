@@ -1,0 +1,27 @@
+#!/bin/sh
+rand_str="$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 16)"
+filename=/tmp/zaxu_web_screenshot
+url=https://i.zaxu.xyz/$rand_str
+dir=/var/www/i.zaxu.xyz/public_html
+
+trap "rm $filename" 0 1 15
+cat "${1:-/dev/stdin}" > $filename
+
+if [ "$(file --mime-type -b $filename)" = "text/plain" ]; then
+    notify-send -u critical "Error: File is text"
+    echo "Error: File is text" >& 2
+    exit 1
+fi
+
+echo -n $url | xclip -selection clipboard
+notify-send "URL copied to clipboard" "$url copied to clipboard"
+echo "$url copied to clipboard"
+
+scp $filename $VPS:$dir/$rand_str || {
+    notify-send -u critical 'Error uploading file'
+    echo "Error uploading file" >& 2
+    exit 1
+}
+
+notify-send "Uploaded screenshot" "Uploaded screenshot as $url"
+echo "Uploaded screenshot"

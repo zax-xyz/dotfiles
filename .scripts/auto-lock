@@ -1,0 +1,4 @@
+#!/bin/sh
+xset dpms 0 0 360
+xset s 180 0
+xss-lock -n ~/.scripts/dim-screen.sh ~/.scripts/lock.sh

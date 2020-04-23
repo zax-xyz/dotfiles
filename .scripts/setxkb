@@ -1,0 +1,2 @@
+#!/bin/sh
+xkbcomp ~/.config/conf.xkb $DISPLAY

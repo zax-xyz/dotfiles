@@ -1,0 +1,2 @@
+#!/bin/sh
+xfconf-query -Tc xfwm4 -Tp /general/use_compositing
