@@ -1,0 +1,8 @@
+#!/bin/sh
+path="/tmp/send-bt-file"
+
+msg=$(echo -n | dmenu)
+if [ ! -z $msg ]; then
+    echo $msg > $path
+    bluetooth-sendto $path
+fi

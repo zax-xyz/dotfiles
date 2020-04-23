@@ -1,0 +1,3 @@
+#!/bin/sh
+xsetwacom set 'Wacom Intuos S 2 Pen stylus' Suppress 1
+xsetwacom set 'Wacom Intuos S 2 Pen stylus' RawSample 1

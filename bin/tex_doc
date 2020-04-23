@@ -1,0 +1,8 @@
+#!/bin/sh
+filename="$*.tex"
+if [ ! -e "$filename" ]; then
+    cp ~/Templates/document.tex "$filename"
+    vim "$filename"
+else
+    echo "File already exists."
+fi

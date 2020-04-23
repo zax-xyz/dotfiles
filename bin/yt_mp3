@@ -1,0 +1,5 @@
+#!/bin/bash
+youtube-dl -x --audio-format 'mp3' --output '%(title)s.%(ext)s' "$1"
+FILENAME="$(youtube-dl --get-filename --output '%(title)s.mp3' $1)"
+ffmpeg -y -ss "$2" -i "${FILENAME}" -acodec copy "${FILENAME/_/\|}"
+rm ${FILENAME}

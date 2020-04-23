@@ -1,0 +1,9 @@
+#!/bin/sh
+entry="$@"
+token='REDACTED'
+origin='https://status.zaxu.xyz'
+
+curl $origin/entry.php \
+  --data-urlencode "token=$token" \
+  --data-urlencode "entry=$entry" \
+  && echo
