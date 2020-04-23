@@ -1,0 +1,151 @@
+# terminal emulator
+super + {_,shift +}Return
+	st{_, -c WM_FLOATING}
+
+# program launcher
+super + {_,ctrl + }d
+	{dmenu_run,rofi -show drun}
+
+# make sxhkd reload its configuration files:
+super + shift + c
+	pkill -USR1 -x sxhkd
+
+
+# xkill
+super + ctrl + shift + q
+    xkill
+
+#
+# scripts
+#
+#
+super + ctrl + a
+    ~/.scripts/text/main
+
+super + {shift,ctrl + shift} + m
+    {~/.scripts/man_menu,st -e pulsemixer}
+
+super + e
+	~/bin/dmenuunicode
+
+super + {shift,ctrl + shift} + p
+    {~/.scripts/powermenu,~/bin/get-color}
+
+super + ctrl + shift + t
+    todo
+
+super + shift + b
+    ~/cloned/polybar-bluetooth/toggle_bluetooth.sh
+
+super + shift + s
+    ~/.scripts/ping-msg
+
+super + ctrl + shift + k
+    ~/.scripts/show-kdeconnect-menu
+
+super + shift + a
+    ~/bin/set-headphones
+
+#
+# KDE Connect
+#
+
+super + ctrl + grave
+    ping-phone
+
+super + Escape
+    kdeconnect-cli --refresh
+
+ctrl + {_,shift + }Insert
+    {_,pkill }notify-activity
+
+# calculator
+super + x
+    dcalc
+
+# start file manager
+super + shift + v
+    st -e vifm
+
+# spotify volume control
+# ctrl + {Up,Down}
+#     ~/.scripts/spotify_volume_{up,down}
+
+# mpd volume control
+ctrl + {Up,Down}
+    mpc -q volume {+,-}2
+
+# lock screen
+super + ctrl + shift + l
+    ~/.scripts/lock.sh
+
+# screenshot
+Print
+    flameshot gui
+
+# super + Print
+#     gyazo
+
+super + Print
+    flameshot gui --raw | ~/.scripts/web_screenshot
+
+# browsers
+super + {_,ctrl + }w
+    {qutebrowser,brave}
+
+# pcmanfm, networkmanager_dmenu
+super + {_,shift + }n
+    {pcmanfm, networkmanager_dmenu}
+
+# network manager tui
+super + ctrl + shift + w
+    st -e nmtui
+
+# ncmpcpp
+super + m
+    ~/.scripts/ncmpcpp_toggle
+
+# discord
+super + shift + d
+    discord
+
+# clipmenu
+super + ctrl + shift + c
+    env CM_LAUNCHER=rofi clipmenu
+
+# maths reference sheet
+super + r
+    evince ~/Downloads/education/high\ school/ref/maths-ref-sheet.pdf
+
+#
+# Media controls
+#
+# XF86Audio{Play,Next,Prev}
+#     playerctl {play-pause,next,previous}
+
+XF86Audio{Play,Next,Prev}
+    mpc {toggle,next,prev} -q
+
+# XF86Audio{Raise,Lower}Volume
+#     amixer -D pulse sset Master 2%{+,-}
+
+# XF86AudioMute
+#     amixer -D pulse sset Master -- toggle
+
+XF86Audio{Raise,Lower}Volume
+    pactl set-sink-volume 0 {+,-}2%
+
+super + {minus,equal}
+    mpc -q volume {-,+}2
+
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+
+XF86Search
+    rofi -show drun
+
+super + ctrl + shift + d
+    xdg-open https://www.desmos.com/calculator
+
+alt + space
+    echo -n '⠀' | xclip -selection clipboard
