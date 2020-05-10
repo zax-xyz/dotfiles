@@ -1,0 +1,80 @@
+# Dracula color theme for Zathura
+# link:( https://github.com/dracula/dracula-theme#color-palette )
+# Swaps Foreground for Background to get a light version
+# Comment after the color is the color's name, as it appears in the palette
+
+
+set smooth-scroll true
+set guioptions                  ""
+
+set font "Lato normal 10"
+
+# Light/Default mode settings:
+# 
+#
+set notification-error-bg       "#ff5555" # Red
+set notification-error-fg       "#fff" # Foreground
+set notification-warning-bg     "#ffb86c" # Orange
+set notification-warning-fg     "#44475a" # Selection
+set notification-bg             "#232323" # Background
+set notification-fg             "#fff" # Foreground
+
+set completion-bg               "#232323" # Background
+set completion-fg               "#6272a4" # Comment
+set completion-group-bg         "#232323" # Background
+set completion-group-fg         "#6272a4" # Comment
+set completion-highlight-bg     "#44475a" # Selection
+set completion-highlight-fg     "#fff" # Foreground
+
+set index-bg                    "#232323" # Background
+set index-fg                    "#fff" # Foreground
+set index-active-bg             "#44475a" # Current Line
+set index-active-fg             "#fff" # Foreground
+
+set inputbar-bg                 "#232323" # Background
+set inputbar-fg                 "#fff" # Foreground
+set statusbar-bg                "#232323" # Background
+set statusbar-fg                "#fff" # Foreground
+
+set highlight-color             "#ffb86c" # Orange
+set highlight-active-color      "#ff79c6" # Pink
+
+set default-bg                  "#232323" # Background
+set default-fg                  "#fff" # Foreground
+
+set render-loading              true
+set render-loading-fg           "#232323" # Background
+set render-loading-bg           "#fff" # Foreground
+
+# Recolor mode settings
+#
+#
+set recolor-lightcolor          "#232323" # Background
+set recolor-darkcolor           "#fff" # Foreground
+
+# Startup options
+#
+#
+set adjust-open width
+set recolor true
+
+set selection-clipboard clipboard
+set first-page-column 1:1
+
+set window-title-basename true
+
+map <Left> navigate previous
+map <Right> navigate next
+map <C-=> zoom in
+map <C-+> zoom in
+map <C--> zoom out
+map B jumplist backward
+map b jumplist forward
+map K zoom in
+map J zoom out
+map > rotate
+map < rotate rotate-ccw
+map R rotate rotate-ccw
+map i recolor
+map <C-r> reload
+map S set show-scrollbars
