@@ -19,8 +19,9 @@ super + {_,shift + }g
 	bspc node -s biggest{.local,_}
 
 super + ctrl + g
-    com='bspc config window_gap'; \
-    [ $($com) != 0 ] && $com 0 || $com 15
+  gap='bspc config window_gap'; \
+  corner='bspc config border_radius'; \
+  [ $($gap) != 0 ] && ($gap 0; $corner 0) || ($gap 15; $corner 5)
 
 #
 # state/flags
