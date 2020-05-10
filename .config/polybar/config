@@ -1,0 +1,318 @@
+; vim:filetype=dosini
+[colors]
+background = #212121
+background-alt = #2e2e2e
+
+foreground = #ffffff
+foreground-alt = #888
+
+primary = #ffb52a
+secondary = #f94b3c
+alert = #bd2c40
+
+red = #ff6565
+green = #85e8ca
+purple = #ac7ff9
+yellow = #ffc85e
+silver = #cdd7de
+
+[bar/1]
+monitor = ${env:MONITOR:eDP1}	
+width = 100%
+height = 35
+bottom = true
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+
+padding-left = 5
+padding-right = 10
+
+module-margin-left = 3
+module-margin-right = 3
+
+font-0 = Lato:pixelsize=9;2
+font-1 = Lato:style=Italic:pixelsize=9;5
+font-2 = Twemoji:scale=9;2
+font-3 = VL Gothic:pixelsize=8.75;3
+font-4 = Font Awesome 5 Free Solid:pixelsize=8.5;2
+font-5 = Font Awesome 5 Free Solid:pixelsize=8;2
+font-6 = Iosevka:pixelsize=12.5;4
+
+modules-left = bspwm i3 sep2 ip sep2 mpd
+modules-center = date
+modules-right = st sep pulseaudio sep memory sep cpu sep wlan sep battery sep powermenu
+
+; tray-position = right
+tray-padding = 7
+tray-transparent = true
+; tray-background = #212121
+
+wm-restack = bspwm
+
+override-redirect = false
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = "%title:0:40:...%"
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = false
+enable-scroll = false
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+; label-focused-underline= ${colors.primary}
+label-focused-padding = 6
+
+label-occupied = %index%
+label-occupied-padding = 6
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 6
+
+label-empty = 
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 6
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+enable-click = false
+enable-scroll = false
+
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = 
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+label-unfocused = %index%   
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+label-visible = %index%   
+;label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+label-urgent = %index%   
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev>  <toggle>  <icon-next>  <label-song>
+; format-online = <toggle>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song = %title% - %artist%
+label-song-maxlen = 30
+label-song-ellipsis = true
+
+[module/cpu]
+type = internal/cpu
+interval = 15
+format = %{T5}%{T-}  <label>
+format-foreground = ${colors.red}
+;format-underline = #f93322
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 30
+format = %{T5}%{T-}  <label>
+format-foreground = ${colors.green}
+;format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 5
+
+format-connected = <ramp-signal>  <label-connected>
+format-connected-foreground = ${colors.purple}
+;format-connected-underline = #9f78e1
+label-connected = "%signal%%"
+
+format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%a %b %d,"
+date-alt = "%Y-%m-%d"
+
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+;format-prefix = 
+;format-prefix-foreground = #0a6cf5
+;format-underline = #0a6cf5
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = 🔊  %percentage%%
+label-volume-foreground = ${colors.silver}
+
+label-muted = 🔇
+; label-muted-foreground = #666
+label-muted-foreground = ${colors.silver}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 99
+poll-interval = 10
+
+format-charging = <animation-charging>  <label-charging>
+;format-charging-underline = #ffb52a
+format-charging-foreground = ${colors.yellow}
+
+format-discharging = <ramp-capacity>  <label-discharging>
+;format-discharging-underline = ${self.format-charging-underline}
+format-discharging-foreground = ${colors.yellow}
+
+label-charging = %percentage%%+   %time%
+label-discharging = %percentage%%   %time%
+
+time-format = %-Hh %-Mm
+
+format-full = <ramp-capacity>  <label-full>
+format-full-foreground = ${colors.yellow}
+;format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 500
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 750
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = %{T6}%{T-}
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = " / "
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = shutdown
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = shutdown
+menu-2-0-exec = shutdown now
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[module/kdeconnect]
+type = custom/script
+exec = ~/.config/polybar/scripts/polybar-kdeconnect/polybar-kdeconnect.sh -d
+tail = true
+format-padding = 2
+interval = 3
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/polybar-bluetooth/bluetooth.sh
+interval = 3
+click-left = blueberry
+click-right = ~/.config/polybar/scripts/polybar-bluetooth/toggle_bluetooth.sh
+format-foreground = #ffffff
+format-padding = 2
+
+[module/rs]
+type = custom/text
+content = RS
+click-left = ~/.scripts/reset_sxhkd
+format-padding = 2
+
+[module/st]
+type = custom/text
+content = %{T6}%{T-}
+click-left = st &
+format-padding = 2
+ 
+[module/ip]
+type = custom/script
+interval = 5
+exec = ip -4 -o addr | awk '!/ lo /{print $4}' | cut -d '/' -f 1 | paste -sd '  '
+
+[module/decor-glyph]
+type = custom/text
+content-foreground = #5c6d70
+margin = 0
+
+[module/sep]
+inherit = module/decor-glyph
+content = "/"
+
+[module/sep2]
+inherit = module/decor-glyph
+content = "\"
