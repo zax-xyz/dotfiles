@@ -38,11 +38,11 @@ Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minut
 Plug 'zefei/vim-wintabs'
 Plug 'zefei/vim-wintabs-powerline'
 Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
 
 " Language-related plugins
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'lepture/vim-jinja'
 Plug 'plasticboy/vim-markdown'
 Plug 'mboughaba/i3config.vim'
