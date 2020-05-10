@@ -22,33 +22,39 @@ autocmd VimEnter *
 " Load plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'laggardkernel/vim-one' " Fork of rakr's vim-one with lower impact on startup time
-Plug 'itchyny/lightline.vim' " Both powerline and airline add at least 20 minutes to my startup time
-Plug 'vim-python/python-syntax'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'zefei/vim-wintabs'
-Plug 'zefei/vim-wintabs-powerline'
-Plug 'scrooloose/nerdtree'
-Plug 'lepture/vim-jinja'
-" Plug 'terryma/vim-multiple-cursors'
+" Visual plugins
+Plug 'laggardkernel/vim-one'  " Fork of rakr's vim-one with lower impact on startup time
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+
+" Functionality
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale' " Syntastic freezes vim for another 20 minutes, I need an asynchronous alternative
-Plug 'maximbaz/lightline-ale'
-" Plug 'yuttie/comfortable-motion.vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
-Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular'
+Plug 'sirver/ultisnips'
+
+" Extra wacky shit that goes on the screen
+Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
+Plug 'zefei/vim-wintabs'
+Plug 'zefei/vim-wintabs-powerline'
+Plug 'airblade/vim-gitgutter'
+
+" Language-related plugins
+Plug 'vim-python/python-syntax'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'lepture/vim-jinja'
+Plug 'plasticboy/vim-markdown'
 Plug 'mboughaba/i3config.vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 Plug 'iloginow/vim-stylus'
-" Plug 'lifepillar/vim-mucomplete'
 Plug 'lervag/vimtex'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-Plug 'sirver/ultisnips'
+
+" Linting
+Plug 'w0rp/ale'  "Syntastic freezes vim for another 20 minutes, I need an asynchronous alternative
+Plug 'maximbaz/lightline-ale'
 
 call plug#end()
 
