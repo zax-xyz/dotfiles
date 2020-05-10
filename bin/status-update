@@ -1,6 +1,6 @@
 #!/bin/sh
 entry="$@"
-token='REDACTED'
+token=$(cat ~/.config/status-token)
 origin='https://status.zaxu.xyz'
 
 curl $origin/entry.php \
