@@ -1,0 +1,77 @@
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+urxvt.scrollBar: false
+!urxvt.transparent: true
+!urxvt.shading: 20
+
+!urxvt.tintColor: #172A47
+!urxvt.inheritPixmap: true
+urxvt.depth: 32
+
+!urxvt.keysym.Control-Shift-V: perl:clipboard:paste
+!urxvt.keysym.Control-Shift-C: perl:clipboard:copy
+
+urxvt.iso14755: False
+
+!urxvt.perl-ext-common: default,clipboard
+urxvt.perl-ext-common:
+
+!Fonts
+urxvt.font: xft:Monaco for Powerline:pixelsize=13.15,style=regular
+xterm*font: xft:Monaco for Powerline:pixelsize=13,style=regular
+urxvt.boldFont: xft:Monaco for Powerline:pixelsize=13.15,style=bold
+xterm*boldFont: xft:Monaco for Powerline:pixelsize=13,style=bold
+urxvt.letterSpace: -1
+xterm*letterSpace: -1
+st.font: Monaco for Powerline:pixelsize=13:antialias=true:autohint=true;
+st.fontalt0: Iosevka:pixelsize=13:antialias=true:autohint=true;
+st.alpha: 0.92
+
+st.borderpx: 15
+*.internalBorder: 15
+
+
+! special
+*.foreground:   #abb2bf
+!*.background:   #282c34
+*.background:   #232323
+!urxvt.background:   [92]#282c34
+urxvt.background:   [92]#232323
+st.cursorColor:  #abb2bf
+
+! black
+*.color0:       #16181d
+*.color8:       #545862
+
+! red
+*.color1:       #e06c75
+*.color9:       #e06c75
+
+! green
+*.color2:       #98c379
+*.color10:      #98c379
+
+! yellow
+*.color3:       #e5c07b
+*.color11:      #e5c07b
+
+! blue
+*.color4:       #61afef
+*.color12:      #61afef
+
+! magenta
+*.color5:       #c678dd
+*.color13:      #c678dd
+
+! cyan
+*.color6:       #56b6c2
+*.color14:      #56b6c2
+
+! white
+*.color7:       #abb2bf
+*.color15:      #c8ccd4
