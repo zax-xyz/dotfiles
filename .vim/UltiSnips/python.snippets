@@ -1,0 +1,67 @@
+snippet p
+print($1)
+$0
+endsnippet
+
+snippet im
+import $0
+endsnippet
+
+snippet fi
+from $1 import $0
+endsnippet
+
+snippet d
+def $1():
+	$0
+endsnippet
+
+snippet dd
+def $1($2):
+	$0
+endsnippet
+
+snippet i
+if $1:
+	$0
+endsnippet
+
+snippet ie
+if $1:
+	$2
+else:
+	$3
+
+$0
+endsnippet
+
+snippet iee
+if $1:
+	$2
+elif $3:
+	$4
+else:
+	$5
+
+$0
+endsnippet
+
+snippet ifmain
+if __name__ == "__main__":
+	$0
+endsnippet
+
+snippet ++ "python doesn't do that" i
+ += 1
+endsnippet
+
+snippet -- "python doesn't do that" i
+ -= 1
+endsnippet
+
+snippet cls
+class $1:
+
+	def __init__(self$2):
+		$0
+endsnippet

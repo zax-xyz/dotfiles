@@ -6,12 +6,14 @@ set number
 set relativenumber
 set cursorline
 
+" Install vim-plug if it is not found in the user's directory
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Update plugins on startup
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
@@ -44,6 +46,9 @@ Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 Plug 'iloginow/vim-stylus'
 " Plug 'lifepillar/vim-mucomplete'
+Plug 'lervag/vimtex'
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'sirver/ultisnips'
 
 call plug#end()
 
@@ -53,6 +58,7 @@ autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
 " line cursor on leave vim
 autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
 
+" Mode cursors
 let &t_SI = "\<Esc>[5 q"
 let &t_SR = "\<Esc>[3 q"
 let &t_EI = "\<Esc>[1 q"
@@ -67,6 +73,7 @@ let g:limelight_conceal_ctermfg = '#777777'
 let g:limelight_conceal_guifg = '#777777'
 let g:limelight_default_coefficient = 0.7
 
+" Fix goyo messing up the background on leave
 function! s:goyo_leave()
   hi! Normal ctermbg=NONE guibg=NONE
   hi! NonText ctermbg=NONE guibg=NONE
@@ -89,26 +96,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
-" inoremap {      {}<Left>
-" inoremap {<CR>  {<CR>}<Esc>O
-" inoremap {{     {
-" inoremap {}     {}
+" Allow opening a new tab when current buffer has unsaved changes
+set hidden
 
-" inoremap (      ()<Left>
-" inoremap (<CR>  (<CR>)<Esc>O
-" inoremap ((     (
-" inoremap ()     ()
-
-" inoremap [      []<Left>
-" inoremap [<CR>  [<CR>]<Esc>O
-" inoremap [[     [
-" inoremap []     []
-
-" Buffers
-" set hidden
-" nnoremap <C-n> :bnext<CR>
-" nnoremap <C-p> :bprev<CR>
-
+" Tab controls
 map <C-n> <Plug>(wintabs_next)
 map <C-p> <Plug>(wintabs_previous)
 map <C-t>c <Plug>(wintabs_close)
@@ -131,11 +122,11 @@ map <Down> gj
 imap <Down> <Esc>gja
 
 " Make indentation outside of Insert mode easier
-nmap <Tab> >>_
-nmap <S-Tab> <<_
-imap <S-Tab> <C-D>
-vmap <Tab> >gv
-vmap <S-Tab> <gv
+" nmap <Tab> >>_
+" nmap <S-Tab> <<_
+" imap <S-Tab> <C-D>
+" vmap <Tab> >gv
+" vmap <S-Tab> <gv
 
 " Guide navigation
 " map \\ /<++><CR>c4l
@@ -163,7 +154,7 @@ endif
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
-let g:python_slow_sync = 0
+" let g:python_slow_sync = 0
 
 " Enable folding
 set foldmethod=indent
@@ -184,8 +175,11 @@ set showcmd
 set wildmode=longest,full
 set wildmenu
 
+" Mappings timeout
+set timeoutlen=350 
+
 " Set insert to normal mode timeout quicker
-set timeoutlen=1000 ttimeoutlen=0
+set ttimeoutlen=0
 
 " Make vim faster
 set ttyfast
@@ -196,14 +190,18 @@ set background=dark
 let g:one_allow_italics = 1
 colorscheme one
 
+" au FileType python hi Constant ctermfg=yellow guifg=#e5c07b
+au FileType python hi link pythonNone Structure
+
 " Save files as root
 cmap w!! w !sudo tee > /dev/null %
 
-set expandtab tabstop=4 softtabstop=4 shiftwidth=4
-au FileType javascript,html,css,php,vim,json,xml,zsh,yaml,go,sh,tex
-  \ set tabstop=2 softtabstop=2 shiftwidth=2
-au FileType go,c
-  \ set noexpandtab
+" Indentation rules
+set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+" au FileType javascript,html,css,php,vim,json,xml,zsh,yaml,go,sh,tex
+"   \ set tabstop=2 softtabstop=2 shiftwidth=2
+au FileType python,c set tabstop=4 softtabstop=4 shiftwidth=4
+au FileType go set noexpandtab
 
 au FileType plaintex set filetype=tex
 au FileType rmd set filetype=markdown
@@ -212,11 +210,30 @@ au FileType rmd set filetype=markdown
 autocmd FileType markdown highlight htmlH1 ctermfg=blue
 
 " Compile documents
-nmap <leader>c :w<CR>:!~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
+nmap <leader>c :w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
+imap <C-c> <Esc>:w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
 au FileType markdown nmap <leader>C :w<CR>:!~/.scripts/compile "%" 1000 &> /dev/null & disown<CR><CR>
 
 au FileType tex,markdown,nroff setlocal spell
+" au FileType tex imap <Tab> <Esc>/<++><CR>c4l
+" au FileType tex nmap <Tab> <Esc>/<++><CR>c4l
+" au FileType tex imap <S-Tab> <Esc>?<++><CR>c4l
+" au FileType tex nmap <S-Tab> <Esc>?<++><CR>c4l
 nnoremap <leader>s :setlocal spell!<CR>
+
+set conceallevel=2
+let g:tex_conceal='abdmg'
+let g:vimtex_matchparen_enabled=0
+let g:vimtex_motion_enabled=0
+let g:vimtex_view_method='zathura'
+
+nmap <leader>v :VimtexView<CR>
+
+hi Conceal guibg=NONE guifg=#e5c07b
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
@@ -224,7 +241,6 @@ let g:vim_markdown_frontmatter = 1
 " Autostart NERDTree
 "nmap <leader>t NERDTree | vertical resize -15 | wincmd l
 "au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 
 " Transparent background in terminal
 if (!has("gui_running"))
@@ -245,17 +261,17 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 function! WordCount()
-   let s:old_status = v:statusmsg
-   let position = getpos(".")
-   exe ":silent normal g\<c-g>"
-   let stat = v:statusmsg
-   let s:word_count = 0
-   if stat != '--No lines in buffer--'
-     let s:word_count = str2nr(split(v:statusmsg)[11])
-     let v:statusmsg = s:old_status
-   end
-   call setpos('.', position)
-   return s:word_count
+  let s:old_status = v:statusmsg
+  let position = getpos(".")
+  exe ":silent normal g\<c-g>"
+  let stat = v:statusmsg
+  let s:word_count = 0
+  if stat != '--No lines in buffer--'
+    let s:word_count = str2nr(split(v:statusmsg)[11])
+    let v:statusmsg = s:old_status
+  end
+  call setpos('.', position)
+  return s:word_count
 endfunction
 
 " Lightline
@@ -268,7 +284,7 @@ let g:lightline = {
   \     'right':[ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
   \               [ 'lineinfo' ],
   \               [ 'fileformat', 'fileencoding', 'filetype' ],
-  \               [ 'bytecount', 'wordcount' ]
+  \               [ 'bytecount' ]
   \     ]
   \   },
   \   'component': {
@@ -330,34 +346,6 @@ nmap <silent> <right> :ALENext<cr>
 nmap <silent> <left> :ALEPrevious<cr>
 nmap <silent> <leader>a :ALEToggle<cr>
 
-" PHP/HTML
-au FileType php,html imap ,b <b></b> <++><Esc>FbT>i
-au FileType php,html imap ,it <em></em> <++><Esc>FeT>i
-au FileType php,html imap ,1 <h1></h1><Enter><++><Esc>0kf>a
-au FileType php,html imap ,2 <h2></h2><Enter><++><Esc>0kf>a
-au FileType php,html imap ,3 <h3></h3><Enter><++><Esc>0kf>a
-au FileType php,html imap ,4 <h4></h4><Enter><++><Esc>0kf>a
-au FileType php,html imap ,5 <h5></h5><Enter><++><Esc>0kf>a
-au FileType php,html imap ,6 <h6></h6><Enter><++><Esc>0kf>a
-au FileType php,html imap ,p <p></p><Enter><++><Esc>0kf>a
-au FileType php,html imap ,a <a href=""><++></a> <++><Esc>14hi
-au FileType php,html imap ,e <a target="_blank" href=""><++></a> <++><Esc>14hi
-au FileType php,html imap ,ul <ul><Enter><li></li><Enter></ul><Enter><++><Esc>02kf>a
-au FileType php,html imap ,li <Esc>o<li></li><Esc>F>a
-au FileType php,html imap ,ol <ol><Enter><li></li><Enter></ol><Enter><++><Esc>02kf>a
-au FileType php,html imap ,im <img src="" alt="<++>"><++><esc>Fcf"a
-au FileType php,html imap ,td <Esc>o<td></td><Esc>Fdcit
-au FileType php,html imap ,tr <Esc>o<tr><Enter></tr><Esc>kA,td
-au FileType php,html imap ,th <th></th><++><Esc>Fhcit
-au FileType php,html imap ,tab <table><Enter></table><Esc>kA,tr
-au FileType php,html imap ,gr <font color="green"></font><Esc>F>a
-au FileType php,html imap ,rd <font color="red"></font><Esc>F>a
-au FileType php,html imap ,yl <font color="yellow"></font><Esc>F>a
-au FileType php,html imap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
-au FileType php,html imap ,dl <dl><Enter><Enter></dl><enter><enter><++><esc>3kcc
-au FileType php,html imap &<Space> &amp;<Space>
-au FileType php,html imap <<Space> &lt;
-
 " Don't save backups of *.gpg files
 set backupskip+=*.gpg
 " To avoid that parts of the file is saved to .viminfo when yanking or
@@ -414,76 +402,3 @@ function DisableWrap()
   silent! iunmap <buffer> <Home>
   silent! iunmap <buffer> <End>
 endfunction
-
-" set viminfo='10,\"100,:20,%,n~/.viminfo
-
-" LATEX
-autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter><++><Enter><Enter>\end{frame}<Enter><Enter><++><Esc>6kf}i
-autocmd FileType tex inoremap ,fi \begin{fitch}<Enter><Enter>\end{fitch}<Enter><Enter><++><Esc>3kA
-autocmd FileType tex inoremap ,exe \begin{exe}<Enter>\ex<Space><Enter>\end{exe}<Enter><Enter><++><Esc>3kA
-autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
-autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
-autocmd FileType tex vnoremap , <ESC>`<i\{<ESC>`>2la}<ESC>?\\{<Enter>a
-autocmd FileType tex inoremap ,it \textit{}<++><Esc>T{i
-autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
-autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
-autocmd FileType tex inoremap ,glos {\gll<Space><++><Space>\\<Enter><++><Space>\\<Enter>\trans{``<++>''}}<Esc>2k2bcw
-autocmd FileType tex inoremap ,x \begin{xlist}<Enter>\ex<Space><Enter>\end{xlist}<Esc>kA<Space>
-autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
-autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
-autocmd FileType tex inoremap ,li <Enter>\item<Space>
-autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
-autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
-autocmd FileType tex inoremap ,ot \begin{tableau}<Enter>\inp{<++>}<Tab>\const{<++>}<Tab><++><Enter><++><Enter>\end{tableau}<Enter><Enter><++><Esc>5kA{}<Esc>i
-autocmd FileType tex inoremap ,can \cand{}<Tab><++><Esc>T{i
-autocmd FileType tex inoremap ,con \const{}<Tab><++><Esc>T{i
-autocmd FileType tex inoremap ,v \vio{}<Tab><++><Esc>T{i
-autocmd FileType tex inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
-autocmd FileType tex inoremap ,sc \textsc{}<Space><++><Esc>T{i
-autocmd FileType tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
-autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
-autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
-autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
-autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
-autocmd FileType tex inoremap ,beg \begin{DELRN}<Enter><++><Enter>\end{DELRN}<Enter><Enter><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
-autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
-autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
-autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
-autocmd FileType tex inoremap ,bt {\blindtext}
-autocmd FileType tex inoremap ,nu $\varnothing$
-autocmd FileType tex inoremap ,col \begin{columns}[T]<Enter>\begin{column}{.5\textwidth}<Enter><Enter>\end{column}<Enter>\begin{column}{.5\textwidth}<Enter><++><Enter>\end{column}<Enter>\end{columns}<Esc>5kA
-autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
-autocmd FileType tex inoremap ,un \underline{}<++><Esc>F}i
-autocmd FileType tex inoremap ,pa \paragraph{} <++><Esc>F}i
-
-autocmd FileType tex inoremap ,fi \field{} <++><Esc>F}i
-
-" LATEX MATH
-autocmd FileType tex,markdown inoremap ,fc \frac{}{<++>} <++><Esc>2T{i
-autocmd FileType tex,markdown inoremap ,bin \binom{}{<++>}<Esc>2T{i
-autocmd FileType tex,markdown inoremap ,ali \begin{align*}<CR> &= <++> \\<CR>\end{align*}<CR><CR><++><Esc>03kt&i
-autocmd FileType tex,markdown inoremap ,gat \begin{gather*}<CR> &= <++> \\<CR>\end{gather*}<CR><CR><++><Esc>03kt&i
-autocmd FileType tex,markdown inoremap ,ln <Esc>o &= <++> \\<Esc>F&hi
-autocmd FileType tex,markdown nnoremap ,ln <Esc>o &= <++> \\<Esc>F&hi
-autocmd FileType tex,markdown inoremap ,int \int_{}^{<++>} <++><Esc>2T{i
-autocmd FileType tex,markdown inoremap ,inl \int\limits_{}^{<++>} <++><Esc>2T{i
-autocmd FileType tex,markdown inoremap ,sum \sum_{}^{<++>} <++><Esc>2T{i
-autocmd FileType tex,markdown inoremap ,sul \sum\limits_{}^{<++>} <++><Esc>2T{i
-autocmd FileType tex,markdown inoremap ,bigint \mathlarger{\int}
-autocmd FileType tex,markdown inoremap ,te \text{} <++><Esc>T{i
-autocmd FileType tex,markdown inoremap ,pe _\perp
-autocmd FileType tex,markdown inoremap ,vec \overrightarrow{} <++><Esc>T{i
-
-" LATEX SYMBOLS
-autocmd FileType tex inoremap ,la \leftarrow
-autocmd FileType tex inoremap ,La \Leftarrow
-autocmd FileType tex inoremap ,ra \rightarrow
-autocmd FileType tex inoremap ,Ra \Rightarrow
-autocmd FileType tex inoremap ,lra \leftrightarrow
-autocmd FileType tex inoremap ,Lra \Leftrightarrow
-autocmd FileType tex inoremap ,ua \uparrow
-autocmd FileType tex inoremap ,Ua \Uparrow
-autocmd FileType tex inoremap ,da \downarrow
-autocmd FileType tex inoremap ,Da \Downarrow
-autocmd FileType tex inoremap ,uda \updownarrow
-autocmd FileType tex inoremap ,Uda \Updownarrow

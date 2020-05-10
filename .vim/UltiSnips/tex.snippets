@@ -1,0 +1,448 @@
+snippet em "emphasis" w
+\emph{$1}
+endsnippet
+
+snippet bf "bold" w
+\textbf{$1}
+endsnippet
+
+snippet mbf "math bold" w
+\mathbf{$1}
+endsnippet
+
+snippet it "italic" w
+\textit{$1}
+endsnippet
+
+snippet ol
+\begin{enumerate}
+	\item $1
+	$2
+\end{enumerate}
+endsnippet
+
+snippet ul
+\begin{itemize}
+	\item $1
+	$2
+\end{itemize}
+endsnippet
+
+snippet li
+\item 
+endsnippet
+
+snippet sec "section" bA
+\section{$1}
+endsnippet
+
+snippet ssec "subsection" bA
+\subsection{$1}
+endsnippet
+
+snippet sssec "subsubsection" bA
+\subsubsection{$1}
+endsnippet
+
+snippet beg
+\begin{$1}
+	$2
+\end{$1}
+endsnippet
+
+snippet up "usepackage" b
+\usepackage{$1}
+endsnippet
+
+snippet un
+\underline{$1}
+endsnippet
+
+snippet pa
+\paragraph{$1} 
+endsnippet
+
+snippet pb "Page break" b
+\pagebreak
+endsnippet
+
+snippet th
+\begin{theorem}
+	$1
+\end{theorem}
+endsnippet
+
+snippet qu
+\begin{question}
+	$1
+\end{question}
+endsnippet
+
+snippet quu
+\begin{question*}
+	$1
+\end{question*}
+endsnippet
+
+snippet pr
+\begin{proof}
+	$1
+\end{proof}
+endsnippet
+
+# snippet mi
+# \$${1:$VISUAL}\$
+# endsnippet
+
+# snippet m
+# \[ ${0:$VISUAL} \]
+# endsnippet
+
+snippet // "fraction" iA
+\frac{$1}{$2}
+endsnippet
+
+# snippet d// "display fraction" iA
+# \dfrac{$1}{$2}
+# endsnippet
+
+# snippet n// "nice fraction" iA
+# \nicefrac{$1}{$2}
+# endsnippet
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+\frac{`!p snip.rv = match.group(1)`}{$1}
+endsnippet
+
+snippet / "Fraction" i
+\frac{${VISUAL}}{$1}
+endsnippet
+
+snippet '^.*\)/' "() Fraction" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')':
+		depth += 1
+	if stripped[i] == '(':
+		depth -= 1
+	if depth == 0:
+		break;
+	i -= 1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}
+endsnippet
+
+# priority 1000
+# snippet '\(.*\)/' "() Fraction" wrA
+# \frac{`!p snip.rv = match.group(0)[1:-2]`}{$1}
+# endsnippet
+
+snippet bin "binomial" w
+\binom{$1}{$2}
+endsnippet
+
+snippet ali
+\begin{align*}
+	$1 &= $2 \\\\
+	$3
+\end{align*}
+endsnippet
+
+snippet gat
+\begin{gather*}
+	$1 &= $2 \\\\
+	$3
+\end{gather*}
+endsnippet
+
+snippet ln
+$1 &= $2 \\\\
+
+endsnippet
+
+snippet int "integral" w
+\int_{$1}^$2} 
+endsnippet
+
+snippet intl "integral with limits" w
+\int\limits_{$1}^{$2} 
+endsnippet
+
+snippet sum "sum" w
+\sum_{$1}^{$2} 
+endsnippet
+
+snippet suml "sum with limits" w
+\sum\limits_{$1}^{$2} 
+endsnippet
+
+snippet bigint "big integral" w
+\mathlarger{\int}
+endsnippet
+
+snippet te "raw text in math env" w
+\text{$1}
+endsnippet
+
+snippet pe "perpendicular" w
+_\perp
+endsnippet
+
+snippet vec "vector" w
+\overrightarrow{$1}
+endsnippet
+
+snippet fi "field" w
+\mathbb{$1}
+endsnippet
+
+snippet to "to" w
+\to
+endsnippet
+
+snippet im "implies" w
+\implies
+endsnippet
+
+snippet mto "map to" w
+\mapsto
+endsnippet
+
+snippet ,pi "pi" iA
+\pi
+endsnippet
+
+snippet __ "subscript" iA
+_{$1}
+endsnippet
+
+snippet ^^ "power" iA
+^{$1}
+endsnippet
+
+snippet ,inf "infinity" iA
+\infty
+endsnippet
+
+snippet lim "limit" w
+\lim{$1} 
+endsnippet
+
+snippet ,sin "sin" iA
+\sin($1) 
+endsnippet
+
+snippet ,cos "cos" iA
+\cos($1) 
+endsnippet
+
+snippet ,tan "tan" iA
+\tan($1) 
+endsnippet
+
+snippet ,sec "sec" iA
+\sec($1) 
+endsnippet
+
+snippet ,csc "cosec" iA
+\csc($1) 
+endsnippet
+
+snippet ,cot "cotan" iA
+\cot($1) 
+endsnippet
+
+snippet case
+\begin{cases}
+	$1 & $2 \\\\
+	$3
+\end{cases}
+endsnippet
+
+snippet :
+\colon
+endsnippet
+
+snippet := "" A
+\coloneqq
+endsnippet
+
+snippet ce
+\coloneqq
+endsnippet
+
+snippet ne
+\ne
+endsnippet
+
+snippet ge
+\ge
+endsnippet
+
+snippet le
+\le
+endsnippet
+
+snippet al "alpha" w
+\alpha
+endsnippet
+
+snippet bet "beta" w
+\beta
+endsnippet
+
+snippet gam "gamma" w
+\gamma
+endsnippet
+
+snippet del "delta" w
+\delta
+endsnippet
+
+snippet ep "epsilon" w
+\epsilon
+endsnippet
+
+snippet the "theta" w
+\theta
+endsnippet
+
+snippet phi "phi" w
+\phi
+endsnippet
+
+snippet varphi "varphi" w
+\varphi
+endsnippet
+
+snippet sq "square root" w
+\sqrt{$1}
+endsnippet
+
+snippet cd "centered dot" w
+\cdot
+endsnippet
+
+snippet la
+\leftarrow
+endsnippet
+
+snippet xla
+\xleftarrow${1:[$2]}${3:{$4}}
+endsnippet
+
+snippet La
+\Leftarrow
+endsnippet
+
+snippet ra
+\rightarrow
+endsnippet
+
+snippet Ra
+\Rightarrow
+endsnippet
+
+snippet xra
+\xrightarrow${1:[$2]}${3:{$4}}
+endsnippet
+
+snippet rro
+\rroarrow${1:[$2]}${3:{$4}}
+endsnippet
+
+snippet lra
+\leftrightarrow
+endsnippet
+
+snippet Lra
+\Leftrightarrow
+endsnippet
+
+snippet ua
+\uparrow
+endsnippet
+
+snippet Ua
+\Uparrow
+endsnippet
+
+snippet da
+\downarrow
+endsnippet
+
+snippet Da
+\Downarrow
+endsnippet
+
+snippet uda
+\updownarrow
+endsnippet
+
+snippet Uda
+\Updownarrow
+endsnippet
+
+snippet mk "Inline math" i
+\$$1\$
+endsnippet
+
+snippet md "Display math" i
+\[ $1 \]
+endsnippet
+
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet ,sq "^2" iA
+^2
+endsnippet
+
+snippet ,cb "^3" iA
+^3
+endsnippet
+
+snippet ,compl "complement" iA
+^{c}
+endsnippet
+
+snippet ,pow "superscript" iA
+^{$1}
+endsnippet
+
+snippet sympy "sympy block " w
+sympy $1 sympy
+endsnippet
+
+priority 1
+snippet 'sympy(.*)sympy' "evaluate sympy" wr
+`!p
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
+    .replace('^', '**') \
+    .replace('{', '(') \
+    .replace('}', ')') + ')')
+`
+endsnippet
+
+priority 0
+snippet inv "Inverse" i
+^{-1}
+endsnippet
+
+priority 1
+snippet minv "matrix inverse" i
+^{T}
+endsnippet
