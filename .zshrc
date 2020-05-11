@@ -49,6 +49,10 @@ if [ -f ~/.aliasrc ]; then
 . ~/.aliasrc
 fi
 
+if [ -f ~/.functionrc ]; then
+. ~/.functionrc
+fi
+
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 fpath+=$HOME/.local/share/zsh/prompts/pure

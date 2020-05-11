@@ -13,6 +13,10 @@ if [ -f ~/.aliasrc ]; then
   . ~/.aliasrc
 fi
 
+if [ -f ~/.functionrc ]; then
+  . ~/.functionrc
+fi
+
 if [ -t 1 ]
 then
 	bind Space:magic-space
