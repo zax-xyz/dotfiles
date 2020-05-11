@@ -1,5 +1,4 @@
 export EDITOR=/usr/bin/vim
-export VPS=zax@$(cat ~/.config/vps_id)
 export QT_QPA_PLATFORMTHEME=qt5ct
 export TERMINAL=st
 export MOZ_USE_XINPUT2=1

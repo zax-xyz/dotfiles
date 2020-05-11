@@ -1,8 +1,5 @@
 # vim: ft=sh
 
-# ssh into server
-alias vps="ssh $VPS"
-
 # download youtube video as mp3
 alias yta="youtube-dl -x --audio-format 'mp3' --output '%(title)s.%(ext)s'"
 
