@@ -5,6 +5,7 @@ export MOZ_USE_XINPUT2=1
 export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin/"
 export TMUX=
 export TERM=st-256color
+export SXHKD_SHELL=sh
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
