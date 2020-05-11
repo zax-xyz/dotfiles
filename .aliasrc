@@ -33,6 +33,7 @@ alias gcsmsg="git commit -S -m"
 alias gp="git push"
 alias gpl="git pull"
 alias gd="git diff"
+alias gl="git log"
 
 ## dotfiles
 alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -44,6 +45,7 @@ alias dgcsmsg="dgit commit -S -m"
 alias dgp="dgit push"
 alias dgpl="dgit pull"
 alias dgd="dgit diff"
+alias dgl="dgit log"
 
 # django
 alias djmkmigrate="python manage.py makemigrations --settings=backend.local_settings"
