@@ -6,7 +6,7 @@ set number
 set relativenumber
 set cursorline
 
-" Install vim-plug if it is not found in the user's directory
+" Install vim-plug if it is not found, then install plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -32,6 +32,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'sirver/ultisnips'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Extra wacky shit that goes on the screen
 Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
@@ -69,8 +71,12 @@ let &t_SI = "\<Esc>[5 q"
 let &t_SR = "\<Esc>[3 q"
 let &t_EI = "\<Esc>[1 q"
 
+" Autodetect filetype
 nmap <leader>r :filetype detect<CR>
-nmap <leader>F :set ft=
+
+" Find files with fzf
+nmap <leader>F :Files<CR>
+nmap <leader>G :GFiles<CR>
 
 nnoremap <leader>g :Goyo<CR>
 
