@@ -53,11 +53,6 @@ alias djmkmigrate="python manage.py makemigrations --settings=backend.local_sett
 alias djmigrate="python manage.py migrate --settings=backend.local_settings"
 alias djshell="python manage.py shell --settings=backend.local_settings"
 
-# # prepare tiling coding environments
-# alias cdirs="mkdir -p lib src; cp ~/Templates/Makefile ."
-# alias cprep="cdirs; $TERMINAL & disown; sleep 0.2; xdotool type 'gcc '; xdotool key Super+h; xdotool type 'vim .c'; xdotool key Escape B i"
-# alias pyprep="$TERMINAL -e ipython & disown; sleep 0.05; $TERMINAL & disown; sleep 0.2; xdotool type 'python '; xdotool key Super+h; xdotool type 'vim .py'; xdotool key Escape B i"
-
 # get to task
 ## latex assignment
 alias cdlass="cd latex/ass"
