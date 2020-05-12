@@ -2,7 +2,7 @@
 
 It's just my dotfiles
 
-Currently the programs I use are:
+Currently the main programs I use are:
 
 - **WM**: bspwm
 - **Keybindings**: sxhkd
