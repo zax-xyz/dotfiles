@@ -1,0 +1,86 @@
+# vim: ft=sh
+
+# make directory and cd into it
+mkcd() {
+  mkdir -p "$1"
+  cd "$1"
+}
+
+#
+# prepare tiling coding environments
+# assumes empty desktop
+#
+
+# create c directories and copy Makefile template
+cdirs() {
+  mkdir -p lib src
+  cp ~/Templates/Makefile .
+}
+
+# aliases to set delay on every use
+xdelay=0
+alias xkey="xdotool key --delay $xdelay"
+alias xtype="xdotool type --delay $xdelay"
+
+# switch to the leftward window in tiling window manager configuration
+alias left_window="xkey Super+h"
+
+# move the cursor back before the file extension
+alias move_cursor_back="xdotool key Escape F period i"
+
+# prepare C development environment in a tiling window manager
+cprep() {
+  # create directories
+  cdirs
+
+  # create new terminal window for compiler
+  $TERMINAL & disown
+  sleep 0.2  # ensure the window spawns before we start typing
+
+  if [ -n "$1" ]; then
+    # prepare compile command
+    xtype "gcc src/$1.c"
+
+    left_window
+
+    # start editing
+    vim "$1.c"
+  else
+    # prepare compile command
+    xtype "gcc src/"
+
+    left_window
+
+    # prepare vim command
+    xtype "vim src/.c"
+    move_cursor_back
+  fi
+}
+
+# prepare Python development environment in a tiling window manager"
+pyprep() {
+  # interactive python shell
+  $TERMINAL -e ipython & disown
+  sleep 0.05  # ensure the next terminal spawns after
+
+  # window to run the program
+  $TERMINAL & disown
+  sleep 0.2  # ensure the window spawns before we start typing
+
+  if [ -n "$1" ]; then
+    # prepare run command
+    xtype "python $1.py"
+    left_window
+
+    # start editing
+    vim "$1.py"
+  else
+    # prepare run command
+    xtype "python "
+    left_window
+
+    # prepare vim command
+    xtype "vim .py"
+    move_cursor_back
+  fi
+}
