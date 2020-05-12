@@ -1,14 +1,13 @@
 snippet pr
 print($1)
-$0
 endsnippet
 
 snippet im
-import $0
+import 
 endsnippet
 
 snippet fi
-from $1 import $0
+from $1 import 
 endsnippet
 
 snippet def
@@ -32,7 +31,7 @@ if $1:
 else:
 	$3
 
-$0
+
 endsnippet
 
 snippet ifee
@@ -43,7 +42,7 @@ elif $3:
 else:
 	$5
 
-$0
+
 endsnippet
 
 snippet ifmain
@@ -64,4 +63,17 @@ class $1:
 
 	def __init__(self$2):
 		$0
+endsnippet
+
+snippet for
+for $1 in $2:
+	$0
+endsnippet
+
+snippet _im
+__import__($1)
+endsnippet
+
+snippet __
+__$1__
 endsnippet
