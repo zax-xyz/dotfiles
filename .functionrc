@@ -8,7 +8,7 @@ mkcd() {
 
 #
 # prepare tiling coding environments
-# assumes empty desktop
+# assumes empty desktop, sensible wm keybindngs, and binary space partioning
 #
 
 # create c directories and copy Makefile template
