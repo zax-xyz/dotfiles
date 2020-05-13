@@ -39,7 +39,7 @@ cprep() {
 
   if [ -n "$1" ]; then
     # prepare compile command
-    xtype "gcc src/$1.c"
+    xtype "make"
 
     left_window
 
@@ -47,7 +47,7 @@ cprep() {
     vim "$1.c"
   else
     # prepare compile command
-    xtype "gcc src/"
+    xtype "make"
 
     left_window
 
