@@ -14,7 +14,7 @@ Currently the main programs I use are:
 - **Application Launcher**: dmenu, rofi (depends on the context)
 - **Notifications**: dunst
 - **Display Manager**: lightdm
-- **Browser**: qutebrowser, Brave
+- **Browser**: firefox
 - **File Manager**: pcmanfm (GUI), vifm (TUI)
 - **PDF Viewer**: Zathura
 - **Music**: MPD + ncmpcpp
