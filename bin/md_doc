@@ -1,8 +1,7 @@
 #!/bin/sh
 filename="$*.md"
 if [ ! -e "$filename" ]; then
-    cp ~/Templates/document.md "$filename"
-    vim "$filename"
-else
-    echo "File already exists."
+  cp ~/Templates/document.md "$filename"
 fi
+
+vim "$filename"
