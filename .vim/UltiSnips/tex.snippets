@@ -6,7 +6,7 @@ snippet bf "bold" w
 \textbf{$1}
 endsnippet
 
-snippet mbf "math bold" w
+snippet mbf "math bold" i
 \mathbf{$1}
 endsnippet
 
@@ -29,7 +29,8 @@ snippet ul
 endsnippet
 
 snippet li
-\item 
+\item $1
+
 endsnippet
 
 snippet sec "section" bA
@@ -164,7 +165,7 @@ $1 &= $2 \\\\
 endsnippet
 
 snippet int "integral" w
-\int_{$1}^$2} 
+\int_{$1}^{$2} 
 endsnippet
 
 snippet intl "integral with limits" w
@@ -318,6 +319,10 @@ snippet varphi "varphi" w
 \varphi
 endsnippet
 
+snippet lam "lambda" i
+\lambda
+endsnippet
+
 snippet sq "square root" w
 \sqrt{$1}
 endsnippet
@@ -445,4 +450,36 @@ endsnippet
 priority 1
 snippet minv "matrix inverse" i
 ^{T}
+endsnippet
+
+snippet mat "matrix" i
+\begin{matrix}$1\end{matrix}
+endsnippet
+
+snippet bma "rectangular brackets matrix" i
+\begin{bmatrix}$1\end{bmatrix}
+endsnippet
+
+snippet ama "augmented matrix" i
+\begin{amatrix}[$1]{$2}$3\end{amatrix}
+endsnippet
+
+snippet vma "vertcal line matrix" i
+\begin{vmatrix}$1\end{vmatrix}
+endsnippet
+
+snippet q "quad"
+\quad
+endsnippet
+
+snippet qq "qquad"
+\qquad
+endsnippet
+
+snippet lef "left" i
+\left
+endsnippet
+
+snippet rig "right" i
+\right
 endsnippet
