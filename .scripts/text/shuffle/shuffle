@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "Shuffle") | ~/.scripts/text/shuffle/shuffle.py | xclip -selection clipboard

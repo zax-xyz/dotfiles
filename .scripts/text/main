@@ -9,8 +9,10 @@ owo uwu
 owo uwu w
 w
 superscript
+upside down
 s p a c e
 S P A C E
+shuffle
 rot13
 decode caesar shift
 shruggie"
@@ -26,8 +28,10 @@ case $choice in
     "owo uwu w") $BASE_DIR/owo/owo-uwu-w ;;
     "w") $BASE_DIR/owo/w ;;
     "superscript") $BASE_DIR/super/super ;;
+    "upside down") $BASE_DIR/upside_down/upside_down ;;
     "s p a c e") $BASE_DIR/space/space ;;
     "S P A C E") $BASE_DIR/space/SPACE ;;
+    "shuffle") $BASE_DIR/shuffle/shuffle ;;
     "rot13") $BASE_DIR/caesar/rot13 ;;
     "decode caesar shift") $BASE_DIR/caesar/caesar_decode ;;
     "shruggie") $BASE_DIR/main/shruggie ;;

@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "Upside Down") | ~/.scripts/text/upside_down/upside_down.py | xclip -selection clipboard
