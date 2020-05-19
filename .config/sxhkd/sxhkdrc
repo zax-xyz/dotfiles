@@ -91,7 +91,7 @@ super + Print
 
 # browsers
 super + {_,ctrl + }w
-    {qutebrowser,brave}
+    {firefox,brave}
 
 # pcmanfm, networkmanager_dmenu
 super + {_,shift + }n
@@ -149,3 +149,6 @@ super + ctrl + shift + d
 
 alt + space
     echo -n '⠀' | xclip -selection clipboard
+
+super + alt + p
+    /home/mvo/.scripts/pyramid.sh
