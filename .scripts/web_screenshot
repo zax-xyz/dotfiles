@@ -17,7 +17,7 @@ echo -n $url | xclip -selection clipboard
 notify-send "URL copied to clipboard" "$url copied to clipboard"
 echo "$url copied to clipboard"
 
-scp $filename $VPS:$dir/$rand_str || {
+scp $filename vps:$dir/$rand_str || {
     notify-send -u critical 'Error uploading file'
     echo "Error uploading file" >& 2
     exit 1
