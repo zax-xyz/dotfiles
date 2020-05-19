@@ -200,3 +200,8 @@ context = ctrl+shift+period
 [blink_led]
     summary = "*"
     script = ~/.scripts/blink_led
+
+# brave notifications keep sticking around forever
+[brave]
+    appname = Brave
+    urgency = normal
