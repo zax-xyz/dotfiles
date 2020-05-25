@@ -75,10 +75,10 @@ let &t_EI = "\<Esc>[1 q"
 nmap <leader>r :filetype detect<CR>
 
 " Find files with fzf
-nmap <leader>F :Files<CR>
-nmap <leader>G :GFiles<CR>
+nmap <leader>f :Files<CR>
+nmap <leader>g :GFiles<CR>
 
-nnoremap <leader>g :Goyo<CR>
+nnoremap <leader>G :Goyo<CR>
 
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = '#777777'
@@ -171,7 +171,7 @@ let g:python_highlight_all = 1
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-nnoremap <leader>f za
+nnoremap <leader>F za
 
 " Ignore case when searching, except when using uppercase
 set ignorecase smartcase
