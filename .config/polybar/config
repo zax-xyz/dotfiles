@@ -37,7 +37,7 @@ module-margin-right = 3
 font-0 = Lato:pixelsize=9;2
 font-1 = Lato:style=Italic:pixelsize=9;5
 font-2 = Twemoji:scale=9;2
-font-3 = VL Gothic:pixelsize=8.75;3
+font-3 = VL Gothic:pixelsize=8.75;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=8.5;2
 font-5 = Font Awesome 5 Free Solid:pixelsize=8;2
 font-6 = Iosevka:pixelsize=12.5;4
