@@ -370,30 +370,33 @@ augroup encrypted
     \ setlocal nobin
 augroup END
 
-noremap <silent> <Leader>w :call EnableWrap()<CR>
-function EnableWrap()
-  echo "Wrap ON"
-  setlocal linebreak
-  noremap  <buffer> <silent> k      gk
-  noremap  <buffer> <silent> j      gj
-  noremap  <buffer> <silent> <Home> g<Home>
-  noremap  <buffer> <silent> <End>  g<End>
-  inoremap <buffer> <silent> <Up>   <C-o>gk
-  inoremap <buffer> <silent> <Down> <C-o>gj
-  inoremap <buffer> <silent> <Home> <C-o>g<Home>
-  inoremap <buffer> <silent> <End>  <C-o>g<End>
+let g:wrap = 0
+
+function ToggleWrap()
+  if !g:wrap
+    let g:wrap = 1
+    echo "Wrap ON"
+    setlocal linebreak
+    noremap  <buffer> <silent> k      gk
+    noremap  <buffer> <silent> j      gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  else
+    echo "Wrap OFF"
+    setlocal nolinebreak
+    silent! nunmap <buffer> k
+    silent! nunmap <buffer> j
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  endif
 endfunction
 
-noremap <silent> <Leader>W :call DisableWrap()<CR>
-function DisableWrap()
-  echo "Wrap OFF"
-  setlocal nolinebreak
-  silent! nunmap <buffer> k
-  silent! nunmap <buffer> j
-  silent! nunmap <buffer> <Home>
-  silent! nunmap <buffer> <End>
-  silent! iunmap <buffer> <Up>
-  silent! iunmap <buffer> <Down>
-  silent! iunmap <buffer> <Home>
-  silent! iunmap <buffer> <End>
-endfunction
+noremap <silent> <Leader>w :call ToggleWrap()<CR>
