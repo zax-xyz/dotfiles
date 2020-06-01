@@ -202,12 +202,12 @@ au FileType python hi link pythonNone Structure
 cmap w!! w !sudo tee > /dev/null %
 
 " Indentation rules
-set expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au FileType python,c set tabstop=4 softtabstop=4 shiftwidth=4
-au FileType go set noexpandtab
+setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au FileType python,c setlocal tabstop=4 softtabstop=4 shiftwidth=4
+au FileType go setlocal noexpandtab
 
-au FileType plaintex set filetype=tex
-au FileType rmd set filetype=markdown
+au FileType plaintex setlocal filetype=tex
+au FileType rmd setlocal filetype=markdown
 
 " Markdown heading colours
 autocmd FileType markdown highlight htmlH1 ctermfg=blue
