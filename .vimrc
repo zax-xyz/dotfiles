@@ -123,8 +123,9 @@ noremap <C-w>o <Plug>(wintabs_only_window)
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
-noremap <C-]> :tabn<CR>
-noremap <C-[> :tabp<CR>
+noremap <C-t>n :tabn<CR>
+noremap <C-t>p :tabp<CR>
+noremap <C-]> :tabp<CR>
 
 " See partial off-screen lines
 set display+=lastline
