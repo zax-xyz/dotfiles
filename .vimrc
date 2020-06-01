@@ -73,13 +73,13 @@ let &t_SR = "\<Esc>[3 q"
 let &t_EI = "\<Esc>[1 q"
 
 " Autodetect filetype
-nmap <leader>r :filetype detect<CR>
+noremap <leader>r :filetype detect<CR>
 
 " Find files with fzf
-nmap <leader>f :Files<CR>
-nmap <leader>g :GFiles<CR>
+noremap <leader>f :Files<CR>
+noremap <leader>g :GFiles<CR>
 
-nnoremap <leader>G :Goyo<CR>
+noremap <leader>G :Goyo<CR>
 
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = '#777777'
@@ -104,27 +104,27 @@ set splitbelow
 set splitright
 
 " Split navigation
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
+noremap <C-H> <C-W><C-H>
+noremap <C-J> <C-W><C-J>
+noremap <C-K> <C-W><C-K>
+noremap <C-L> <C-W><C-L>
 
 " Allow opening a new tab when current buffer has unsaved changes
 set hidden
 
 " Tab controls
-map <C-n> <Plug>(wintabs_next)
-map <C-p> <Plug>(wintabs_previous)
-map <C-t>c <Plug>(wintabs_close)
-map <C-t>u <Plug>(wintabs_undo)
-map <C-t>o <Plug>(wintabs_only)
-map <C-w>c <Plug>(wintabs_close_window)
-map <C-w>o <Plug>(wintabs_only_window)
+noremap <C-n> <Plug>(wintabs_next)
+noremap <C-p> <Plug>(wintabs_previous)
+noremap <C-t>c <Plug>(wintabs_close)
+noremap <C-t>u <Plug>(wintabs_undo)
+noremap <C-t>o <Plug>(wintabs_only)
+noremap <C-w>c <Plug>(wintabs_close_window)
+noremap <C-w>o <Plug>(wintabs_only_window)
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
-map <C-]> :tabn<CR>
-map <C-[> :tabp<CR>
+noremap <C-]> :tabn<CR>
+noremap <C-[> :tabp<CR>
 
 "let g:multi_cursor_use_default_mapping=0
 
@@ -132,10 +132,10 @@ map <C-[> :tabp<CR>
 set display+=lastline
 
 " Visual line navigation
-map <Up> gk
-imap <Up> <Esc>gka
-map <Down> gj
-imap <Down> <Esc>gja
+noremap <Up> gk
+inoremap <Up> <Esc>gka
+noremap <Down> gj
+inoremap <Down> <Esc>gja
 
 " Make indentation outside of Insert mode easier
 " nmap <Tab> >>_
@@ -145,25 +145,23 @@ imap <Down> <Esc>gja
 " vmap <S-Tab> <gv
 
 " Guide navigation
-" map \\ /<++><CR>c4l
-map <leader><leader> /<++><CR>c4l
-" imap \\ <Esc>/<++><CR>c4l
-map <leader><Tab> /<++><CR>
+noremap <leader><leader> /<++><CR>c4l
+noremap <leader><Tab> /<++><CR>
 
 " Replace all quicker
-map <leader>s :s//g<Left><Left>
-map <leader>S :%s//g<Left><Left>
+noremap <leader>s :s//g<Left><Left>
+noremap <leader>S :%s//g<Left><Left>
 
 " Quick norm
-map <leader>n :norm 
+noremap <leader>n :norm 
 
 " Toggle paste mode with F2
 set pastetoggle=<F2>
 
 " Enable mouse control
 set mouse=a
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
+noremap <ScrollWheelUp> <C-Y>
+noremap <ScrollWheelDown> <C-E>
 if !has('nvim')
   set ttymouse=sgr
 endif
@@ -226,8 +224,8 @@ au FileType rmd set filetype=markdown
 autocmd FileType markdown highlight htmlH1 ctermfg=blue
 
 " Compile documents
-nmap <leader>c :w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
-imap <C-c> <Esc>:w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
+noremap <leader>c :w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
+inoremap <C-c> <Esc>:w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
 au FileType markdown nmap <leader>C :w<CR>:!~/.scripts/compile "%" 1000 &> /dev/null & disown<CR><CR>
 
 au FileType tex,markdown,nroff setlocal spell
@@ -235,7 +233,7 @@ au FileType tex,markdown,nroff setlocal spell
 " au FileType tex nmap <Tab> <Esc>/<++><CR>c4l
 " au FileType tex imap <S-Tab> <Esc>?<++><CR>c4l
 " au FileType tex nmap <S-Tab> <Esc>?<++><CR>c4l
-nnoremap <leader>s :setlocal spell!<CR>
+noremap <leader>s :setlocal spell!<CR>
 
 set conceallevel=2
 let g:tex_conceal='abdmg'
@@ -243,7 +241,7 @@ let g:vimtex_matchparen_enabled=0
 let g:vimtex_motion_enabled=0
 let g:vimtex_view_method='zathura'
 
-nmap <leader>v :VimtexView<CR>
+noremap <leader>v :VimtexView<CR>
 
 hi Conceal guibg=NONE guifg=#e5c07b
 
@@ -356,11 +354,11 @@ let g:lightline#ale#indicator_ok = ''
 autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 let g:ale_list_window_size = 3
-nmap <silent> <leader>J :ALENext<cr>
-nmap <silent> <leader>K :ALEPrevious<cr>
-nmap <silent> <right> :ALENext<cr>
-nmap <silent> <left> :ALEPrevious<cr>
-nmap <silent> <leader>a :ALEToggle<cr>
+nnoremap <silent> <leader>J :ALENext<cr>
+nnoremap <silent> <leader>K :ALEPrevious<cr>
+nnoremap <silent> <right> :ALENext<cr>
+nnoremap <silent> <left> :ALEPrevious<cr>
+nnoremap <silent> <leader>a :ALEToggle<cr>
 
 " Don't save backups of *.gpg files
 set backupskip+=*.gpg
