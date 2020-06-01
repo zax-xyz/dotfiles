@@ -123,6 +123,9 @@ map <C-w>o <Plug>(wintabs_only_window)
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
+map <C-]> :tabn<CR>
+map <C-[> :tabp<CR>
+
 "let g:multi_cursor_use_default_mapping=0
 
 " See partial off-screen lines
