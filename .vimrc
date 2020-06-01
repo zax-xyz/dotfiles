@@ -126,8 +126,6 @@ command! Tabo WintabsOnlyVimtab
 noremap <C-]> :tabn<CR>
 noremap <C-[> :tabp<CR>
 
-"let g:multi_cursor_use_default_mapping=0
-
 " See partial off-screen lines
 set display+=lastline
 
@@ -136,13 +134,6 @@ noremap <Up> gk
 inoremap <Up> <Esc>gka
 noremap <Down> gj
 inoremap <Down> <Esc>gja
-
-" Make indentation outside of Insert mode easier
-" nmap <Tab> >>_
-" nmap <S-Tab> <<_
-" imap <S-Tab> <C-D>
-" vmap <Tab> >gv
-" vmap <S-Tab> <gv
 
 " Guide navigation
 noremap <leader><leader> /<++><CR>c4l
@@ -212,8 +203,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Indentation rules
 set expandtab tabstop=2 softtabstop=2 shiftwidth=2
-" au FileType javascript,html,css,php,vim,json,xml,zsh,yaml,go,sh,tex
-"   \ set tabstop=2 softtabstop=2 shiftwidth=2
 au FileType python,c set tabstop=4 softtabstop=4 shiftwidth=4
 au FileType go set noexpandtab
 
@@ -229,10 +218,6 @@ inoremap <C-c> <Esc>:w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown
 au FileType markdown nmap <leader>C :w<CR>:!~/.scripts/compile "%" 1000 &> /dev/null & disown<CR><CR>
 
 au FileType tex,markdown,nroff setlocal spell
-" au FileType tex imap <Tab> <Esc>/<++><CR>c4l
-" au FileType tex nmap <Tab> <Esc>/<++><CR>c4l
-" au FileType tex imap <S-Tab> <Esc>?<++><CR>c4l
-" au FileType tex nmap <S-Tab> <Esc>?<++><CR>c4l
 noremap <leader>s :setlocal spell!<CR>
 
 set conceallevel=2
@@ -251,10 +236,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
-
-" Autostart NERDTree
-"nmap <leader>t NERDTree | vertical resize -15 | wincmd l
-"au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Transparent background in terminal
 if (!has("gui_running"))
