@@ -125,7 +125,7 @@ command! Tabo WintabsOnlyVimtab
 
 noremap <C-t>n :tabn<CR>
 noremap <C-t>p :tabp<CR>
-noremap <C-]> :tabp<CR>
+noremap <C-]> :tabn<CR>
 
 " See partial off-screen lines
 set display+=lastline
