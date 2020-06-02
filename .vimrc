@@ -203,7 +203,7 @@ au FileType python hi link pythonNone Structure
 cmap w!! w !sudo tee > /dev/null %
 
 " Indentation rules
-setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 au FileType python,c setlocal tabstop=4 softtabstop=4 shiftwidth=4
 au FileType go setlocal noexpandtab
 
