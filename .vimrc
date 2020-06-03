@@ -357,7 +357,7 @@ augroup encrypted
   " and run any BufReadPost autocmds matching the file name without the .gpg
   " extension
   autocmd BufReadPost,FileReadPost *.gpg
-    \ execute "'[,']!gpg --decrypt --default-recipient-self" |
+    \ execute "'[,']!gpg -q --decrypt --default-recipient-self" |
     \ setlocal nobin |
     \ execute "doautocmd BufReadPost " . expand("%:r")
   " Set binary file format and encrypt the contents before writing the file
