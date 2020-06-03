@@ -113,13 +113,13 @@ noremap <C-L> <C-W><C-L>
 set hidden
 
 " Tab controls
-noremap <C-n> <Plug>(wintabs_next)
-noremap <C-p> <Plug>(wintabs_previous)
-noremap <C-t>c <Plug>(wintabs_close)
-noremap <C-t>u <Plug>(wintabs_undo)
-noremap <C-t>o <Plug>(wintabs_only)
-noremap <C-w>c <Plug>(wintabs_close_window)
-noremap <C-w>o <Plug>(wintabs_only_window)
+map <C-n> <Plug>(wintabs_next)
+map <C-p> <Plug>(wintabs_previous)
+map <C-t>c <Plug>(wintabs_close)
+map <C-t>u <Plug>(wintabs_undo)
+map <C-t>o <Plug>(wintabs_only)
+map <C-w>c <Plug>(wintabs_close_window)
+map <C-w>o <Plug>(wintabs_only_window)
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
