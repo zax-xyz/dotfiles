@@ -34,6 +34,7 @@ alias gp="git push"
 alias gpl="git pull"
 alias gd="git diff"
 alias gl="git log"
+alias gstpd="git subtree push --prefix dist origin gh-pages"
 
 ## dotfiles
 alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
