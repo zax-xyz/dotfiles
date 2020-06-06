@@ -72,3 +72,8 @@ plugin_dir=~/.local/share/zsh/plugins
 source $plugin_dir/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $plugin_dir/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $plugin_dir/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
