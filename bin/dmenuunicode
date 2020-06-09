@@ -3,23 +3,23 @@
 # Give dmenu list of all unicode characters to copy.
 # Shows the selected character in dunst if running.
 
-# Must have xclip installed to even show menu.
-type xclip > /dev/null || exit
-# pango2out to strip pango markup
-type pango2out > /dev/null || exit
+# # Must have xclip installed to even show menu.
+# type xclip > /dev/null || exit
+# # pango2out to strip pango markup
+# type pango2out > /dev/null || exit
 
-chosen=$(cat ~/.config/emoji | sed "s/; /; <span weight='light'><i>/" | sed "s/$/<\/i><\/span>/" | sed 's/ /  /' | rofi -dmenu -p Emoji -i -markup-rows -kb-custom-1 Ctrl+c $@)
+chosen=$(cat ~/.config/emoji | sed "s/; \(.*\)/; <span weight='light'><i>\1<\/i><\/span>/" | rofi -dmenu -p Emoji -i -markup-rows -kb-custom-1 Ctrl+c $@)
 exit_code=$?
 
 [ "$chosen" != "" ] || exit
 
-c=$(echo "$chosen" | sed "s/ .*//")
+c=$(echo "$chosen" | cut -d ' ' -f 1)
 echo "$c" | tr -d '\n' | xclip -selection clipboard
 notify-send "'$c' copied to clipboard." &
-if [ "$exit_code" = 0 ]; then
-    xdotool type "$c"
-fi
+# if [ "$exit_code" = 0 ]; then
+#     xdotool type "$c"
+# fi
 
-s=$(echo "$chosen" | sed "s/.*; //" | pango2out | awk '{print $1}')
+s=$(echo "$chosen" | sed "s/.*; //" | pango2out | cut -d ' ' -f 1)
 echo "$s" | tr -d '\n' | xclip
 notify-send "'$s' copied to primary." &
