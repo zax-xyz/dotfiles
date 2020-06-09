@@ -181,7 +181,7 @@ set wildmode=longest,full
 set wildmenu
 
 " Mappings timeout
-set timeoutlen=350 
+set timeoutlen=350
 
 " Set insert to normal mode timeout quicker
 set ttimeoutlen=0
