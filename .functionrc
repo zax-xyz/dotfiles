@@ -50,6 +50,14 @@ cprep() {
 
     left_window
 
+    upper=$(echo $1 | tr "[a-z]" "[A-Z]")
+
+    # Header
+    echo "#ifndef ${upper}_H\n#define ${upper}_H\n\n#endif" > "lib/$1.h"
+
+    # Include header
+    echo "#include \"$1.h\"\n" > "src/$1.c"
+
     # start editing
     vim "src/$1.c"
   else
