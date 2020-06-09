@@ -44,7 +44,7 @@ cprep() {
     left_window
 
     # start editing
-    vim "$1.c"
+    vim "src/$1.c"
   else
     # prepare compile command
     xtype "make"
