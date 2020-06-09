@@ -17,7 +17,7 @@ cdirs() {
   cp ~/Templates/Makefile .
 }
 
-# aliases to set delay on every use
+# aliases to set delay easily
 xdelay=0
 alias xkey="xdotool key --delay $xdelay"
 alias xtype="xdotool type --delay $xdelay"
@@ -26,6 +26,7 @@ alias xtype="xdotool type --delay $xdelay"
 alias left_window="xkey Super+h"
 
 # move the cursor back before the file extension
+# requires vi mode in shell
 alias move_cursor_back="xdotool key Escape F period i"
 
 # prepare C development environment in a tiling window manager
@@ -40,6 +41,12 @@ cprep() {
   if [ -n "$1" ]; then
     # prepare compile command
     xtype "make"
+
+    # Makefile target
+    if [ -n "$2" ]; then
+      sed -i "s/<++>/$2/" Makefile
+      xtype " && ./$2"
+    fi
 
     left_window
 
