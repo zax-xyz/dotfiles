@@ -1,5 +1,5 @@
 #!/bin/bash
-str=$(cat ~/.kdeconnect-com)
+str=$(cat ~/.local/share/kdeconnect-com)
 IFS=":"
 array=( $str )
 
