@@ -40,11 +40,11 @@ font-2 = Twemoji:scale=9;2
 font-3 = VL Gothic:pixelsize=8.75;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=8.5;2
 font-5 = Font Awesome 5 Free Solid:pixelsize=8;2
-font-6 = Iosevka:pixelsize=12.5;4
+font-6 = Iosevka:pixelsize=12.5;3
 
 modules-left = bspwm i3 sep2 ip sep2 mpd
 modules-center = date
-modules-right = st sep pulseaudio sep memory sep cpu sep wlan sep battery sep powermenu
+modules-right = kdeconnect st sep pulseaudio sep memory sep cpu sep wlan sep battery sep powermenu
 
 ; tray-position = right
 tray-padding = 7
