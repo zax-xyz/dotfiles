@@ -32,7 +32,7 @@ input, textarea, select {
   /* 1px line under background tabs */
   --chrome-nav-bar-controls-border-color: transparent !important;
   /* border around url bar */
-  --sidebar-hover-width: 10px;
+  --sidebar-hover-width: 35px;
   --sidebar-visible-width: 200px;
   --min-tab-height: 32px;
 }
@@ -56,7 +56,9 @@ input, textarea, select {
   left: var(--sidebar-hover-width) !important;
   min-width: var(--sidebar-hover-width) !important;
   max-width: var(--sidebar-hover-width) !important;
-  opacity: 0 !important;
+  /* opacity: 0 !important; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: left .2s, min-width .2s, max-width .2s, margin-right .2s, box-shadow .2s;
 }
 
 #sidebar-box:hover {
@@ -64,7 +66,12 @@ input, textarea, select {
   left: var(--sidebar-visible-width) !important;
   min-width: var(--sidebar-visible-width) !important;
   max-width: var(--sidebar-visible-width) !important;
-  opacity: 1 !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  /* opacity: 1 !important; */
+}
+
+#appcontent {
+  margin-left: calc(var(--sidebar-hover-width) - 5px);
 }
 
 /* 'Show your bookmarks' toolbar button. */
