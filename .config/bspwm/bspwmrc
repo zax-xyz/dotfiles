@@ -22,4 +22,4 @@ bspc config border_radius           5
 bspc rule -a discord desktop='^1'
 bspc rule -a Zathura state=tiled
 bspc rule -a WM_FLOATING state=floating
-bspc rule -a deepin-calculator sticky=on hidden=on
+bspc rule -a deepin-calculator sticky=on hidden=on border=off
