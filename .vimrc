@@ -203,7 +203,7 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Indentation rules
 set expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au FileType python,c setlocal tabstop=4 softtabstop=4 shiftwidth=4
+au FileType python,c,go setlocal tabstop=4 softtabstop=4 shiftwidth=4
 au FileType go setlocal noexpandtab
 
 au FileType plaintex setlocal filetype=tex
@@ -219,6 +219,7 @@ au FileType markdown nmap <leader>C :w<CR>:!~/.scripts/compile "%" 1000 &> /dev/
 
 au FileType tex,markdown,nroff setlocal spell
 noremap <leader>s :setlocal spell!<CR>
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 set conceallevel=2
 let g:tex_conceal='abdmg'
@@ -386,6 +387,7 @@ function ToggleWrap()
     inoremap <buffer> <silent> <Home> <C-o>g<Home>
     inoremap <buffer> <silent> <End>  <C-o>g<End>
   else
+    let g:wrap = 0
     echo "Wrap OFF"
     setlocal nolinebreak
     silent! nunmap <buffer> k
