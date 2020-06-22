@@ -2,7 +2,6 @@ export EDITOR=/usr/bin/vim
 export QT_QPA_PLATFORMTHEME=qt5ct
 export TERMINAL=st
 export MOZ_USE_XINPUT2=1
-export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin/"
 export TMUX=
 export TERM=st-256color
 export SXHKD_SHELL=sh
@@ -14,6 +13,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export GOPATH="$HOME/Code/go"
+
+export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin/"
 
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im-fcitx
