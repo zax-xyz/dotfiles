@@ -23,6 +23,9 @@ super + ctrl + g
   corner='bspc config border_radius'; \
   [ $($gap) != 0 ] && ($gap 0; $corner 0) || ($gap 15; $corner 5)
 
+super + shift + r
+  bspc node $(bspc query -N -n -n .!leaf || echo @/) -R 90
+
 #
 # state/flags
 #
