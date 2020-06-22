@@ -53,10 +53,13 @@ Plug 'iloginow/vim-stylus'
 Plug 'lervag/vimtex'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'turbio/bracey.vim'  " Live edit html/css/js
+Plug 'pangloss/vim-javascript'
 
 " Linting
 Plug 'w0rp/ale'  "Syntastic freezes vim for another 20 minutes, I need an asynchronous alternative
 Plug 'maximbaz/lightline-ale'
+
+Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
 call plug#end()
 
