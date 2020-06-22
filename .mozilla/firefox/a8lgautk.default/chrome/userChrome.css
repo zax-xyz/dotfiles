@@ -52,22 +52,26 @@ input, textarea, select {
 #sidebar-box {
   position: relative !important;
   overflow-x: hidden !important;
-  margin-right: calc(var(--sidebar-hover-width) * -1) !important;
-  left: var(--sidebar-hover-width) !important;
-  min-width: var(--sidebar-hover-width) !important;
-  max-width: var(--sidebar-hover-width) !important;
+  /* margin-right: -35px !important; */
+  /* left: 35px !important; */
+  min-width: 35px !important;
+  max-width: 35px !important;
   /* opacity: 0 !important; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: left .2s, min-width .2s, max-width .2s, margin-right .2s, box-shadow .2s;
 }
 
 #sidebar-box:hover {
-  margin-right: calc(var(--sidebar-visible-width) * -1) !important;
-  left: var(--sidebar-visible-width) !important;
-  min-width: var(--sidebar-visible-width) !important;
-  max-width: var(--sidebar-visible-width) !important;
+  /* margin-right: calc(var(--sidebar-visible-width) * -1) !important; */
+  /* left: var(--sidebar-visible-width) !important; */
+  min-width: 200px !important;
+  max-width: 200px !important;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
   /* opacity: 1 !important; */
+}
+
+#sidebar-splitter {
+  display: none !important;
 }
 
 #appcontent {
@@ -127,7 +131,7 @@ input, textarea, select {
 /* URL Bar */
 #urlbar[focused="true"],
 #urlbar:hover,
-.searchbar-textbox:hover {
+#urlbar-background:hover {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
@@ -135,7 +139,7 @@ input, textarea, select {
 }
 
 #urlbar,
-.searchbar-textbox {
+#urlbar-background {
   background: transparent !important;
   height: 24px !important;
   padding: 0px !important;
@@ -143,7 +147,7 @@ input, textarea, select {
   box-shadow: none !important;
   border: none !important;
   -moz-appearance: none;
-  margin: 4px 0px !important;
+  margin-bottom: 6px !important;
   min-height: 24px !important;
   cursor: default;
 }
