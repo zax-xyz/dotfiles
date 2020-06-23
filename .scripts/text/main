@@ -15,7 +15,8 @@ S P A C E
 shuffle
 rot13
 decode caesar shift
-shruggie"
+shruggie
+blank"
 
 choice=$(rofi -dmenu -p "Text manipulation" <<< "$options")
 
@@ -34,5 +35,6 @@ case $choice in
     "shuffle") $BASE_DIR/shuffle/shuffle ;;
     "rot13") $BASE_DIR/caesar/rot13 ;;
     "decode caesar shift") $BASE_DIR/caesar/caesar_decode ;;
-    "shruggie") $BASE_DIR/main/shruggie ;;
+    "shruggie") $BASE_DIR/plain/shruggie ;;
+    "blank") $BASE_DIR/plain/blank ;;
 esac
