@@ -19,7 +19,7 @@ alias diff="diff --color=auto"
 alias zhaste="env HASTE_SERVER=https://bin.zaxu.xyz/ haste"
 
 # ls
-alias ls="exa --color=auto --group-directories-first"
+alias ls="exa --group-directories-first"
 alias l="ls -l"
 alias la="ls -a"
 alias lla="la -la"
