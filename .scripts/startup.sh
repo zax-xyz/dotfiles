@@ -1,7 +1,7 @@
 #!/bin/sh
 feh --bg-fill ~/Pictures/Wallpapers/Dots3.png &
 ~/.config/polybar/launch.sh &
-picom --experimental-backends &
+picom &
 dunst &
 xset dpms 0 0 360 &
 xset s 180 0 &
@@ -15,7 +15,7 @@ conky &
 # unclutter &
 # xbanish -t 5000 &
 flameshot &
-flashfocus &
+# flashfocus &
 clipmenud &
 qdbus org.kde.kded5 /kded  loadModule wacomtablet &
 mpd &

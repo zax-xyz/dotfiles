@@ -44,7 +44,7 @@ conf() {
 
   if [ "$(basename $1)" = "picom.conf" ]; then
     pkill picom
-    nohup picom --experimental-backends > /dev/null
+    nohup picom > /dev/null
   fi
 }
 
