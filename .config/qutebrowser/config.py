@@ -59,8 +59,8 @@ c.tabs.padding = {'top': 4, 'bottom': 4, 'left': 10, 'right': 10}
 c.tabs.position = 'left'
 c.tabs.show = 'multiple'
 
-c.url.default_page = 'file:///home/mvo/Code/web/startpage2/index.html'
-c.url.start_pages = ['file:///home/mvo/Code/web/startpage2/index.html']
+c.url.default_page = 'file:///home/mvo/Code/web/startpage/index.html'
+c.url.start_pages = ['file:///home/mvo/Code/web/startpage/index.html']
 
 config.bind('tt', 'set tabs.show never')
 config.bind('tT', 'set tabs.show multiple')
