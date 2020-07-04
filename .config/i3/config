@@ -110,8 +110,8 @@ bindsym Ctrl+Shift+Insert exec --no-startup-id pkill notify-activity
 bindsym $mod+Shift+v exec --no-startup-id $term -e vifm
 
 # # Spotify volume control
-# bindsym Ctrl+Up exec --no-startup-id ~/.scripts/spotify_volume_up
-# bindsym Ctrl+Down exec --no-startup-id ~/.scripts/spotify_volume_down
+# bindsym Ctrl+Up exec --no-startup-id ~/.scripts/spotify_volume +5
+# bindsym Ctrl+Down exec --no-startup-id ~/.scripts/spotify_volume -5
 
 # maximise floating
 bindsym $mod+Shift+f floating enable, resize set 1338 705, move position 14 14

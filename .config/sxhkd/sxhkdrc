@@ -69,7 +69,7 @@ super + shift + v
 
 # spotify volume control
 # ctrl + {Up,Down}
-#     ~/.scripts/spotify_volume_{up,down}
+#     ~/.scripts/spotify_volume {+,-}5
 
 # mpd volume control
 ctrl + {Up,Down}
