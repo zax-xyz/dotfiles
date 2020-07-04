@@ -34,6 +34,7 @@ Plug 'godlygeek/tabular'
 Plug 'sirver/ultisnips'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " Extra wacky shit that goes on the screen
 Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
