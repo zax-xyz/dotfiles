@@ -1,0 +1,14 @@
+#!/bin/sh
+auth=$(jq -r . ~/.config/twitch-auth.json)
+client_id=$(jq -r .clientId <<< $auth)
+token=$(jq -r .oauthToken <<< $auth)
+
+get() {
+  curl -s \
+    -H Client-ID:$client_id \
+    -H "Authorization:Bearer $token" \
+    https://api.twitch.tv/helix/$1
+}
+
+id=$(get users?login=$1 | jq -r .data[0].id)
+get users/follows?from_id=$id | jq -S
