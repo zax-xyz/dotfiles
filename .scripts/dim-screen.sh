@@ -10,7 +10,7 @@ min_brightness=0.01
 
 # If your video driver works with xbacklight, set -time and -steps for fading
 # to $min_brightness here. Setting steps to 1 disables fading.
-fade_time=500
+fade_time=350
 fade_steps=20
 
 # If you have a driver without RandR backlight property (e.g. radeon), set this
