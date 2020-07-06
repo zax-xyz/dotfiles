@@ -22,10 +22,8 @@ autocmd VimEnter *
 " Load plugins
 call plug#begin('~/.vim/plugged')
 
-" Visual plugins
+" Colorscheme
 Plug 'laggardkernel/vim-one'  " Fork of rakr's vim-one with lower impact on startup time
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
 " Functionality
 Plug 'tpope/vim-surround'
@@ -35,6 +33,7 @@ Plug 'sirver/ultisnips'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ycm-core/YouCompleteMe'
 
 " Extra wacky shit that goes on the screen
 Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
@@ -64,6 +63,29 @@ Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
 call plug#end()
 
+" Ignore case when searching, except when using uppercase
+set ignorecase smartcase
+
+" Highlight search while typing
+set incsearch
+set hlsearch
+
+" Tell me what command I'm typing
+set showcmd
+
+" Make command mode tab complete nicer
+set wildmode=longest,full
+set wildmenu
+
+" Mappings timeout
+set timeoutlen=350
+
+" Set insert to normal mode timeout quicker
+set ttimeoutlen=0
+
+" Make vim faster
+set ttyfast
+
 " Cursors
 " block cursor on enter vim
 autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
@@ -78,29 +100,10 @@ let &t_EI = "\<Esc>[1 q"
 " Autodetect filetype
 noremap <leader>r :filetype detect<CR>
 
-" Find files with fzf
-noremap <leader>f :Files<CR>
-noremap <leader>g :GFiles<CR>
-
-noremap <leader>G :Goyo<CR>
-
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = '#777777'
-let g:limelight_conceal_guifg = '#777777'
-let g:limelight_default_coefficient = 0.7
-
-" Fix goyo messing up the background on leave
-function! s:goyo_leave()
-  hi! Normal ctermbg=NONE guibg=NONE
-  hi! NonText ctermbg=NONE guibg=NONE
-endfunction
-
-function! s:goyo_enter()
-  Limelight
-endfunction
-
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-" autocmd! User GoyoEnter nested call <SID>goyo_enter()
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <leader>F za
 
 " Open splits at the bottom and right
 set splitbelow
@@ -114,21 +117,6 @@ noremap <C-L> <C-W><C-L>
 
 " Allow opening a new tab when current buffer has unsaved changes
 set hidden
-
-" Tab controls
-map <C-n> <Plug>(wintabs_next)
-map <C-p> <Plug>(wintabs_previous)
-map <C-t>c <Plug>(wintabs_close)
-map <C-t>u <Plug>(wintabs_undo)
-map <C-t>o <Plug>(wintabs_only)
-map <C-w>c <Plug>(wintabs_close_window)
-map <C-w>o <Plug>(wintabs_only_window)
-command! Tabc WintabsCloseVimtab
-command! Tabo WintabsOnlyVimtab
-
-noremap <C-t>n :tabn<CR>
-noremap <C-t>p :tabp<CR>
-noremap <C-]> :tabn<CR>
 
 " See partial off-screen lines
 set display+=lastline
@@ -161,46 +149,19 @@ if !has('nvim')
   set ttymouse=sgr
 endif
 
-" Python syntax highlighting
-let g:python_highlight_all = 1
-" let g:python_slow_sync = 0
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-nnoremap <leader>F za
-
-" Ignore case when searching, except when using uppercase
-set ignorecase smartcase
-
-" Highlight search while typing
-set incsearch
-set hlsearch
-
-" Tell me what command I'm typing
-set showcmd
-
-" Make command mode tab complete nicer
-set wildmode=longest,full
-set wildmenu
-
-" Mappings timeout
-set timeoutlen=350
-
-" Set insert to normal mode timeout quicker
-set ttimeoutlen=0
-
-" Make vim faster
-set ttyfast
-
-" Color scheme
-syntax on
-set background=dark
-let g:one_allow_italics = 1
-colorscheme one
-
-" au FileType python hi Constant ctermfg=yellow guifg=#e5c07b
 au FileType python hi link pythonNone Structure
+
+" Use 24-bit (true-color) mode in Vim/Neovim
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" Fix colors in tmux
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Save files as root
 cmap w!! w !sudo tee > /dev/null %
@@ -225,22 +186,72 @@ au FileType tex,markdown,nroff setlocal spell
 noremap <leader>s :setlocal spell!<CR>
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-set conceallevel=2
-let g:tex_conceal='abdmg'
-let g:vimtex_matchparen_enabled=0
-let g:vimtex_motion_enabled=0
-let g:vimtex_view_method='zathura'
+" Don't save backups of *.gpg files
+set backupskip+=*.gpg
+" To avoid that parts of the file is saved to .viminfo when yanking or
+" deleting, empty the 'viminfo' option.
+set viminfo=
 
-noremap <leader>v :VimtexView<CR>
+augroup encrypted
+  au!
+  " Disable swap files, and set binary file format before reading the file
+  autocmd BufReadPre,FileReadPre *.gpg
+    \ setlocal noswapfile bin viminfo=
+  " Decrypt the contents after reading the file, reset binary file format
+  " and run any BufReadPost autocmds matching the file name without the .gpg
+  " extension
+  autocmd BufReadPost,FileReadPost *.gpg
+    \ execute "'[,']!gpg -q --decrypt --default-recipient-self" |
+    \ setlocal nobin |
+    \ execute "doautocmd BufReadPost " . expand("%:r")
+  " Set binary file format and encrypt the contents before writing the file
+  autocmd BufWritePre,FileWritePre *.gpg
+    \ setlocal bin |
+    \ '[,']!gpg --encrypt --default-recipient-self
+  " After writing the file, do an :undo to revert the encryption in the
+  " buffer, and reset binary file format
+  autocmd BufWritePost,FileWritePost *.gpg
+    \ silent u |
+    \ setlocal nobin
+augroup END
 
-hi Conceal guibg=NONE guifg=#e5c07b
+let g:wrap = 0
 
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+function ToggleWrap()
+  if !g:wrap
+    let g:wrap = 1
+    echo "Wrap ON"
+    setlocal linebreak
+    noremap  <buffer> <silent> k      gk
+    noremap  <buffer> <silent> j      gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  else
+    let g:wrap = 0
+    echo "Wrap OFF"
+    setlocal nolinebreak
+    silent! nunmap <buffer> k
+    silent! nunmap <buffer> j
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  endif
+endfunction
 
-let g:vim_markdown_math = 1
-let g:vim_markdown_frontmatter = 1
+noremap <silent> <Leader>w :call ToggleWrap()<CR>
+
+" Color scheme
+syntax on
+set background=dark
+let g:one_allow_italics = 1
+colorscheme one
 
 " Transparent background in terminal
 if (!has("gui_running"))
@@ -248,17 +259,16 @@ if (!has("gui_running"))
   hi! NonText ctermbg=NONE guibg=NONE
 endif
 
-" Use 24-bit (true-color) mode in Vim/Neovim
-if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-  set termguicolors
-endif
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-" Fix colors in tmux
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" Find files with fzf
+noremap <leader>f :Files<CR>
+noremap <leader>g :GFiles<CR>
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 function! WordCount()
   let s:old_status = v:statusmsg
@@ -339,70 +349,40 @@ let g:lightline#ale#indicator_ok = ''
 
 autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
+" Tab controls
+map <C-n> <Plug>(wintabs_next)
+map <C-p> <Plug>(wintabs_previous)
+map <C-t>c <Plug>(wintabs_close)
+map <C-t>u <Plug>(wintabs_undo)
+map <C-t>o <Plug>(wintabs_only)
+map <C-w>c <Plug>(wintabs_close_window)
+map <C-w>o <Plug>(wintabs_only_window)
+command! Tabc WintabsCloseVimtab
+command! Tabo WintabsOnlyVimtab
+
+noremap <C-t>n :tabn<CR>
+noremap <C-t>p :tabp<CR>
+noremap <C-]> :tabn<CR>
+
+" Python syntax highlighting
+let g:python_highlight_all = 1
+" let g:python_slow_sync = 0
+
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+
+set conceallevel=2
+let g:tex_conceal='abdmg'
+let g:vimtex_matchparen_enabled=0
+let g:vimtex_motion_enabled=0
+let g:vimtex_view_method='zathura'
+hi Conceal guibg=NONE guifg=#e5c07b
+
+noremap <leader>v :VimtexView<CR>
+
 let g:ale_list_window_size = 3
 nnoremap <silent> <leader>J :ALENext<cr>
 nnoremap <silent> <leader>K :ALEPrevious<cr>
 nnoremap <silent> <right> :ALENext<cr>
 nnoremap <silent> <left> :ALEPrevious<cr>
 nnoremap <silent> <leader>a :ALEToggle<cr>
-
-" Don't save backups of *.gpg files
-set backupskip+=*.gpg
-" To avoid that parts of the file is saved to .viminfo when yanking or
-" deleting, empty the 'viminfo' option.
-"set viminfo=
-
-augroup encrypted
-  au!
-  " Disable swap files, and set binary file format before reading the file
-  autocmd BufReadPre,FileReadPre *.gpg
-    \ setlocal noswapfile bin viminfo=
-  " Decrypt the contents after reading the file, reset binary file format
-  " and run any BufReadPost autocmds matching the file name without the .gpg
-  " extension
-  autocmd BufReadPost,FileReadPost *.gpg
-    \ execute "'[,']!gpg -q --decrypt --default-recipient-self" |
-    \ setlocal nobin |
-    \ execute "doautocmd BufReadPost " . expand("%:r")
-  " Set binary file format and encrypt the contents before writing the file
-  autocmd BufWritePre,FileWritePre *.gpg
-    \ setlocal bin |
-    \ '[,']!gpg --encrypt --default-recipient-self
-  " After writing the file, do an :undo to revert the encryption in the
-  " buffer, and reset binary file format
-  autocmd BufWritePost,FileWritePost *.gpg
-    \ silent u |
-    \ setlocal nobin
-augroup END
-
-let g:wrap = 0
-
-function ToggleWrap()
-  if !g:wrap
-    let g:wrap = 1
-    echo "Wrap ON"
-    setlocal linebreak
-    noremap  <buffer> <silent> k      gk
-    noremap  <buffer> <silent> j      gj
-    noremap  <buffer> <silent> <Home> g<Home>
-    noremap  <buffer> <silent> <End>  g<End>
-    inoremap <buffer> <silent> <Up>   <C-o>gk
-    inoremap <buffer> <silent> <Down> <C-o>gj
-    inoremap <buffer> <silent> <Home> <C-o>g<Home>
-    inoremap <buffer> <silent> <End>  <C-o>g<End>
-  else
-    let g:wrap = 0
-    echo "Wrap OFF"
-    setlocal nolinebreak
-    silent! nunmap <buffer> k
-    silent! nunmap <buffer> j
-    silent! nunmap <buffer> <Home>
-    silent! nunmap <buffer> <End>
-    silent! iunmap <buffer> <Up>
-    silent! iunmap <buffer> <Down>
-    silent! iunmap <buffer> <Home>
-    silent! iunmap <buffer> <End>
-  endif
-endfunction
-
-noremap <silent> <Leader>w :call ToggleWrap()<CR>
