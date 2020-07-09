@@ -7,7 +7,7 @@ Currently the main programs I use are:
 - **WM**: bspwm
 - **Keybindings**: sxhkd
 - **Status Bar**: polybar
-- **Compositor**: picom
+- **Compositor**: picom-rounded-corners (AUR)
 - **Terminal**: st
 - **Shell**: zsh (no frameworks)
 - **Text Editor**: vim
