@@ -41,6 +41,11 @@ Plug 'zefei/vim-wintabs'
 Plug 'zefei/vim-wintabs-powerline'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
 " Language-related plugins
 Plug 'vim-python/python-syntax'
@@ -188,9 +193,6 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Don't save backups of *.gpg files
 set backupskip+=*.gpg
-" To avoid that parts of the file is saved to .viminfo when yanking or
-" deleting, empty the 'viminfo' option.
-set viminfo=
 
 augroup encrypted
   au!
