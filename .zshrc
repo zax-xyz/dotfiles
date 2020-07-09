@@ -73,13 +73,13 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 function zle-line-init zle-keymap-select {
-  PROMPT=`/home/mvo/.local/share/zsh/prompts/purs/target/release/purs prompt -k "$KEYMAP" -r "$?" --venv "${${VIRTUAL_ENV:t}%-*}"`
+  PROMPT=`$HOME/.local/share/zsh/prompts/purs/target/release/purs prompt -k "$KEYMAP" -r "$?" --venv "${${VIRTUAL_ENV:t}%-*}"`
   zle reset-prompt
 }
 
 autoload -Uz add-zsh-hook
 
 function _prompt_purs_precmd() {
-  /home/mvo/.local/share/zsh/prompts/purs/target/release/purs precmd
+  $HOME/.local/share/zsh/prompts/purs/target/release/purs precmd
 }
 add-zsh-hook precmd _prompt_purs_precmd
