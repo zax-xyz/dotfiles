@@ -59,3 +59,5 @@ alias elass="cdlass; vim ass.tex"
 
 ## info1910 task
 alias cditask="cd info/current-task"
+
+alias vim=nvim
