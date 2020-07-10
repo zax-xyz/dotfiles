@@ -59,6 +59,7 @@ Plug 'lervag/vimtex'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'turbio/bracey.vim'  " Live edit html/css/js
 Plug 'pangloss/vim-javascript'
+Plug 'mattn/emmet-vim'
 
 " Linting
 Plug 'w0rp/ale'  "Syntastic freezes vim for another 20 minutes, I need an asynchronous alternative
@@ -381,6 +382,8 @@ let g:vimtex_view_method='zathura'
 hi Conceal guibg=NONE guifg=#e5c07b
 
 noremap <leader>v :VimtexView<CR>
+
+let g:user_emmet_leader_key='<C-x>'
 
 let g:ale_list_window_size = 3
 nnoremap <silent> <leader>J :ALENext<cr>
