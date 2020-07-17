@@ -56,7 +56,7 @@ fi
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Enables better tab completion
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump
 
 # Case insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
@@ -66,6 +66,7 @@ plugin_dir=~/.local/share/zsh/plugins
 source $plugin_dir/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $plugin_dir/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $plugin_dir/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
