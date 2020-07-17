@@ -43,9 +43,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
 
 " Language-related plugins
 Plug 'vim-python/python-syntax'
@@ -179,6 +176,8 @@ au FileType go setlocal noexpandtab
 
 au FileType plaintex setlocal filetype=tex
 au FileType rmd setlocal filetype=markdown
+au FileType javascript inoremap <buffer> == ===
+au FileType r inoremap <buffer> <A--> <-
 
 " Markdown heading colours
 autocmd FileType markdown highlight htmlH1 ctermfg=blue
@@ -366,6 +365,10 @@ command! Tabo WintabsOnlyVimtab
 noremap <C-t>n :tabn<CR>
 noremap <C-t>p :tabp<CR>
 noremap <C-]> :tabn<CR>
+
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
