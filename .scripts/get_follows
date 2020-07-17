@@ -11,4 +11,4 @@ get() {
 }
 
 id=$(get users?login=$1 | jq -r .data[0].id)
-get users/follows?from_id=$id | jq -S
+get "users/follows?from_id=$id&after=$2" | jq -S
