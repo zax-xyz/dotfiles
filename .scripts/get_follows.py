@@ -10,10 +10,12 @@ from tabulate import tabulate
 parser = argparse.ArgumentParser(
     description='get follows to/from a user on Twitch'
 )
-parser.add_argument('user', help='username of user to check')
-parser.add_argument('--mode', choices=['to', 'from'], default='from',
-                    help='whether to get follows to or from the user')
-args = parser.parse_args()
+parser.add_argument('--to', '-t', help='username of user being followed')
+parser.add_argument('--from', '-f', help='username of user following')
+args = vars(parser.parse_args())
+
+if not any(args.values()):
+    parser.error('No arguments provided.')
 
 with open(os.path.expanduser('~/.config/twitch-auth.json')) as f:
     auth: dict = json.load(f)
@@ -22,27 +24,38 @@ client_id: str = auth['clientId']
 token: str = auth['oauthToken']
 
 
-def get(endpoint: str) -> dict:
-    return requests.get(f'https://api.twitch.tv/helix/{endpoint}', headers={
-        'Client-ID': client_id,
-        'Authorization': f'Bearer {token}',
-    }).json()
+def get(endpoint: str, params: dict = {}) -> dict:
+    return requests.get(
+        f'https://api.twitch.tv/helix/{endpoint}',
+        params=params,
+        headers={
+            'Client-ID': client_id,
+            'Authorization': f'Bearer {token}',
+        }).json()
 
 
-user_id: str = get(f'users?login={args.user}')['data'][0]['id']
+to_id = from_id = ''
+if args['to']:
+    to_id = get('users', {'login': args['to']})['data'][0]['id']
+if args['from']:
+    from_id = get('users', {'login': args['from']})['data'][0]['id']
 
 
 def get_follows(cursor: str = '', more: int = 0):
-    follow_endpoint = f'users/follows?{args.mode}_id={user_id}'
-    if cursor:
-        follow_endpoint += f'&after={cursor}'
+    follows = get('users/follows', {
+        'to_id': to_id,
+        'from_id': from_id,
+        'after': cursor
+    })
 
-    follows = get(follow_endpoint)
     follow_data = follows['data']
     if not follow_data:
         return '', 0
 
-    cursor = follows['pagination']['cursor']
+    try:
+        cursor = follows['pagination']['cursor']
+    except KeyError:
+        cursor = ''
 
     if not more:
         more = follows['total']
@@ -51,15 +64,13 @@ def get_follows(cursor: str = '', more: int = 0):
 
     more -= len(follow_data)
 
-    mode = 'to' if args.mode == 'from' else 'from'
-
     print(tabulate(
         [[
-            f[f'{mode}_name'],
-            f[f'{mode}_id'],
+            f['to_name'],
+            f['from_name'],
             isoparse(f['followed_at']).strftime('%Y/%m/%d %H:%M:%S'),
         ] for f in follow_data],
-        headers=['Username', 'User ID', 'Follow Date']
+        headers=['To User', 'From User', 'Follow Date']
     ))
 
     return cursor, more
