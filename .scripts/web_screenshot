@@ -1,5 +1,5 @@
 #!/bin/sh
-rand_str=$(mktemp -u XXXXX)
+rand_str=$(mktemp -u XXXXXX)
 filename=/tmp/zaxu_web_screenshot
 url=https://i.zaxu.xyz/$rand_str
 dir=/var/www/i.zaxu.xyz/public_html
