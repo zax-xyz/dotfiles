@@ -177,6 +177,7 @@ au FileType go setlocal noexpandtab
 au FileType plaintex setlocal filetype=tex
 au FileType rmd setlocal filetype=markdown
 au FileType javascript inoremap <buffer> == ===
+au FileType javascript inoremap <buffer> != !==
 au FileType r inoremap <buffer> <A--> <-
 
 " Markdown heading colours
