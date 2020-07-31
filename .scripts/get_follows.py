@@ -31,7 +31,8 @@ def get(endpoint: str, params: dict = {}) -> dict:
         headers={
             'Client-ID': client_id,
             'Authorization': f'Bearer {token}',
-        }).json()
+        }
+    ).json()
 
 
 to_id = from_id = ''
