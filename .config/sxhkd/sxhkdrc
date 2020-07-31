@@ -147,8 +147,8 @@ XF86Search
 super + ctrl + shift + d
     xdg-open https://www.desmos.com/calculator
 
-alt + space
-    echo -n '⠀' | xclip -selection clipboard
+# alt + space
+#     echo -n '⠀' | xclip -selection clipboard
 
 super + alt + p
     /home/mvo/.scripts/pyramid.sh
