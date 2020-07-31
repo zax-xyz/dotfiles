@@ -4,7 +4,7 @@ It's just my dotfiles
 
 Currently the main programs I use are:
 
-<-- - **WM**: bspwm -->
+<!--- - **WM**: bspwm -->
 - **DE**: xfce
 - **Keybindings**: sxhkd
 - **Status Bar**: polybar + xfce bar
