@@ -99,3 +99,7 @@ pyprep() {
     move_cursor_back
   fi
 }
+
+jcr() {
+  javac $1.java && java $1
+}
