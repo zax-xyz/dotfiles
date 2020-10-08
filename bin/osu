@@ -1,3 +1,0 @@
-#!/bin/sh
-export vblank_mode=0
-wine /mnt/windows/Users/Michael/Documents/usb/osu/osu\!.exe "$@"
