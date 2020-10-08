@@ -22,7 +22,7 @@ scrollback_lines = 1000
 #browser = xdg-open
 
 # "system", "on" or "off"
-#cursor_blink = system
+cursor_blink = on
 
 # "block", "underline" or "ibeam"
 cursor_shape = ibeam
