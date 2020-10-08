@@ -1,5 +1,5 @@
 #!/bin/sh
-feh --bg-fill ~/Pictures/Wallpapers/Dots3.png &
+feh --bg-fill ~/Pictures/Wallpapers/NuFVbLW.jpg &
 ~/.config/polybar/launch.sh &
 picom &
 dunst &
@@ -11,15 +11,16 @@ xset r rate 200 35 &
 # fcitx -d &
 redshift &
 nextcloud &
+nm-applet &
 conky &
 # unclutter &
 # xbanish -t 5000 &
 flameshot &
-# flashfocus &
+flashfocus &
 clipmenud &
 qdbus org.kde.kded5 /kded  loadModule wacomtablet &
-mpd &
-mpDris2 &
-deepin-calculator &
+# mpd &
+# mpDris2 &
+# deepin-calculator &
 ~/.scripts/setxkb &
 xsetroot -cursor_name left_ptr &
