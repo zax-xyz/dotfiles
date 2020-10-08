@@ -2,6 +2,7 @@ export EDITOR=/usr/bin/vim
 export QT_QPA_PLATFORMTHEME=qt5ct
 export TERMINAL=st
 export MOZ_USE_XINPUT2=1
+export MOZ_X11_EGL=1
 export TMUX=
 export TERM=st-256color
 export SXHKD_SHELL=sh
@@ -12,9 +13,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
-export GOPATH="$HOME/Code/go"
+export GOPATH="$HOME/code/go"
 
-export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin/"
+export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/share/bin:$HOME/.gem/ruby/2.6.0/bin/"
 
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im-fcitx
@@ -24,3 +25,5 @@ export MPD_HOST=$(cat ~/.config/MPD_PASS)@127.0.0.1
 # syndaemon -K -i 0.2 -R -d
 # synclient RightButtonAreaLeft=0
 # synclient RightButtonAreaTop=0
+
+export QT_STYLE_OVERRIDE=kvantum
