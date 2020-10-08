@@ -28,9 +28,9 @@ urxvt.boldFont: xft:Monaco for Powerline:pixelsize=13.15,style=bold
 xterm*boldFont: xft:Monaco for Powerline:pixelsize=13,style=bold
 urxvt.letterSpace: -1
 xterm*letterSpace: -1
-st.font: Iosevka Custom:pixelsize=13:antialias=true:autohint=true;
-!st.fontalt0: Iosevka:pixelsize=13:antialias=true:autohint=true;
-st.alpha: 0.92
+st.font: Iosevka Custom:pixelsize=12:antialias=true:autohint=true;
+st.fontalt0: Iosevka:pixelsize=12:antialias=true:autohint=true;
+st.alpha: 0.88
 
 st.borderpx: 15
 *.internalBorder: 15
