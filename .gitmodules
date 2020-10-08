@@ -1,3 +1,6 @@
 [submodule ".config/polybar/scripts/polybar-bluetooth"]
 	path = .config/polybar/scripts/polybar-bluetooth
 	url = https://github.com/msaitz/polybar-bluetooth.git
+[submodule ".config/polybar/scripts/polybar-spotify"]
+	path = .config/polybar/scripts/polybar-spotify
+	url = https://github.com/Jvanrhijn/polybar-spotify
