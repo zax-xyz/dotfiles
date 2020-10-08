@@ -1,6 +1,6 @@
 ; vim:filetype=dosini
 [colors]
-background = #21212100
+background = #212121
 background-alt = #2e2e2e
 
 foreground = #ffffff
@@ -17,8 +17,10 @@ yellow = #ffc85e
 silver = #cdd7de
 
 [bar/1]
-monitor = ${env:MONITOR:eDP1}	
-width = 100%
+monitor = ${env:MONITOR:eDP}	
+width = 1276px
+offset-x = 45px
+offset-y = 15px
 height = 35
 bottom = false
 fixed-center = true
@@ -28,28 +30,29 @@ foreground = ${colors.foreground}
 
 line-size = 2
 
-padding-left = 70
-padding-right = 10
+; padding-left = 47
+padding-left = 5
+padding-right = 8
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 2
+module-margin-right = 2
 
 font-0 = Lato:pixelsize=9;2
-font-1 = Lato:style=Italic:pixelsize=9;5
+font-1 = Lato:style=Italic:pixelsize=9;4
 font-2 = Twemoji:scale=9;2
 font-3 = VL Gothic:pixelsize=8.75;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=8.5;2
 font-5 = Font Awesome 5 Free Solid:pixelsize=8;2
-font-6 = Iosevka:pixelsize=12.5;3
+font-6 = Font Awesome 5 Free Solid:pixelsize=9;1
 
-modules-left = bspwm i3 sep2 ip sep2 mpd
+modules-left = bspwm i3 sep2 ip sep2 spotify
 modules-center = date
-modules-right = kdeconnect st sep pulseaudio sep memory sep cpu sep wlan sep battery sep powermenu
+modules-right = kdeconnect st sep pulseaudio sep memory sep cpu sep wlan sep mouse-bat sep battery sep powermenu
 
-tray-position = right
+; tray-position = right
 tray-padding = 7
 tray-transparent = true
-tray-background = #212121
+; tray-background = #212121
 
 wm-restack = bspwm
 
@@ -65,16 +68,16 @@ label = "%title:0:40:...%"
 [module/bspwm]
 type = internal/bspwm
 
-enable-click = false
+enable-click = true
 enable-scroll = false
 
-label-focused = %index%
+label-focused = %{T2}%index%%{T-}
 label-focused-background = ${colors.background-alt}
 ; label-focused-underline= ${colors.primary}
-label-focused-padding = 6
+label-focused-padding = 4
 
 label-occupied = %index%
-label-occupied-padding = 6
+label-occupied-padding = 4
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
@@ -194,8 +197,8 @@ label-muted-foreground = ${colors.silver}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = AC
-full-at = 99
+adapter = ADP0
+; full-at = 100
 poll-interval = 10
 
 format-charging = <animation-charging>  <label-charging>
@@ -276,6 +279,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/polybar-kdeconnect/polybar-kdeconnect.sh -d
 tail = true
 format-padding = 2
+format-font = 7
 interval = 3
 
 [module/bluetooth]
@@ -316,3 +320,14 @@ content = "/"
 [module/sep2]
 inherit = module/decor-glyph
 content = "\"
+
+[module/spotify]
+type = custom/script
+interval = 1
+exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -f '{play_pause}  {artist} - {song}' -p ','
+
+[module/mouse-bat]
+type = custom/script
+interval = 10
+format = <label>%
+exec = qdbus --system org.freedesktop.UPower $(qdbus --system org.freedesktop.UPower | grep mouse | head -n1) org.freedesktop.UPower.Device.Percentage 2> /dev/null | grep -P '^\d+$'
