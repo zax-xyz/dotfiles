@@ -8,7 +8,7 @@ super + {_,ctrl + }d
 
 # make sxhkd reload its configuration files:
 super + shift + c
-	pkill -USR1 -x sxhkd
+	pkill --signal SIGUSR1 -x sxhkd
 
 
 # xkill
@@ -26,16 +26,16 @@ super + {shift,ctrl + shift} + m
     {~/.scripts/man_menu,st -e pulsemixer}
 
 super + e
-	~/bin/dmenuunicode
+	~/.local/share/bin/dmenuunicode
 
 super + {shift,ctrl + shift} + p
-    {~/.scripts/powermenu,~/bin/get-color}
+    {~/.scripts/powermenu,~/.local/share/bin/get-color}
 
 super + ctrl + shift + t
     todo
 
 super + shift + b
-    ~/cloned/polybar-bluetooth/toggle_bluetooth.sh
+    ~/Downloads/cloned/polybar-bluetooth/toggle_bluetooth.sh
 
 super + shift + s
     ~/.scripts/ping-msg
@@ -44,7 +44,7 @@ super + ctrl + shift + k
     ~/.scripts/show-kdeconnect-menu
 
 super + shift + a
-    ~/bin/set-headphones
+    ~/.local/share/bin/set-headphones
 
 #
 # KDE Connect
@@ -91,11 +91,11 @@ super + Print
 
 # browsers
 super + {_,ctrl + }w
-    {firefox,brave}
+    {firefox,chromium}
 
 # pcmanfm, networkmanager_dmenu
 super + {_,shift + }n
-    {pcmanfm, networkmanager_dmenu}
+    {nautilus, networkmanager_dmenu}
 
 # network manager tui
 super + ctrl + shift + w
@@ -115,16 +115,16 @@ super + ctrl + shift + c
 
 # maths reference sheet
 super + r
-    evince ~/Downloads/education/high\ school/ref/maths-ref-sheet.pdf
+    evince ~/Downloads/education/high_school/ref/maths-ref-sheet.pdf
 
 #
 # Media controls
 #
-# XF86Audio{Play,Next,Prev}
-#     playerctl {play-pause,next,previous}
-
 XF86Audio{Play,Next,Prev}
-    mpc {toggle,next,prev} -q
+    playerctl {play-pause,next,previous}
+
+# XF86Audio{Play,Next,Prev}
+#     mpc {toggle,next,prev} -q
 
 # XF86Audio{Raise,Lower}Volume
 #     amixer -D pulse sset Master 2%{+,-}
@@ -144,6 +144,9 @@ XF86AudioMute
 XF86Search
     rofi -show drun
 
+XF86MonBrightness{Down,Up}
+    xbacklight -time 100 -steps 25 -{dec,inc} 10
+
 super + ctrl + shift + d
     xdg-open https://www.desmos.com/calculator
 
@@ -151,4 +154,4 @@ super + ctrl + shift + d
 #     echo -n '⠀' | xclip -selection clipboard
 
 super + alt + p
-    /home/mvo/.scripts/pyramid.sh
+    ~/.scripts/pyramid.sh

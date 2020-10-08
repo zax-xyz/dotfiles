@@ -20,8 +20,7 @@ super + {_,shift + }g
 
 super + ctrl + g
   gap='bspc config window_gap'; \
-  corner='bspc config border_radius'; \
-  [ $($gap) != 0 ] && ($gap 0; $corner 0) || ($gap 15; $corner 5)
+  [ $($gap) != 0 ] && $gap 0 || $gap 15
 
 super + shift + r
   bspc node $(bspc query -N -n -n .!leaf || echo @/) -R 90
@@ -50,9 +49,9 @@ super + {_,shift + }{h,j,k,l}
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node in the current desktop
+# focus the next/previous window in the current desktop
 super + {_,ctrl + }c
-	bspc node -f {next,prev}.local
+	bspc node -f {next,prev}.window.local
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
