@@ -16,7 +16,8 @@ shuffle
 rot13
 decode caesar shift
 shruggie
-blank"
+blank
+grid emote"
 
 choice=$(rofi -dmenu -p "Text manipulation" <<< "$options")
 
@@ -37,4 +38,5 @@ case $choice in
     "decode caesar shift") $BASE_DIR/caesar/caesar_decode ;;
     "shruggie") $BASE_DIR/plain/shruggie ;;
     "blank") $BASE_DIR/plain/blank ;;
+    "grid emote") $BASE_DIR/grid_emote/grid ;;
 esac

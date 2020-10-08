@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "Rows") $(rofi -dmenu -p "Columns") $(rofi -dmenu -p "Emote name") | ~/.scripts/text/grid_emote/grid.py | xclip -selection clipboard
