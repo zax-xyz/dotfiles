@@ -34,6 +34,7 @@ alias gp="git push"
 alias gpl="git pull"
 alias gd="git diff"
 alias gl="git log"
+alias gcl="git clone"
 
 ## dotfiles
 alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -61,3 +62,5 @@ alias elass="cdlass; vim ass.tex"
 alias cditask="cd info/current-task"
 
 alias vim=nvim
+
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
