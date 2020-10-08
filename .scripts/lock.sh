@@ -10,7 +10,7 @@ K='#ffffffff'  # key highlight
 F='Lato Light' # Font
 
 killall -SIGUSR1 dunst
-mpc pause
+# mpc pause
 [ -z "$(pidof i3lock)" ] && i3lock  \
     --color=000000 \
     --insidevercolor=$C \
