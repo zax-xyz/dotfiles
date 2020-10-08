@@ -28,7 +28,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Cantarell 12";
+  font: "Lato 12";
   text-color: @text;
 }
 
@@ -100,4 +100,8 @@ button selected {
   padding: 5px;
   border-radius: 3px;
   background-color: @emphasis;
+}
+
+element-icon {
+  size: 1em;
 }
