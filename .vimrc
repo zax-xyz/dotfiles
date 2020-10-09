@@ -15,4 +15,5 @@ source ~/.config/nvim/plugins/python.vim
 source ~/.config/nvim/plugins/markdown.vim
 source ~/.config/nvim/plugins/tex.vim
 source ~/.config/nvim/plugins/emmet.vim
+source ~/.config/nvim/plugins/java.vim
 source ~/.config/nvim/plugins/ale.vim

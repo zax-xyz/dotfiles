@@ -51,6 +51,7 @@ Plug 'turbio/bracey.vim'  " Live edit html/css/js
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'uiiaoo/java-syntax.vim'
 
 " Linting
 Plug 'w0rp/ale'  "Syntastic freezes vim for another 20 minutes, I need an asynchronous alternative
