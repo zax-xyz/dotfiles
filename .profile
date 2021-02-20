@@ -1,4 +1,4 @@
-export EDITOR=/usr/bin/vim
+export EDITOR=nvim
 export QT_QPA_PLATFORMTHEME=qt5ct
 export TERMINAL=st
 export MOZ_USE_XINPUT2=1
@@ -27,3 +27,6 @@ export MPD_HOST=$(cat ~/.config/MPD_PASS)@127.0.0.1
 # synclient RightButtonAreaTop=0
 
 export QT_STYLE_OVERRIDE=kvantum
+
+export ELAPSE_UPDATE_DURATION=5000
+export FZF_DEFAULT_COMMAND='fd --type f'
