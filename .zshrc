@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH:/usr/lib/ccache/bin/
-export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/share/bin:$HOME/.gem/ruby/2.6.0/bin/"
+export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/share/bin:$HOME/.gem/ruby/2.7.0/bin/"
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=5000
+SAVEHIST=5000
 HISTFILE=~/.cache/shell_history
 
 # Vim bindings
@@ -50,7 +50,6 @@ plugin_dir=~/.local/share/zsh/plugins
 source $plugin_dir/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $plugin_dir/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $plugin_dir/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
