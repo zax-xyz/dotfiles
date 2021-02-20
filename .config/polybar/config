@@ -45,9 +45,9 @@ font-4 = Font Awesome 5 Free Solid:pixelsize=8.5;2
 font-5 = Font Awesome 5 Free Solid:pixelsize=8;2
 font-6 = Font Awesome 5 Free Solid:pixelsize=9;1
 
-modules-left = bspwm i3 sep2 ip sep2 spotify
+modules-left = bspwm i3 sep2 ip sep2 kdeconnect st spotify
 modules-center = date
-modules-right = kdeconnect st sep pulseaudio sep memory sep cpu sep wlan sep mouse-bat sep battery sep powermenu
+modules-right = pulseaudio sep memory sep cpu sep wlan sep mouse-bat sep battery sep powermenu
 
 ; tray-position = right
 tray-padding = 7
@@ -198,7 +198,7 @@ label-muted-foreground = ${colors.silver}
 type = internal/battery
 battery = BAT0
 adapter = ADP0
-; full-at = 100
+full-at = 98
 poll-interval = 10
 
 format-charging = <animation-charging>  <label-charging>
@@ -278,7 +278,6 @@ screenchange-reload = true
 type = custom/script
 exec = ~/.config/polybar/scripts/polybar-kdeconnect/polybar-kdeconnect.sh -d
 tail = true
-format-padding = 2
 format-font = 7
 interval = 3
 
@@ -306,7 +305,8 @@ format-padding = 2
 [module/ip]
 type = custom/script
 interval = 5
-exec = ip -4 -o addr | awk '!/ lo /{print $4}' | cut -d '/' -f 1 | paste -sd '  '
+; exec = ip -4 -o addr | awk '!/ lo /{print $4}' | cut -d '/' -f 1 | paste -sd '  '
+exec = ip -4 -o addr | awk -F '\\s+|/' '!/\S+ lo /{print $4}' | paste -sd '  '
 
 [module/decor-glyph]
 type = custom/text
@@ -324,7 +324,7 @@ content = "\"
 [module/spotify]
 type = custom/script
 interval = 1
-exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -f '{play_pause}  {artist} - {song}' -p ','
+exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -t 30 -f '{play_pause}  {artist} - {song}' -p ','
 
 [module/mouse-bat]
 type = custom/script
