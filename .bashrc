@@ -26,6 +26,7 @@ set -o vi
 # export PATH="/usr/lib/ccache/bin/:$PATH:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin"
 
 PS1='\[\033[0;34m\]\u\[\033[0;31m\]@\[\033[0;32m\]\h \[\033[1;34m\]\W\[\033[0m\] \[\033[1;31m\]\$\[\033[0m\] '
+export HISTFILESIZE=5000
 export HISTFILE=~/.cache/shell_history
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
