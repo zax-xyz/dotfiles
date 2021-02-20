@@ -8,16 +8,17 @@ body {
   padding: 25px 45px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   border-bottom: 1px solid #a1cbee;
   color: #1e639d;
   font-weight: initial;
   line-height: 1.2;
   padding-bottom: 5px;
-}
-
-header {
-  padding-bottom: 1em;
 }
 
 header h1 {
@@ -29,7 +30,8 @@ header h1 {
   text-align: center;
 }
 
-.author, .date {
+.author,
+.date {
   color: #214d71;
   display: inline-block;
   margin: 0;
@@ -45,7 +47,7 @@ header h1 {
 
 blockquote {
   background: #f7fbfd;
-  border-left: .2em solid #7cb8d9;
+  border-left: 0.2em solid #7cb8d9;
   color: #444;
   font-style: italic;
   margin: 0;
@@ -83,21 +85,21 @@ dt {
 }
 
 ul li:before {
-  content: '·';
+  content: "·";
   margin-left: -20px;
   position: absolute;
 }
 
 ul ul li:before {
-  content: '–';
+  content: "–";
 }
 
 ul ul ul li:before {
-  content: '+';
+  content: "+";
 }
 
 ul ul ul ul li:before {
-  content: '·';
+  content: "·";
 }
 
 a {
