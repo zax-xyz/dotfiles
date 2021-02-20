@@ -1,7 +1,7 @@
 #!/bin/sh
 auth=$(jq -r . ~/.config/twitch-auth.json)
-client_id=$(jq -r .clientId <<< $auth)
-token=$(jq -r .oauthToken <<< $auth)
+client_id=$(echo $auth | jq -r .clientId)
+token=$(echo $auth | jq -r .oauthToken)
 
 get() {
   curl -s \
@@ -11,4 +11,4 @@ get() {
 }
 
 id=$(get users?login=$1 | jq -r .data[0].id)
-get "users/follows?from_id=$id&after=$2" | jq -S
+get "users/follows?to_id=$id&after=$2" | jq -S

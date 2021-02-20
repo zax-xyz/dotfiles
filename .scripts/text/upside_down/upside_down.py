@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-alpha = 'abcdefghijklmnopqrstuvwxyz'
-upside_down_alpha = 'ɐqɔpǝɟƃɥıɾʞןɯuodbɹsʇnʌʍxʎz'
+alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+upside_down_alpha = 'ɐqɔpǝɟƃɥıɾʞןɯuodbɹsʇnʌʍxʎz∀qƆpƎℲפHIſʞ˥WNOԀQɹS┴∩ΛMX⅄Z'
 
 d = str.maketrans(dict(zip(alpha, upside_down_alpha)))
 

@@ -1,5 +1,5 @@
 #!/bin/sh
-option=$(rofi -sep "|" -dmenu -p "Power Menu" <<< "poweroff|reboot|suspend|hibernate")
+option=$(echo "poweroff|reboot|suspend|hibernate" | rofi -sep "|" -dmenu -p "Power Menu")
 if [ ! -z $option ]; then
     systemctl $option
 fi

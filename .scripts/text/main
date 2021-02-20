@@ -13,30 +13,38 @@ upside down
 s p a c e
 S P A C E
 shuffle
+reverse
 rot13
 decode caesar shift
 shruggie
 blank
-grid emote"
+grid emote
+python eval"
 
-choice=$(rofi -dmenu -p "Text manipulation" <<< "$options")
+choice=$(echo "$options" | rofi -dmenu -p "Text manipulation")
 
-case $choice in 
-    "emoji") $BASE_DIR/emoji/emoji ;;
-    "emoji (red)") $BASE_DIR/emoji/emoji2 ;;
-    "owo") $BASE_DIR/owo/owo ;;
-    "uwu") $BASE_DIR/owo/uwu ;;
-    "owo uwu") $BASE_DIR/owo/owo-uwu ;;
-    "owo uwu w") $BASE_DIR/owo/owo-uwu-w ;;
-    "w") $BASE_DIR/owo/w ;;
-    "superscript") $BASE_DIR/super/super ;;
-    "upside down") $BASE_DIR/upside_down/upside_down ;;
-    "s p a c e") $BASE_DIR/space/space ;;
-    "S P A C E") $BASE_DIR/space/SPACE ;;
-    "shuffle") $BASE_DIR/shuffle/shuffle ;;
-    "rot13") $BASE_DIR/caesar/rot13 ;;
-    "decode caesar shift") $BASE_DIR/caesar/caesar_decode ;;
-    "shruggie") $BASE_DIR/plain/shruggie ;;
-    "blank") $BASE_DIR/plain/blank ;;
-    "grid emote") $BASE_DIR/grid_emote/grid ;;
-esac
+# rofi without a pipe seems to break when the script is being ran through a KDE
+# keyboard shortcut (stdin issue maybe?), so we just pipe in an empty string to
+# avoid this issue
+printf |
+    case $choice in 
+        "emoji") echo | $BASE_DIR/emoji/emoji ;;
+        "emoji (red)") $BASE_DIR/emoji/emoji2 ;;
+        "owo") $BASE_DIR/owo/owo ;;
+        "uwu") $BASE_DIR/owo/uwu ;;
+        "owo uwu") $BASE_DIR/owo/owo-uwu ;;
+        "owo uwu w") $BASE_DIR/owo/owo-uwu-w ;;
+        "w") $BASE_DIR/owo/w ;;
+        "superscript") $BASE_DIR/super/super ;;
+        "upside down") $BASE_DIR/upside_down/upside_down ;;
+        "s p a c e") $BASE_DIR/space/space ;;
+        "S P A C E") $BASE_DIR/space/SPACE ;;
+        "shuffle") $BASE_DIR/shuffle/shuffle ;;
+        "reverse") $BASE_DIR/reverse/reverse ;;
+        "rot13") $BASE_DIR/caesar/rot13 ;;
+        "decode caesar shift") $BASE_DIR/caesar/caesar_decode ;;
+        "shruggie") $BASE_DIR/plain/shruggie ;;
+        "blank") $BASE_DIR/plain/blank ;;
+        "grid emote") $BASE_DIR/grid_emote/grid ;;
+        "python eval") $BASE_DIR/python_eval/python_eval ;;
+    esac

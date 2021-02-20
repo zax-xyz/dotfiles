@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n $(rofi -dmenu -p "Reverse") | ~/.scripts/text/reverse/reverse.py | xclip -selection clipboard

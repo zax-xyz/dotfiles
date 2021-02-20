@@ -8,7 +8,7 @@ markdown() {
 
   mkdir -p md_export_html md_export_pdf
 
-  common_params="-q -B 25mm -T 25mm --footer-right '[page] | [topage]' --footer-font-name 'Lato, Calibri, Roboto, Helvetica, Helvetica Neue, Arial, sans-serif' --footer-font-size 10 --footer-spacing 5 '$sf_html' '$sf_pdf'"
+  common_params="-q --enable-local-file-access -B 25mm -T 25mm --footer-right '[page] | [topage]' --footer-font-name 'Lato, Calibri, Roboto, Helvetica, Helvetica Neue, Arial, sans-serif' --footer-font-size 10 --footer-spacing 5 '$sf_html' '$sf_pdf'"
 
   if [ -n "$2" ]; then
     pandoc "$1" -thtml --standalone --mathjax > "$sf_html"

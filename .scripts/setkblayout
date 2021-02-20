@@ -1,0 +1,13 @@
+#!/bin/sh
+options="qwerty
+colemak
+dvorak"
+
+choice=$(echo "$options" | rofi -dmenu -p "Keyboard Layout")
+base_cmd="setxkbmap us -option caps:ctrl"
+
+case $choice in 
+    "qwerty") eval $base_cmd ;;
+    "colemak") eval $base_cmd -variant colemak ;;
+    "dvorak") eval $base_cmd -variant dvorak ;;
+esac
