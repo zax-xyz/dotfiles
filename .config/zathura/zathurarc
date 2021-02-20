@@ -4,7 +4,7 @@
 # Comment after the color is the color's name, as it appears in the palette
 
 
-set smooth-scroll true
+# set smooth-scroll true
 set guioptions                  ""
 
 set font "Lato normal 10"
