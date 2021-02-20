@@ -38,7 +38,9 @@ cprep() {
   $TERMINAL & disown
   sleep 0.2  # ensure the window spawns before we start typing
 
-  if [ -n "$1" ]; then
+  name=${1%.c}
+
+  if [ -n "$name" ]; then
     # prepare compile command
     xtype "make"
 
@@ -50,16 +52,16 @@ cprep() {
 
     left_window
 
-    upper=$(echo $1 | tr "[a-z]" "[A-Z]")
+    upper=$(echo $name | tr "[a-z]" "[A-Z]")
 
     # Header
-    echo "#ifndef ${upper}_H\n#define ${upper}_H\n\n#endif" > "lib/$1.h"
+    echo "#ifndef ${upper}_H\n#define ${upper}_H\n\n#endif" > "lib/$name.h"
 
     # Include header
-    echo "#include \"$1.h\"\n" > "src/$1.c"
+    echo "#include \"$name.h\"\n" > "src/$name.c"
 
     # start editing
-    vim "src/$1.c"
+    vim "src/$name.c"
   else
     # prepare compile command
     xtype "make"
@@ -80,15 +82,17 @@ pyprep() {
 
   # window to run the program
   $TERMINAL & disown
-  sleep 0.2  # ensure the window spawns before we start typing
+  sleep 0.3  # ensure the window spawns before we start typing
 
-  if [ -n "$1" ]; then
+  name=${1%.py}
+
+  if [ -n "$name" ]; then
     # prepare run command
-    xtype "python $1.py"
+    xtype "python $name.py"
     left_window
 
     # start editing
-    vim "$1.py"
+    vim "$name.py"
   else
     # prepare run command
     xtype "python "
@@ -101,5 +105,6 @@ pyprep() {
 }
 
 jcr() {
-  javac $1.java && java $1
+  name=${1%.java}
+  javac $name.java && java $name
 }
