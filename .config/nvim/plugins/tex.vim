@@ -1,4 +1,5 @@
 set conceallevel=2
+set concealcursor=
 let g:tex_conceal='abdmg'
 let g:vimtex_matchparen_enabled=0
 let g:vimtex_motion_enabled=0

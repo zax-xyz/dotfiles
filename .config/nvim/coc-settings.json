@@ -1,0 +1,24 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "html",
+    "css",
+    "vue",
+    "json",
+    "python"
+  ],
+  "explorer.icon.enableNerdfont": true,
+  "explorer.width": 32,
+  "explorer.buffer.tabOnly": true,
+  "html.autoClosingTags": true,
+  "stylusSupremacy.insertColons": false,
+  "stylusSupremacy.insertSemicolons": false,
+  "stylusSupremacy.insertBraces": false,
+  "stylusSupremacy.selectorSeparator": "\n",
+  "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
+  "prettier.pugWrapAttributesThreshold": 0,
+  "vetur.format.defaultFormatter.pug": "none",
+  "vetur.experimental.templateInterpolationService": true,
+  "prettier.trailingComma": "es5"
+}

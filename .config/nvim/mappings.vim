@@ -77,3 +77,7 @@ noremap <silent> <Leader>w :call ToggleWrap()<CR>
 " Find files with fzf
 noremap <leader>f :Files<CR>
 noremap <leader>g :GFiles<CR>
+
+noremap <leader>b :Buffers<CR>
+
+noremap <leader>h :nohl<CR>

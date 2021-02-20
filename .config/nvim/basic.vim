@@ -78,3 +78,6 @@ set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 " Color scheme
 syntax on
 set background=dark
+
+set re=0
+set scrolloff=3

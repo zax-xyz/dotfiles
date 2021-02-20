@@ -10,5 +10,12 @@ command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
 noremap <C-t>n :tabn<CR>
+noremap <C-t>t :tabnew<CR>
 noremap <C-t>p :tabp<CR>
+
+noremap <C-t><C-n> :tabn<CR>
+noremap <C-t><C-t> :tabnew<CR>
+noremap <C-t><C-p> :tabp<CR>
+
+" noremap <C-[> :tabp<CR>
 noremap <C-]> :tabn<CR>
