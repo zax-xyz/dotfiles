@@ -28,12 +28,16 @@ alias lla="la -la"
 alias gst="git status"
 alias ga="git add"
 alias gc="git commit"
+alias gca="git commit --amend"
+alias gcs="git commit -S"
+alias gcsa="git commit -S --amend"
 alias gcmsg="git commit -m"
 alias gcsmsg="git commit -S -m"
 alias gp="git push"
 alias gpl="git pull"
 alias gd="git diff"
 alias gl="git log"
+alias glo="git log --oneline"
 alias gcl="git clone"
 
 ## dotfiles
@@ -41,10 +45,14 @@ alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias dgst="dgit status"
 alias dga="dgit add"
 alias dgc="dgit commit"
+alias dgca="dgit commit --amend"
+alias dgcs="dgit commit -S"
+alias dgcsa="dgit commit -S --amend"
 alias dgcmsg="dgit commit -m"
 alias dgcsmsg="dgit commit -S -m"
 alias dgp="dgit push"
 alias dgpl="dgit pull"
+alias dglo="dgit log --oneline"
 alias dgd="dgit diff"
 alias dgl="dgit log"
 
@@ -64,3 +72,8 @@ alias cditask="cd info/current-task"
 alias vim=nvim
 
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+
+alias xdgo="xdg-open"
+
+alias py="python"
+alias js="node"
