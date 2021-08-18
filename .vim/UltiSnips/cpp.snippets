@@ -1,0 +1,101 @@
+snippet main
+int main(int argc, char** argv) {
+	$0
+	return 0;
+}
+endsnippet
+
+snippet mainn
+int main() {
+	$0
+	return 0;
+}
+endsnippet
+
+snippet int
+int $1($2) {
+	$0
+}
+endsnippet
+
+snippet void
+void $1($2) {
+	$0
+}
+endsnippet
+
+snippet char*
+char* $1($2) {
+	$0
+}
+endsnippet
+
+snippet /*
+/*
+ * $0
+ */
+endsnippet
+
+snippet //
+/*
+ * $0
+ */
+endsnippet
+
+snippet for
+for (int i = 0; i < ${1}; i++) {
+	$0
+}
+endsnippet
+
+snippet forr
+for (int ${1:i} = ${2:0}; $1 < ${3}; ${4:$1++}) {
+	$0
+}
+endsnippet
+
+snippet pr
+printf("$1"$2);
+endsnippet
+
+snippet pri
+printf("$1\\n", $2);
+endsnippet
+
+snippet if
+if ($1) {
+	$2
+}
+endsnippet
+
+snippet ife
+if ($1) {
+	$2
+} else {
+	$3
+}
+endsnippet
+
+snippet inc
+#include ${1:<$2>}
+endsnippet
+
+snippet stdio
+#include <stdio.h>
+endsnippet
+
+snippet stdlib
+#include <stdlib.h>
+endsnippet
+
+snippet gch
+getchar()
+endsnippet
+
+snippet sc
+scanf($1);
+endsnippet
+
+snippet ret
+return 
+endsnippet

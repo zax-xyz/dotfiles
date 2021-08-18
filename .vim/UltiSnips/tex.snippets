@@ -128,7 +128,7 @@ endsnippet
 # \nicefrac{$1}{$2}
 # endsnippet
 
-snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
 \frac{`!p snip.rv = match.group(1)`}{$1}
 endsnippet
 
@@ -136,7 +136,7 @@ snippet / "Fraction" i
 \frac{${VISUAL}}{$1}
 endsnippet
 
-snippet '^.*\)/' "() Fraction" wrA
+snippet '^.*\)/' "() Fraction" wr
 `!p
 stripped = match.string[:-1]
 depth = 0
@@ -233,9 +233,13 @@ snippet ,pi "pi" iA
 \pi
 endsnippet
 
-snippet __ "subscript" iA
-_{$1}
+snippet _ "subscript" i
+_{$1}$0
 endsnippet
+
+# snippet __ "subscript" iA
+# _{$1}
+# endsnippet
 
 snippet ^^ "power" iA
 ^{$1}
@@ -499,4 +503,16 @@ endsnippet
 
 snippet rig "right" i
 \right
+endsnippet
+
+snippet verb "verb" i
+\verb|$1|$0
+endsnippet
+
+snippet minl "minted inline" i
+\mintinline{$1}|$2|$0
+endsnippet
+
+snippet minlp "minted inline python" i
+\mintinline{python}|$1|$0
 endsnippet

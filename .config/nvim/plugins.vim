@@ -14,56 +14,62 @@ autocmd VimEnter *
 " Load plugins
 call plug#begin('~/.vim/plugged')
 
-" Colorscheme
-Plug 'laggardkernel/vim-one'  " Fork of rakr's vim-one with lower impact on startup time
-
 " Functionality
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 " Plug 'sirver/ultisnips'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 " Plug 'jiangmiao/auto-pairs'
 " Plug 'ycm-core/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'ervandew/supertab'
 " Plug 'tpope/vim-sleuth'
-Plug 'ciaranm/detectindent'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'andymass/vim-matchup'
 
-" Extra wacky shit that goes on the screen
-Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
-Plug 'zefei/vim-wintabs'
-Plug 'zefei/vim-wintabs-powerline'
-Plug 'airblade/vim-gitgutter'
-" Plug 'scrooloose/nerdtree'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'lambdalisue/fern.vim'
-Plug 'majutsushi/tagbar'
-" Plug 'Yggdroot/indentLine'
-Plug 'thaerkh/vim-indentguides'
+if !exists('g:vscode')
+  Plug 'laggardkernel/vim-one'  " Fork of rakr's vim-one with lower impact on startup time
 
-" Language-related plugins
-Plug 'vim-python/python-syntax'
-Plug 'vim-scripts/indentpython.vim'
-" Plug 'lepture/vim-jinja'
-Plug 'plasticboy/vim-markdown'
-Plug 'posva/vim-vue'
-" Plug 'leafOfTree/vim-vue-plugin'
-Plug 'digitaltoad/vim-pug'
-Plug 'iloginow/vim-stylus'
-Plug 'lervag/vimtex'
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-Plug 'turbio/bracey.vim'  " Live edit html/css/js
-Plug 'pangloss/vim-javascript'
-Plug 'mattn/emmet-vim'
-" Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'uiiaoo/java-syntax.vim'
-Plug 'rustushki/JavaImp.vim'
+  Plug 'tpope/vim-commentary'
+  Plug 'suy/vim-context-commentstring'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'ciaranm/detectindent'
+  Plug 'andymass/vim-matchup'
+
+  " Extra wacky shit that goes on the screen
+  Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
+  Plug 'zefei/vim-wintabs'
+  Plug 'zefei/vim-wintabs-powerline'
+  Plug 'airblade/vim-gitgutter'
+  " Plug 'scrooloose/nerdtree'
+  " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  " Plug 'ryanoasis/vim-devicons'
+  " Plug 'lambdalisue/fern.vim'
+  Plug 'majutsushi/tagbar'
+  " Plug 'Yggdroot/indentLine'
+  " Plug 'thaerkh/vim-indentguides'
+
+  " Language-related plugins
+  Plug 'vim-python/python-syntax'
+  Plug 'vim-scripts/indentpython.vim'
+  " Plug 'lepture/vim-jinja'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'posva/vim-vue'
+  " Plug 'leafOfTree/vim-vue-plugin'
+  Plug 'digitaltoad/vim-pug'
+  Plug 'iloginow/vim-stylus'
+  Plug 'lervag/vimtex'
+  Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+  Plug 'turbio/bracey.vim'  " Live edit html/css/js
+  Plug 'pangloss/vim-javascript'
+  Plug 'mattn/emmet-vim'
+  " Plug 'leafgarland/typescript-vim'
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'uiiaoo/java-syntax.vim'
+  Plug 'rustushki/JavaImp.vim'
+  Plug 'octol/vim-cpp-enhanced-highlight'
+  " Plug 'jeaye/color_coded'
+  Plug 'maxmellon/vim-jsx-pretty'
+endif
 
 " Linting
 " Plug 'w0rp/ale'  "Syntastic freezes vim for another 20 minutes, I need an asynchronous alternative
