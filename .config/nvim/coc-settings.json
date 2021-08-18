@@ -20,5 +20,7 @@
   "prettier.pugWrapAttributesThreshold": 0,
   "vetur.format.defaultFormatter.pug": "none",
   "vetur.experimental.templateInterpolationService": true,
-  "prettier.trailingComma": "es5"
+  "prettier.trailingComma": "es5",
+  "prettier.arrowParens": "avoid",
+  "prettier.printWidth": 100
 }
