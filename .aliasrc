@@ -10,13 +10,14 @@ alias :q="exit"
 alias cdm="cd /run/media/mvo"
 
 # sxiv-rifle for browsing images in directory after opening single file
-alias sxiv=sxiv-rifle
+# alias sxiv=sxiv-rifle
 
 # i cant read
 alias diff="diff --color=auto"
 
 # Hastebin
-alias zhaste="env HASTE_SERVER=https://bin.zaxu.xyz/ haste"
+# alias zhaste="env HASTE_SERVER=https://bin.zaxu.xyz/ haste"
+alias zhaste="haste -d https://bin.zaxu.xyz"
 
 # ls
 alias ls="exa --group-directories-first"
@@ -77,3 +78,5 @@ alias xdgo="xdg-open"
 
 alias py="python"
 alias js="node"
+
+alias pyvenv="python -m venv --system-site-packagse"

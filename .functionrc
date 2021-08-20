@@ -1,5 +1,9 @@
 # vim: ft=sh
 
+haste() {
+  curl -X POST -s -d "$(cat)" https://bin.zaxu.xyz/documents | sed -E 's|\{"key":"(.+)"}|https://bin.zaxu.xyz/\1|'
+}
+
 # make directory and cd into it
 mkcd() {
   mkdir -p "$1"
