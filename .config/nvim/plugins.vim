@@ -17,15 +17,19 @@ call plug#begin('~/.vim/plugged')
 " Functionality
 Plug 'tpope/vim-surround'
 " Plug 'godlygeek/tabular'
-" Plug 'sirver/ultisnips'
 " Plug 'jiangmiao/auto-pairs'
+" Plug 'sirver/ultisnips'
 " Plug 'ycm-core/YouCompleteMe'
 " Plug 'ervandew/supertab'
 " Plug 'tpope/vim-sleuth'
 Plug 'AndrewRadev/splitjoin.vim'
 
 if !exists('g:vscode')
-  Plug 'laggardkernel/vim-one'  " Fork of rakr's vim-one with lower impact on startup time
+  " Plug 'laggardkernel/vim-one'  " Fork of rakr's vim-one with lower impact on startup time
+  " Plug 'joshdick/onedark.vim'
+  Plug 'navarasu/onedark.nvim'
+  " Plug 'olimorris/onedarkpro.nvim'
+  " Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
   Plug 'tpope/vim-commentary'
   Plug 'suy/vim-context-commentstring'
@@ -34,12 +38,20 @@ if !exists('g:vscode')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'ciaranm/detectindent'
   Plug 'andymass/vim-matchup'
+  " Plug 'prettier/vim-prettier', {
+  " \ 'do': 'yarn install',
+  " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html', 'java'] }
+  " Plug 'sbdchd/neoformat'
+  " autocmd BufWritePre *.js,*.java Neoformat
+  " Plug 'codota/tabnine-vim'
+  Plug 'editorconfig/editorconfig-vim'
 
   " Extra wacky shit that goes on the screen
   Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
   Plug 'zefei/vim-wintabs'
   Plug 'zefei/vim-wintabs-powerline'
   Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
   " Plug 'scrooloose/nerdtree'
   " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   " Plug 'ryanoasis/vim-devicons'
@@ -59,16 +71,19 @@ if !exists('g:vscode')
   Plug 'iloginow/vim-stylus'
   Plug 'lervag/vimtex'
   Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-  Plug 'turbio/bracey.vim'  " Live edit html/css/js
+  Plug 'turbio/bracey.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'mattn/emmet-vim'
   " Plug 'leafgarland/typescript-vim'
-  Plug 'HerringtonDarkholme/yats.vim'
+  " Plug 'HerringtonDarkholme/yats.vim'
   Plug 'uiiaoo/java-syntax.vim'
   Plug 'rustushki/JavaImp.vim'
   Plug 'octol/vim-cpp-enhanced-highlight'
   " Plug 'jeaye/color_coded'
   Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'styled-components/vim-styled-components'
+
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 endif
 
 " Linting

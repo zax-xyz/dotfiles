@@ -21,8 +21,8 @@ let g:lightline = {
   \     ],
   \     'right':[ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
   \               [ 'lineinfo' ],
-  \               [ 'fileformat', 'fileencoding', 'filetype' ],
-  \               [ 'bytecount' ]
+  \               [ 'fugitive', 'fileformat', 'fileencoding', 'filetype' ],
+  \               [ 'bytecount' ],
   \     ]
   \   },
   \   'component': {
@@ -30,6 +30,7 @@ let g:lightline = {
   \     'linecount': "%{line('$')}",
   \     'bytecount': "%{line2byte('$') + len(getline('$'))}",
   \     'wordcount': '%{WordCount()}',
+  \     'fugitive': '%{FugitiveStatusline()}',
   \   },
   \   'component_function': {
   \     'fileformat': 'LightlineFileformat',

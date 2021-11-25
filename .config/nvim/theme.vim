@@ -1,5 +1,6 @@
 let g:one_allow_italics = 1
-colorscheme one
+let g:onedark_transparent_background = 1
+colorscheme onedark
 
 " Transparent background in terminal
 if (!has("gui_running"))
