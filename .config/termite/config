@@ -37,7 +37,7 @@ cursor_shape = ibeam
 #size_hints = false
 
 # "off", "left" or "right"
-#scrollba = off
+# scrollbar = right
 
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
