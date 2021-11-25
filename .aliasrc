@@ -79,4 +79,6 @@ alias xdgo="xdg-open"
 alias py="python"
 alias js="node"
 
-alias pyvenv="python -m venv --system-site-packagse"
+alias pyvenv="python -m venv --system-site-packages"
+
+alias discord="discord --no-sandbox"
