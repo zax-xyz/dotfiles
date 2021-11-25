@@ -59,13 +59,14 @@ fade_brightness() {
 }
 
 trap 'exit 0' TERM INT
-trap "fade_time=150 fade_brightness $(get_brightness); kill %%" EXIT
-fade_brightness $min_brightness
-sleep 60 &
-wait
-fade_brightness 0
+trap "kill %%" EXIT
+# fade_brightness $min_brightness
+# sleep 60 &
+# wait
+# fade_brightness 0
+notify-send 'Locking in 30 seconds' 'Locking screen due to inactivity...'
 sleep 30 &
 wait
-~/.scripts/lock.sh &
+# ~/.scripts/lock.sh &
 sleep 2147483647 &
 wait
