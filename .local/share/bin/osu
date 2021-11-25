@@ -1,2 +1,2 @@
 #!/bin/sh
-vblank_mode=0 wine /mnt/windows/Users/mvo/Documents/osu/osu\!.exe "$@"
+vblank_mode=0 wine /mnt/data/osu/osu\!.exe "$@"
