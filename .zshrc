@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH:/usr/lib/ccache/bin/
-export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/share/bin:$HOME/.gem/ruby/2.7.0/bin/"
+# export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/bin:$HOME/.local/share/bin:$HOME/.gem/ruby/2.7.0/bin/"
 
 # History in cache directory:
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.cache/shell_history
 
 # Vim bindings
@@ -40,6 +40,7 @@ fi
 
 # Enables better tab completion
 autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
 # Case insensitive tab completion
@@ -50,33 +51,42 @@ plugin_dir=~/.local/share/zsh/plugins
 source $plugin_dir/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $plugin_dir/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $plugin_dir/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $plugin_dir/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-function zle-line-init zle-keymap-select {
-  PROMPT=`$HOME/.local/share/zsh/prompts/purs/target/release/purs prompt -k "$KEYMAP" -r "$?" --venv "${${VIRTUAL_ENV:t}%-*}"`
-  zle reset-prompt
+# autoload -Uz add-zsh-hook
 
-  # Change cursor shape for different vi modes.
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle -N zle-line-init
+# function _prompt_purs_precmd() {
+#   $HOME/.local/share/zsh/prompts/purs/target/release/purs precmd
+# }
+# add-zsh-hook precmd _prompt_purs_precmd
 
-autoload -Uz add-zsh-hook
+fpath+=$HOME/.local/share/zsh/prompts/lean
+autoload -U promptinit; promptinit
+prompt lean
 
-function _prompt_purs_precmd() {
-  $HOME/.local/share/zsh/prompts/purs/target/release/purs precmd
-}
-add-zsh-hook precmd _prompt_purs_precmd
+# function zle-line-init zle-keymap-select {
+#   # PROMPT=`$HOME/.local/share/zsh/prompts/purs/target/release/purs prompt -k "$KEYMAP" -r "$?" --venv "${${VIRTUAL_ENV:t}%-*}"`
+#   # zle reset-prompt
+
+#   # Change cursor shape for different vi modes.
+#   if [[ ${KEYMAP} == vicmd ]] ||
+#      [[ $1 = 'block' ]]; then
+#     echo -ne '\e[1 q'
+#   elif [[ ${KEYMAP} == main ]] ||
+#        [[ ${KEYMAP} == viins ]] ||
+#        [[ ${KEYMAP} = '' ]] ||
+#        [[ $1 = 'beam' ]]; then
+#     echo -ne '\e[5 q'
+#   fi
+# }
+# zle -N zle-keymap-select
+# zle -N zle-line-init
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
