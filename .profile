@@ -13,9 +13,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
-export GOPATH="$HOME/code/go"
+export GOPATH="/mnt/data/code/go"
 
-export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/share/bin:$HOME/.gem/ruby/2.6.0/bin/"
+export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/bin:$HOME/.local/share/bin:$HOME/.local/share/gem/ruby/3.0.0/bin/"
 
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im-fcitx
@@ -30,3 +30,5 @@ export QT_STYLE_OVERRIDE=kvantum
 
 export ELAPSE_UPDATE_DURATION=5000
 export FZF_DEFAULT_COMMAND='fd --type f'
+
+export HASTEBIN_SERVER_URL='https://bin.zaxu.xyz'
