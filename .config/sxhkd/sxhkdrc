@@ -1,6 +1,6 @@
 # terminal emulator
-super + {_,shift +}Return
-	st{_, -c WM_FLOATING}
+super + {_,shift +,ctrl + shift +}Return
+	st{_, -c WM_FLOATING, -c WM_FLOATING -e tmux new -A -s 1}
 
 # program launcher
 super + {_,ctrl + }d
@@ -37,8 +37,9 @@ super + ctrl + shift + t
 super + shift + b
     ~/Downloads/cloned/polybar-bluetooth/toggle_bluetooth.sh
 
-super + shift + s
-    ~/.scripts/ping-msg
+super + {_, ctrl + }shift + s
+    flameshot gui{_, --raw | ~/.scripts/web_screenshot}
+    # ~/.scripts/ping-msg
 
 super + ctrl + shift + k
     ~/.scripts/show-kdeconnect-menu
@@ -102,8 +103,11 @@ super + ctrl + shift + w
     st -e nmtui
 
 # ncmpcpp
+# super + m
+    # ~/.scripts/ncmpcpp_toggle
+
 super + m
-    ~/.scripts/ncmpcpp_toggle
+    mailspring
 
 # discord
 super + shift + d
@@ -133,7 +137,7 @@ XF86Audio{Play,Next,Prev}
 #     amixer -D pulse sset Master -- toggle
 
 XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume 0 {+,-}2%
+    pactl set-sink-volume 1 {+,-}2%
 
 super + {minus,equal}
     mpc -q volume {-,+}2
@@ -155,3 +159,6 @@ super + ctrl + shift + d
 
 super + alt + p
     ~/.scripts/pyramid.sh
+
+ctrl + {shift + space,grave,shift+period,shift+comma}
+    dunstctl {close,history-pop,context,action}
