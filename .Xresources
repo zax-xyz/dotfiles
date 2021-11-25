@@ -41,8 +41,8 @@ st.blinktimeout: 0
 
 ! special
 *.foreground:   #abb2bf
-!*.background:   #282c34
-*.background:   #232323
+*.background:   #282c34
+!*.background:   #232323
 !urxvt.background:   [92]#282c34
 urxvt.background:   [92]#232323
 st.cursorColor:  #abb2bf
