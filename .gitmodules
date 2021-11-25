@@ -4,3 +4,6 @@
 [submodule ".config/polybar/scripts/polybar-spotify"]
 	path = .config/polybar/scripts/polybar-spotify
 	url = https://github.com/Jvanrhijn/polybar-spotify
+[submodule ".config/polybar/scripts/polybar-kdeconnect"]
+	path = .config/polybar/scripts/polybar-kdeconnect
+	url = https://github.com/haideralipunjabi/polybar-kdeconnect
