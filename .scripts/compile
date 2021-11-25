@@ -22,7 +22,7 @@ markdown() {
 latex() {
   # pdflatex "$1"
   # pdflatex "$1"
-  latexmk -pdf "$1"
+  latexmk -pdf -shell-escape "$1"
 }
 
 groff() {
