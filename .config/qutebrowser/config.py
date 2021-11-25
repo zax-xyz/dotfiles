@@ -44,8 +44,11 @@ c.colors.tabs.selected.odd.bg = '#454545'
 
 c.content.autoplay = False
 
-c.fonts.downloads = 'default_size noto sans'
-c.fonts.tabs = 'default_size noto sans'
+sans = 'default_size lato'
+c.fonts.downloads = sans
+c.fonts.tabs.selected = sans
+c.fonts.tabs.unselected = sans
+# c.fonts.statusbar = sans
 
 c.scrolling.bar = 'never'
 
@@ -59,12 +62,14 @@ c.tabs.padding = {'top': 4, 'bottom': 4, 'left': 10, 'right': 10}
 c.tabs.position = 'left'
 c.tabs.show = 'multiple'
 
-c.url.default_page = 'file:///home/mvo/Code/web/startpage/index.html'
-c.url.start_pages = ['file:///home/mvo/Code/web/startpage/index.html']
+c.url.default_page = 'file:///home/michael/cloned/startpage2/index.html'
+c.url.start_pages = ['file:///home/michael/cloned/startpage2/index.html']
 
 config.bind('tt', 'set tabs.show never')
 config.bind('tT', 'set tabs.show multiple')
 
 import glob
 
-c.content.user_stylesheets = glob.glob('/home/mvo/.local/share/qutebrowser/styles/*.user.css')
+c.content.user_stylesheets = glob.glob('/home/michael/.local/share/qutebrowser/styles/*.user.css')
+
+config.load_autoconfig(False)
