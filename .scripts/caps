@@ -1,0 +1,6 @@
+#!/bin/sh
+# setxkbmap -option 'caps:ctrl_modifier'
+# xcape -e 'Caps_Lock=Escape'
+
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
