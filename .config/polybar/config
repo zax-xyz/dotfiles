@@ -17,10 +17,10 @@ yellow = #ffc85e
 silver = #cdd7de
 
 [bar/1]
-monitor = ${env:MONITOR:eDP}	
-width = 1276px
-offset-x = 45px
-offset-y = 15px
+monitor = ${env:MONITOR:HDMI-A-0}	
+; width = 1830px
+; offset-x = 45px
+; offset-y = 15px
 height = 35
 bottom = false
 fixed-center = true
@@ -34,24 +34,24 @@ line-size = 2
 padding-left = 5
 padding-right = 8
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 4
+module-margin-right = 4
 
 font-0 = Lato:pixelsize=9;2
 font-1 = Lato:style=Italic:pixelsize=9;4
 font-2 = Twemoji:scale=9;2
-font-3 = VL Gothic:pixelsize=8.75;2
+font-3 = Source Han Sans CN:pixelsize=8.75;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=8.5;2
 font-5 = Font Awesome 5 Free Solid:pixelsize=8;2
 font-6 = Font Awesome 5 Free Solid:pixelsize=9;1
 
-modules-left = bspwm i3 sep2 ip sep2 kdeconnect st spotify
+modules-left = bspwm i3 sep2 kdeconnect st spotify
 modules-center = date
-modules-right = pulseaudio sep memory sep cpu sep wlan sep mouse-bat sep battery sep powermenu
+modules-right = ip sep pulseaudio sep memory sep cpu sep powermenu
 
-; tray-position = right
+tray-position = right
 tray-padding = 7
-tray-transparent = true
+; tray-transparent = true
 ; tray-background = #212121
 
 wm-restack = bspwm
@@ -74,10 +74,10 @@ enable-scroll = false
 label-focused = %{T2}%index%%{T-}
 label-focused-background = ${colors.background-alt}
 ; label-focused-underline= ${colors.primary}
-label-focused-padding = 4
+label-focused-padding = 6
 
 label-occupied = %index%
-label-occupied-padding = 4
+label-occupied-padding = 6
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
@@ -152,7 +152,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0
+interface = wlp5s0
 interval = 5
 
 format-connected = <ramp-signal>  <label-connected>
@@ -171,7 +171,7 @@ ramp-signal-0 = 
 type = internal/date
 interval = 1
 
-date = "%a %b %d,"
+date = "%a %d %b,"
 date-alt = "%Y-%m-%d"
 
 time = %H:%M:%S
@@ -186,6 +186,8 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
+sink = alsa_output.pci-0000_0b_00.3.analog-stereo
+
 format-volume = <label-volume>
 label-volume = 🔊  %percentage%%
 label-volume-foreground = ${colors.silver}
@@ -193,6 +195,8 @@ label-volume-foreground = ${colors.silver}
 label-muted = 🔇
 ; label-muted-foreground = #666
 label-muted-foreground = ${colors.silver}
+
+click-right = pavucontrol
 
 [module/battery]
 type = internal/battery
@@ -324,7 +328,7 @@ content = "\"
 [module/spotify]
 type = custom/script
 interval = 1
-exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -t 30 -f '{play_pause}  {artist} - {song}' -p ','
+exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -t 50 -f '{play_pause}  {artist} - {song}' -p ','
 
 [module/mouse-bat]
 type = custom/script

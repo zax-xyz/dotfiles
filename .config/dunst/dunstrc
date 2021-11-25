@@ -83,7 +83,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 8
+transparency = 0
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -149,7 +149,7 @@ startup_notification = false
 dmenu = /usr/bin/dmenu -p dunst:
 
 # Browser for opening urls in context menu.
-browser = firefox-nightly -new-tab
+# browser = firefox-nightly -new-tab
 
 # Align icons left/right/off
 icon_position = left
@@ -161,39 +161,43 @@ icon_folders = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48
 frame_width = 0
 frame_color = "#383838"
 
-[shortcuts]
+mouse_left_click = do_action
+mouse_right_click = close_current
+mouse_middle_click = close_all
 
-# Shortcuts are specified as [modifier+][modifier+]...key
-# Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-# "mod3" and "mod4" (windows-key).
-# Xev might be helpful to find names for keys.
+#[shortcuts]
 
-# Close notification.
-close = ctrl+shift+space
+## Shortcuts are specified as [modifier+][modifier+]...key
+## Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+## "mod3" and "mod4" (windows-key).
+## Xev might be helpful to find names for keys.
 
-# Close all notifications.
-#close_all = ctrl+shift+space
+## Close notification.
+#close = ctrl+shift+space
 
-# Redisplay last message(s).
-# On the US keyboard layout "grave" is normally above TAB and left
-# of "1".
-history = ctrl+grave
+## Close all notifications.
+##close_all = ctrl+shift+space
 
-# Context menu.
-context = ctrl+shift+period
+## Redisplay last message(s).
+## On the US keyboard layout "grave" is normally above TAB and left
+## of "1".
+#history = ctrl+grave
+
+## Context menu.
+#context = ctrl+shift+period
 
 [urgency_low]
-    background = "#232323"
+    background = "#212121"
     foreground = "#e2e2e2"
     timeout = 5
 
 [urgency_normal]
-    background = "#232323"
+    background = "#212121"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
-    background = "#232323"
+    background = "#212121"
     foreground = "#ff4b3c"
     timeout = 0
 
@@ -205,3 +209,6 @@ context = ctrl+shift+period
 [brave]
     appname = Brave
     urgency = normal
+
+[fullscreen]
+    fullscreen = pushback

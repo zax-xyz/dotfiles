@@ -9,7 +9,7 @@ flash-opacity: 0.75
 default-opacity: 1
 
 # Length of flash in milliseconds.
-time: 500
+time: 250
 
 # If true, flashes are not faded out. This will improve performance but flashes
 # won't be smooth.
@@ -33,6 +33,8 @@ flash-on-focus: true
 #   'on_switch':
 #      Lone windows will be flashed only upon switching desktops.
 flash-lone-windows: 'never'
+
+flash-fullscreen: false
 
 # Defining window-specific flash rules
 #
