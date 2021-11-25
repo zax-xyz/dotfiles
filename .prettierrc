@@ -1,0 +1,8 @@
+# vim:ft=yaml
+trailingComma: "all"
+printWidth: 100
+arrowParens: "avoid"
+overrides:
+  - files: "*.java"
+    options:
+      tabWidth: 4
