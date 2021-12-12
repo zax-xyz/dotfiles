@@ -65,13 +65,14 @@ bindkey -M vicmd 'j' history-substring-search-down
 # }
 # add-zsh-hook precmd _prompt_purs_precmd
 
-fpath+=$HOME/.local/share/zsh/prompts/lean
+# fpath+=$HOME/.local/share/zsh/prompts/lean
+fpath+=$HOME/.local/share/zsh/prompts/pure
 autoload -U promptinit; promptinit
-prompt lean
+prompt pure
 
 # function zle-line-init zle-keymap-select {
-#   # PROMPT=`$HOME/.local/share/zsh/prompts/purs/target/release/purs prompt -k "$KEYMAP" -r "$?" --venv "${${VIRTUAL_ENV:t}%-*}"`
-#   # zle reset-prompt
+#   PROMPT=`$HOME/.local/share/zsh/prompts/purs/target/release/purs prompt -k "$KEYMAP" -r "$?" --venv "${${VIRTUAL_ENV:t}%-*}"`
+#   zle reset-prompt
 
 #   # Change cursor shape for different vi modes.
 #   if [[ ${KEYMAP} == vicmd ]] ||
