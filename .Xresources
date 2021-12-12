@@ -32,7 +32,7 @@ xterm*letterSpace: -1
 
 st.font: Iosevka Custom:pixelsize=13:antialias=true:autohint=true;
 st.fontalt0: Symbols Nerd Font:pixelsize=9:antialias=true:autohint=true;
-st.alpha: 0.92
+st.alpha: 0.95
 
 st.borderpx: 15
 *.internalBorder: 15
