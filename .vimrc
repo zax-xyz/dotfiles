@@ -26,4 +26,5 @@ if !exists('g:vscode')
   " source ~/.config/nvim/plugins/ale.vim
   source ~/.config/nvim/plugins/matchup.vim
   source ~/.config/nvim/plugins/vim-vue.vim
+  source ~/.config/nvim/plugins/gitgutter.vim
 endif
