@@ -27,4 +27,5 @@ if !exists('g:vscode')
   source ~/.config/nvim/plugins/matchup.vim
   source ~/.config/nvim/plugins/vim-vue.vim
   source ~/.config/nvim/plugins/gitgutter.vim
+  source ~/.config/nvim/plugins/vim_current_word.vim
 endif

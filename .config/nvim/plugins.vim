@@ -45,6 +45,7 @@ if !exists('g:vscode')
   " autocmd BufWritePre *.js,*.java Neoformat
   " Plug 'codota/tabnine-vim'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'dominikduda/vim_current_word'
 
   " Extra wacky shit that goes on the screen
   Plug 'itchyny/lightline.vim'  " Both powerline and airline add at least 20 minutes to my startup time
