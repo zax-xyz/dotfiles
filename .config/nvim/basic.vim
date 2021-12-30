@@ -81,3 +81,11 @@ set background=dark
 
 set re=0
 set scrolloff=3
+
+" Show trailing whitepace
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=#e06c75
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
