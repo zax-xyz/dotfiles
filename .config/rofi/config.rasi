@@ -2,8 +2,9 @@ configuration {
 	modi: "window,run,ssh,drun,combi";
 	show-icons: true;
 	combi-modi: "window,drun";
-	theme: "~/.config/rofi/onedark.rasi";
 	display-window: " Window";
 	display-drun: "";
 	display-combi: "";
 }
+
+@theme "~/.config/rofi/onedark.rasi"
