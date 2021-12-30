@@ -9,7 +9,8 @@
     "vue",
     "json",
     "python",
-    "java"
+    "java",
+    "go"
   ],
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 32,
@@ -20,7 +21,6 @@
   "stylusSupremacy.insertBraces": false,
   "stylusSupremacy.selectorSeparator": "\n",
   "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
-  "prettier.pugWrapAttributesThreshold": 0,
   "vetur.format.defaultFormatter.pug": "none",
   "vetur.experimental.templateInterpolationService": true,
   "diagnostic.virtualText": true,
