@@ -1,5 +1,5 @@
 " Autodetect filetype
-noremap <leader>r :filetype detect<CR>
+noremap <leader>rf :filetype detect<CR>
 
 " Split navigation
 noremap <C-H> <C-W><C-H>
