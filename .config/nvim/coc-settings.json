@@ -21,7 +21,6 @@
   "stylusSupremacy.insertBraces": false,
   "stylusSupremacy.selectorSeparator": "\n",
   "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
-  "vetur.format.defaultFormatter.pug": "none",
   "vetur.experimental.templateInterpolationService": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
