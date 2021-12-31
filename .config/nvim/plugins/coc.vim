@@ -1,3 +1,28 @@
+let g:coc_global_extensions = [
+    \ 'coc-tabnine',
+    \ 'coc-snippets',
+    \ 'coc-prettier',
+    \ 'coc-pairs',
+    \ 'coc-html',
+    \ 'coc-highlight',
+    \ 'coc-explorer',
+    \ 'coc-eslint',
+    \ 'coc-discord-rpc',
+    \ 'coc-vetur',
+    \ 'coc-tsserver',
+    \ 'coc-texlab',
+    \ 'coc-tailwind-intellisense',
+    \ 'coc-styled-components',
+    \ 'coc-sql',
+    \ 'coc-sh',
+    \ 'coc-pyright',
+    \ 'coc-json',
+    \ 'coc-java',
+    \ 'coc-go',
+    \ 'coc-css',
+    \ 'coc-clangd',
+    \ ]
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
