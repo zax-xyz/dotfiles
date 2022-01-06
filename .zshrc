@@ -14,9 +14,6 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
