@@ -1,17 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "html",
-    "css",
-    "vue",
-    "json",
-    "python",
-    "java",
-    "go"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "json", "python", "java", "go"],
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 32,
   "explorer.buffer.tabOnly": true,
@@ -24,5 +12,6 @@
   "vetur.experimental.templateInterpolationService": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "typescript.autoClosingTags": true
+  "typescript.autoClosingTags": true,
+  "eslint.autoFixOnSave": true
 }
