@@ -7,6 +7,6 @@
 [submodule ".config/polybar/scripts/polybar-kdeconnect"]
 	path = .config/polybar/scripts/polybar-kdeconnect
 	url = https://github.com/haideralipunjabi/polybar-kdeconnect
-[submodule ".local/share/zsh/prompts/purs"]
-	path = .local/share/zsh/prompts/purs
+[submodule ".local/share/zsh/prompts/pure"]
+	path = .local/share/zsh/prompts/pure
 	url = https://github.com/sindresorhus/pure
