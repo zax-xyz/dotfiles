@@ -59,15 +59,19 @@ go() {
   go build "$1"
 }
 
-case $ext in
-  md) markdown "$@" ;;
-  Xresources) xrdb $1 ;;
-  tex) latex "$@" ;;
-  ms) groff "$@" ;;
-  Rmd) rmarkdown "$@" ;;
-  h) make ;;
-  c) make ;;
-  conf) conf "$@" ;;
-  yml) yml "$@" ;;
-  go) go "$@" ;;
-esac
+if [ -f Makefile ]; then
+  make
+else
+  case $ext in
+    md) markdown "$@" ;;
+    Xresources) xrdb $1 ;;
+    tex) latex "$@" ;;
+    ms) groff "$@" ;;
+    Rmd) rmarkdown "$@" ;;
+    h) make ;;
+    c) make ;;
+    conf) conf "$@" ;;
+    yml) yml "$@" ;;
+    go) go "$@" ;;
+  esac
+fi
