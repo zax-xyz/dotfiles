@@ -12,6 +12,5 @@
   "vetur.experimental.templateInterpolationService": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "typescript.autoClosingTags": true,
-  "eslint.autoFixOnSave": true
+  "typescript.autoClosingTags": true
 }

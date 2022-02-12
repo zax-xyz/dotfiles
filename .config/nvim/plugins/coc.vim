@@ -125,8 +125,8 @@ endfunction
 " For coc-css
 autocmd FileType scss setl iskeyword+=@-@
 
-autocmd BufWritePre *.js call CocAction('format')
-autocmd BufWritePre *.jsx call CocAction('format')
-autocmd BufWritePre *.ts call CocAction('format')
-autocmd BufWritePre *.tsx call CocAction('format')
-autocmd BufWritePre *.vue call CocAction('format')
+" autocmd BufWritePre *.js call CocAction('format')
+" autocmd BufWritePre *.jsx call CocAction('format')
+" autocmd BufWritePre *.ts call CocAction('format')
+" autocmd BufWritePre *.tsx call CocAction('format')
+" autocmd BufWritePre *.vue call CocAction('format')
