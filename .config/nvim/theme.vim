@@ -1,5 +1,8 @@
 " let g:one_allow_italics = 1
-let g:onedark_transparent_background = 1
+" let g:onedark_transparent_background = 1
+let g:onedark_config = {
+    \ 'transparent': v:true,
+  \ }
 colorscheme onedark
 
 " Transparent background in terminal
