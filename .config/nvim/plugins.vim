@@ -63,7 +63,7 @@ if !exists('g:vscode')
 
   " Language-related plugins
   Plug 'vim-python/python-syntax'
-  Plug 'vim-scripts/indentpython.vim'
+  " Plug 'vim-scripts/indentpython.vim'
   " Plug 'lepture/vim-jinja'
   Plug 'plasticboy/vim-markdown'
   Plug 'posva/vim-vue'
