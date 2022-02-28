@@ -33,7 +33,7 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Compile documents
 noremap <leader>c :w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
-inoremap <C-c> <Esc>:w<CR>:!true \| ~/.scripts/compile "%" &> /dev/null & disown<CR><CR>
+imap <C-c> <Esc><leader>c
 au FileType markdown nmap <leader>C :w<CR>:!~/.scripts/compile "%" 1000 &> /dev/null & disown<CR><CR>
 
 " Toggle spellcheck
