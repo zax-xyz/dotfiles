@@ -85,6 +85,8 @@ if !exists('g:vscode')
   Plug 'styled-components/vim-styled-components'
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  Plug 'github/copilot.vim'
 endif
 
 " Linting
