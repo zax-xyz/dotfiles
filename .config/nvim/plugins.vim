@@ -62,27 +62,27 @@ if !exists('g:vscode')
   " Plug 'thaerkh/vim-indentguides'
 
   " Language-related plugins
-  Plug 'vim-python/python-syntax'
+  " Plug 'vim-python/python-syntax'
   " Plug 'vim-scripts/indentpython.vim'
   " Plug 'lepture/vim-jinja'
-  Plug 'plasticboy/vim-markdown'
-  Plug 'posva/vim-vue'
+  " Plug 'plasticboy/vim-markdown'
+  " Plug 'posva/vim-vue'
   " Plug 'leafOfTree/vim-vue-plugin'
   Plug 'digitaltoad/vim-pug'
   Plug 'iloginow/vim-stylus'
   Plug 'lervag/vimtex'
   Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
   Plug 'turbio/bracey.vim'
-  Plug 'pangloss/vim-javascript'
+  " Plug 'pangloss/vim-javascript'
   Plug 'mattn/emmet-vim'
   " Plug 'leafgarland/typescript-vim'
   " Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'uiiaoo/java-syntax.vim'
+  " Plug 'uiiaoo/java-syntax.vim'
   Plug 'rustushki/JavaImp.vim'
-  Plug 'octol/vim-cpp-enhanced-highlight'
+  " Plug 'octol/vim-cpp-enhanced-highlight'
   " Plug 'jeaye/color_coded'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'styled-components/vim-styled-components'
+  " Plug 'maxmellon/vim-jsx-pretty'
+  " Plug 'styled-components/vim-styled-components'
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
