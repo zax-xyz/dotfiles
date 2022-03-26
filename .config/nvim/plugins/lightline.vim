@@ -21,7 +21,7 @@ let g:lightline = {
   \     ],
   \     'right':[ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
   \               [ 'lineinfo' ],
-  \               [ 'fugitive', 'fileformat', 'fileencoding', 'filetype' ],
+  \               [ 'fugitive', 'filetype' ],
   \               [ 'bytecount' ],
   \     ]
   \   },
