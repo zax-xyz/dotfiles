@@ -90,3 +90,5 @@ if exists('g:vscode')
   omap gc  <Plug>VSCodeCommentary
   nmap gcc <Plug>VSCodeCommentaryLine
 endif
+
+noremap <leader>y :%y+<CR>
