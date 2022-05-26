@@ -8,7 +8,7 @@ xset s 300 30 &
 xss-lock -n ~/.scripts/dim-screen.sh ~/.scripts/lock.sh &
 xset r rate 200 35 &
 numlockx &
-~/.scripts/caps &
+# ~/.scripts/caps &
 xsetroot -cursor_name left_ptr &
 # ~/.scripts/capslk.sh &
 # fcitx -d &

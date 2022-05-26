@@ -22,7 +22,7 @@ monitor = ${env:MONITOR:HDMI-A-0}
 ; offset-x = 45px
 ; offset-y = 15px
 height = 35
-bottom = false
+bottom = true
 fixed-center = true
 
 background = ${colors.background}
@@ -41,9 +41,9 @@ font-0 = Lato:pixelsize=9;2
 font-1 = Lato:style=Italic:pixelsize=9;4
 font-2 = Twemoji:scale=9;2
 font-3 = Source Han Sans CN:pixelsize=8.75;2
-font-4 = Font Awesome 5 Free Solid:pixelsize=8.5;2
-font-5 = Font Awesome 5 Free Solid:pixelsize=8;2
-font-6 = Font Awesome 5 Free Solid:pixelsize=9;1
+font-4 = Font Awesome 6 Free Solid:pixelsize=8.5;2
+font-5 = Font Awesome 6 Free Solid:pixelsize=8;2
+font-6 = Font Awesome 6 Free Solid:pixelsize=9;1
 
 modules-left = bspwm i3 sep2 kdeconnect st spotify
 modules-center = date
@@ -309,8 +309,8 @@ format-padding = 2
 [module/ip]
 type = custom/script
 interval = 5
-; exec = ip -4 -o addr | awk '!/ lo /{print $4}' | cut -d '/' -f 1 | paste -sd '  '
-exec = ip -4 -o addr | awk -F '\\s+|/' '!/\S+ lo /{print $4}' | paste -sd '  '
+exec = ip -4 -o addr | awk '!/ lo /{print $4}' | cut -d '/' -f 1 | paste -sd '  '
+; exec = ip -4 -o addr | awk -F '\\s+|/' '!/\S+ lo /{print $4}' | paste -sd '  '
 
 [module/decor-glyph]
 type = custom/text
