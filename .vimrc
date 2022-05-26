@@ -11,6 +11,7 @@ if !exists('g:vscode')
   " Plugin specific
   " source ~/.config/nvim/plugins/ultisnips.vim
   " source ~/.config/nvim/plugins/ycm.vim
+  source ~/.config/nvim/plugins/telescope.vim
   source ~/.config/nvim/plugins/coc.vim
   " source ~/.config/nvim/plugins/supertab.vim
   source ~/.config/nvim/plugins/lightline.vim

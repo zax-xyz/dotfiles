@@ -33,8 +33,10 @@ if !exists('g:vscode')
 
   Plug 'tpope/vim-commentary'
   Plug 'suy/vim-context-commentstring'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Plug 'junegunn/fzf.vim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'ciaranm/detectindent'
   Plug 'andymass/vim-matchup'
