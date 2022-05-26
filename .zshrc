@@ -1,28 +1,14 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+P10K_INSTANT_PROMPT_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+[[ -r "$P10K_INSTANT_PROMPT_PATH" ]] && source "$P10K_INSTANT_PROMPT_PATH"
 source ~/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme
-
-# fpath+=$HOME/.local/share/zsh/prompts/pure
-# autoload -U promptinit; promptinit
-# prompt pure
 
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/shell_history
 
-if [ -f ~/.aliasrc ]; then
-. ~/.aliasrc
-fi
-
-if [ -f ~/.functionrc ]; then
-. ~/.functionrc
-fi
+[ -f ~/.aliasrc ] && source ~/.aliasrc
+[ -f ~/.functionrc ] && source ~/.functionrc
 
 setopt no_share_history
 unsetopt share_history
