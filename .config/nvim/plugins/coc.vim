@@ -130,3 +130,5 @@ autocmd FileType scss setl iskeyword+=@-@
 " autocmd BufWritePre *.ts call CocAction('format')
 " autocmd BufWritePre *.tsx call CocAction('format')
 " autocmd BufWritePre *.vue call CocAction('format')
+
+autocmd FileType c,cpp noremap <leader>h :CocCommand clangd.switchSourceHeader<CR>
