@@ -4,7 +4,7 @@ It's just my dotfiles
 
 Currently the main programs I use are:
 
-- **WME**: bspwm
+- **WM**: bspwm
 - **Keybindings**: sxhkd
 - **Status Bar**: polybar
 - **Compositor**: picom
