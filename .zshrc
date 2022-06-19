@@ -31,7 +31,7 @@ source $plugin_dir/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Vim chad 😎
 bindkey -v
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey '^v' edit-command-line
 
 bindkey '^P' up-history
 bindkey '^N' down-history
