@@ -11,7 +11,6 @@ let g:coc_global_extensions = [
     \ 'coc-vetur',
     \ 'coc-tsserver',
     \ 'coc-texlab',
-    \ 'coc-tailwind-intellisense',
     \ 'coc-styled-components',
     \ 'coc-sql',
     \ 'coc-sh',
@@ -132,3 +131,5 @@ autocmd FileType scss setl iskeyword+=@-@
 " autocmd BufWritePre *.vue call CocAction('format')
 
 autocmd FileType c,cpp noremap <leader>h :CocCommand clangd.switchSourceHeader<CR>
+
+set updatetime=300
