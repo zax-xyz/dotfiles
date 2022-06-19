@@ -26,3 +26,4 @@ clipmenud &
 # mpDris2 &
 deepin-calculator &
 mailspring -b &
+blueman-applet &
