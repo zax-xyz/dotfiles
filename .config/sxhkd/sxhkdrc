@@ -111,7 +111,7 @@ super + m
 
 # discord
 super + shift + d
-    discord
+    discord --no-sandbox --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory-buffers --enable-gpu-rasterization
 
 # clipmenu
 super + ctrl + shift + c
@@ -120,6 +120,12 @@ super + ctrl + shift + c
 # maths reference sheet
 super + r
     evince ~/Downloads/education/high_school/ref/maths-ref-sheet.pdf
+
+super + ctrl + shift + r
+    giph "/mnt/data/Videos/giph/$(date -Iseconds).mp4"
+
+super + shift + r
+    giph --stop
 
 #
 # Media controls
@@ -137,13 +143,13 @@ XF86Audio{Play,Next,Prev}
 #     amixer -D pulse sset Master -- toggle
 
 XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume 1 {+,-}2%
+    pactl set-sink-volume $(pactl get-default-sink) {+,-}2%
 
 super + {minus,equal}
     mpc -q volume {-,+}2
 
 XF86AudioMute
-    pactl set-sink-mute 1 toggle
+    pactl set-sink-mute $(pactl get-default-sink) toggle
 
 XF86Search
     rofi -show drun
@@ -162,3 +168,6 @@ super + alt + p
 
 ctrl + {shift + space,grave,shift+period,shift+comma}
     dunstctl {close,history-pop,context,action}
+
+super + alt + {_,shift + }n
+    pkill -SIGUSR{1,2} dunst
