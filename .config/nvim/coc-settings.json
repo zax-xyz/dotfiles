@@ -1,5 +1,16 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "json", "python", "java", "go"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "html",
+    "css",
+    "json",
+    "python",
+    "java",
+    "go",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 32,
   "explorer.buffer.tabOnly": true,
@@ -12,5 +23,25 @@
   "vetur.experimental.templateInterpolationService": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "typescript.autoClosingTags": true
+  "typescript.autoClosingTags": true,
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.inlayHints.variableTypes.enabled": false,
+  "typescript.inlayHints.parameterNames.enabled": "none",
+  "typescript.inlayHints.parameterTypes.enabled": false,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    "tw=\"([^\"]*)",
+    "tw={\"([^\"}]*)",
+    "tw\\.\\w+`([^`]*)",
+    "tw\\(.*?\\)`([^`]*)"
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  }
 }
