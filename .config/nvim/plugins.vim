@@ -31,6 +31,7 @@ if !exists('g:vscode')
   Plug 'editorconfig/editorconfig-vim'
   Plug 'dominikduda/vim_current_word'
   Plug 'andweeb/presence.nvim'
+  Plug 'famiu/bufdelete.nvim'
 
   " Extra wacky shit that goes on the screen
   Plug 'nvim-lualine/lualine.nvim'
