@@ -7,7 +7,7 @@ alias yta="youtube-dl -x --audio-format 'mp3' --output '%(title)s.%(ext)s'"
 alias :q="exit"
 
 # get to external storage devices easier
-alias cdm="cd /run/media/mvo"
+alias cdm="cd /run/media/$USER"
 
 # sxiv-rifle for browsing images in directory after opening single file
 # alias sxiv=sxiv-rifle
