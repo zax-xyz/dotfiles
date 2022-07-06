@@ -30,6 +30,7 @@ if !exists('g:vscode')
   Plug 'andymass/vim-matchup'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'dominikduda/vim_current_word'
+  Plug 'andweeb/presence.nvim'
 
   " Extra wacky shit that goes on the screen
   Plug 'nvim-lualine/lualine.nvim'
@@ -44,7 +45,7 @@ if !exists('g:vscode')
   Plug 'iloginow/vim-stylus'
   Plug 'lervag/vimtex'
   Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-  Plug 'turbio/bracey.vim'
+  Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
   Plug 'mattn/emmet-vim'
   Plug 'rustushki/JavaImp.vim'
 

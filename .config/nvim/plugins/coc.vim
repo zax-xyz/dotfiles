@@ -7,7 +7,6 @@ let g:coc_global_extensions = [
     \ 'coc-highlight',
     \ 'coc-explorer',
     \ 'coc-eslint',
-    \ 'coc-discord-rpc',
     \ 'coc-vetur',
     \ 'coc-tsserver',
     \ 'coc-texlab',
