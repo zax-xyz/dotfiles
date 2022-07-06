@@ -30,8 +30,7 @@ xterm*font: xft:Monaco for Powerline:pixelsize=13,style=regular
 xterm*boldFont: xft:Monaco for Powerline:pixelsize=13,style=bold
 xterm*letterSpace: -1
 
-st.font: Iosevka Custom:pixelsize=13:antialias=true:autohint=true;
-st.fontalt0: Symbols Nerd Font:pixelsize=9:antialias=true:autohint=true;
+st.font: Iosevka Term Extended:pixelsize=12.45:antialias=true:autohint=true;
 st.alpha: 0.95
 
 st.borderpx: 15
