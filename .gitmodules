@@ -7,9 +7,6 @@
 [submodule ".config/polybar/scripts/polybar-kdeconnect"]
 	path = .config/polybar/scripts/polybar-kdeconnect
 	url = https://github.com/haideralipunjabi/polybar-kdeconnect
-[submodule ".local/share/zsh/prompts/pure"]
-	path = .local/share/zsh/prompts/pure
-	url = https://github.com/sindresorhus/pure
 [submodule ".local/share/zsh/plugins/fast-syntax-highlighting"]
 	path = .local/share/zsh/plugins/fast-syntax-highlighting
 	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
