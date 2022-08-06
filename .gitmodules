@@ -22,3 +22,6 @@
 [submodule ".local/share/zsh/plugins/zsh-vi-mode"]
 	path = .local/share/zsh/plugins/zsh-vi-mode
 	url = https://github.com/jeffreytse/zsh-vi-mode
+[submodule ".local/share/zsh/prompts/powerlevel10k"]
+	path = .local/share/zsh/prompts/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k
