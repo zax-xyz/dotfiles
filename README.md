@@ -16,5 +16,5 @@ Currently the main programs I use are:
 - **Display Manager**: ~~lightdm~~ GDM
 - **Browser**: firefox, brave, chromium
 - **File Manager**: ~~Nautilus (GUI), vifm (TUI)~~ Nautilus
-- **PDF Viewer**: ~~Zathura, evince~~ Gnome
+- **PDF Viewer**: ~~Zathura, evince~~ evince
 - **Music**: ~~MPD + ncmpcpp~~ Spotify
