@@ -1,9 +1,9 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
-source ~/.config/nvim/basic.vim
+luafile ~/.config/nvim/basic.lua
 source ~/.config/nvim/plugins.vim
-source ~/.config/nvim/autocmd.vim
+luafile ~/.config/nvim/autocmd.lua
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/gpg.vim
 
