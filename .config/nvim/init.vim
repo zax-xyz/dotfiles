@@ -7,8 +7,8 @@ luafile ~/.config/nvim/autocmd.lua
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/gpg.vim
 
-if !exists('g:vscode')
-  source ~/.config/nvim/gui.vim
+if exists('g:neovide')
+  luafile ~/.config/nvim/neovide.lua
 endif
 
 " let g:python_host_prog = '~/.venvs/neovim2/bin/python'

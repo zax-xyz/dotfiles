@@ -1,4 +1,4 @@
 require('onedark').setup {
-    transparent = true,
+    transparent = vim.fn.exists('g:neovide') == 0,
 }
 require('onedark').load()
