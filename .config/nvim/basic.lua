@@ -64,7 +64,7 @@ vim.o.t_8b = [[\<Esc>[48;2;%lu;%lu;%lum]]
 vim.opt.expandtab = true
 local options = {'tabstop', 'softtabstop', 'shiftwidth'}
 for i = 1, #options do
-  vim.opt[options[i]] = 2
+  vim.opt[options[i]] = 4
 end
 
 -- Color scheme

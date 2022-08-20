@@ -10,10 +10,10 @@ ftAutocmd('python', function()
 end)
 
 -- Indentation
-ftAutocmd('python,c,cpp,go,java', function()
+ftAutocmd('html,css,javascript,typescript,javascriptreact,typescriptreact', function()
   local options = {'tabstop', 'softtabstop', 'shiftwidth'}
   for i = 1, #options do
-    vim.opt_local[options[i]] = 4
+    vim.opt_local[options[i]] = 2
   end
 end)
 ftAutocmd('go', function()
