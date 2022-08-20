@@ -53,7 +53,7 @@ vim.keymap.set('n', '<ScrollWheelUp>', '<C-Y>', {noremap = true})
 vim.keymap.set('n', '<ScrollWheelDown>', '<C-E>', {noremap = true})
 
 if vim.fn.has("termguicolors") == 1 then
-   vim.opt.termguicolors = true
+    vim.opt.termguicolors = true
 end
 
 -- Fix colors in tmux
@@ -64,7 +64,7 @@ vim.o.t_8b = [[\<Esc>[48;2;%lu;%lu;%lum]]
 vim.opt.expandtab = true
 local options = {'tabstop', 'softtabstop', 'shiftwidth'}
 for i = 1, #options do
-  vim.opt[options[i]] = 4
+    vim.opt[options[i]] = 4
 end
 
 -- Color scheme
@@ -76,27 +76,27 @@ vim.opt.scrolloff = 3
 -- Show trailing whitepace
 local autocmd = vim.api.nvim_create_autocmd
 autocmd('ColorScheme', {
-  pattern = '*',
-  callback = function()
-    vim.api.nvim_set_hl(0, 'ExtraWhitespace', {bg = '#e06c75'})
-  end,
+    pattern = '*',
+    callback = function()
+        vim.api.nvim_set_hl(0, 'ExtraWhitespace', {bg = '#e06c75'})
+    end,
 })
 vim.cmd([[match ExtraWhitespace /\s\+$/]])
 autocmd('BufWinEnter', {
-  pattern = '*',
-  command = [[match ExtraWhitespace /\s\+$/]],
+    pattern = '*',
+    command = [[match ExtraWhitespace /\s\+$/]],
 })
 autocmd('InsertEnter', {
-  pattern = '*',
-  command = [[match ExtraWhitespace /\s\+\%#\@<!$/]],
+    pattern = '*',
+    command = [[match ExtraWhitespace /\s\+\%#\@<!$/]],
 })
 autocmd('InsertLeave', {
-  pattern = '*',
-  command = [[match ExtraWhitespace /\s\+$/]],
+    pattern = '*',
+    command = [[match ExtraWhitespace /\s\+$/]],
 })
 autocmd('BufWinLeave', {
-  pattern = '*',
-  callback = function()
-    vim.fn.clearmatches()
-  end
+    pattern = '*',
+    callback = function()
+        vim.fn.clearmatches()
+    end
 })
