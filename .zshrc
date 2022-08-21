@@ -7,8 +7,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/shell_history
 
-[ -f ~/.aliasrc ] && source ~/.aliasrc
-[ -f ~/.functionrc ] && source ~/.functionrc
+source ~/.aliasrc
+source ~/.functionrc
 
 setopt no_share_history
 unsetopt share_history
