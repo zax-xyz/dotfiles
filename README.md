@@ -44,6 +44,7 @@ dgit submodule update
 
 # skip past the error messages to let neovim auto install vim-plug and plugins
 vim
+# quit vim and restart vim to install coc plugins, then quit again
 
 # restart shell
 ```
