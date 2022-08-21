@@ -22,12 +22,12 @@ urxvt.iso14755: False
 urxvt.perl-ext-common:
 
 !Fonts
-urxvt.font: xft:Monaco for Powerline:pixelsize=13.15,style=regular
-urxvt.boldFont: xft:Monaco for Powerline:pixelsize=13.15,style=bold
+urxvt.font: xft:Iosevka Term Extended:pixelsize=12.45,style=regular
+urxvt.boldFont: xft:Iosevka Term Extended:pixelsize=12.45,style=Bold Extended,Bold
 urxvt.letterSpace: -1
 
-xterm*font: xft:Monaco for Powerline:pixelsize=13,style=regular
-xterm*boldFont: xft:Monaco for Powerline:pixelsize=13,style=bold
+xterm*font: xft:Iosevka Term Extended:pixelsize=12.45,style=regular
+xterm*boldFont: xft:Iosevka Term Extended:pixelsize=12.45,style=bold
 xterm*letterSpace: -1
 
 st.font: Iosevka Term Extended:pixelsize=12.45:antialias=true:autohint=true;
@@ -43,7 +43,7 @@ st.blinktimeout: 0
 *.background:   #282c34
 !*.background:   #232323
 !urxvt.background:   [92]#282c34
-urxvt.background:   [92]#232323
+urxvt.background:   [95]#282c34
 st.cursorColor:  #abb2bf
 
 ! black
