@@ -38,6 +38,7 @@ dgit checkout
 # **remove any conflicting existing files and rerun previous command if necessary**
 
 dgit config --local status.showUntrackedFiles no
+dgit config --local pull.rebase false
 
 dgit submodule init
 dgit submodule update
