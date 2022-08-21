@@ -35,7 +35,7 @@ git clone --bare git@github.com:zaxutic/dotfiles.git $HOME/.cfg
 
 alias dgit="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 dgit checkout
-# **remove any conflicting existing files if necessary, then rerun previous command**
+# **remove any conflicting existing files and rerun previous command if necessary**
 
 dgit config --local status.showUntrackedFiles no
 
