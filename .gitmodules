@@ -22,3 +22,6 @@
 [submodule ".local/share/zsh/prompts/powerlevel10k"]
 	path = .local/share/zsh/prompts/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
+[submodule ".local/share/tmux/tmux-onedark-theme"]
+	path = .local/share/tmux/tmux-onedark-theme
+	url = https://github.com/odedlaz/tmux-onedark-theme
