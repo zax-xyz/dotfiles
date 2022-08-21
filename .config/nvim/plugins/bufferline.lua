@@ -9,6 +9,9 @@ require('bufferline').setup({
         diagnostics = "coc"
     },
     highlights = {
+        fill = vim.fn.exists('g:neovide') == 1 and {
+            bg = colors.bg0,
+        } or nil,
         buffer_selected = selected_hl,
         close_button_selected = selected_hl,
         numbers_selected = selected_hl,
