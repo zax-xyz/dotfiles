@@ -52,7 +52,7 @@ if !exists('g:vscode')
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-  Plug 'github/copilot.vim'
+  " Plug 'github/copilot.vim'
 endif
 
 call plug#end()
