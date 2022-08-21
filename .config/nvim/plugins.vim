@@ -40,7 +40,8 @@ if !exists('g:vscode')
   Plug 'majutsushi/tagbar'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'kdheepak/tabline.nvim'
+  " Plug 'kdheepak/tabline.nvim'
+  Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
   " Language-related plugins
   Plug 'iloginow/vim-stylus'
@@ -68,5 +69,6 @@ if !exists('g:vscode')
   source ~/.config/nvim/plugins/matchup.vim
   source ~/.config/nvim/plugins/vim_current_word.vim
   luafile ~/.config/nvim/plugins/lualine.lua
-  luafile ~/.config/nvim/plugins/tabline.lua
+  " luafile ~/.config/nvim/plugins/tabline.lua
+  luafile ~/.config/nvim/plugins/bufferline.lua
 endif

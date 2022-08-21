@@ -11,6 +11,7 @@
     "javascriptreact",
     "typescriptreact"
   ],
+  "diagnostic.refreshOnInsertMode": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 32,
   "explorer.buffer.tabOnly": true,
