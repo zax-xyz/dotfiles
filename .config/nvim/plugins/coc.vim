@@ -10,15 +10,18 @@ let g:coc_global_extensions = [
     \ 'coc-vetur',
     \ 'coc-tsserver',
     \ 'coc-texlab',
+    \ 'coc-sumneko-lua',
     \ 'coc-styled-components',
     \ 'coc-sql',
     \ 'coc-sh',
+    \ 'coc-rust-analyzer',
     \ 'coc-pyright',
     \ 'coc-json',
     \ 'coc-java',
     \ 'coc-go',
     \ 'coc-css',
     \ 'coc-clangd',
+    \ '@yaegassy/coc-tailwindcss3',
     \ ]
 
 " Use `[g` and `]g` to navigate diagnostics
