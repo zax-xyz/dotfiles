@@ -25,7 +25,7 @@ Based on [Atlassian's guide to storing dotfiles](https://www.atlassian.com/git/t
 
 <!-- treesitter won't highlight with just sh :( -->
 ```bash
-# install dependencies for arch-based systems
+# install dependencies (assumes arch-based system, for other systems use the relevant package manager)
 sudo pacman -S zsh neovim nodejs git exa # node used for coc in neovim
 
 # if only need read-only
@@ -46,6 +46,8 @@ dgit submodule update
 # skip past the error messages to let neovim auto install vim-plug and plugins
 vim
 # quit vim and restart vim to install coc plugins, then quit again
+
+chsh # choose /bin/zsh or wherever zsh is located
 
 # restart shell
 ```
