@@ -10,20 +10,19 @@
  *
  */
 
-
 * {
-  black:      #000000;
-  red:        #eb6e67;
-  green:      #95ee8f;
-  yellow:     #f8c456;
-  blue:       #6eaafb;
-  mangenta:   #d886f3;
-  cyan:       #6cdcf7;
-  emphasis:   #ffffff14;
-  text:       #ffffff;
-  text-alt:   #b2b2b2;
-  fg:         #abb2bf;
-  bg:         #282c34;
+  black: #000000;
+  red: #eb6e67;
+  green: #95ee8f;
+  yellow: #f8c456;
+  blue: #6eaafb;
+  mangenta: #d886f3;
+  cyan: #6cdcf7;
+  emphasis: #ffffff14;
+  text: #ffffff;
+  text-alt: #b2b2b2;
+  fg: #abb2bf;
+  bg: #282c34;
 
   spacing: 0;
   background-color: transparent;
@@ -80,13 +79,14 @@ element selected {
   text-color: @text;
 }
 
-element urgent, element selected urgent {
+element urgent,
+element selected urgent {
   text-color: @red;
 }
 
-element active, element selected active {
-  text-color: @purple;
-}
+/* element active, element selected active { */
+/*   text-color: @purple; */
+/* } */
 
 message {
   padding: 5px;
