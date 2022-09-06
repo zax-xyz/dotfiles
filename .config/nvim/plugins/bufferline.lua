@@ -12,6 +12,7 @@ require('bufferline').setup({
         fill = vim.fn.exists('g:neovide') == 1 and {
             bg = colors.bg0,
         } or nil,
+        -- fill = { bg = colors.bg0 },
         buffer_selected = selected_hl,
         close_button_selected = selected_hl,
         numbers_selected = selected_hl,
@@ -43,7 +44,7 @@ nnoremap <silent><C-S-n> :BufferLineMoveNext<CR>
 nnoremap <silent><C-S-p> :BufferLineMovePrev<CR>
 
 " These commands will sort buffers by directory, language, or a custom criteria
-nnoremap <silent>be :BufferLineSortByExtension<CR>
-nnoremap <silent>bd :BufferLineSortByDirectory<CR>
-nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>
+nnoremap <silent><leader>be :BufferLineSortByExtension<CR>
+nnoremap <silent><leader>bd :BufferLineSortByDirectory<CR>
+" nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>
 ]])
