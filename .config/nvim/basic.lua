@@ -1,3 +1,5 @@
+local bind = require('util').bind
+
 -- Basics
 vim.g.mapleader = ' '
 vim.opt.encoding = 'utf-8'
@@ -35,7 +37,7 @@ vim.o.t_EI = [[\<Esc>[1 q]]
 -- Enable folding
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevel = 99
-vim.keymap.set('n', '<leader>F', 'za', {noremap = true})
+bind('n', '<leader>F', 'za')
 
 -- Open splits at the bottom and right
 vim.opt.splitbelow = true
@@ -49,8 +51,8 @@ vim.opt.pastetoggle = '<F2>'
 
 -- Enable mouse control
 vim.opt.mouse = 'a'
-vim.keymap.set('n', '<ScrollWheelUp>', '<C-Y>', {noremap = true})
-vim.keymap.set('n', '<ScrollWheelDown>', '<C-E>', {noremap = true})
+bind('n', '<ScrollWheelUp>', '<C-Y>')
+bind('n', '<ScrollWheelDown>', '<C-E>')
 
 if vim.fn.has("termguicolors") == 1 then
     vim.opt.termguicolors = true

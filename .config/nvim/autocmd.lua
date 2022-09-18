@@ -1,3 +1,5 @@
+local bind = require('bind')
+
 local function ftAutocmd(filetype, callback)
     vim.api.nvim_create_autocmd('FileType', {
         pattern = filetype,
@@ -27,7 +29,7 @@ ftAutocmd('rmd', function()
     vim.opt_local.filetype = 'markdown'
 end)
 ftAutocmd('r', function()
-    vim.keymap.set('i', '<A-->', '<-', {noremap = true, buffer = true})
+    bind('i', '<A-->', '<-', {buffer = true})
 end)
 ftAutocmd('arduino', function()
     vim.opt_local.filetype = 'cpp'
