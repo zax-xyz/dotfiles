@@ -62,15 +62,14 @@ call plug#end()
 if !exists('g:vscode')
   luafile ~/.config/nvim/plugins/onedark.lua
   luafile ~/.config/nvim/plugins/treesitter.lua
-  source ~/.config/nvim/plugins/telescope.vim
+  luafile ~/.config/nvim/plugins/telescope.lua
   source ~/.config/nvim/plugins/coc.vim
-  source ~/.config/nvim/plugins/tex.vim
-  source ~/.config/nvim/plugins/emmet.vim
-  source ~/.config/nvim/plugins/JavaImp.vim
-  source ~/.config/nvim/plugins/matchup.vim
-  source ~/.config/nvim/plugins/vim_current_word.vim
+  luafile ~/.config/nvim/plugins/tex.lua
+  luafile ~/.config/nvim/plugins/emmet.lua
+  luafile ~/.config/nvim/plugins/JavaImp.lua
+  luafile ~/.config/nvim/plugins/matchup.lua
+  luafile ~/.config/nvim/plugins/vim_current_word.lua
   luafile ~/.config/nvim/plugins/lualine.lua
-  " luafile ~/.config/nvim/plugins/tabline.lua
   luafile ~/.config/nvim/plugins/bufferline.lua
   luafile ~/.config/nvim/plugins/scope.lua
 endif
