@@ -1,4 +1,4 @@
-local bind = require('util').bind
+local bind = require('util.bind')
 
 -- Basics
 vim.g.mapleader = ' '
