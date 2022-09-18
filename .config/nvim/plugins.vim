@@ -42,6 +42,7 @@ if !exists('g:vscode')
   Plug 'kyazdani42/nvim-tree.lua'
   " Plug 'kdheepak/tabline.nvim'
   Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+  Plug 'tiagovla/scope.nvim'
 
   " Language-related plugins
   Plug 'iloginow/vim-stylus'
@@ -71,4 +72,5 @@ if !exists('g:vscode')
   luafile ~/.config/nvim/plugins/lualine.lua
   " luafile ~/.config/nvim/plugins/tabline.lua
   luafile ~/.config/nvim/plugins/bufferline.lua
+  luafile ~/.config/nvim/plugins/scope.lua
 endif
