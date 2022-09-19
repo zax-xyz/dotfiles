@@ -82,7 +82,7 @@ bind("", "<leader>w", toggle_wrap)
 
 bind("", "<leader>h", ":nohl<CR>")
 
-if vim.fn.exists('g:vscode') then
+if not vim.fn.exists('g:vscode') then
     bind({"x", "n", "o"}, "gc", "<Plug>VSCodeCommentary")
     bind("n", "gcc", "<Plug>VSCodeCommentaryLine")
 end
