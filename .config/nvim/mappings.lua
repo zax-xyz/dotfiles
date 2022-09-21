@@ -88,4 +88,5 @@ if not vim.fn.exists('g:vscode') then
 end
 
 -- copy to system clipboard
-bind("", "<leader>y", "%y+<CR>")
+bind("", "<leader>y", '"+y')
+bind("", "<leader>Y", ':%y+<CR>')
