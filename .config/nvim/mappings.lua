@@ -90,3 +90,12 @@ end
 -- copy to system clipboard
 bind("", "<leader>y", '"+y')
 bind("", "<leader>Y", ':%y+<CR>')
+
+local transparent = true
+bind("", "<leader>t", function()
+    transparent = not transparent
+    require('onedark').setup {
+        transparent = transparent
+    }
+    require('onedark').load()
+end)
