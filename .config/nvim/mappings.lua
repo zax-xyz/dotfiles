@@ -42,7 +42,7 @@ local write_cmd = ":w<CR>"
 local compile_cmd = '~/.scripts/compile "%"'
 ---@diagnostic disable-next-line: unused-local
 local compile_fin = " &> /dev/null & disown<CR><CR>"
-bind("n", "<leader>c", F"{write_cmd}:!true \\| {compile_cmd} {compile_fin}")
+bind("n", "<leader>c", F"{write_cmd}:!true | {compile_cmd} {compile_fin}")
 ft_autocmd("markdown", function()
     bind("n", "<leader>C", F"{write_cmd}:!{compile_cmd} 1000 {compile_fin}")
 end)
