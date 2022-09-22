@@ -1,7 +1,7 @@
-local colors = require('onedark.palette').dark
+local colors = require('catppuccin.palettes.mocha')
 
 local selected_hl = {
-    bg = colors.bg1
+    bg = colors.surface0,
 }
 
 require('bufferline').setup({

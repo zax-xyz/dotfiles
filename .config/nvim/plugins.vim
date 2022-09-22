@@ -20,6 +20,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 if !exists('g:vscode')
   Plug 'navarasu/onedark.nvim'
+  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
   Plug 'tpope/vim-commentary'
   Plug 'suy/vim-context-commentstring'
@@ -61,7 +62,8 @@ endif
 call plug#end()
 
 if !exists('g:vscode')
-  luafile ~/.config/nvim/plugins/onedark.lua
+  " luafile ~/.config/nvim/plugins/onedark.lua
+  luafile ~/.config/nvim/theme.lua
   luafile ~/.config/nvim/plugins/treesitter.lua
   luafile ~/.config/nvim/plugins/telescope.lua
   source ~/.config/nvim/plugins/coc.vim
@@ -69,7 +71,7 @@ if !exists('g:vscode')
   luafile ~/.config/nvim/plugins/emmet.lua
   luafile ~/.config/nvim/plugins/JavaImp.lua
   luafile ~/.config/nvim/plugins/matchup.lua
-  luafile ~/.config/nvim/plugins/nvim-cursorline.lua
+  " luafile ~/.config/nvim/plugins/nvim-cursorline.lua
   luafile ~/.config/nvim/plugins/lualine.lua
   luafile ~/.config/nvim/plugins/bufferline.lua
   luafile ~/.config/nvim/plugins/scope.lua
