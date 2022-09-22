@@ -30,7 +30,7 @@ if !exists('g:vscode')
   Plug 'ciaranm/detectindent'
   Plug 'andymass/vim-matchup'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'yamatsum/nvim-cursorline'
+  Plug 'dominikduda/vim_current_word'
   Plug 'andweeb/presence.nvim'
   Plug 'famiu/bufdelete.nvim'
 
@@ -54,7 +54,6 @@ if !exists('g:vscode')
   Plug 'rustushki/JavaImp.vim'
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/nvim-treesitter-context'
 
   " Plug 'github/copilot.vim'
 endif
@@ -72,6 +71,7 @@ if !exists('g:vscode')
   luafile ~/.config/nvim/plugins/JavaImp.lua
   luafile ~/.config/nvim/plugins/matchup.lua
   " luafile ~/.config/nvim/plugins/nvim-cursorline.lua
+  luafile ~/.config/nvim/plugins/vim_current_word.lua
   luafile ~/.config/nvim/plugins/lualine.lua
   luafile ~/.config/nvim/plugins/bufferline.lua
   luafile ~/.config/nvim/plugins/scope.lua
