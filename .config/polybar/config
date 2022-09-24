@@ -1,20 +1,46 @@
 ; vim:filetype=dosini
 [colors]
-background = #212121
-background-alt = #2e2e2e
+base = #1e1e2e
+mantle = #181825
+crust = #11111b
 
-foreground = #ffffff
-foreground-alt = #888
+text = #cdd6f4
+subtext0 = #a6adc8
+subtext1 = #bac2de
 
-primary = #ffb52a
-secondary = #f94b3c
-alert = #bd2c40
+surface0 = #313244
+surface1 = #45475a
+surface2 = #585b70
 
-red = #ff6565
-green = #85e8ca
-purple = #ac7ff9
-yellow = #ffc85e
-silver = #cdd7de
+overlay0 = #6c7086
+overlay1 = #7f849c
+overlay2 = #9399b2
+
+background = ${colors.base}
+background-alt = ${colors.surface0}
+
+foreground = ${colors.text}
+foreground-alt = ${colors.subtext0}
+
+; purple = #ac7ff9
+; silver = #cdd7de
+
+blue = #89b4fa
+lavender = #b4befe
+sapphire = #74c7ec
+sky = #89dceb
+teal = #94e2d5
+green = #a6e3a1
+yellow = #f9e2af
+peach = #fab387
+maroon = #eba0ac
+red = #f38ba8
+mauve = #cba6f7
+pink = #f5c2e7
+flamingo = #f2cdcd
+rosewater = #f5e0dc
+
+transparent = #FF00000
 
 [bar/1]
 monitor = ${env:MONITOR:HDMI-A-0}	
@@ -47,7 +73,7 @@ font-6 = Font Awesome 6 Free Solid:pixelsize=9;1
 
 modules-left = bspwm i3 sep2 kdeconnect st spotify
 modules-center = date
-modules-right = ip sep pulseaudio sep memory sep cpu sep powermenu
+modules-right = ip sep pulseaudio sep wlan sep memory sep cpu sep powermenu
 
 tray-position = right
 tray-padding = 7
@@ -80,7 +106,7 @@ label-occupied = %index%
 label-occupied-padding = 6
 
 label-urgent = %index%!
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.red}
 label-urgent-padding = 6
 
 label-empty = 
@@ -100,7 +126,8 @@ enable-scroll = false
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.background-alt}
+; label-mode-background = ${colors.primary}
 
 label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
@@ -138,7 +165,7 @@ label-song-ellipsis = true
 type = internal/cpu
 interval = 15
 format = %{T5}%{T-}  <label>
-format-foreground = ${colors.red}
+format-foreground = ${colors.peach}
 ;format-underline = #f93322
 label = %percentage:2%%
 
@@ -156,7 +183,7 @@ interface = wlp5s0
 interval = 5
 
 format-connected = <ramp-signal>  <label-connected>
-format-connected-foreground = ${colors.purple}
+format-connected-foreground = ${colors.blue}
 ;format-connected-underline = #9f78e1
 label-connected = "%signal%%"
 
@@ -194,7 +221,7 @@ label-volume-foreground = ${colors.silver}
 
 label-muted = 🔇
 ; label-muted-foreground = #666
-label-muted-foreground = ${colors.silver}
+; label-muted-foreground = ${colors.silver}
 
 click-right = pavucontrol
 
@@ -250,9 +277,9 @@ expand-right = true
 format-spacing = 1
 
 label-open = %{T6}%{T-}
-label-open-foreground = ${colors.secondary}
+label-open-foreground = ${colors.red}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.red}
 label-separator = " / "
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -309,7 +336,7 @@ format-padding = 2
 [module/ip]
 type = custom/script
 interval = 5
-exec = ip -4 -o addr | awk '!/ lo /{print $4}' | cut -d '/' -f 1 | paste -sd '  '
+exec = ip -4 -o addr | awk '!/ lo|docker0|br-\w+ /{print $4}' | cut -d '/' -f 1 | paste -sd, | sed 's/,/  /g'
 ; exec = ip -4 -o addr | awk -F '\\s+|/' '!/\S+ lo /{print $4}' | paste -sd '  '
 
 [module/decor-glyph]
