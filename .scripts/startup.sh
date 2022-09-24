@@ -1,5 +1,5 @@
 #!/bin/sh
-feh --bg-fill ~/Pictures/wallpapers/rect1402.png &
+feh --bg-fill ~/Pictures/wallpapers/2.png &
 ~/.config/polybar/launch.sh &
 picom &
 dunst &
