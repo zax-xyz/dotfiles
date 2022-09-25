@@ -8,6 +8,8 @@ text = #cdd6f4
 subtext0 = #a6adc8
 subtext1 = #bac2de
 
+primary = ${colors.lavender}
+
 surface0 = #313244
 surface1 = #45475a
 surface2 = #585b70
@@ -45,7 +47,7 @@ transparent = #FF00000
 [base]
 monitor = ${env:MONITOR:HDMI-A-0}	
 offset-y = 15px
-height = 35
+height = 32
 bottom = true
 
 ; radius = 4
@@ -63,7 +65,7 @@ module-margin-left = 4
 module-margin-right = 4
 
 font-0 = Lato:pixelsize=9;2
-font-1 = Lato:style=Italic:pixelsize=9;4
+font-1 = Lato:style=Italic:pixelsize=9;2
 font-2 = Twemoji:scale=9;2
 font-3 = Source Han Sans CN:pixelsize=8.75;2
 font-4 = Font Awesome 6 Free Solid:pixelsize=8.5;2
@@ -100,8 +102,8 @@ modules-left = bspwm i3 sep2 kdeconnect st spotify
 [bar/centre]
 inherit = base
 
-width = 7%
-offset-x = 46.5%
+width = 7.5%
+offset-x = 46.25%
 
 modules-center = date
 
@@ -128,7 +130,8 @@ enable-scroll = false
 
 label-focused = %{T2}%index%%{T-}
 label-focused-background = ${colors.background-alt}
-; label-focused-underline= ${colors.primary}
+label-focused-foreground = ${colors.primary}
+label-focused-underline= ${colors.primary}
 label-focused-padding = 6
 
 label-occupied = %index%
