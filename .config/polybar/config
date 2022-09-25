@@ -44,9 +44,9 @@ transparent = #FF00000
 
 [bar/1]
 monitor = ${env:MONITOR:HDMI-A-0}	
-; width = 1830px
-; offset-x = 45px
-; offset-y = 15px
+width = 1830px
+offset-x = 45px
+offset-y = 15px
 height = 35
 bottom = true
 fixed-center = true
