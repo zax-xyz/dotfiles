@@ -23,6 +23,7 @@ bspc config presel_feedback_color   "#272F38"
 
 bspc rule -a discord desktop='^1'
 bspc rule -a thunderbird desktop='^9'
+bspc rule -a spotify desktop='^10'
 bspc rule -a Zathura state=tiled
 bspc rule -a WM_FLOATING state=floating
 bspc rule -a deepin-calculator sticky=on hidden=on border=off
