@@ -47,5 +47,6 @@
     "typescriptreact": "javascript"
   },
   "sumneko-lua.enableNvimLuaDev": true,
-  "Lua.telemetry.enable": false
+  "Lua.telemetry.enable": false,
+  "rust-analyzer.server.path": "/usr/bin/rust-analyzer"
 }
