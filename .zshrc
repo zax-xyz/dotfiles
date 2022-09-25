@@ -1,3 +1,5 @@
+source ~/.scripts/mocha.sh
+
 P10K_INSTANT_PROMPT_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 [[ -r "$P10K_INSTANT_PROMPT_PATH" ]] && source "$P10K_INSTANT_PROMPT_PATH"
 source ~/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme
