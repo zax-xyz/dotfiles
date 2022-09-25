@@ -25,5 +25,6 @@ clipmenud &
 # mpd &
 # mpDris2 &
 deepin-calculator &
-mailspring -b &
+# mailspring -b &
+thunderbird &
 blueman-applet &
