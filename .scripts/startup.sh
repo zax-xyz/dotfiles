@@ -14,7 +14,7 @@ xsetroot -cursor_name left_ptr &
 # fcitx -d &
 redshift &
 nextcloud &
-nm-applet &
+# nm-applet &
 conky &
 # unclutter &
 # xbanish -t 5000 &
