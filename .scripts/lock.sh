@@ -1,40 +1,66 @@
 #!/bin/sh
 
+base='#1e1e2e'
+mantle='#181825'
+crust='#11111b'
+
+text='#cdd6f4'
+subtext0='#a6adc8'
+subtext1='#bac2de'
+
+surface0='#313244'
+surface1='#45475a'
+surface2='#585b70'
+
+overlay0='#6c7086'
+overlay1='#7f849c'
+overlay2='#9399b2'
+
+blue='#89b4fa'
+lavender='#b4befe'
+sapphire='#74c7ec'
+sky='#89dceb'
+teal='#94e2d5'
+green='#a6e3a1'
+yellow='#f9e2af'
+peach='#fab387'
+maroon='#eba0ac'
+red='#f38ba8'
+mauve='#cba6f7'
+pink='#f5c2e7'
+flamingo='#f2cdcd'
+rosewater='#f5e0dc'
+
 B='#00000000'  # blank
-C='#ffffff18'  # clear ish
-D='#ffffff66'  # default
-T='#eeeeeeee'  # text
-W='#ac1111ff'  # wrong
-V='#bbbbbbbb'  # verifying
-K='#ffffffff'  # key highlight
 F='Lato Light' # Font
 
 killall -SIGUSR1 dunst
 # mpc pause
 [ -z "$(pidof i3lock)" ] && i3lock  \
-    --color=000000 \
-    --insidevercolor=$C \
-    --ringvercolor=$V \
+    --color=$base \
+    --image=$HOME/Pictures/wallpapers/2_1080.png \
+    --insidevercolor=${base}18 \
+    --ringvercolor=${overlay0}88 \
     \
-    --insidewrongcolor=$C \
-    --ringwrongcolor=$W \
+    --insidewrongcolor=${base}18 \
+    --ringwrongcolor=$red \
     \
     --insidecolor=$B \
-    --ringcolor=$D \
+    --ringcolor=$overlay1 \
     --linecolor=$B \
-    --separatorcolor=$D \
+    --separatorcolor=$overlay1 \
     \
-    --verifcolor=$T \
-    --wrongcolor=$T \
-    --timecolor=$T \
-    --datecolor=$T \
-    --layoutcolor=$T \
-    --keyhlcolor=$K \
-    --bshlcolor=$W \
+    --verifcolor=$text \
+    --wrongcolor=$text \
+    --timecolor=$text \
+    --datecolor=$text \
+    --layoutcolor=$text \
+    --keyhlcolor=$text \
+    --bshlcolor=$red \
     \
     --clock \
     --timestr="%H:%M:%S" \
-    --datestr="%A, %m %Y" \
+    --datestr="%a, %d %b %Y" \
     --wrongtext="" \
     --noinputtext="" \
     --veriftext="" \
