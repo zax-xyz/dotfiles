@@ -27,4 +27,4 @@ clipmenud &
 deepin-calculator &
 # mailspring -b &
 thunderbird &
-blueman-applet &
+# blueman-applet &
