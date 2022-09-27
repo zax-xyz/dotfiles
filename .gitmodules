@@ -6,7 +6,7 @@
 	url = https://github.com/Jvanrhijn/polybar-spotify
 [submodule ".config/polybar/scripts/polybar-kdeconnect"]
 	path = .config/polybar/scripts/polybar-kdeconnect
-	url = https://github.com/haideralipunjabi/polybar-kdeconnect
+	url = https://github.com/zaxutic/polybar-kdeconnect
 [submodule ".local/share/zsh/plugins/fast-syntax-highlighting"]
 	path = .local/share/zsh/plugins/fast-syntax-highlighting
 	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
