@@ -77,7 +77,6 @@ killall -SIGUSR1 dunst
     --date-size=16 \
     --radius=94 \
     --ring-width=5 \
-    --pass-screen-keys \
-    --ignore-empty-password
+    --pass-screen-keys
 
 killall -SIGUSR2 dunst
