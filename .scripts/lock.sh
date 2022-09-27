@@ -39,31 +39,31 @@ killall -SIGUSR1 dunst
 [ -z "$(pidof i3lock)" ] && i3lock  \
     --color=$base \
     --image=$HOME/Pictures/wallpapers/2_1080.png \
-    --insidevercolor=${base}18 \
-    --ringvercolor=${overlay0}88 \
+    --insidever-color=${base}18 \
+    --ringver-color=${overlay0}88 \
     \
-    --insidewrongcolor=${base}18 \
-    --ringwrongcolor=$red \
+    --insidewrong-color=${base}18 \
+    --ringwrong-color=$red \
     \
-    --insidecolor=$B \
-    --ringcolor=$overlay1 \
-    --linecolor=$B \
-    --separatorcolor=$overlay1 \
+    --inside-color=$B \
+    --ring-color=$overlay1 \
+    --line-color=$B \
+    --separator-color=$overlay1 \
     \
-    --verifcolor=$text \
-    --wrongcolor=$text \
-    --timecolor=$text \
-    --datecolor=$text \
-    --layoutcolor=$text \
-    --keyhlcolor=$text \
-    --bshlcolor=$red \
+    --verif-color=$text \
+    --wrong-color=$text \
+    --time-color=$text \
+    --date-color=$text \
+    --layout-color=$text \
+    --keyhl-color=$text \
+    --bshl-color=$red \
     \
     --clock \
-    --timestr="%H:%M:%S" \
-    --datestr="%a, %d %b %Y" \
-    --wrongtext="" \
-    --noinputtext="" \
-    --veriftext="" \
+    --time-str="%H:%M:%S" \
+    --date-str="%a, %d %b %Y" \
+    --wrong-text="" \
+    --noinput-text="" \
+    --verif-text="" \
     --nofork \
     -f \
     \
@@ -73,8 +73,8 @@ killall -SIGUSR1 dunst
     --verif-font="$F" \
     --wrong-font="$F" \
     --greeter-font="$F" \
-    --timesize=36 \
-    --datesize=16 \
+    --time-size=36 \
+    --date-size=16 \
     --radius=94 \
     --ring-width=5 \
     --pass-screen-keys \
