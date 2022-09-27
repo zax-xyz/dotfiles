@@ -20,6 +20,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 if !exists('g:vscode')
   Plug 'navarasu/onedark.nvim'
+  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
   Plug 'tpope/vim-commentary'
   Plug 'suy/vim-context-commentstring'
@@ -42,6 +43,7 @@ if !exists('g:vscode')
   Plug 'kyazdani42/nvim-tree.lua'
   " Plug 'kdheepak/tabline.nvim'
   Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+  Plug 'tiagovla/scope.nvim'
 
   " Language-related plugins
   Plug 'iloginow/vim-stylus'
@@ -59,16 +61,18 @@ endif
 call plug#end()
 
 if !exists('g:vscode')
-  luafile ~/.config/nvim/plugins/onedark.lua
+  " luafile ~/.config/nvim/plugins/onedark.lua
+  luafile ~/.config/nvim/theme.lua
   luafile ~/.config/nvim/plugins/treesitter.lua
-  source ~/.config/nvim/plugins/telescope.vim
+  luafile ~/.config/nvim/plugins/telescope.lua
   source ~/.config/nvim/plugins/coc.vim
-  source ~/.config/nvim/plugins/tex.vim
-  source ~/.config/nvim/plugins/emmet.vim
-  source ~/.config/nvim/plugins/JavaImp.vim
-  source ~/.config/nvim/plugins/matchup.vim
-  source ~/.config/nvim/plugins/vim_current_word.vim
+  luafile ~/.config/nvim/plugins/tex.lua
+  luafile ~/.config/nvim/plugins/emmet.lua
+  luafile ~/.config/nvim/plugins/JavaImp.lua
+  luafile ~/.config/nvim/plugins/matchup.lua
+  " luafile ~/.config/nvim/plugins/nvim-cursorline.lua
+  luafile ~/.config/nvim/plugins/vim_current_word.lua
   luafile ~/.config/nvim/plugins/lualine.lua
-  " luafile ~/.config/nvim/plugins/tabline.lua
   luafile ~/.config/nvim/plugins/bufferline.lua
+  luafile ~/.config/nvim/plugins/scope.lua
 endif

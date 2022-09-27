@@ -25,3 +25,9 @@
 [submodule ".local/share/tmux/tmux-onedark-theme"]
 	path = .local/share/tmux/tmux-onedark-theme
 	url = https://github.com/odedlaz/tmux-onedark-theme
+[submodule ".config/nvim/lua/f-strings"]
+	path = .config/nvim/lua/f-strings
+	url = https://github.com/hishamhm/f-strings
+[submodule ".local/share/tmux/catppucin-tmux"]
+	path = .local/share/tmux/catppucin-tmux
+	url = https://github.com/catppuccin/tmux

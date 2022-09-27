@@ -4,7 +4,7 @@ let &packpath = &runtimepath
 luafile ~/.config/nvim/basic.lua
 source ~/.config/nvim/plugins.vim
 luafile ~/.config/nvim/autocmd.lua
-source ~/.config/nvim/mappings.vim
+luafile ~/.config/nvim/mappings.lua
 source ~/.config/nvim/gpg.vim
 
 if exists('g:neovide')

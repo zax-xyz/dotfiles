@@ -40,6 +40,7 @@ alias gd="git diff"
 alias gl="git log"
 alias glo="git log --oneline"
 alias gcl="git clone"
+alias gch="git checkout"
 
 ## dotfiles
 alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -56,6 +57,7 @@ alias dgpl="dgit pull"
 alias dglo="dgit log --oneline"
 alias dgd="dgit diff"
 alias dgl="dgit log"
+alias dgch="dgit checkout"
 
 # django
 alias djmkmigrate="python manage.py makemigrations --settings=backend.local_settings"

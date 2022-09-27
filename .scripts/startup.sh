@@ -1,5 +1,5 @@
 #!/bin/sh
-feh --bg-fill ~/Pictures/wallpapers/rect1402.png &
+feh --bg-fill ~/Pictures/wallpapers/2.png &
 ~/.config/polybar/launch.sh &
 picom &
 dunst &
@@ -14,7 +14,7 @@ xsetroot -cursor_name left_ptr &
 # fcitx -d &
 redshift &
 nextcloud &
-nm-applet &
+# nm-applet &
 conky &
 # unclutter &
 # xbanish -t 5000 &
@@ -25,5 +25,6 @@ clipmenud &
 # mpd &
 # mpDris2 &
 deepin-calculator &
-mailspring -b &
-blueman-applet &
+# mailspring -b &
+thunderbird &
+# blueman-applet &

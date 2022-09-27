@@ -1,13 +1,14 @@
 # vim: ft=sh
 
 haste() {
-  curl -X POST -s -d "$(cat)" https://bin.zaxu.xyz/documents | sed -E 's|\{"key":"(.+)"}|https://bin.zaxu.xyz/\1|'
+    # this is marginally faster than actually parsing the json (idk why i did this)
+    curl -X POST -s -d "$(cat)" https://bin.zaxu.xyz/documents | sed -E 's|\{"key":"(.+)"}|https://bin.zaxu.xyz/\1|'
 }
 
 # make directory and cd into it
 mkcd() {
-  mkdir -p "$1"
-  cd "$1"
+    mkdir -p "$1"
+    cd "$1"
 }
 
 #
@@ -17,8 +18,8 @@ mkcd() {
 
 # create c directories and copy Makefile template
 cdirs() {
-  mkdir -p lib src
-  cp ~/Templates/Makefile .
+    mkdir -p lib src
+    cp ~/Templates/Makefile .
 }
 
 # aliases to set delay easily
@@ -35,80 +36,80 @@ alias move_cursor_back="xdotool key Escape F period i"
 
 # prepare C development environment in a tiling window manager
 cprep() {
-  # create directories
-  cdirs
+    # create directories
+    cdirs
 
-  # create new terminal window for compiler
-  $TERMINAL & disown
-  sleep 0.2  # ensure the window spawns before we start typing
+    # create new terminal window for compiler
+    $TERMINAL & disown
+    sleep 0.2  # ensure the window spawns before we start typing
 
-  name=${1%.c}
+    name=${1%.c}
 
-  if [ -n "$name" ]; then
-    # prepare compile command
-    xtype "make"
+    if [ -n "$name" ]; then
+        # prepare compile command
+        xtype "make"
 
-    # Makefile target
-    if [ -n "$2" ]; then
-      sed -i "s/<++>/$2/" Makefile
-      xtype " && ./$2"
+        # Makefile target
+        if [ -n "$2" ]; then
+            sed -i "s/<++>/$2/" Makefile
+            xtype " && ./$2"
+        fi
+
+        left_window
+
+        upper=$(echo $name | tr "[a-z]" "[A-Z]")
+
+        # Header
+        echo "#ifndef ${upper}_H\n#define ${upper}_H\n\n#endif" > "lib/$name.h"
+
+        # Include header
+        echo "#include \"$name.h\"\n" > "src/$name.c"
+
+        # start editing
+        vim "src/$name.c"
+    else
+        # prepare compile command
+        xtype "make"
+
+        left_window
+
+        # prepare vim command
+        xtype "vim src/.c"
+        move_cursor_back
     fi
-
-    left_window
-
-    upper=$(echo $name | tr "[a-z]" "[A-Z]")
-
-    # Header
-    echo "#ifndef ${upper}_H\n#define ${upper}_H\n\n#endif" > "lib/$name.h"
-
-    # Include header
-    echo "#include \"$name.h\"\n" > "src/$name.c"
-
-    # start editing
-    vim "src/$name.c"
-  else
-    # prepare compile command
-    xtype "make"
-
-    left_window
-
-    # prepare vim command
-    xtype "vim src/.c"
-    move_cursor_back
-  fi
 }
 
 # prepare Python development environment in a tiling window manager"
 pyprep() {
-  # interactive python shell
-  $TERMINAL -e ipython & disown
-  sleep 0.05  # ensure the next terminal spawns after
+    # interactive python shell
+    $TERMINAL -e ipython & disown
+    sleep 0.05  # ensure the next terminal spawns after
 
-  # window to run the program
-  $TERMINAL & disown
-  sleep 0.3  # ensure the window spawns before we start typing
+    # window to run the program
+    $TERMINAL & disown
+    sleep 0.3  # ensure the window spawns before we start typing
 
-  name=${1%.py}
+    name=${1%.py}
 
-  if [ -n "$name" ]; then
-    # prepare run command
-    xtype "python $name.py"
-    left_window
+    if [ -n "$name" ]; then
+        # prepare run command
+        xtype "python $name.py"
+        left_window
 
-    # start editing
-    vim "$name.py"
-  else
-    # prepare run command
-    xtype "python "
-    left_window
+        # start editing
+        vim "$name.py"
+    else
+        # prepare run command
+        xtype "python "
+        left_window
 
-    # prepare vim command
-    xtype "vim .py"
-    move_cursor_back
-  fi
+        # prepare vim command
+        xtype "vim .py"
+        move_cursor_back
+    fi
 }
 
 jcr() {
-  name=${1%.java}
-  javac $name.java && java $name
+    name=${1%.java}
+    javac $name.java && java $name
 }

@@ -1,12 +1,12 @@
 #!/bin/sh
-id=$(xdotool search --class deepin-calculator | awk '{print $1; exit}')
+id=$(xdotool search --class deepin-calculator | head -n 2 | tail -n 1)
 
 if [ "$id" != "" ]; then
   bspc node $id --flag hidden -f
 else
   deepin-calculator & disown
   sleep 1
-  id=$(xdotool search --class deepin-calculator | awk '{print $1; exit}')
+  id=$(xdotool search --class deepin-calculator | head -n 2 | tail -n 1)
 
   if [ "$id" != "" ]; then
     bspc node $id --flag hidden -f
