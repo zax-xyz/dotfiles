@@ -30,7 +30,7 @@ xterm*font: xft:Iosevka Term Extended:pixelsize=12.45,style=regular
 xterm*boldFont: xft:Iosevka Term Extended:pixelsize=12.45,style=bold
 xterm*letterSpace: -1
 
-st.font: Iosevka Term Extended:pixelsize=12.45:antialias=true:autohint=true;
+st.font: Iosevka Term Extended:pixelsize=14:antialias=true:autohint=true;
 st.alpha: 0.95
 
 st.borderpx: 15
