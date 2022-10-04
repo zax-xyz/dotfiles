@@ -29,3 +29,4 @@ bspc rule -a WM_FLOATING state=floating
 bspc rule -a deepin-calculator sticky=on hidden=on border=off
 bspc rule -a deepin-editor state=floating border=off
 bspc rule -a Gnome-calculator state=floating
+bspc rule -a Nextcloud state=floating
