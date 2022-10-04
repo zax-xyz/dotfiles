@@ -130,8 +130,8 @@ super + shift + r
 #
 # Media controls
 #
-XF86Audio{Play,Next,Prev}
-    playerctl {play-pause,next,previous}
+XF86Audio{Play,Pause,Next,Prev}
+    playerctl {play-pause,pause,next,previous}
 
 # XF86Audio{Play,Next,Prev}
 #     mpc {toggle,next,prev} -q
