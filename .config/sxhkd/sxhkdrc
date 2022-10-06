@@ -155,7 +155,7 @@ XF86Search
     rofi -show drun
 
 XF86MonBrightness{Down,Up}
-    xbacklight -time 100 -steps 25 -{dec,inc} 10
+    xbacklight -time 100 -steps 25 -{dec,inc} 5
 
 super + ctrl + shift + d
     xdg-open https://www.desmos.com/calculator
