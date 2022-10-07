@@ -40,7 +40,7 @@ killall -SIGUSR1 dunst
     --color=$base \
     --image=$HOME/Pictures/wallpapers/2_1080.png \
     --insidever-color=${base}18 \
-    --ringver-color=${overlay0}88 \
+    --ringver-color=$lavender \
     \
     --insidewrong-color=${base}18 \
     --ringwrong-color=$red \
@@ -52,10 +52,12 @@ killall -SIGUSR1 dunst
     \
     --verif-color=$text \
     --wrong-color=$text \
+    --modif-color=$text \
     --time-color=$text \
     --date-color=$text \
     --layout-color=$text \
-    --keyhl-color=$text \
+    --greeter-color=$text \
+    --keyhl-color=$lavender \
     --bshl-color=$red \
     \
     --clock \
@@ -77,7 +79,6 @@ killall -SIGUSR1 dunst
     --date-size=16 \
     --radius=94 \
     --ring-width=5 \
-    --pass-screen-keys \
-    --ignore-empty-password
+    --pass-screen-keys
 
 killall -SIGUSR2 dunst
