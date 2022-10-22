@@ -5,6 +5,8 @@ sxhkd -c ~/.config/sxhkd/bspwm &> /dev/null &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
+bspc config external_rules_command "$(dirname "$0")/external_rules"
+
 bspc config border_width            1
 bspc config window_gap              15
 # bspc config window_gap              0
