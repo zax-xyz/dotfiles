@@ -35,7 +35,8 @@ vim.o.t_SR = [[\<Esc>[3 q]]
 vim.o.t_EI = [[\<Esc>[1 q]]
 
 -- Enable folding
-vim.opt.foldmethod = 'indent'
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevel = 99
 bind('n', '<leader>F', 'za')
 
