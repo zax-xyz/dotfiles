@@ -7,26 +7,26 @@ vim.g.gui_font_face = 'Iosevka Term Extended'
 vim.g.neovide_transparency = 0.95
 vim.g.neovide_background_color = '#282c34'
 
-RefreshGuiFont = function()
+local refreshGuiFont = function()
   vim.opt.guifont = string.format("%s:h%s",vim.g.gui_font_face, vim.g.gui_font_size)
 end
 
-ResizeGuiFont = function(delta)
+local resizeGuiFont = function(delta)
   vim.g.gui_font_size = vim.g.gui_font_size + delta
-  RefreshGuiFont()
+  refreshGuiFont()
 end
 
-ResetGuiFont = function ()
+local resetGuiFont = function ()
   vim.g.gui_font_size = vim.g.gui_font_default_size
-  RefreshGuiFont()
+  refreshGuiFont()
 end
 
 -- Call function on startup to set default value
-ResetGuiFont()
+resetGuiFont()
 
-bind({'n', 'i'}, "<C-+>", function() ResizeGuiFont(1) end)
-bind({'n', 'i'}, "<C-=>", function() ResizeGuiFont(1)  end)
-bind({'n', 'i'}, "<A-S-k>", function() ResizeGuiFont(1)  end)
-bind({'n', 'i'}, "<C-->", function() ResizeGuiFont(-1) end)
-bind({'n', 'i'}, "<A-S-j>", function() ResizeGuiFont(-1)  end)
-bind({'n', 'i'}, "<C-BS>", ResetGuiFont)
+bind({'n', 'i'}, "<C-+>", function() resizeGuiFont(1) end)
+bind({'n', 'i'}, "<C-=>", function() resizeGuiFont(1)  end)
+bind({'n', 'i'}, "<A-S-k>", function() resizeGuiFont(1)  end)
+bind({'n', 'i'}, "<C-->", function() resizeGuiFont(-1) end)
+bind({'n', 'i'}, "<A-S-j>", function() resizeGuiFont(-1)  end)
+bind({'n', 'i'}, "<C-BS>", resetGuiFont)
