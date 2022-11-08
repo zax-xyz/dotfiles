@@ -22,17 +22,33 @@ if !exists('g:vscode')
   Plug 'navarasu/onedark.nvim'
   Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'jayp0521/mason-null-ls.nvim'
+  Plug 'simrat39/inlay-hints.nvim'
+  Plug 'SirVer/ultisnips'
+  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+  Plug 'weilbith/nvim-code-action-menu'
+
   Plug 'tpope/vim-commentary'
   Plug 'suy/vim-context-commentstring'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'ciaranm/detectindent'
   Plug 'andymass/vim-matchup'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'dominikduda/vim_current_word'
   Plug 'andweeb/presence.nvim'
   " Plug 'famiu/bufdelete.nvim'
+  Plug 'windwp/nvim-autopairs'
 
   " Extra wacky shit that goes on the screen
   Plug 'nvim-lualine/lualine.nvim'
@@ -65,13 +81,15 @@ if !exists('g:vscode')
   luafile ~/.config/nvim/theme.lua
   luafile ~/.config/nvim/plugins/treesitter.lua
   luafile ~/.config/nvim/plugins/telescope.lua
-  source ~/.config/nvim/plugins/coc.vim
+  luafile ~/.config/nvim/plugins/lsp.lua
+  " source ~/.config/nvim/plugins/coc.vim
   luafile ~/.config/nvim/plugins/tex.lua
   luafile ~/.config/nvim/plugins/emmet.lua
   luafile ~/.config/nvim/plugins/JavaImp.lua
   luafile ~/.config/nvim/plugins/matchup.lua
   " luafile ~/.config/nvim/plugins/nvim-cursorline.lua
   luafile ~/.config/nvim/plugins/vim_current_word.lua
+  luafile ~/.config/nvim/plugins/autopairs.lua
   luafile ~/.config/nvim/plugins/lualine.lua
   luafile ~/.config/nvim/plugins/bufferline.lua
   luafile ~/.config/nvim/plugins/scope.lua

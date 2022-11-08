@@ -90,3 +90,5 @@ end
 -- copy to system clipboard
 bind("", "<leader>y", '"+y')
 bind("", "<leader>Y", ':%y+<CR>')
+
+bind("", "<leader>ac", function() vim.lsp.buf.code_action({range = {start = {0, 0}, ["end"] = {-1, -1}}}) end)
