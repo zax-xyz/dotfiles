@@ -81,7 +81,8 @@ st.blinktimeout: 0
 *background: #1e1e2e
 *foreground: #cdd6f4
 urxvt.background: [95]#1e1e2e
-st.cursorcolor: #cdd6f4
+/* st.cursorColor: #cdd6f4 */
+st.cursorColor: #b4befe
 
 ! black
 *color0: #45475a
