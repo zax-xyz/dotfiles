@@ -227,5 +227,5 @@ vim.api.nvim_create_autocmd('CursorHold', {
 })
 vim.api.nvim_create_autocmd('CursorHoldI', {
     pattern = '*',
-    callback = vim.lsp.buf.signature_help,
+    command = "silent! lua vim.lsp.buf.signature_help()",
 })
