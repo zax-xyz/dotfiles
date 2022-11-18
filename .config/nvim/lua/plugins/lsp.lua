@@ -70,13 +70,8 @@ require("lspconfig").tailwindcss.setup {
         }
     },
 }
-require("lspconfig").eslint.setup {
-    settings = {
-        eslint = {
-            autoFixOnSave = true,
-        }
-    }
-}
+require("lspconfig").eslint.setup {}
+vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
 require("lspconfig").html.setup {}
 require("lspconfig").cssls.setup {}
 require("lspconfig").cssmodules_ls.setup {}
@@ -196,3 +191,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = '*',
     callback = vim.lsp.buf.format,
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+    }
+)
