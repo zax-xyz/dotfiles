@@ -1,3 +1,4 @@
+vim.cmd[[
 " Install vim-plug if it is not found, then install plugins
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -49,6 +50,7 @@ if !exists('g:vscode')
   Plug 'andweeb/presence.nvim'
   " Plug 'famiu/bufdelete.nvim'
   Plug 'windwp/nvim-autopairs'
+  Plug 'brenoprata10/nvim-highlight-colors'
 
   " Extra wacky shit that goes on the screen
   Plug 'nvim-lualine/lualine.nvim'
@@ -75,22 +77,21 @@ if !exists('g:vscode')
 endif
 
 call plug#end()
+]]
 
-if !exists('g:vscode')
-  " luafile ~/.config/nvim/plugins/onedark.lua
-  luafile ~/.config/nvim/theme.lua
-  luafile ~/.config/nvim/plugins/treesitter.lua
-  luafile ~/.config/nvim/plugins/telescope.lua
-  luafile ~/.config/nvim/plugins/lsp.lua
-  " source ~/.config/nvim/plugins/coc.vim
-  luafile ~/.config/nvim/plugins/tex.lua
-  luafile ~/.config/nvim/plugins/emmet.lua
-  luafile ~/.config/nvim/plugins/JavaImp.lua
-  luafile ~/.config/nvim/plugins/matchup.lua
-  " luafile ~/.config/nvim/plugins/nvim-cursorline.lua
-  luafile ~/.config/nvim/plugins/vim_current_word.lua
-  luafile ~/.config/nvim/plugins/autopairs.lua
-  luafile ~/.config/nvim/plugins/lualine.lua
-  luafile ~/.config/nvim/plugins/bufferline.lua
-  luafile ~/.config/nvim/plugins/scope.lua
-endif
+if vim.fn.exists('g:vscode') == 0 then
+    require("theme")
+    require("plugins/treesitter")
+    require("plugins/telescope")
+    require("plugins/lsp")
+    require("plugins/tex")
+    require("plugins/emmet")
+    require("plugins/JavaImp")
+    require("plugins/matchup")
+    require("plugins/vim_current_word")
+    require("plugins/autopairs")
+    require("plugins/nvim-highlight-colors")
+    require("plugins/lualine")
+    require("plugins/bufferline")
+    require("plugins/scope")
+end

@@ -1,3 +1,4 @@
+vim.cmd[[
 " Don't save backups of *.gpg files
 set backupskip+=*.gpg
 
@@ -23,4 +24,4 @@ augroup encrypted
     \ silent u |
     \ setlocal nobin
 augroup END
-
+]]
