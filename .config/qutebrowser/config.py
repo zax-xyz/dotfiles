@@ -1,46 +1,83 @@
-c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #121212, stop:1 #121212)'
-c.colors.completion.even.bg = '#232323'
-c.colors.completion.fg = ['white']
-c.colors.completion.item.selected.bg = '#e5c07b'
-c.colors.completion.item.selected.border.bottom = '#e5c07b'
-c.colors.completion.item.selected.border.top = '#e5c07b'
-c.colors.completion.item.selected.fg = '#16181d'
-c.colors.completion.item.selected.match.fg = '#e06c75'
-c.colors.completion.match.fg = '#e06c75'
-c.colors.completion.odd.bg = '#232323'
+# pylint: disable=C0111
+from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
+from qutebrowser.config.config import ConfigContainer  # noqa: F401
+config: ConfigAPI = config  # noqa: F821 pylint: disable=E0602,C0103
+c: ConfigContainer = c  # noqa: F821 pylint: disable=E0602,C0103
 
-c.colors.downloads.bar.bg = '#3e4452'
-c.colors.downloads.error.bg = '#e06c75'
-c.colors.downloads.error.fg = 'white'
-c.colors.downloads.stop.bg = '#61afef'
-c.colors.downloads.stop.fg = '#16181d'
+base = '#1e1e2e'
+mantle = '#181825'
+crust = '#11111b'
 
-c.colors.messages.error.bg = '#e06c75'
-c.colors.messages.error.border = '#e06c75'
-c.colors.messages.error.fg = 'black'
+text = '#cdd6f4'
+subtext0 = '#a6adc8'
+subtext1 = '#bac2de'
 
-c.colors.statusbar.caret.bg = '#232323'
-c.colors.statusbar.caret.fg = '#c678dd'
-c.colors.statusbar.caret.selection.bg = '#232323'
-c.colors.statusbar.caret.selection.fg = '#a12dff'
-c.colors.statusbar.command.bg = '#232323'
-c.colors.statusbar.command.fg = '#abb2bf'
-c.colors.statusbar.insert.bg = '#232323'
-c.colors.statusbar.insert.fg = '#61afef'
-c.colors.statusbar.normal.bg = '#232323'
-c.colors.statusbar.normal.fg = '#abb2bf'
-c.colors.statusbar.passthrough.bg = '#232323'
-c.colors.statusbar.passthrough.fg = '#61afef'
+surface0 = '#313244'
+surface1 = '#45475a'
+surface2 = '#585b70'
 
-c.colors.statusbar.url.success.https.fg = '#98c379'
+overlay0 = '#6c7086'
+overlay1 = '#7f849c'
+overlay2 = '#9399b2'
 
-c.colors.tabs.bar.bg = '#232323'
-c.colors.tabs.even.bg = '#232323'
-c.colors.tabs.indicator.start = '#61dfef'
-c.colors.tabs.indicator.stop = '#98c379'
-c.colors.tabs.odd.bg = '#232323'
-c.colors.tabs.selected.even.bg = '#454545'
-c.colors.tabs.selected.odd.bg = '#454545'
+blue = '#89b4fa'
+lavender = '#b4befe'
+sapphire = '#74c7ec'
+sky = '#89dceb'
+teal = '#94e2d5'
+green = '#a6e3a1'
+yellow = '#f9e2af'
+peach = '#fab387'
+maroon = '#eba0ac'
+red = '#f38ba8'
+mauve = '#cba6f7'
+pink = '#f5c2e7'
+flamingo = '#f2cdcd'
+rosewater = '#f5e0dc'
+
+c.colors.completion.category.bg = f'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 {mantle}, stop:1 {mantle})'
+c.colors.completion.even.bg = base
+c.colors.completion.fg = text
+c.colors.completion.item.selected.bg = lavender
+c.colors.completion.item.selected.border.bottom = lavender
+c.colors.completion.item.selected.border.top = lavender
+c.colors.completion.item.selected.fg = base
+c.colors.completion.item.selected.match.fg = green
+c.colors.completion.match.fg = blue
+c.colors.completion.odd.bg = base
+
+c.colors.downloads.bar.bg = surface0
+c.colors.downloads.error.bg = red
+c.colors.downloads.error.fg = text
+c.colors.downloads.stop.bg = blue
+c.colors.downloads.stop.fg = base
+
+c.colors.messages.error.bg = red
+c.colors.messages.error.border = red
+c.colors.messages.error.fg = text
+
+c.colors.statusbar.caret.bg = base
+c.colors.statusbar.caret.fg = lavender
+c.colors.statusbar.caret.selection.bg = base
+c.colors.statusbar.caret.selection.fg = mauve
+c.colors.statusbar.command.bg = base
+c.colors.statusbar.command.fg = text
+c.colors.statusbar.insert.bg = base
+c.colors.statusbar.insert.fg = green
+c.colors.statusbar.normal.bg = base
+c.colors.statusbar.normal.fg = blue
+c.colors.statusbar.passthrough.bg = base
+c.colors.statusbar.passthrough.fg = blue
+
+c.colors.statusbar.url.success.https.fg = green
+
+c.colors.tabs.bar.bg = base
+c.colors.tabs.even.bg = base
+c.colors.tabs.indicator.start = sky
+c.colors.tabs.indicator.stop = green
+c.colors.tabs.odd.bg = base
+c.colors.tabs.selected.even.bg = surface0
+c.colors.tabs.selected.odd.bg = surface0
 
 c.content.autoplay = False
 
@@ -64,6 +101,23 @@ c.tabs.show = 'multiple'
 
 c.url.default_page = 'file:///home/michael/cloned/startpage2/index.html'
 c.url.start_pages = ['file:///home/michael/cloned/startpage2/index.html']
+
+c.colors.hints.bg = yellow
+c.colors.hints.fg = mantle
+c.hints.border = f"1px solid {overlay0}"
+c.colors.hints.match.fg = overlay0
+c.hints.radius = 2
+c.hints.padding = {
+    "top": 1,
+    "bottom": 1,
+    "left": 4,
+    "right": 4,
+}
+c.hints.selectors['all'].remove('img')
+
+c.colors.keyhint.bg = mantle
+c.colors.keyhint.fg = text
+c.colors.keyhint.suffix.fg = subtext1
 
 config.bind('tt', 'set tabs.show never')
 config.bind('tT', 'set tabs.show multiple')
