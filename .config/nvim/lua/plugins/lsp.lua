@@ -6,7 +6,10 @@ require("mason-lspconfig").setup({
 -- local ih = require("inlay-hints")
 -- ih.setup()
 
-require("lspconfig").sumneko_lua.setup {
+local lspconfig = require("lspconfig")
+local lsp = vim.lsp
+
+lspconfig.sumneko_lua.setup {
     settings = {
         Lua = {
             runtime = {
@@ -45,13 +48,13 @@ local tsserver_settings = {
     }
 }
 
-require("lspconfig").tsserver.setup {
+lspconfig.tsserver.setup {
     settings = {
         typescript = tsserver_settings,
         javascript = tsserver_settings,
     }
 }
-require("lspconfig").tailwindcss.setup {
+lspconfig.tailwindcss.setup {
     settings = {
         tailwindCSS = {
             experimental = {
@@ -70,19 +73,19 @@ require("lspconfig").tailwindcss.setup {
         }
     },
 }
-require("lspconfig").eslint.setup {}
-vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
-require("lspconfig").html.setup {}
-require("lspconfig").cssls.setup {}
-require("lspconfig").cssmodules_ls.setup {}
+-- lspconfig.eslint.setup {}
+-- vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
+lspconfig.html.setup {}
+lspconfig.cssls.setup {}
+lspconfig.cssmodules_ls.setup {}
 
-require("lspconfig").bashls.setup {}
-require("lspconfig").clangd.setup {}
-require("lspconfig").pyright.setup {}
-require("lspconfig").rust_analyzer.setup {}
-require("lspconfig").sqlls.setup {}
+lspconfig.bashls.setup {}
+lspconfig.clangd.setup {}
+lspconfig.pyright.setup {}
+lspconfig.rust_analyzer.setup {}
+lspconfig.sqlls.setup {}
 
-require("lspconfig").jsonls.setup {}
+lspconfig.jsonls.setup {}
 
 local cmp = require'cmp'
 
@@ -152,18 +155,18 @@ cmp.setup.cmdline(':', {
 --     capabilities = capabilities
 -- }
 
--- local null_ls = require("null-ls")
+local null_ls = require("null-ls")
 
--- null_ls.setup({
---     sources = {
---         null_ls.builtins.code_actions.eslint_d,
---         null_ls.builtins.diagnostics.eslint_d,
---         null_ls.builtins.formatting.eslint_d,
---     },
--- })
--- require("mason-null-ls").setup({
---     automatic_installation = true,
--- })
+null_ls.setup({
+    sources = {
+        null_ls.builtins.code_actions.eslint_d,
+        null_ls.builtins.diagnostics.eslint_d,
+        null_ls.builtins.formatting.eslint_d,
+    },
+})
+require("mason-null-ls").setup({
+    automatic_installation = true,
+})
 
 -- require("lsp-inlayhints").setup()
 require("inlay-hints").setup()
@@ -176,24 +179,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     local bufnr = args.buf
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local client = lsp.get_client_by_id(args.data.client_id)
     require("inlay-hints").on_attach(client, bufnr)
   end,
 })
 
 local bind = require('util.bind')
-bind("n", "K", vim.lsp.buf.hover)
+bind("n", "K", lsp.buf.hover)
 bind("n", "<leader>ac", function()
     vim.cmd("CodeActionMenu")
 end)
 
 vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = '*',
-    callback = vim.lsp.buf.format,
+    callback = lsp.buf.format,
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+    lsp.diagnostic.on_publish_diagnostics, {
         update_in_insert = true,
     }
 )
+
+local border = { border = "single", focusable = false, scope = "line" }
+vim.diagnostic.config({ float = border })
+
+lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
+lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
