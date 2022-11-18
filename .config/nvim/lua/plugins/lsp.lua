@@ -7,9 +7,11 @@ require("mason-lspconfig").setup({
 -- ih.setup()
 
 local lspconfig = require("lspconfig")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp = vim.lsp
 
 lspconfig.sumneko_lua.setup {
+    capabilities,
     settings = {
         Lua = {
             runtime = {
@@ -49,12 +51,14 @@ local tsserver_settings = {
 }
 
 lspconfig.tsserver.setup {
+    capabilities,
     settings = {
         typescript = tsserver_settings,
         javascript = tsserver_settings,
     }
 }
 lspconfig.tailwindcss.setup {
+    capabilities,
     settings = {
         tailwindCSS = {
             experimental = {
@@ -163,6 +167,20 @@ null_ls.setup({
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.formatting.eslint_d,
     },
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            local augroup = vim.api.nvim_create_augroup("formatOnSave", { clear = false })
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                    vim.lsp.buf.format({ bufnr })
+                end,
+            })
+        end
+    end,
 })
 require("mason-null-ls").setup({
     automatic_installation = true,
@@ -190,11 +208,6 @@ bind("n", "<leader>ac", function()
     vim.cmd("CodeActionMenu")
 end)
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-    pattern = '*',
-    callback = lsp.buf.format,
-})
-
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
     lsp.diagnostic.on_publish_diagnostics, {
         update_in_insert = true,
@@ -206,3 +219,13 @@ vim.diagnostic.config({ float = border })
 
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
 lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
+
+vim.opt.updatetime = 300
+vim.api.nvim_create_autocmd('CursorHold', {
+    pattern = '*',
+    callback = vim.diagnostic.open_float,
+})
+vim.api.nvim_create_autocmd('CursorHoldI', {
+    pattern = '*',
+    callback = vim.lsp.buf.signature_help,
+})
