@@ -12,8 +12,8 @@ require('lualine').setup {
         lualine_a = {
             { function() return '' end, separator = { left = '' }, }
         },
-        lualine_b = {'branch'},
-        lualine_c = {'filename', 'diff', 'diagnostics'},
+        lualine_b = {'filename'},
+        lualine_c = {'branch', 'diff', 'diagnostics'},
         -- lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_x = {'filetype'},
         lualine_y = {'progress'},
