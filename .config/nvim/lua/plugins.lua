@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 " Functionality
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'lewis6991/impatient.nvim'
 
 if !exists('g:vscode')
   Plug 'navarasu/onedark.nvim'
@@ -78,6 +79,8 @@ endif
 
 call plug#end()
 ]]
+
+require("impatient")
 
 if vim.fn.exists('g:vscode') == 0 then
     require("theme")
