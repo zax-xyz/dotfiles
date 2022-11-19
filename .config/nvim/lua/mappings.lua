@@ -91,9 +91,5 @@ end
 bind("", "<leader>y", '"+y')
 bind("", "<leader>Y", ':%y+<CR>')
 
-bind("", "<leader>ac", function() vim.lsp.buf.code_action({range = {start = {0, 0}, ["end"] = {-1, -1}}}) end)
-bind("n", "gd", vim.lsp.buf.definition)
-bind("n", "gy", vim.lsp.buf.type_definition)
-
 local nvim_tree = require("nvim-tree.api")
 bind("n", "<leader>t", function() nvim_tree.tree.toggle(true) end)

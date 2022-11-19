@@ -22,15 +22,16 @@ vim.diagnostic.config({ float = border })
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
 lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
 
+bind("n", "gd", vim.lsp.buf.definition)
+bind("n", "gy", vim.lsp.buf.type_definition)
+
 local function config(_config)
     local merged_config = vim.tbl_deep_extend("force", {
         capabilities,
     }, _config or {})
     merged_config.on_attach = function(client, bufnr)
         bind("n", "K", lsp.buf.hover)
-        bind("n", "<leader>ac", function()
-            vim.cmd("CodeActionMenu")
-        end)
+        bind("n", "<leader>ac", function() vim.cmd("CodeActionMenu") end)
 
         local augroup = vim.api.nvim_create_augroup("lspHover", { clear = false })
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
