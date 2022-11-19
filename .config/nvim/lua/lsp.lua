@@ -45,7 +45,7 @@ local function config(_config)
             command = "silent! lua vim.lsp.buf.signature_help()",
         })
 
-        if _config.on_attach ~= nil then
+        if _config ~= nil and _config.on_attach ~= nil then
             _config.on_attach(client, bufnr)
         end
     end
