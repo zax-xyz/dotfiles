@@ -97,6 +97,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/autopairs")
     require("plugins/nvim-highlight-colors")
     require("plugins/lualine")
+    require("plugins/gitsigns")
     require("plugins/bufferline")
     require("plugins/scope")
     require("plugins/indent_blankline")
