@@ -19,14 +19,14 @@ Currently the main programs I use are:
 - **PDF Viewer**: Zathura, evince
 - **Music**: ~~MPD + ncmpcpp~~ Spotify
 
-## Setup
+## Shell Setup
 
 Based on [Atlassian's guide to storing dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
 
 <!-- treesitter won't highlight with just sh :( -->
 ```bash
 # install dependencies (assumes arch-based system, for other systems use the relevant package manager)
-sudo pacman -S zsh neovim nodejs git exa # node used for coc in neovim
+sudo pacman -S zsh neovim npm git exa
 
 # if only need read-only
 git clone --bare https://github.com/zaxutic/dotfiles.git $HOME/.cfg
@@ -45,9 +45,24 @@ dgit submodule update
 
 # skip past the error messages to let neovim auto install vim-plug and plugins
 vim
-# quit vim and restart vim to install coc plugins, then quit again
+# quit vim and restart vim to install lsp plugins, then quit again
 
 chsh # choose /bin/zsh or wherever zsh is located
 
 # restart shell
+```
+
+## Desktop Setup
+Assumes the steps to clone the repo as above have been followed
+
+```bash
+# basic
+sudo pacman -S bspwm sxhkd polybar dmenu rofi conky dunst feh xss-lock ttc-iosevka
+paru -S picom-rounded-corners # rounded corners is already in upstream, this is actually just to use an old version that's less buggy
+
+# other
+sudo pacman -S firefox nautilus vifm zathura evince redshift nextcloud-client flameshot clipmenu deepin-calculator thunderbird kdeconnect
+paru -S spotify spicetify-cli networkmanager-dmenu-git
+
+# TODO: finish this
 ```
