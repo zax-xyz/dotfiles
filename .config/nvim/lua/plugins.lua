@@ -83,7 +83,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("theme")
     require("plugins/treesitter")
     require("plugins/telescope")
-    require("plugins/lsp")
+    require("lsp")
     require("plugins/tex")
     require("plugins/emmet")
     require("plugins/JavaImp")

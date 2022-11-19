@@ -3,40 +3,74 @@ require("mason-lspconfig").setup({
     automatic_installation = true,
 })
 
--- local ih = require("inlay-hints")
--- ih.setup()
+vim.opt.updatetime = 300
 
 local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local bind = require('util.bind')
 local lsp = vim.lsp
 
-lspconfig.sumneko_lua.setup {
-    capabilities,
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+    lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+    }
+)
+
+local border = { border = "single", focusable = false, scope = "line" }
+vim.diagnostic.config({ float = border })
+
+lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
+lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
+
+local function config(_config)
+    local merged_config = vim.tbl_deep_extend("force", {
+        capabilities,
+    }, _config or {})
+    merged_config.on_attach = function(client, bufnr)
+        bind("n", "K", lsp.buf.hover)
+        bind("n", "<leader>ac", function()
+            vim.cmd("CodeActionMenu")
+        end)
+
+        local augroup = vim.api.nvim_create_augroup("lspHover", { clear = false })
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd('CursorHold', {
+            group = augroup,
+            pattern = '*',
+            callback = vim.diagnostic.open_float,
+        })
+        vim.api.nvim_create_autocmd('CursorHoldI', {
+            group = augroup,
+            pattern = '*',
+            command = "silent! lua vim.lsp.buf.signature_help()",
+        })
+
+        if _config.on_attach ~= nil then
+            _config.on_attach(client, bufnr)
+        end
+    end
+
+    return merged_config
+end
+
+lspconfig.sumneko_lua.setup(config({
     settings = {
         Lua = {
             runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
-				-- Setup your lua path
 				path = vim.split(package.path, ";"),
 			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
+			diagnostics = { globals = { "vim" } },
 			workspace = {
-				-- Make the server aware of Neovim runtime files
 				library = {
 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
 				},
 			},
-            hint = {
-                enable = true,
-            }
+            hint = { enable = true }
         }
     }
-}
+}))
 
 local tsserver_settings = {
     inlayHints = {
@@ -50,15 +84,13 @@ local tsserver_settings = {
     }
 }
 
-lspconfig.tsserver.setup {
-    capabilities,
+lspconfig.tsserver.setup(config({
     settings = {
         typescript = tsserver_settings,
         javascript = tsserver_settings,
     }
-}
-lspconfig.tailwindcss.setup {
-    capabilities,
+}))
+lspconfig.tailwindcss.setup(config({
     settings = {
         tailwindCSS = {
             experimental = {
@@ -76,20 +108,20 @@ lspconfig.tailwindcss.setup {
             },
         }
     },
-}
+}))
 -- lspconfig.eslint.setup {}
 -- vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
-lspconfig.html.setup {}
-lspconfig.cssls.setup {}
-lspconfig.cssmodules_ls.setup {}
+lspconfig.html.setup(config())
+lspconfig.cssls.setup(config())
+lspconfig.cssmodules_ls.setup(config())
 
-lspconfig.bashls.setup {}
-lspconfig.clangd.setup {}
-lspconfig.pyright.setup {}
-lspconfig.rust_analyzer.setup {}
-lspconfig.sqlls.setup {}
+lspconfig.bashls.setup(config())
+lspconfig.clangd.setup(config())
+lspconfig.pyright.setup(config())
+lspconfig.rust_analyzer.setup(config())
+lspconfig.sqlls.setup(config())
 
-lspconfig.jsonls.setup {}
+lspconfig.jsonls.setup(config())
 
 local cmp = require'cmp'
 
@@ -200,32 +232,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = lsp.get_client_by_id(args.data.client_id)
     require("inlay-hints").on_attach(client, bufnr)
   end,
-})
-
-local bind = require('util.bind')
-bind("n", "K", lsp.buf.hover)
-bind("n", "<leader>ac", function()
-    vim.cmd("CodeActionMenu")
-end)
-
-lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
-    lsp.diagnostic.on_publish_diagnostics, {
-        update_in_insert = true,
-    }
-)
-
-local border = { border = "single", focusable = false, scope = "line" }
-vim.diagnostic.config({ float = border })
-
-lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
-lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
-
-vim.opt.updatetime = 300
-vim.api.nvim_create_autocmd('CursorHold', {
-    pattern = '*',
-    callback = vim.diagnostic.open_float,
-})
-vim.api.nvim_create_autocmd('CursorHoldI', {
-    pattern = '*',
-    command = "silent! lua vim.lsp.buf.signature_help()",
 })
