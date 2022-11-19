@@ -14,8 +14,7 @@ require('lualine').setup {
         },
         lualine_b = { { 'filename', path = 1 } },
         lualine_c = {'branch', 'diff', 'diagnostics'},
-        -- lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_x = {'filetype'},
+        lualine_x = { { 'filetype', icon_only = true } },
         lualine_y = {'progress'},
         lualine_z = {
             { 'location', separator = { right = '' } },
