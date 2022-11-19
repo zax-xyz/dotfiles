@@ -5,7 +5,7 @@ vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = 'Iosevka Term Extended'
 
 vim.g.neovide_transparency = 0.95
-vim.g.neovide_background_color = '#282c34'
+vim.g.neovide_background_color = '#1e1e2e'
 
 local refreshGuiFont = function()
   vim.opt.guifont = string.format("%s:h%s",vim.g.gui_font_face, vim.g.gui_font_size)
