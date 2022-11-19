@@ -24,6 +24,10 @@ lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
 
 bind("n", "gd", vim.lsp.buf.definition)
 bind("n", "gy", vim.lsp.buf.type_definition)
+bind("n", "gr", vim.lsp.buf.references)
+bind("n", "gc", vim.lsp.buf.declaration)
+bind("n", "gi", vim.lsp.buf.implementation)
+bind("n", "rn", vim.lsp.buf.rename)
 
 local function config(_config)
     local merged_config = vim.tbl_deep_extend("force", {
