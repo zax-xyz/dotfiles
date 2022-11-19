@@ -57,12 +57,14 @@ if !exists('g:vscode')
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
   Plug 'majutsushi/tagbar'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
   " Plug 'kdheepak/tabline.nvim'
   Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
   Plug 'tiagovla/scope.nvim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
 
   " Language-related plugins
   Plug 'iloginow/vim-stylus'
@@ -97,4 +99,5 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/lualine")
     require("plugins/bufferline")
     require("plugins/scope")
+    require("plugins/indent_blankline")
 end
