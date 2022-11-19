@@ -12,7 +12,9 @@ require('lualine').setup {
         lualine_a = {
             { function() return '' end, separator = { left = '' }, }
         },
-        lualine_b = { { 'filename', path = 1 } },
+        lualine_b = {
+            { 'filename', path = 1, shorting_target = 100 }
+        },
         lualine_c = {'branch', 'diff', 'diagnostics'},
         lualine_x = { { 'filetype', icon_only = true } },
         lualine_y = {'progress'},
