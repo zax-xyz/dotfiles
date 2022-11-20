@@ -34,6 +34,11 @@ bind("n", "gD", vim.lsp.buf.declaration)
 bind("n", "gi", vim.lsp.buf.implementation)
 bind("n", "rn", vim.lsp.buf.rename)
 
+bind("n", "[g", vim.diagnostic.goto_prev)
+bind("n", "]g", vim.diagnostic.goto_next)
+bind("n", "<Left>", vim.diagnostic.goto_prev)
+bind("n", "<Right>", vim.diagnostic.goto_next)
+
 local function config(_config)
     local merged_config = vim.tbl_deep_extend("force", {
         capabilities,
@@ -218,8 +223,7 @@ null_ls.setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    vim.lsp.buf.format({ bufnr })
+                    vim.lsp.buf.format({ bufnr, timeout_ms = 2000 })
                 end,
             })
         end
