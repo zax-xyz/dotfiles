@@ -32,6 +32,7 @@ xterm*letterSpace: -1
 
 st.font: Iosevka Term Extended:pixelsize=12.45:antialias=true:autohint=true;
 st.alpha: 0.95
+st.alpha: 1
 
 st.borderpx: 15
 *.internalBorder: 15
