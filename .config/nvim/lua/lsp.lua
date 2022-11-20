@@ -12,6 +12,11 @@ local lsp = vim.lsp
 
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
     lsp.diagnostic.on_publish_diagnostics, {
+        -- virtual_text = {
+        --     format = function(diagnostic)
+        --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
+        --     end
+        -- },
         update_in_insert = true,
     }
 )
@@ -32,6 +37,7 @@ bind("n", "rn", vim.lsp.buf.rename)
 local function config(_config)
     local merged_config = vim.tbl_deep_extend("force", {
         capabilities,
+        single_file_support = true,
     }, _config or {})
     merged_config.on_attach = function(client, bufnr)
         bind("n", "K", lsp.buf.hover)
@@ -93,7 +99,7 @@ lspconfig.tsserver.setup(config({
     settings = {
         typescript = tsserver_settings,
         javascript = tsserver_settings,
-    }
+    },
 }))
 lspconfig.tailwindcss.setup(config({
     settings = {
