@@ -53,6 +53,7 @@ if !exists('g:vscode')
     Plug 'windwp/nvim-autopairs'
     Plug 'brenoprata10/nvim-highlight-colors'
     Plug 'windwp/nvim-ts-autotag'
+    Plug 'rmagatti/auto-session'
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -98,6 +99,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/autopairs")
     require("plugins/nvim-highlight-colors")
     require("plugins/nvim-ts-autotag")
+    require("plugins/auto-session")
     require("plugins/lualine")
     require("plugins/gitsigns")
     require("plugins/bufferline")
