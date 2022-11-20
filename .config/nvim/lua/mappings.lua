@@ -93,3 +93,5 @@ bind("", "<leader>Y", ':%y+<CR>')
 
 local nvim_tree = require("nvim-tree.api")
 bind("n", "<leader>t", function() nvim_tree.tree.toggle(true) end)
+
+bind("n", "<leader>as", require("session-lens").search_session)

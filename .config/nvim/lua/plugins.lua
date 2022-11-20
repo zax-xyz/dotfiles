@@ -54,6 +54,7 @@ if !exists('g:vscode')
     Plug 'brenoprata10/nvim-highlight-colors'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
+    Plug 'rmagatti/session-lens'
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
