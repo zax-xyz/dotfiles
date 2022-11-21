@@ -1,6 +1,6 @@
 local bind = require('util.bind')
 
-vim.g.gui_font_default_size = 9
+vim.g.gui_font_default_size = 8
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = 'Iosevka Term Extended'
 
