@@ -32,7 +32,7 @@ bind("n", "gy", vim.lsp.buf.type_definition)
 bind("n", "gr", vim.lsp.buf.references)
 bind("n", "gD", vim.lsp.buf.declaration)
 bind("n", "gi", vim.lsp.buf.implementation)
-bind("n", "rn", vim.lsp.buf.rename)
+bind("n", "<leader>rn", vim.lsp.buf.rename)
 
 bind("n", "[g", vim.diagnostic.goto_prev)
 bind("n", "]g", vim.diagnostic.goto_next)
