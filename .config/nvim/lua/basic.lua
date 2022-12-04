@@ -62,7 +62,11 @@ autocmd('ColorScheme', {
 vim.cmd([[match ExtraWhitespace /\s\+$/]])
 autocmd('BufWinEnter', {
     pattern = '*',
-    command = [[match ExtraWhitespace /\s\+$/]],
+    callback = function()
+        if vim.bo.filetype ~= 'toggleterm' then
+            vim.cmd[[match ExtraWhitespace /\s\+$/]]
+        end
+    end
 })
 autocmd('InsertEnter', {
     pattern = '*',
