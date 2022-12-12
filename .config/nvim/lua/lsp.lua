@@ -200,6 +200,15 @@ cmp.setup.cmdline(':', {
     })
 })
 
+local lspkind = require('lspkind')
+cmp.setup {
+  formatting = {
+    format = lspkind.cmp_format({
+        mode = "symbol"
+    })
+  }
+}
+
 -- Set up lspconfig.
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
@@ -213,7 +222,8 @@ null_ls.setup({
     sources = {
         null_ls.builtins.code_actions.eslint_d,
         null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.formatting.eslint_d,
+        -- null_ls.builtins.formatting.eslint_d,
+        null_ls.builtins.formatting.prettier,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
