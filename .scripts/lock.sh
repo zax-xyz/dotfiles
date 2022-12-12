@@ -79,6 +79,9 @@ killall -SIGUSR1 dunst
     --date-size=16 \
     --radius=94 \
     --ring-width=5 \
-    --pass-screen-keys
+    --pass-screen-keys \
+    --pass-media-keys \
+    --pass-volume-keys \
+    --pass-power-keys
 
 killall -SIGUSR2 dunst
