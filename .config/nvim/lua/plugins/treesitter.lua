@@ -1,10 +1,10 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     -- Modules and its options go here
     highlight = { enable = true },
     incremental_selection = { enable = true },
     indent = {
         enable = true,
-        disable = {"python"}
+        disable = { "python" }
     },
     textobjects = { enable = true },
     matchup = { enable = true },

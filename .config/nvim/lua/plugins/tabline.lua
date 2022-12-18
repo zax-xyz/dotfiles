@@ -1,8 +1,8 @@
-require'tabline'.setup {
+require 'tabline'.setup {
     -- Defaults configuration options
     enable = true,
 }
-vim.cmd[[
+vim.cmd [[
     set guioptions-=e " Use showtabline in gui vim
     set sessionoptions+=tabpages,globals " store tabpages and globals in session
 
@@ -23,4 +23,3 @@ vim.cmd[[
 
     noremap <C-t>r :TablineTabRename 
 ]]
-

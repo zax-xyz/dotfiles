@@ -1,4 +1,4 @@
-vim.cmd[[
+vim.cmd [[
 " Install vim-plug if it is not found, then install plugins
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))

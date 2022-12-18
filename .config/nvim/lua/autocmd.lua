@@ -13,7 +13,7 @@ end)
 
 -- Indentation
 ftAutocmd('html,css,javascript,typescript,javascriptreact,typescriptreact', function()
-    local options = {'tabstop', 'softtabstop', 'shiftwidth'}
+    local options = { 'tabstop', 'softtabstop', 'shiftwidth' }
     for i = 1, #options do
         vim.opt_local[options[i]] = 2
     end
@@ -29,7 +29,7 @@ ftAutocmd('rmd', function()
     vim.opt_local.filetype = 'markdown'
 end)
 ftAutocmd('r', function()
-    bind('i', '<A-->', '<-', {buffer = true})
+    bind('i', '<A-->', '<-', { buffer = true })
 end)
 ftAutocmd('arduino', function()
     vim.opt_local.filetype = 'cpp'
