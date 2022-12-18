@@ -12,13 +12,13 @@ local lsp = vim.lsp
 
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
     lsp.diagnostic.on_publish_diagnostics, {
-        -- virtual_text = {
-        --     format = function(diagnostic)
-        --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
-        --     end
-        -- },
-        update_in_insert = true,
-    }
+    -- virtual_text = {
+    --     format = function(diagnostic)
+    --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
+    --     end
+    -- },
+    update_in_insert = true,
+}
 )
 
 local border = { border = "single", focusable = false, scope = "line" }
@@ -73,16 +73,16 @@ lspconfig.sumneko_lua.setup(config({
     settings = {
         Lua = {
             runtime = {
-				version = "LuaJIT",
-				path = vim.split(package.path, ";"),
-			},
-			diagnostics = { globals = { "vim" } },
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-				},
-			},
+                version = "LuaJIT",
+                path = vim.split(package.path, ";"),
+            },
+            diagnostics = { globals = { "vim" } },
+            workspace = {
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                },
+            },
             hint = { enable = true }
         }
     }
@@ -139,17 +139,17 @@ lspconfig.sqlls.setup(config())
 
 lspconfig.jsonls.setup(config())
 
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      end,
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        end,
     },
     window = {
         -- completion = cmp.config.window.bordered(),
@@ -202,11 +202,11 @@ cmp.setup.cmdline(':', {
 
 local lspkind = require('lspkind')
 cmp.setup {
-  formatting = {
-    format = lspkind.cmp_format({
-        mode = "symbol"
-    })
-  }
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = "symbol"
+        })
+    }
 }
 
 -- Set up lspconfig.
@@ -224,6 +224,9 @@ null_ls.setup({
         null_ls.builtins.diagnostics.eslint_d,
         -- null_ls.builtins.formatting.eslint_d,
         null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.gofmt,
+        null_ls.builtins.formatting.lua_format,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
@@ -247,14 +250,14 @@ require("mason-null-ls").setup({
 require("inlay-hints").setup()
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = "LspAttach_inlayhints",
-  callback = function(args)
-    if not (args.data and args.data.client_id) then
-      return
-    end
+    group = "LspAttach_inlayhints",
+    callback = function(args)
+        if not (args.data and args.data.client_id) then
+            return
+        end
 
-    local bufnr = args.buf
-    local client = lsp.get_client_by_id(args.data.client_id)
-    require("inlay-hints").on_attach(client, bufnr)
-  end,
+        local bufnr = args.buf
+        local client = lsp.get_client_by_id(args.data.client_id)
+        require("inlay-hints").on_attach(client, bufnr)
+    end,
 })
