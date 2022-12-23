@@ -48,6 +48,8 @@ alias gl="git log"
 alias glo="git log --oneline"
 alias gcl="git clone"
 alias gch="git checkout"
+alias gchb="git checkout -b"
+alias grb="git rebase"
 
 ## dotfiles
 alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
