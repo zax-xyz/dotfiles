@@ -59,7 +59,7 @@ fade_brightness() {
 }
 
 trap 'exit 0' TERM INT
-trap "fade_time=150 fade_brightness $(get brightness); kill %%" EXIT
+trap "fade_time=150 fade_brightness $(get_brightness); kill %%" EXIT
 fade_brightness $min_brightness
 sleep 60 &
 wait
