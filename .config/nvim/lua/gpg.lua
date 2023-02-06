@@ -1,4 +1,4 @@
-vim.cmd[[
+vim.cmd [[
 " Don't save backups of *.gpg files
 set backupskip+=*.gpg
 

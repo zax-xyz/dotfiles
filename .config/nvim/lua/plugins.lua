@@ -1,4 +1,4 @@
-vim.cmd[[
+vim.cmd [[
 " Install vim-plug if it is not found, then install plugins
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -32,6 +32,7 @@ if !exists('g:vscode')
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
+    Plug 'onsails/lspkind.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'jayp0521/mason-null-ls.nvim'
     Plug 'simrat39/inlay-hints.nvim'
@@ -55,6 +56,7 @@ if !exists('g:vscode')
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
     Plug 'rmagatti/session-lens'
+    Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -101,6 +103,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/nvim-highlight-colors")
     require("plugins/nvim-ts-autotag")
     require("plugins/auto-session")
+    require("plugins/toggleterm")
     require("plugins/lualine")
     require("plugins/gitsigns")
     require("plugins/bufferline")

@@ -33,3 +33,4 @@ bspc rule -a deepin-editor state=floating border=off
 bspc rule -a Gnome-calculator state=floating
 bspc rule -a Nextcloud state=floating
 bspc rule -a 'zoom ' state=floating center=on follow=on border=off
+bspc rule -a Ulauncher border=off

@@ -8,6 +8,6 @@ vim.g.vimtex_motion_enabled = 0
 vim.g.vimtex_view_method = 'zathura'
 vim.g.tex_flavor = 'latex'
 
-vim.api.nvim_set_hl(0, 'Conceal', {bg = 'NONE', fg = '#e5c07b'})
+vim.api.nvim_set_hl(0, 'Conceal', { bg = 'NONE', fg = '#e5c07b' })
 
 bind('', '<leader>v', ':VimtexView<CR>')

@@ -6,7 +6,7 @@
 ## CONFIGURATION ##############################################################
 
 # Brightness will be lowered to this value.
-min_brightness=0.01
+min_brightness=0.04
 
 # If your video driver works with xbacklight, set -time and -steps for fading
 # to $min_brightness here. Setting steps to 1 disables fading.
@@ -59,14 +59,14 @@ fade_brightness() {
 }
 
 trap 'exit 0' TERM INT
-trap "kill %%" EXIT
-# fade_brightness $min_brightness
-# sleep 60 &
-# wait
+trap "fade_time=150 fade_brightness $(get_brightness); kill %%" EXIT
+fade_brightness $min_brightness
+sleep 60 &
+wait
 # fade_brightness 0
 notify-send 'Locking in 30 seconds' 'Locking screen due to inactivity...'
 sleep 30 &
 wait
 # ~/.scripts/lock.sh &
-sleep 2147483647 &
+sleep infinity &
 wait

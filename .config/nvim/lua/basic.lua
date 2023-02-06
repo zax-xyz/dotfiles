@@ -43,7 +43,7 @@ vim.o.t_8b = [[\<Esc>[48;2;%lu;%lu;%lum]]
 
 -- Indentation rules
 vim.opt.expandtab = true
-local options = {'tabstop', 'softtabstop', 'shiftwidth'}
+local options = { 'tabstop', 'softtabstop', 'shiftwidth' }
 for i = 1, #options do
     vim.opt[options[i]] = 4
 end
@@ -56,13 +56,17 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd('ColorScheme', {
     pattern = '*',
     callback = function()
-        vim.api.nvim_set_hl(0, 'ExtraWhitespace', {bg = '#e06c75'})
+        vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = '#e06c75' })
     end,
 })
 vim.cmd([[match ExtraWhitespace /\s\+$/]])
 autocmd('BufWinEnter', {
     pattern = '*',
-    command = [[match ExtraWhitespace /\s\+$/]],
+    callback = function()
+        if vim.bo.filetype ~= 'toggleterm' then
+            vim.cmd [[match ExtraWhitespace /\s\+$/]]
+        end
+    end
 })
 autocmd('InsertEnter', {
     pattern = '*',

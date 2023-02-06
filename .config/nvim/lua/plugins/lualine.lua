@@ -3,8 +3,8 @@ require('lualine').setup {
         icons_enabled = true,
         theme = 'auto',
         component_separators = '·',
-        section_separators = { left = '', right = ''},
-        disabled_filetypes = {'NvimTree'},
+        section_separators = { left = '', right = '' },
+        disabled_filetypes = { 'NvimTree' },
         always_divide_middle = true,
         globalstatus = false,
     },
@@ -15,9 +15,9 @@ require('lualine').setup {
         lualine_b = {
             { 'filename', path = 1, shorting_target = 100 }
         },
-        lualine_c = {'branch', 'diff', 'diagnostics'},
+        lualine_c = { 'branch', 'diff', 'diagnostics' },
         lualine_x = { { 'filetype', icon_only = true } },
-        lualine_y = {'progress'},
+        lualine_y = { 'progress' },
         lualine_z = {
             { 'location', separator = { right = '' } },
         },
@@ -26,7 +26,7 @@ require('lualine').setup {
         lualine_a = {},
         lualine_b = {},
         lualine_c = { { 'filename', path = 1 } },
-        lualine_x = {'location'},
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
     },
