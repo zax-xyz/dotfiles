@@ -10,7 +10,7 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = {
-            { function() return '' end, separator = { left = '' }, }
+            { function() return '○' end, separator = { left = '' }, }
         },
         lualine_b = {
             { 'filename', path = 1, shorting_target = 100 }
