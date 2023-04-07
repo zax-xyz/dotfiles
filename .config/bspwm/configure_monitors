@@ -1,0 +1,19 @@
+#!/bin/sh
+monitors=$(bspc query -M)
+monitors_except_last=$(head -n -1 <<< $monitors)
+last_monitor=$(tail -n 1 <<< $monitors)
+
+n=$(wc -l <<< $monitors)
+desktops_per_monitor=$((10 / n))
+
+set_monitor() {
+    bspc monitor $1 -d $(awk 'BEGIN { ORS=" " }; { for (i=$1; i < $1 + $2; i++) print i }' <<< "$2 $3")
+}
+
+i=1
+for monitor in $monitors_except_last; do
+    set_monitor $monitor $i $desktops_per_monitor
+    i=$((i+d))
+done
+
+set_monitor $last_monitor $i $((10 - i + 1))
