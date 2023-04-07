@@ -13,7 +13,7 @@ set_monitor() {
 i=1
 for monitor in $monitors_except_last; do
     set_monitor $monitor $i $desktops_per_monitor
-    i=$((i+d))
+    i=$((i+desktops_per_monitor))
 done
 
 set_monitor $last_monitor $i $((10 - i + 1))
