@@ -39,6 +39,8 @@ bind("n", "]g", vim.diagnostic.goto_next)
 bind("n", "<Left>", vim.diagnostic.goto_prev)
 bind("n", "<Right>", vim.diagnostic.goto_next)
 
+local lspHoverGroup = vim.api.nvim_create_augroup("lspHover", { clear = false })
+
 local function config(_config)
     local merged_config = vim.tbl_deep_extend("force", {
         capabilities,
@@ -48,15 +50,14 @@ local function config(_config)
         bind("n", "K", lsp.buf.hover)
         bind("n", "<leader>ac", function() vim.cmd("CodeActionMenu") end)
 
-        local augroup = vim.api.nvim_create_augroup("lspHover", { clear = false })
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_clear_autocmds({ group = lspHoverGroup, buffer = bufnr })
         vim.api.nvim_create_autocmd('CursorHold', {
-            group = augroup,
+            group = lspHoverGroup,
             pattern = '*',
             callback = vim.diagnostic.open_float,
         })
         vim.api.nvim_create_autocmd('CursorHoldI', {
-            group = augroup,
+            group = lspHoverGroup,
             pattern = '*',
             command = "silent! lua vim.lsp.buf.signature_help()",
         })
