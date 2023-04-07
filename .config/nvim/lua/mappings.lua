@@ -60,7 +60,7 @@ local wrap_imappings = {
 }
 
 local function toggle_wrap()
-    vim.opt_local.linebreak = not vim.opt_local.linebreak
+    vim.opt_local.linebreak = not vim.opt_local.linebreak:get()
     if vim.opt_local.linebreak then
         for _, lhs in ipairs(wrap_mappings) do
             bind("", lhs, "g" .. lhs, {buffer = true, silent = true})
