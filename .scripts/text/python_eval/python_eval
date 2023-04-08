@@ -1,2 +1,2 @@
 #!/bin/sh
-echo -n $(rofi -dmenu -p "Python Eval" -theme-str '* { font: "monospace 11"; }') | ~/.scripts/text/python_eval/python_eval.py | xclip -selection clipboard
+echo -n $(rofi -dmenu -p "Python Eval" -theme ~/.config/rofi/onedark-mono.rasi) | ~/.scripts/text/python_eval/python_eval.py | xclip -selection clipboard
