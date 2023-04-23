@@ -24,6 +24,7 @@ Currently the main programs I use are:
 Based on [Atlassian's guide to storing dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
 
 <!-- treesitter won't highlight with just sh :( -->
+
 ```bash
 # install dependencies (assumes arch-based system, for other systems use the relevant package manager)
 sudo pacman -S zsh neovim npm git exa unzip
@@ -53,12 +54,12 @@ chsh # choose /bin/zsh or wherever zsh is located
 ```
 
 ## Desktop Setup
+
 Assumes the steps to clone the repo as above have been followed
 
 ```bash
 # basic
-sudo pacman -S bspwm sxhkd polybar dmenu rofi conky dunst feh xss-lock ttc-iosevka
-paru -S picom-rounded-corners # rounded corners is already in upstream, this is actually just to use an old version that's less buggy
+sudo pacman -S bspwm sxhkd polybar dmenu rofi conky dunst picom feh xss-lock ttc-iosevka
 
 # other
 sudo pacman -S firefox nautilus vifm zathura evince redshift nextcloud-client flameshot clipmenu deepin-calculator thunderbird kdeconnect
