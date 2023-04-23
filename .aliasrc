@@ -52,6 +52,7 @@ alias gcl="g clone"
 alias gch="g checkout"
 alias gchb="g checkout -b"
 alias grb="g rebase"
+alias yeet="ga . && gcmsg 'yeet' && gp"
 
 ## dotfiles
 alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
