@@ -63,3 +63,11 @@ eval $(keychain --eval --quiet id_rsa)
 # fnm
 export PATH="/home/sus/.local/share/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
+
+# pnpm
+export PNPM_HOME="/home/sus/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
