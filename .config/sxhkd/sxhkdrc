@@ -26,7 +26,7 @@ super + {shift,ctrl + shift} + m
     {~/.scripts/man_menu,st -e pulsemixer}
 
 super + e
-	~/.local/share/bin/dmenuunicode
+	rofi -modi emoji -show emoji
 
 super + {shift,ctrl + shift} + p
     {~/.scripts/powermenu,~/.local/share/bin/get-color}

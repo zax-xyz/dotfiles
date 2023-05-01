@@ -59,7 +59,7 @@ Assumes the steps to clone the repo as above have been followed
 
 ```bash
 # basic
-sudo pacman -S bspwm sxhkd polybar dmenu rofi conky dunst picom feh xss-lock ttc-iosevka
+sudo pacman -S bspwm sxhkd polybar dmenu rofi conky dunst picom feh xss-lock ttc-iosevka rofi-emoji
 
 # other
 sudo pacman -S firefox nautilus vifm zathura evince redshift nextcloud-client flameshot clipmenu deepin-calculator thunderbird kdeconnect
