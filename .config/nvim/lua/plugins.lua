@@ -56,7 +56,7 @@ if !exists('g:vscode')
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
     Plug 'rmagatti/session-lens'
-    Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
+    Plug 'akinsho/toggleterm.nvim' {'tag': 'v2.*'}
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -67,7 +67,7 @@ if !exists('g:vscode')
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'kyazdani42/nvim-tree.lua'
     " Plug 'kdheepak/tabline.nvim'
-    Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+    Plug 'akinsho/bufferline.nvim'
     Plug 'tiagovla/scope.nvim'
     Plug 'lukas-reineke/indent-blankline.nvim'
 
