@@ -4,7 +4,7 @@ sxhkd &> /dev/null &
 sxhkd -c ~/.config/sxhkd/bspwm &> /dev/null &
 
 # bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-./configure_monitors
+~/.config/bspwm/configure_monitors
 
 bspc config external_rules_command "$(dirname "$0")/external_rules"
 
@@ -24,9 +24,9 @@ bspc config presel_feedback_color   "#272F38"
 
 # bspc config border_radius           5
 
-bspc rule -a discord desktop='^1'
-bspc rule -a thunderbird desktop='^9'
-bspc rule -a spotify desktop='^10'
+# bspc rule -a discord desktop='^1'
+# bspc rule -a thunderbird desktop='^9'
+# bspc rule -a spotify desktop='^10'
 bspc rule -a Zathura state=tiled
 bspc rule -a WM_FLOATING state=floating
 bspc rule -a deepin-calculator sticky=on hidden=on border=off
