@@ -21,7 +21,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'lewis6991/impatient.nvim'
 
 if !exists('g:vscode')
-    Plug 'navarasu/onedark.nvim'
+    " Plug 'navarasu/onedark.nvim'
     Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
     Plug 'williamboman/mason.nvim'
@@ -49,13 +49,13 @@ if !exists('g:vscode')
     Plug 'andymass/vim-matchup'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'dominikduda/vim_current_word'
-    Plug 'andweeb/presence.nvim'
+    " Plug 'andweeb/presence.nvim'
     " Plug 'famiu/bufdelete.nvim'
     Plug 'windwp/nvim-autopairs'
     Plug 'brenoprata10/nvim-highlight-colors'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
-    Plug 'rmagatti/session-lens'
+    " Plug 'rmagatti/session-lens'
     Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
 
     " Extra wacky shit that goes on the screen
@@ -72,12 +72,12 @@ if !exists('g:vscode')
     Plug 'lukas-reineke/indent-blankline.nvim'
 
     " Language-related plugins
-    Plug 'iloginow/vim-stylus'
+    " Plug 'iloginow/vim-stylus'
     Plug 'lervag/vimtex'
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
     Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
     Plug 'mattn/emmet-vim'
-    Plug 'rustushki/JavaImp.vim'
+    " Plug 'rustushki/JavaImp.vim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -101,6 +101,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/vim_current_word")
     require("plugins/autopairs")
     require("plugins/nvim-highlight-colors")
+    require("plugins/nvim-tree")
     require("plugins/nvim-ts-autotag")
     require("plugins/auto-session")
     require("plugins/toggleterm")

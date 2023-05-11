@@ -9,5 +9,3 @@ require 'nvim-treesitter.configs'.setup {
     textobjects = { enable = true },
     matchup = { enable = true },
 }
-
-require("nvim-tree").setup()
