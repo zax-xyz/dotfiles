@@ -44,6 +44,9 @@ super + {_, ctrl + }shift + s
 super + ctrl + shift + k
     ~/.scripts/show-kdeconnect-menu
 
+super + ctrl + alt + k
+    ~/.scripts/setkblayout
+
 super + shift + a
     ~/.local/share/bin/set-headphones
 
