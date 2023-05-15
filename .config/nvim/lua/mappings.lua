@@ -90,10 +90,3 @@ end
 -- copy to system clipboard
 bind("", "<leader>y", '"+y')
 bind("", "<leader>Y", ':%y+<CR>')
-
-local nvim_tree = require("nvim-tree.api")
-bind("n", "<leader>t", function() nvim_tree.tree.toggle(true) end)
-
-for _, lhs in ipairs({"<leader>as", "<C-s>"}) do
-    bind("n", lhs, require("auto-session.session-lens").search_session)
-end
