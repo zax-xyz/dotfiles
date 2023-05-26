@@ -39,6 +39,7 @@ killall -SIGUSR1 dunst
 [ -z "$(pidof i3lock)" ] && i3lock  \
     --color=$base \
     --image=$HOME/Pictures/wallpapers/2_1080.png \
+    -F \
     --insidever-color=${base}18 \
     --ringver-color=$lavender \
     \
