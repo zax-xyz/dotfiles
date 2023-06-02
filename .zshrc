@@ -12,9 +12,6 @@ HISTFILE=~/.cache/shell_history
 source ~/.aliasrc
 source ~/.functionrc
 
-setopt no_share_history
-unsetopt share_history
-
 # Enables better tab completion
 # autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump
 autoload -Uz compinit 
