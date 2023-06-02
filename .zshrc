@@ -41,17 +41,8 @@ bindkey -v
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^v' edit-command-line
 
-bindkey '^P' up-history
-bindkey '^N' down-history
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backward
-
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
