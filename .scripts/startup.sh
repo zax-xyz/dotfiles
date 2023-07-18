@@ -6,7 +6,7 @@ dunst &
 xset dpms 0 0 360 &
 xset s 300 30 &
 xss-lock -n ~/.scripts/dim-screen.sh ~/.scripts/lock.sh &
-xset r rate 200 35 &
+xautocfg &
 numlockx &
 # ~/.scripts/caps &
 xsetroot -cursor_name left_ptr &
