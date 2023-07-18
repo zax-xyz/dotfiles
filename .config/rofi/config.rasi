@@ -7,4 +7,4 @@ configuration {
 	display-combi: "";
 }
 
-@theme "~/.config/rofi/onedark.rasi"
+@theme "~/.config/rofi/ctp.rasi"
