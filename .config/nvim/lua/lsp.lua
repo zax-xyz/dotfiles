@@ -163,6 +163,9 @@ cmp.setup({
         ['<C-e>'] = cmp.mapping.abort(),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
+    formatting = {
+        fields = { "kind", "abbr", "menu" },
+    },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         -- { name = 'vsnip' }, -- For vsnip users.
