@@ -1,0 +1,5 @@
+@theme "~/.config/rofi/config.rasi"
+
+* {
+    font: "monospace 10.5";
+}
