@@ -67,3 +67,10 @@ paru -S spotify spicetify-cli networkmanager-dmenu-git
 
 # TODO: finish this
 ```
+
+## Plans
+
+- Migrate from Polybar to [eww](https://github.com/elkowar/eww) (and maybe use it for some other stuff as well)
+- Maybe migrate from BSPWM to [Hyprland](https://hyprland.org/)
+- Migrate away from Dunst
+  - [wired-notify](https://github.com/Toqozz/wired-notify) and [linux_notification_center](https://github.com/phuhl/linux_notification_center) seem nice, but unfortunately neither of them support Wayland at the moment, which might become a problem. There's a couple Wayland notification daemons ([mako](https://github.com/emersion/mako) and [fnott](https://codeberg.org/dnkl/fnott)), but they don't seem as flexible as I want. Maybe this is an opportunity to make my own
