@@ -113,5 +113,7 @@ alias discord="discord --no-sandbox --disable-features=UseOzonePlatform --disabl
 alias neovide="neovide --multigrid"
 
 alias f="fzf"
+alias d='cd $(fd --type directory | fzf)'
+alias e='vim $(fzf)'
 
 alias img="kitty icat"
