@@ -8,7 +8,7 @@ Currently the main programs I use are:
 - **Keybindings**: sxhkd
 - **Status Bar**: polybar
 - **Compositor**: picom
-- **Terminal**: st
+- **Terminal**: kitty
 - **Shell**: zsh (no frameworks)
 - **Text Editor**: neovim
 - **Application Launcher**: dmenu, rofi

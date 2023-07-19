@@ -1,6 +1,6 @@
 # terminal emulator
 super + {_,shift +,ctrl + shift +}Return
-	st{_, -c WM_FLOATING, -c WM_FLOATING -e tmux new -A -s 1}
+	kitty -1 {_, --class WM_FLOATING, --class WM_FLOATING tmux new -A -s 1}
 
 # program launcher
 super + {_,ctrl + }d
