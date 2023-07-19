@@ -92,3 +92,5 @@ bind("", "<leader>y", '"+y')
 bind("", "<leader>Y", ':%y+<CR>')
 bind("", "<leader>p", '"+p')
 bind("", "<leader>P", '"+P')
+
+bind("t", "<S-Space>", "<Space>")
