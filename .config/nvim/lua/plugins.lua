@@ -80,6 +80,7 @@ if !exists('g:vscode')
     " Plug 'rustushki/JavaImp.vim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-context'
 
     " Plug 'github/copilot.vim'
 endif
@@ -92,6 +93,7 @@ require("impatient")
 if vim.fn.exists('g:vscode') == 0 then
     require("theme")
     require("plugins/treesitter")
+    require("plugins/treesitter-context")
     require("plugins/telescope")
     require("lsp")
     require("plugins/tex")
