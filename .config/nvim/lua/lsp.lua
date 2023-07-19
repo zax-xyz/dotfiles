@@ -21,7 +21,7 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
 }
 )
 
-local border = { border = "single", focusable = false, scope = "line" }
+local border = { border = "rounded", focusable = false, scope = "line" }
 vim.diagnostic.config({ float = border })
 
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
