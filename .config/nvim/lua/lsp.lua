@@ -220,6 +220,12 @@ cmp.setup {
 --     capabilities = capabilities
 -- }
 
+local formatOnSave = true
+vim.api.nvim_create_user_command('ToggleFormatOnSave', function()
+    formatOnSave = not formatOnSave
+    print("Format on save", formatOnSave and "enabled" or "disabled")
+end, {})
+
 local null_ls = require("null-ls")
 
 null_ls.setup({
@@ -242,7 +248,9 @@ null_ls.setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    vim.lsp.buf.format({ bufnr, timeout_ms = 5000 })
+                    if formatOnSave then
+                        vim.lsp.buf.format({ bufnr, timeout_ms = 5000 })
+                    end
                 end,
             })
         end
