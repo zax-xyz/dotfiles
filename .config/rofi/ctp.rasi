@@ -17,6 +17,7 @@
   yellow: #f9e2af;
   blue: #89b4fa;
   cyan: #89dceb;
+  lavender: #b4befe;
   emphasis: #cdd6f414;
   text: #cdd6f4;
   text-alt: #a6adc8;
@@ -34,7 +35,7 @@ window {
   transparency: "real";
   fullscreen: true;
   /* background-color: #000000cc; */
-  background-color: #1e1e2e44;
+  background-color: #1e1e2ebb;
 }
 
 mainbox {
@@ -47,7 +48,7 @@ inputbar {
 }
 
 prompt {
-  text-color: @blue;
+  text-color: @lavender;
 }
 
 textbox-prompt-colon {
