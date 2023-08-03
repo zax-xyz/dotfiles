@@ -38,7 +38,7 @@ super + shift + b
     ~/Downloads/cloned/polybar-bluetooth/toggle_bluetooth.sh
 
 super + {_, ctrl + }shift + s
-    flameshot gui{_, --raw | ~/.scripts/web_screenshot}
+    SESSION_MANAGER= flameshot gui{_, --raw | ~/.scripts/web_screenshot}
     # ~/.scripts/ping-msg
 
 super + ctrl + shift + k
