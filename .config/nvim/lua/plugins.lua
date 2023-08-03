@@ -36,8 +36,9 @@ if !exists('g:vscode')
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'jayp0521/mason-null-ls.nvim'
     Plug 'simrat39/inlay-hints.nvim'
-    Plug 'SirVer/ultisnips'
-    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+    " Plug 'SirVer/ultisnips'
+    " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+    Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
     Plug 'weilbith/nvim-code-action-menu'
 
     Plug 'tpope/vim-commentary'
@@ -76,7 +77,7 @@ if !exists('g:vscode')
     Plug 'lervag/vimtex'
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
     Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
-    Plug 'mattn/emmet-vim'
+    " Plug 'mattn/emmet-vim'
     " Plug 'rustushki/JavaImp.vim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
