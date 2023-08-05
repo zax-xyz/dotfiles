@@ -20,6 +20,7 @@
   text: #cdd6f4;
   text-alt: #a6adc8;
   fg: #cdd6f4;
+  bg: #1e1e2e;
 
   spacing: 0;
   background-color: transparent;
@@ -77,8 +78,8 @@ element {
   padding: 5px;
   text-color: var(text-alt);
   highlight: bold #95ee8f; /* green */
-  border-radius: 3px;
-  border: 0 1px solid;
+  border-radius: 4px;
+  border: 0 1px;
   border-color: transparent;
 }
 

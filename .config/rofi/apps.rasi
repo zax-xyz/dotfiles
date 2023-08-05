@@ -1,0 +1,35 @@
+@theme "~/.config/rofi/config.rasi"
+
+configuration {
+  display-drun: "Apps";
+}
+
+listview {
+  flow: horizontal;
+  columns: 5;
+  lines: 4;
+  fixed-height: true;
+  fixed-columns: true;
+  spacing: 0.5em;
+}
+
+element {
+  padding: 0.5em;
+  spacing: 4px;
+  orientation: vertical;
+  border: 0 0 1px;
+}
+
+element selected {
+  background-color: var(lavender);
+  text-color: var(bg);
+}
+
+element-icon {
+  size: 2.5em;
+}
+
+element-text {
+  horizontal-align: 0.5;
+  font: "Nunito 11";
+}
