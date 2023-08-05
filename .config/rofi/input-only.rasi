@@ -1,9 +1,5 @@
 @import "config"
 
-mainbox {
-  spacing: 0;
-}
-
 listview {
-  lines: 0;
+  enabled: false;
 }
