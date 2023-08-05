@@ -1,2 +1,2 @@
 #!/bin/sh
-rofi -dmenu -theme-str '@import "input-only.rasi"' -p "Emoji Text" | ~/.scripts/text/emoji/emoji.py | xclip -selection clipboard
+rofi -dmenu -theme input-only -p "Emoji Text" | ~/.scripts/text/emoji/emoji.py | xclip -selection clipboard
