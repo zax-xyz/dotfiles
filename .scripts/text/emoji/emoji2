@@ -1,2 +1,2 @@
 #!/bin/sh
-echo -n $(rofi -dmenu -p "Emoji Text") | ~/.scripts/text/emoji/emoji2.py | xclip -selection clipboard
+rofi -dmenu -theme-str '@import "input-only.rasi"' -p "Emoji Text" | ~/.scripts/text/emoji/emoji2.py | xclip -selection clipboard

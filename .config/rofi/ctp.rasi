@@ -38,12 +38,12 @@ window {
 
 mainbox {
   padding: 0.5em;
+  spacing: 0.5em;
   /* border: 1px solid; */
   border-color: var(lavender);
 }
 
 inputbar {
-  margin: 0px 0px 0.5em 0px;
   background-color: rgba(24, 24, 37, 0.8);
   border-radius: 4px;
   children: [prompt, entry, case-indicator];

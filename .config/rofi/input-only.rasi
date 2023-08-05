@@ -1,0 +1,9 @@
+@theme "~/.config/rofi/config.rasi"
+
+mainbox {
+  spacing: 0;
+}
+
+listview {
+  lines: 0;
+}

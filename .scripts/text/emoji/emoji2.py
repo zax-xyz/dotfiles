@@ -28,4 +28,4 @@ d = {
 	'z': '🇿',
 }
 
-print(' '.join(d.get(c, c) for c in open(0).read().lower()), end='')
+print(' '.join(d.get(c, c) for c in open(0).read().strip().lower()), end='')
