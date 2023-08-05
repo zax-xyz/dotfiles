@@ -1,8 +1,6 @@
 /*
  * ROFI One Dark
  *
- * vim: ft=css
- *
  * Based on OneDark.vim (https://github.com/joshdick/onedark.vim)
  *
  * Author: Benjamin Stauss
@@ -22,84 +20,99 @@
   text: #cdd6f4;
   text-alt: #a6adc8;
   fg: #cdd6f4;
-  bg: #1e1e2e;
 
   spacing: 0;
   background-color: transparent;
 
   font: "Lato 12";
-  text-color: @text;
+  /* text-color: var(text); */
 }
 
 window {
   transparency: "real";
-  fullscreen: true;
+  /* fullscreen: true; */
   /* background-color: #000000cc; */
-  background-color: #1e1e2ebb;
+  background-color: rgba(30, 30, 46, 0.9);
 }
 
 mainbox {
-  padding: 20% 30%;
+  padding: 0.5em;
+  /* border: 1px solid; */
+  border-color: var(lavender);
 }
 
 inputbar {
-  margin: 0px 0px 20px 0px;
-  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+  margin: 0px 0px 0.5em 0px;
+  background-color: rgba(24, 24, 37, 0.8);
+  border-radius: 4px;
+  children: [prompt, entry, case-indicator];
 }
 
 prompt {
-  text-color: @lavender;
+  background-color: var(lavender);
+  padding: 0.375em 0.5em;
 }
 
 textbox-prompt-colon {
   expand: false;
   str: ":";
-  text-color: @text-alt;
+  text-color: var(text-alt);
 }
 
 entry {
-  margin: 0px 10px;
+  padding: 0.375em 0.5em;
+  text-color: var(text);
 }
 
 listview {
   spacing: 3px;
   dynamic: true;
   scrollbar: false;
+  /* padding: 0.25em 0; */
+  /* background-color: rgba(30, 30, 46, 0.5); */
+  /* border-radius: 4px; */
 }
 
 element {
   padding: 5px;
-  text-color: @text-alt;
+  text-color: var(text-alt);
   highlight: bold #95ee8f; /* green */
   border-radius: 3px;
+  border: 0 1px solid;
+  border-color: transparent;
+}
+
+element-text {
+  text-color: inherit;
 }
 
 element selected {
-  background-color: @emphasis;
-  text-color: @text;
+  background-color: var(emphasis);
+  text-color: var(text);
+  border-color: var(lavender);
 }
 
 element urgent,
 element selected urgent {
-  text-color: @red;
+  text-color: var(red);
 }
 
 /* element active, element selected active { */
-/*   text-color: @purple; */
+/*   text-color: var(purple); */
 /* } */
 
 message {
   padding: 5px;
   border-radius: 3px;
-  background-color: @emphasis;
+  background-color: var(emphasis);
   border: 1px;
-  border-color: @cyan;
+  border-color: var(cyan);
 }
 
 button selected {
   padding: 5px;
   border-radius: 3px;
-  background-color: @emphasis;
+  background-color: var(emphasis);
 }
 
 element-icon {
