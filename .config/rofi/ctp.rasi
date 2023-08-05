@@ -29,7 +29,7 @@ window {
 }
 
 mainbox {
-  padding: 0.5em;
+  padding: 1em;
   spacing: 0.5em;
   border: 1px solid;
   border-color: var(secondary);
