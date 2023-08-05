@@ -25,7 +25,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Lato 12";
+  font: "Nunito 12";
   /* text-color: var(text); */
 }
 
