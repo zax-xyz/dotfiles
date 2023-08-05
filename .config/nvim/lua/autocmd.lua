@@ -12,7 +12,7 @@ ftAutocmd('python', function()
 end)
 
 -- Indentation
-ftAutocmd('html,css,javascript,typescript,javascriptreact,typescriptreact', function()
+ftAutocmd('html,css,javascript,typescript,javascriptreact,typescriptreact,rasi', function()
     local options = { 'tabstop', 'softtabstop', 'shiftwidth' }
     for i = 1, #options do
         vim.opt_local[options[i]] = 2

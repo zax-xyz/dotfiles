@@ -79,6 +79,7 @@ if !exists('g:vscode')
     Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
     " Plug 'mattn/emmet-vim'
     " Plug 'rustushki/JavaImp.vim'
+    Plug 'Fymyte/rasi.vim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-context'
