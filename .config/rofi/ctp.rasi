@@ -68,10 +68,16 @@ entry {
 listview {
   spacing: 3px;
   dynamic: true;
-  scrollbar: false;
+  scrollbar: true;
   /* padding: 0.25em 0; */
   /* background-color: rgba(30, 30, 46, 0.5); */
   /* border-radius: 4px; */
+}
+
+scrollbar {
+  handle-width: 4px;
+  handle-color: var(lavender);
+  border-radius: 2px;
 }
 
 element {
