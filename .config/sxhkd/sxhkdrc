@@ -4,7 +4,7 @@ super + {_,shift +,ctrl + shift +}Return
 
 # program launcher
 super + {_,ctrl + }d
-	{dmenu_run,rofi -theme-str '@import "apps.rasi"' -p Apps -show drun}
+	{dmenu_run,rofi -theme launcher -p Apps -show drun}
 
 # make sxhkd reload its configuration files:
 super + shift + c

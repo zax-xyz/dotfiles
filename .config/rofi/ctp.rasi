@@ -7,6 +7,8 @@
   cyan: #89dceb;
   lavender: #b4befe;
   emphasis: #cdd6f414;
+  mauve: #cba6f7;
+  secondary: var(mauve);
   text: #cdd6f4;
   text-alt: #a6adc8;
   fg: #cdd6f4;
@@ -29,8 +31,8 @@ window {
 mainbox {
   padding: 0.5em;
   spacing: 0.5em;
-  /* border: 1px solid; */
-  border-color: var(lavender);
+  border: 1px solid;
+  border-color: var(secondary);
 }
 
 inputbar {
@@ -103,7 +105,11 @@ message {
   border-radius: 3px;
   background-color: var(emphasis);
   border: 1px;
-  border-color: var(cyan);
+  border-color: var(secondary);
+}
+
+textbox {
+  text-color: var(text);
 }
 
 button selected {
