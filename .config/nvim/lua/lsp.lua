@@ -126,6 +126,7 @@ lspconfig.tailwindcss.setup(config({
         }
     },
 }))
+lspconfig.svelte.setup(config())
 -- lspconfig.eslint.setup {}
 -- vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
 lspconfig.html.setup(config())
