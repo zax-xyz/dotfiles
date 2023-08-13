@@ -83,6 +83,7 @@ if !exists('g:vscode')
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-context'
+    Plug 'HiPhish/rainbow-delimiters.nvim'
 
     " Plug 'github/copilot.vim'
 endif
@@ -96,6 +97,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("theme")
     require("plugins/treesitter")
     require("plugins/treesitter-context")
+    require("plugins/rainbow-delimiters")
     require("plugins/telescope")
     require("lsp")
     require("plugins/tex")
