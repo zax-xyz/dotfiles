@@ -1,10 +1,10 @@
 export EDITOR=nvim
 export QT_QPA_PLATFORMTHEME=qt5ct
-export TERMINAL=st
+export TERMINAL=kitty
 export MOZ_USE_XINPUT2=1
 export MOZ_X11_EGL=1
 export TMUX=
-export TERM=st-256color
+# export TERM=st-256color
 export SXHKD_SHELL=sh
 
 export XDG_CONFIG_HOME="$HOME/.config"
