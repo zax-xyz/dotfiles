@@ -24,7 +24,7 @@ super + ctrl + a
     ~/.scripts/text/main
 
 super + {shift,ctrl + shift} + m
-    {~/.scripts/man_menu,st -e pulsemixer}
+    {~/.scripts/man_menu,kitty pulsemixer}
 
 super + e
 	rofi -modi emoji -show emoji
@@ -70,7 +70,7 @@ super + x
 
 # start file manager
 super + shift + v
-    st -e vifm
+    kitty vifm
 
 # spotify volume control
 # ctrl + {Up,Down}
@@ -104,7 +104,7 @@ super + {_,shift + }n
 
 # network manager tui
 super + ctrl + shift + w
-    st -e nmtui
+    kitty nmtui
 
 # ncmpcpp
 # super + m
