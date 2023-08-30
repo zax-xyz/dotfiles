@@ -117,9 +117,6 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 " :mark mark /full/directory/path [filename]
 
 mark h ~/
-mark d /mnt/data/
-mark n /mnt/data/nextcloud/
-mark p /mnt/data/pictures/
 
 " ------------------------------------------------------------------------------
 
@@ -171,6 +168,8 @@ command! reload :write | restart
 "
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
+
+filetype * xdg-open
 
 " Pdf
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
