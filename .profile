@@ -34,4 +34,4 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export HASTEBIN_SERVER_URL='https://bin.zaxu.xyz'
 
 export NEOVIDE_MULTIGRID=true
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
