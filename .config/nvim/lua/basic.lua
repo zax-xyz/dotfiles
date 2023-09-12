@@ -51,34 +51,34 @@ end
 vim.opt.re = 0
 vim.opt.scrolloff = 3
 
--- Show trailing whitepace
-local autocmd = vim.api.nvim_create_autocmd
-autocmd('ColorScheme', {
-    pattern = '*',
-    callback = function()
-        vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = '#e06c75' })
-    end,
-})
-vim.cmd([[match ExtraWhitespace /\s\+$/]])
-autocmd('BufWinEnter', {
-    pattern = '*',
-    callback = function()
-        if vim.bo.filetype ~= 'toggleterm' then
-            vim.cmd [[match ExtraWhitespace /\s\+$/]]
-        end
-    end
-})
-autocmd('InsertEnter', {
-    pattern = '*',
-    command = [[match ExtraWhitespace /\s\+\%#\@<!$/]],
-})
-autocmd('InsertLeave', {
-    pattern = '*',
-    command = [[match ExtraWhitespace /\s\+$/]],
-})
-autocmd('BufWinLeave', {
-    pattern = '*',
-    callback = function()
-        vim.fn.clearmatches()
-    end
-})
+-- -- Show trailing whitepace
+-- local autocmd = vim.api.nvim_create_autocmd
+-- autocmd('ColorScheme', {
+--     pattern = '*',
+--     callback = function()
+--         vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = '#e06c75' })
+--     end,
+-- })
+-- vim.cmd([[match ExtraWhitespace /\s\+$/]])
+-- autocmd('BufWinEnter', {
+--     pattern = '*',
+--     callback = function()
+--         if vim.bo.filetype ~= 'toggleterm' then
+--             vim.cmd [[match ExtraWhitespace /\s\+$/]]
+--         end
+--     end
+-- })
+-- autocmd('InsertEnter', {
+--     pattern = '*',
+--     command = [[match ExtraWhitespace /\s\+\%#\@<!$/]],
+-- })
+-- autocmd('InsertLeave', {
+--     pattern = '*',
+--     command = [[match ExtraWhitespace /\s\+$/]],
+-- })
+-- autocmd('BufWinLeave', {
+--     pattern = '*',
+--     callback = function()
+--         vim.fn.clearmatches()
+--     end
+-- })
