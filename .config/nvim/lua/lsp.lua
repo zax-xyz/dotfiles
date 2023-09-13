@@ -143,6 +143,19 @@ lspconfig.sqlls.setup(config())
 
 lspconfig.jsonls.setup(config())
 
+local HOME = os.getenv('HOME')
+lspconfig.jdtls.setup(config({
+    cmd = {
+        -- 💀
+        HOME .. '/.local/share/nvim/mason/bin/jdtls',
+        '-configuration', HOME .. '/.cache/jdtls/config',
+        '-data', HOME .. '/.cache/jdtls/workspace'
+    },
+    init_options = {
+        workspace = HOME .. "/.cache/jdtls/workspace",
+    },
+}))
+
 local cmp = require 'cmp'
 
 cmp.setup({
