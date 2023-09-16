@@ -137,3 +137,9 @@ load-nvm() {
     add-zsh-hook chpwd load-nvmrc
     load-nvmrc
 }
+
+mkgv() {
+    mkcd "$1"
+    g init
+    vim
+}
