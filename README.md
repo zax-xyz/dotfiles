@@ -27,7 +27,7 @@ Based on [Atlassian's guide to storing dotfiles](https://www.atlassian.com/git/t
 
 ```bash
 # install dependencies (assumes arch-based system, for other systems use the relevant package manager)
-sudo pacman -S zsh neovim npm git exa unzip
+sudo pacman -S zsh neovim npm git eza unzip
 
 # if only need read-only
 git clone --bare https://github.com/zaxutic/dotfiles.git $HOME/.cfg
