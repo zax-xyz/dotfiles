@@ -12,13 +12,13 @@ local lsp = vim.lsp
 
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
     lsp.diagnostic.on_publish_diagnostics, {
-    -- virtual_text = {
-    --     format = function(diagnostic)
-    --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
-    --     end
-    -- },
-    update_in_insert = true,
-}
+        -- virtual_text = {
+        --     format = function(diagnostic)
+        --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
+        --     end
+        -- },
+        update_in_insert = true,
+    }
 )
 
 local border = { border = "rounded", focusable = false, scope = "line" }
@@ -127,7 +127,7 @@ lspconfig.tailwindcss.setup(config({
     },
 }))
 lspconfig.svelte.setup(config())
--- lspconfig.eslint.setup {}
+lspconfig.eslint.setup {}
 -- vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
 lspconfig.html.setup(config())
 lspconfig.cssls.setup(config())
@@ -246,11 +246,11 @@ local null_ls = require("null-ls")
 
 null_ls.setup({
     sources = {
-        null_ls.builtins.code_actions.eslint_d,
-        null_ls.builtins.diagnostics.eslint_d,
+        -- null_ls.builtins.code_actions.eslint_d,
+        -- null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.eslint_d,
+        -- null_ls.builtins.formatting.eslint_d,
         null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.formatting.gofmt,
         -- null_ls.builtins.formatting.lua_format,

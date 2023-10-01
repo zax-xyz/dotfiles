@@ -50,7 +50,7 @@ if !exists('g:vscode')
     Plug 'andymass/vim-matchup'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'dominikduda/vim_current_word'
-    " Plug 'andweeb/presence.nvim'
+    Plug 'andweeb/presence.nvim'
     " Plug 'famiu/bufdelete.nvim'
     Plug 'windwp/nvim-autopairs'
     Plug 'brenoprata10/nvim-highlight-colors'
