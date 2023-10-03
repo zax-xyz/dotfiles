@@ -26,7 +26,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Toggle paste mode with F2
-vim.opt.pastetoggle = '<F2>'
+-- vim.opt.pastetoggle = '<F2>'
 
 -- Enable mouse control
 vim.opt.mouse = 'a'
