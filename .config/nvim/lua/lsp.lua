@@ -62,6 +62,10 @@ local function config(_config)
             command = "silent! lua vim.lsp.buf.signature_help()",
         })
 
+        if client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint(bufnr, true)
+        end
+
         if _config ~= nil and _config.on_attach ~= nil then
             _config.on_attach(client, bufnr)
         end
@@ -91,7 +95,7 @@ lspconfig.lua_ls.setup(config({
 
 local tsserver_settings = {
     inlayHints = {
-        -- includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHints = 'all',
         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
         includeInlayVariableTypeHints = true,
