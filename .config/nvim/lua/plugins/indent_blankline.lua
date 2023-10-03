@@ -1,8 +1,10 @@
 local colors = require('catppuccin.palettes.mocha')
 
-vim.api.nvim_set_hl(0, 'IndentBlankLineContextChar', { bg = 'NONE', fg = colors.surface2 })
+vim.api.nvim_set_hl(0, 'IblIndent', { bg = 'NONE', fg = colors.surface0 })
+vim.api.nvim_set_hl(0, 'IblScope', { bg = 'NONE', fg = colors.lavender })
 
-require("indent_blankline").setup {
-    show_current_context = true,
-    use_terrsitter = true,
-}
+require("ibl").setup({
+    scope = {
+        show_start = false
+    }
+})
