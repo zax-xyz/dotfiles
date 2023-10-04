@@ -35,7 +35,7 @@ if !exists('g:vscode')
     Plug 'onsails/lspkind.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'jayp0521/mason-null-ls.nvim'
-    Plug 'simrat39/inlay-hints.nvim'
+    " Plug 'simrat39/inlay-hints.nvim'
     " Plug 'SirVer/ultisnips'
     " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
