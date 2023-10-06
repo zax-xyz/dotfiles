@@ -76,7 +76,8 @@ if !exists('g:vscode')
     " Plug 'iloginow/vim-stylus'
     Plug 'lervag/vimtex'
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-    Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
+    " Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
+    Plug 'barrett-ruth/live-server.nvim'
     " Plug 'mattn/emmet-vim'
     " Plug 'rustushki/JavaImp.vim'
     Plug 'Fymyte/rasi.vim'
@@ -116,4 +117,5 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/bufferline")
     require("plugins/scope")
     require("plugins/indent_blankline")
+    require("plugins/live-server")
 end
