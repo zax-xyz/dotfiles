@@ -1,4 +1,4 @@
-local bind = require('util.bind')
+local bind = require('utils').bind
 
 vim.g.mapleader = ' '
 vim.opt.number = true

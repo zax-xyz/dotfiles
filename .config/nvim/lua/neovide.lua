@@ -1,4 +1,4 @@
-local bind = require('util.bind')
+local bind = require('utils').bind
 
 vim.g.gui_font_default_size = 10
 vim.g.gui_font_size = vim.g.gui_font_default_size

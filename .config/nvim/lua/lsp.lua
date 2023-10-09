@@ -7,7 +7,7 @@ vim.opt.updatetime = 300
 
 local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local bind = require('util.bind')
+local bind = require('utils').bind
 local lsp = vim.lsp
 
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(

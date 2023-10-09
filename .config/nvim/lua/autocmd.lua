@@ -1,4 +1,4 @@
-local bind = require('util.bind')
+local bind = require('utils').bind
 
 local function ftAutocmd(filetype, callback)
     vim.api.nvim_create_autocmd('FileType', {

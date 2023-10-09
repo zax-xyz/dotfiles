@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   end,
 })
 
-local bind = require("util.bind")
+local bind = require('utils').bind
 
 local nvim_tree = require("nvim-tree.api")
 bind("n", "<leader>t", function() nvim_tree.tree.toggle(true) end)

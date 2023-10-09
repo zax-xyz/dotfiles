@@ -1,4 +1,4 @@
-local bind = require('util.bind')
+local bind = require('utils').bind
 local telescope = require('telescope.builtin')
 
 bind('', '<leader>f', telescope.find_files)

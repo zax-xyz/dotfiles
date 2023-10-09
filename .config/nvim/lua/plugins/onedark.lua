@@ -1,4 +1,4 @@
-local bind = require('util.bind')
+local bind = require('utils').bind
 
 require('onedark').setup {
     transparent = vim.fn.exists('g:neovide') == 0,

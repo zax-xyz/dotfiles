@@ -1,5 +1,5 @@
-local bind = require('util.bind')
-local ft_autocmd = require('util.ft_autocmd')
+local bind = require('utils').bind
+local ft_autocmd = require('utils').ft_autocmd
 local F = require('f-strings.F')
 
 bind("n", "<leader>rf", ':filetype detect')
