@@ -39,6 +39,20 @@ bind("n", "]g", vim.diagnostic.goto_next)
 bind("n", "<Left>", vim.diagnostic.goto_prev)
 bind("n", "<Right>", vim.diagnostic.goto_next)
 
+local inlayHints = true
+vim.api.nvim_create_user_command('ToggleInlayHints', function()
+    inlayHints = not inlayHints
+    print("Inlay hints", inlayHints and "enabled" or "disabled")
+    vim.lsp.inlay_hint(0, inlayHints)
+end, {})
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+    callback = function()
+        vim.lsp.inlay_hint(0, inlayHints)
+    end
+})
+
+bind("n", "<leader>i", function() vim.cmd("ToggleInlayHints") end)
+
 local lspHoverGroup = vim.api.nvim_create_augroup("lspHover", { clear = false })
 
 local function config(_config)
@@ -63,7 +77,7 @@ local function config(_config)
         })
 
         if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint(bufnr, true)
+            vim.lsp.inlay_hint(bufnr, inlayHints)
         end
 
         if _config ~= nil and _config.on_attach ~= nil then
