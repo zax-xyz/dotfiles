@@ -1,3 +1,5 @@
+local vim_cmd = require("utils").vim_cmd
+
 require("mason").setup()
 require("mason-lspconfig").setup({
     automatic_installation = true,
@@ -51,7 +53,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     end
 })
 
-bind("n", "<leader>i", function() vim.cmd("ToggleInlayHints") end)
+bind("n", "<leader>i", vim_cmd("ToggleInlayHints"))
 
 local lspHoverGroup = vim.api.nvim_create_augroup("lspHover", { clear = false })
 
@@ -62,7 +64,7 @@ local function config(_config)
     }, _config or {})
     merged_config.on_attach = function(client, bufnr)
         bind("n", "K", lsp.buf.hover)
-        bind("n", "<leader>ac", function() vim.cmd("CodeActionMenu") end)
+        bind("n", "<leader>ac", vim_cmd("CodeActionMenu"))
 
         vim.api.nvim_clear_autocmds({ group = lspHoverGroup, buffer = bufnr })
         vim.api.nvim_create_autocmd('CursorHold', {

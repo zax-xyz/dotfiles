@@ -1,4 +1,5 @@
 local bind = require('utils').bind
+local vim_cmd = require('utils').vim_cmd
 
 local function ftAutocmd(filetype, callback)
     vim.api.nvim_create_autocmd('FileType', {
@@ -7,9 +8,7 @@ local function ftAutocmd(filetype, callback)
     })
 end
 
-ftAutocmd('python', function()
-    vim.cmd('hi link pythonNone Structure')
-end)
+ftAutocmd('python', vim_cmd('hi link pythonNone Structure'))
 
 -- Indentation
 ftAutocmd('html,css,javascript,typescript,javascriptreact,typescriptreact,rasi', function()

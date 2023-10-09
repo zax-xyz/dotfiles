@@ -1,8 +1,9 @@
 local bind = require('utils').bind
 local ft_autocmd = require('utils').ft_autocmd
+local vim_cmd = require('utils').vim_cmd
 local F = require('f-strings.F')
 
-bind("n", "<leader>rf", ':filetype detect')
+bind("n", "<leader>rf", vim_cmd('filetype detect'))
 
 -- split navigation
 local dirs = {"H", "J", "K", "L"}
@@ -27,7 +28,7 @@ local replace_cmd = "s//g<Left><Left>"
 bind("", "<leader>s", ":" .. replace_cmd)
 bind("", "<leader>S", ":%" .. replace_cmd)
 
-bind("", "<leader>n", ":norm")
+bind("", "<leader>n", ":norm ")
 
 local indent_keys = {">", "<"}
 for _, key in ipairs(indent_keys) do
@@ -47,7 +48,7 @@ ft_autocmd("markdown", function()
     bind("n", "<leader>C", F"{write_cmd}:!{compile_cmd} 1000 {compile_fin}")
 end)
 
-bind("", "<leader>s", ":setlocal spell!<CR>")
+bind("", "<leader>s", vim_cmd("setlocal spell!"))
 
 bind("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 
@@ -80,7 +81,7 @@ end
 
 bind("", "<leader>w", toggle_wrap)
 
-bind("", "<leader>h", ":nohl<CR>")
+bind("", "<leader>h", vim_cmd("nohl"))
 
 if not vim.fn.exists('g:vscode') then
     bind({"x", "n", "o"}, "gc", "<Plug>VSCodeCommentary")
@@ -89,7 +90,7 @@ end
 
 -- copy to system clipboard
 bind("", "<leader>y", '"+y')
-bind("", "<leader>Y", ':%y+<CR>')
+bind("", "<leader>Y", vim_cmd('%y+'))
 bind("", "<leader>p", '"+p')
 bind("", "<leader>P", '"+P')
 

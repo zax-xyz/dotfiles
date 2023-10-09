@@ -1,4 +1,5 @@
 local bind = require('utils').bind
+local vim_cmd = require('utils').vim_cmd
 
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = ''
@@ -10,4 +11,4 @@ vim.g.tex_flavor = 'latex'
 
 vim.api.nvim_set_hl(0, 'Conceal', { bg = 'NONE', fg = '#e5c07b' })
 
-bind('', '<leader>v', ':VimtexView<CR>')
+bind('', '<leader>v', vim_cmd('VimtexView'))
