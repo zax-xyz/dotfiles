@@ -29,17 +29,37 @@ vim.diagnostic.config({ float = border })
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
 lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
 
-bind("n", "gd", vim.lsp.buf.definition)
-bind("n", "gy", vim.lsp.buf.type_definition)
-bind("n", "gr", vim.lsp.buf.references)
+require('lspsaga').setup({
+    ui = {
+        border = "rounded",
+    },
+    code_action = {
+        show_server_name = true,
+        keys = {
+            quit = '<Esc>',
+        },
+    },
+    lightbulb = {
+        sign = false,
+    },
+})
+
+bind("n", "gd", vim_cmd("Lspsaga goto_definition"))
+bind("n", "gy", vim_cmd("Lspsaga goto_type_defintion"))
+bind("n", "gr", vim_cmd("Lspsaga finder"))
 bind("n", "gD", vim.lsp.buf.declaration)
 bind("n", "gi", vim.lsp.buf.implementation)
-bind("n", "<leader>rn", vim.lsp.buf.rename)
+bind("n", "<leader>rn", vim_cmd("Lspsaga rename"))
 
-bind("n", "[g", vim.diagnostic.goto_prev)
-bind("n", "]g", vim.diagnostic.goto_next)
-bind("n", "<Left>", vim.diagnostic.goto_prev)
-bind("n", "<Right>", vim.diagnostic.goto_next)
+bind("n", "[g", vim_cmd("Lspsaga diagnostic_jump_prev"))
+bind("n", "]g", vim_cmd("Lspsaga diagnostic_jump_next"))
+bind("n", "<Left>", vim_cmd("Lspsaga diagnostic_jump_prev"))
+bind("n", "<Right>", vim_cmd("Lspsaga diagnostic_jump_next"))
+
+bind("n", "K", vim_cmd("Lspsaga hover_doc"))
+bind("n", "<leader>ac", vim_cmd("Lspsaga code_action"))
+
+bind({"n", "t"}, "<C-\\>", vim_cmd("Lspsaga term_toggle"))
 
 local inlayHints = true
 vim.api.nvim_create_user_command('ToggleInlayHints', function()
@@ -63,20 +83,17 @@ local function config(_config)
         single_file_support = true,
     }, _config or {})
     merged_config.on_attach = function(client, bufnr)
-        bind("n", "K", lsp.buf.hover)
-        bind("n", "<leader>ac", vim_cmd("CodeActionMenu"))
-
         vim.api.nvim_clear_autocmds({ group = lspHoverGroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd('CursorHold', {
-            group = lspHoverGroup,
-            pattern = '*',
-            callback = vim.diagnostic.open_float,
-        })
-        vim.api.nvim_create_autocmd('CursorHoldI', {
-            group = lspHoverGroup,
-            pattern = '*',
-            command = "silent! lua vim.lsp.buf.signature_help()",
-        })
+        -- vim.api.nvim_create_autocmd('CursorHold', {
+        --     group = lspHoverGroup,
+        --     pattern = '*',
+        --     callback = vim.diagnostic.open_float,
+        -- })
+        -- vim.api.nvim_create_autocmd('CursorHoldI', {
+        --     group = lspHoverGroup,
+        --     pattern = '*',
+        --     command = "silent! lua vim.lsp.buf.signature_help()",
+        -- })
 
         if client.server_capabilities.inlayHintProvider then
             vim.lsp.inlay_hint(bufnr, inlayHints)

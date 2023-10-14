@@ -40,6 +40,7 @@ if !exists('g:vscode')
     " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
     Plug 'weilbith/nvim-code-action-menu'
+    Plug 'nvimdev/lspsaga.nvim'
 
     Plug 'tpope/vim-commentary'
     Plug 'suy/vim-context-commentstring'
@@ -57,7 +58,7 @@ if !exists('g:vscode')
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
     " Plug 'rmagatti/session-lens'
-    Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
+    " Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -112,7 +113,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/nvim-tree")
     require("plugins/nvim-ts-autotag")
     require("plugins/auto-session")
-    require("plugins/toggleterm")
+    -- require("plugins/toggleterm")
     require("plugins/lualine")
     require("plugins/gitsigns")
     require("plugins/bufferline")
