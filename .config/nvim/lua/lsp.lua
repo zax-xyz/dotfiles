@@ -49,12 +49,16 @@ bind("n", "gy", vim_cmd("Lspsaga goto_type_defintion"))
 bind("n", "gr", vim_cmd("Lspsaga finder"))
 bind("n", "gD", vim.lsp.buf.declaration)
 bind("n", "gi", vim.lsp.buf.implementation)
+
+bind("n", "<leader>pd", vim_cmd("Lspsaga peek_definition"))
+bind("n", "<leader>py", vim_cmd("Lspsaga peek_type_definition"))
+
 bind("n", "<leader>rn", vim_cmd("Lspsaga rename"))
 
-bind("n", "[g", vim_cmd("Lspsaga diagnostic_jump_prev"))
-bind("n", "]g", vim_cmd("Lspsaga diagnostic_jump_next"))
-bind("n", "<Left>", vim_cmd("Lspsaga diagnostic_jump_prev"))
-bind("n", "<Right>", vim_cmd("Lspsaga diagnostic_jump_next"))
+bind({"n", "v"}, "[g", vim_cmd("Lspsaga diagnostic_jump_prev"))
+bind({"n", "v"}, "]g", vim_cmd("Lspsaga diagnostic_jump_next"))
+bind({"n", "v"}, "<Left>", vim_cmd("Lspsaga diagnostic_jump_prev"))
+bind({"n", "v"}, "<Right>", vim_cmd("Lspsaga diagnostic_jump_next"))
 
 bind("n", "K", vim_cmd("Lspsaga hover_doc"))
 bind("n", "<leader>ac", vim_cmd("Lspsaga code_action"))
