@@ -48,7 +48,7 @@ bind("n", "gd", vim_cmd("Lspsaga goto_definition"))
 bind("n", "gy", vim_cmd("Lspsaga goto_type_defintion"))
 bind("n", "gr", vim_cmd("Lspsaga finder"))
 bind("n", "gD", vim.lsp.buf.declaration)
-bind("n", "gi", vim.lsp.buf.implementation)
+bind("n", "gi", vim_cmd("Lspsaga finder imp"))
 
 bind("n", "<leader>pd", vim_cmd("Lspsaga peek_definition"))
 bind("n", "<leader>py", vim_cmd("Lspsaga peek_type_definition"))
