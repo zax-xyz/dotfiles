@@ -18,6 +18,7 @@ rot13
 decode caesar shift
 shruggie
 blank
+zero width space
 grid emote
 python eval"
 
@@ -45,6 +46,7 @@ printf |
         "decode caesar shift") $BASE_DIR/caesar/caesar_decode ;;
         "shruggie") $BASE_DIR/plain/shruggie ;;
         "blank") $BASE_DIR/plain/blank ;;
+        "zero width space") printf '​' | xclip -selection clipboard ;;
         "grid emote") $BASE_DIR/grid_emote/grid ;;
         "python eval") $BASE_DIR/python_eval/python_eval ;;
     esac
