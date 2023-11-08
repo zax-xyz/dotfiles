@@ -100,7 +100,7 @@ alias cditask="cd info/current-task"
 
 alias vim=nvim
 
-alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+# alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 alias xdgo="xdg-open"
 
