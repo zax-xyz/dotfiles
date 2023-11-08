@@ -21,7 +21,10 @@ export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/bin:$HOME/.loca
 # export XMODIFIERS=@im-fcitx
 # export GTK_IM_MODULE=fcitx
 
-export MPD_HOST=$(cat ~/.config/MPD_PASS)@127.0.0.1
+if [ -f ~/.config/MPD_PASS ]; then
+    MPD_HOST=$(cat ~/.config/MPD_PASS)@127.0.0.1
+    export MPD_HOST
+fi
 # syndaemon -K -i 0.2 -R -d
 # synclient RightButtonAreaLeft=0
 # synclient RightButtonAreaTop=0
@@ -35,3 +38,5 @@ export HASTEBIN_SERVER_URL='https://bin.zaxu.xyz'
 
 export NEOVIDE_MULTIGRID=true
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+export FFSEND_HOST='https://send.zax.sh'
