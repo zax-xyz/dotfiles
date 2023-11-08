@@ -9,6 +9,7 @@ vim.opt.updatetime = 300
 
 local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 local bind = require('utils').bind
 local lsp = vim.lsp
 
@@ -158,6 +159,8 @@ lspconfig.tailwindcss.setup(config({
                     "tw={\"([^\"}]*)",
                     "tw\\.\\w+`([^`]*)",
                     "tw\\(.*?\\)`([^`]*)",
+                    { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                    { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
                 },
             },
             includeLanguages = {
@@ -171,6 +174,8 @@ lspconfig.svelte.setup(config())
 lspconfig.eslint.setup {}
 -- vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
 lspconfig.html.setup(config())
+
+lspconfig.texlab.setup(config())
 lspconfig.cssls.setup(config())
 lspconfig.cssmodules_ls.setup(config())
 -- lspconfig.emmet_ls.setup(config())
@@ -196,6 +201,8 @@ lspconfig.jdtls.setup(config({
         workspace = HOME .. "/.cache/jdtls/workspace",
     },
 }))
+
+lspconfig.texlab.setup(config())
 
 local cmp = require 'cmp'
 
