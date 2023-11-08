@@ -95,3 +95,4 @@ bind("", "<leader>p", '"+p')
 bind("", "<leader>P", '"+P')
 
 bind("t", "<S-Space>", "<Space>")
+bind("n", "<leader>o", vim_cmd(":!xdg-open %"))
