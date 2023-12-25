@@ -28,7 +28,7 @@ ftAutocmd('rmd', function()
     vim.opt_local.filetype = 'markdown'
 end)
 ftAutocmd('r', function()
-    bind('i', '<A-->', '<-', { buffer = true })
+    bind('i', '<A-->', '<-', 'R variable assignment', { buffer = true })
 end)
 ftAutocmd('arduino', function()
     vim.opt_local.filetype = 'cpp'

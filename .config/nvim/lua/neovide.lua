@@ -26,9 +26,9 @@ resetGuiFont()
 
 local delta = 0.5
 
-bind({ 'n', 'i' }, "<C-+>", function() resizeGuiFont(delta) end)
-bind({ 'n', 'i' }, "<C-=>", function() resizeGuiFont(delta) end)
-bind({ 'n', 'i' }, "<A-S-k>", function() resizeGuiFont(delta) end)
-bind({ 'n', 'i' }, "<C-->", function() resizeGuiFont(-delta) end)
-bind({ 'n', 'i' }, "<A-S-j>", function() resizeGuiFont(-delta) end)
-bind({ 'n', 'i' }, "<C-BS>", resetGuiFont)
+bind({ 'n', 'i' }, "<C-+>", function() resizeGuiFont(delta) end, "<Neovide> Increase font size")
+bind({ 'n', 'i' }, "<C-=>", function() resizeGuiFont(delta) end, "<Neovide> Increase font size")
+bind({ 'n', 'i' }, "<A-S-k>", function() resizeGuiFont(delta) end, "<Neovide> Increase font size")
+bind({ 'n', 'i' }, "<C-->", function() resizeGuiFont(-delta) end, "<Neovide> Decrease font size")
+bind({ 'n', 'i' }, "<A-S-j>", function() resizeGuiFont(-delta) end, "<Neovide> Decrease font size")
+bind({ 'n', 'i' }, "<C-BS>", resetGuiFont, "<Neovide> Reset font size")

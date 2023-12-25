@@ -11,4 +11,4 @@ vim.g.tex_flavor = 'latex'
 
 vim.api.nvim_set_hl(0, 'Conceal', { bg = 'NONE', fg = '#e5c07b' })
 
-bind('', '<leader>v', vim_cmd('VimtexView'))
+bind('', '<leader>v', vim_cmd('VimtexView'), "Open with vimtex")

@@ -19,7 +19,7 @@ vim.opt.timeoutlen = 350
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevel = 99
-bind('n', '<leader>F', 'za')
+bind('n', '<leader>F', 'za', 'Toggle folding')
 
 -- Open splits at the bottom and right
 vim.opt.splitbelow = true
@@ -30,8 +30,8 @@ vim.opt.splitright = true
 
 -- Enable mouse control
 vim.opt.mouse = 'a'
-bind('n', '<ScrollWheelUp>', '<C-Y>')
-bind('n', '<ScrollWheelDown>', '<C-E>')
+bind('n', '<ScrollWheelUp>', '<C-Y>', "Scroll up")
+bind('n', '<ScrollWheelDown>', '<C-E>', "Scroll down")
 
 if vim.fn.has("termguicolors") == 1 then
     vim.opt.termguicolors = true

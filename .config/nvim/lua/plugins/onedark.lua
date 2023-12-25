@@ -12,4 +12,4 @@ bind("", "<leader>t", function()
         transparent = transparent
     }
     require('onedark').load()
-end)
+end, "Toggle transparency")

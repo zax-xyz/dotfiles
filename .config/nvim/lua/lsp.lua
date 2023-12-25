@@ -45,26 +45,26 @@ require('lspsaga').setup({
     },
 })
 
-bind("n", "gd", vim_cmd("Lspsaga goto_definition"))
-bind("n", "gy", vim_cmd("Lspsaga goto_type_defintion"))
-bind("n", "gr", vim_cmd("Lspsaga finder"))
-bind("n", "gD", vim.lsp.buf.declaration)
-bind("n", "gi", vim_cmd("Lspsaga finder imp"))
+bind("n", "gd", vim_cmd("Lspsaga goto_definition"), "Go to definition")
+bind("n", "gy", vim_cmd("Lspsaga goto_type_defintion"), "Go to type definition")
+bind("n", "gr", vim_cmd("Lspsaga finder"), "Go to references")
+bind("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+bind("n", "gi", vim_cmd("Lspsaga finder imp"), "Go to implementations")
 
-bind("n", "<leader>pd", vim_cmd("Lspsaga peek_definition"))
-bind("n", "<leader>py", vim_cmd("Lspsaga peek_type_definition"))
+bind("n", "<leader>pd", vim_cmd("Lspsaga peek_definition"), "Peek definition")
+bind("n", "<leader>py", vim_cmd("Lspsaga peek_type_definition"), "Peek type definition")
 
-bind("n", "<leader>rn", vim_cmd("Lspsaga rename"))
+bind("n", "<leader>rn", vim_cmd("Lspsaga rename"), "Rename")
 
-bind({"n", "v"}, "[g", vim_cmd("Lspsaga diagnostic_jump_prev"))
-bind({"n", "v"}, "]g", vim_cmd("Lspsaga diagnostic_jump_next"))
-bind({"n", "v"}, "<Left>", vim_cmd("Lspsaga diagnostic_jump_prev"))
-bind({"n", "v"}, "<Right>", vim_cmd("Lspsaga diagnostic_jump_next"))
+bind({"n", "v"}, "[g", vim_cmd("Lspsaga diagnostic_jump_prev"), "Jump to previous diagnostic")
+bind({"n", "v"}, "]g", vim_cmd("Lspsaga diagnostic_jump_next"), "Jump to next diagnostic")
+bind({"n", "v"}, "<Left>", vim_cmd("Lspsaga diagnostic_jump_prev"), "Jump to previous diagnostic")
+bind({"n", "v"}, "<Right>", vim_cmd("Lspsaga diagnostic_jump_next"), "Jump to next diagnostic")
 
-bind("n", "K", vim_cmd("Lspsaga hover_doc"))
-bind("n", "<leader>ac", vim_cmd("Lspsaga code_action"))
+bind("n", "K", vim_cmd("Lspsaga hover_doc"), "Hover under cursor")
+bind("n", "<leader>ac", vim_cmd("Lspsaga code_action"), "Code actions")
 
-bind({"n", "t"}, "<C-\\>", vim_cmd("Lspsaga term_toggle"))
+bind({"n", "t"}, "<C-\\>", vim_cmd("Lspsaga term_toggle"), "Toggle popup terminal")
 
 --- @param bufnr number
 --- @param enabled boolean
@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     end
 })
 
-bind("n", "<leader>i", vim_cmd("ToggleInlayHints"))
+bind("n", "<leader>i", vim_cmd("ToggleInlayHints"), "Toggle inlay hints")
 
 local lspHoverGroup = vim.api.nvim_create_augroup("lspHover", { clear = false })
 
