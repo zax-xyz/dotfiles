@@ -73,7 +73,7 @@ if !exists('g:vscode')
     Plug 'akinsho/bufferline.nvim'
     Plug 'tiagovla/scope.nvim'
     Plug 'lukas-reineke/indent-blankline.nvim'
-    Plug 'lewis6991/satellite.nvim'
+    " Plug 'lewis6991/satellite.nvim'
 
     " Language-related plugins
     " Plug 'iloginow/vim-stylus'
