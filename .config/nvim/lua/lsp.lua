@@ -66,15 +66,25 @@ bind("n", "<leader>ac", vim_cmd("Lspsaga code_action"))
 
 bind({"n", "t"}, "<C-\\>", vim_cmd("Lspsaga term_toggle"))
 
+--- @param bufnr number
+--- @param enabled boolean
+local function set_inlay_hints(bufnr, enabled)
+    local vim_set_inlay_hints = vim.lsp.inlay_hint
+    if type(vim_set_inlay_hints) == "table" then
+        vim_set_inlay_hints = vim_set_inlay_hints.enable
+    end
+    vim_set_inlay_hints(bufnr, enabled)
+end
+
 local inlayHints = true
 vim.api.nvim_create_user_command('ToggleInlayHints', function()
     inlayHints = not inlayHints
     print("Inlay hints", inlayHints and "enabled" or "disabled")
-    vim.lsp.inlay_hint(0, inlayHints)
+    set_inlay_hints(0, inlayHints)
 end, {})
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     callback = function()
-        vim.lsp.inlay_hint(0, inlayHints)
+        set_inlay_hints(0, inlayHints)
     end
 })
 
@@ -101,7 +111,7 @@ local function config(_config)
         -- })
 
         if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint(bufnr, inlayHints)
+            set_inlay_hints(bufnr, inlayHints)
         end
 
         if _config ~= nil and _config.on_attach ~= nil then
