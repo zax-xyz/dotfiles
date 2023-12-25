@@ -59,6 +59,7 @@ if !exists('g:vscode')
     Plug 'rmagatti/auto-session'
     " Plug 'rmagatti/session-lens'
     " Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
+    Plug 'folke/which-key.nvim'
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -113,6 +114,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/nvim-tree")
     require("plugins/nvim-ts-autotag")
     require("plugins/auto-session")
+    require("plugins/which-key")
     -- require("plugins/toggleterm")
     require("plugins/lualine")
     require("plugins/gitsigns")
