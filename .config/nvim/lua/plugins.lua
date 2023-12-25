@@ -65,7 +65,7 @@ if !exists('g:vscode')
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
+    Plug 'almo7aya/openingh.nvim'
     Plug 'majutsushi/tagbar'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'kyazdani42/nvim-tree.lua'
@@ -118,6 +118,7 @@ if vim.fn.exists('g:vscode') == 0 then
     -- require("plugins/toggleterm")
     require("plugins/lualine")
     require("plugins/gitsigns")
+    require("plugins/openingh")
     require("plugins/bufferline")
     require("plugins/scope")
     require("plugins/indent_blankline")
