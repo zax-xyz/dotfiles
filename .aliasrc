@@ -20,6 +20,8 @@ alias diff="diff --color=auto"
 # alias zhaste="env HASTE_SERVER=https://bin.zaxu.xyz/ haste"
 alias zhaste="haste -d https://bin.zaxu.xyz"
 
+alias less="less -R --mouse"
+
 # ls
 alias ls="eza --group-directories-first"
 alias l="ls -l"
