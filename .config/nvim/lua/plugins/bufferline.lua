@@ -1,4 +1,5 @@
 local colors = require('catppuccin.palettes.mocha')
+local bind = require("utils").bind
 
 local selected_hl = {
     bg = colors.surface0,
@@ -29,18 +30,11 @@ require('bufferline').setup({
     },
 })
 
-vim.cmd([[
-" These commands will navigate through buffers in order regardless of which mode you are using
-" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
-nnoremap <silent><C-n> :BufferLineCycleNext<CR>
-nnoremap <silent><C-p> :BufferLineCyclePrev<CR>
+bind("n", "<C-n>", vim.cmd.BufferLineCycleNext, "Next buffer")
+bind("n", "<C-p>", vim.cmd.BufferLineCyclePrev, "Previous buffer")
 
-" These commands will move the current buffer backwards or forwards in the bufferline
-nnoremap <silent><C-S-n> :BufferLineMoveNext<CR>
-nnoremap <silent><C-S-p> :BufferLineMovePrev<CR>
+bind("n", "<C-S-n>", vim.cmd.BufferLineMoveNext, "Move buffer forward")
+bind("n", "<C-S-p>", vim.cmd.BufferLineMovePrev, "Move buffer backwards")
 
-" These commands will sort buffers by directory, language, or a custom criteria
-nnoremap <silent><leader>be :BufferLineSortByExtension<CR>
-nnoremap <silent><leader>bd :BufferLineSortByDirectory<CR>
-" nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>
-]])
+bind("n", "<leader>Be", vim.cmd.BufferLineSortByExtension, "Sort buffers by extension")
+bind("n", "<leader>Bd", vim.cmd.BufferLineSortByDirectory, "Sort buffers by directory")
