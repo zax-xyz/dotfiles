@@ -32,11 +32,11 @@ bind("", "<leader>S", ":%" .. replace_cmd, ":%s command tempalte")
 
 bind("", "<leader>n", ":norm ")
 
-local indent_keys = {">", "<"}
-local indent_desc = {"Indent line", "Unindent line"}
-for i, key in ipairs(indent_keys) do
-    bind("n", key, key .. key, indent_desc[i])
-end
+-- local indent_keys = {">", "<"}
+-- local indent_desc = {"Indent line", "Unindent line"}
+-- for i, key in ipairs(indent_keys) do
+--     bind("n", key, key .. key, indent_desc[i])
+-- end
 
 bind("c", "w!!", "w !sudo tee > /dev/null %", "Write file as root")
 
