@@ -18,4 +18,18 @@ wk.register({
         e = { vim.cmd.BufferLineSortByExtension, "Sort buffers by extension" },
         d = { vim.cmd.BufferLineSortByDirectory, "Sort buffers by directory" },
     },
+
+    ["<C-t>"] = {
+        name = "tabs",
+
+        t = { vim.cmd.tabnew, "New tab" },
+        n = { vim.cmd.tabn, "Next tab" },
+        p = { vim.cmd.tabp, "Previous tab" },
+
+        ["<C-t>"] = { vim.cmd.tabnew, "New tab" },
+        ["<C-n>"] = { vim.cmd.tabn, "Next tab" },
+        ["<C-p>"] = { vim.cmd.tabp, "Previous tab" },
+    },
+    ["<C-;>"] = { vim.cmd.tabp, "Previous tab" },
+    ["<C-'>"] = { vim.cmd.tabn, "Next tab" },
 })
