@@ -41,8 +41,6 @@ bindkey '^v' edit-command-line
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -67,4 +65,8 @@ esac
 
 if cmd-exists thefuck; then
     eval $(thefuck --alias)
+fi
+
+if cmd-exists zoxide; then
+    eval "$(zoxide init zsh)"
 fi
