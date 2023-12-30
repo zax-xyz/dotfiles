@@ -1,7 +1,28 @@
-local bind = require('utils').bind
 local telescope = require('telescope.builtin')
+local wk = require('which-key')
 
-bind('', '<leader>f', telescope.find_files, "Find files")
-bind('', '<leader>gg', telescope.git_files, "Search git files")
-bind('', '<leader>b', telescope.buffers, "Search buffers")
-bind('', '<leader>lg', telescope.live_grep, "Live grep")
+wk.register({
+    ["<leader>f"] = {
+        name = "Find (Telescope)",
+        f = { telescope.find_files, "Files" },
+        g = {
+            name = "Git",
+            g = { telescope.git_files, "Files" },
+            c = { telescope.git_commits, "Commits" },
+            b = { telescope.git_branches, "Branches" },
+            s = { telescope.git_status, "Status" },
+        },
+        b = { telescope.buffers, "Buffers" },
+        l = { telescope.live_grep, "Live grep" },
+        o = { telescope.oldfiles, "Oldfiles" },
+        k = { telescope.keymaps, "Keymaps" },
+        c = {
+            name = "Commands",
+            c = { telescope.commands, "Commands" },
+            h = { telescope.command_history, "Command history" },
+        },
+        m = { telescope.marks, "Marks" },
+        s = { telescope.spell_suggest, "Spelling suggestions" },
+        z = { telescope.current_buffer_fuzzy_find, "Fuzzy find" },
+    }
+})
