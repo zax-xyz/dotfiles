@@ -46,18 +46,25 @@ bindkey '^[[B' history-substring-search-down
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval $(keychain --eval --quiet id_rsa)
+cmd-exists() {
+    hash $1 2> /dev/null
+}
 
-# fnm
+if cmd-exists keychain; then
+    eval $(keychain --eval --quiet id_rsa)
+fi
+
 export PATH="$HOME/.local/share/fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
+if cmd-exists fnm; then
+    eval "$(fnm env --use-on-cd)"
+fi
 
-# pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
-eval $(thefuck --alias)
+if cmd-exists thefuck; then
+    eval $(thefuck --alias)
+fi
