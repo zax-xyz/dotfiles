@@ -48,14 +48,11 @@ cmd-exists() {
     hash $1 2> /dev/null
 }
 
-if cmd-exists keychain; then
-    eval $(keychain --eval --quiet id_rsa)
-fi
-
 export PATH="$HOME/.local/share/fnm:$PATH"
-if cmd-exists fnm; then
-    eval "$(fnm env --use-on-cd)"
-fi
+cmd-exists fnm && eval "$(fnm env --use-on-cd)"
+cmd-exists keychain && eval $(keychain --eval --quiet id_rsa)
+cmd-exists thefuck && eval $(thefuck --alias)
+cmd-exists oxide && eval "$(zoxide init zsh)"
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
@@ -63,10 +60,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-if cmd-exists thefuck; then
-    eval $(thefuck --alias)
-fi
-
-if cmd-exists zoxide; then
-    eval "$(zoxide init zsh)"
-fi
