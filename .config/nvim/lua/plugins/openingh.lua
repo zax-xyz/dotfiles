@@ -1,5 +1,11 @@
 local bind = require('utils').bind
+local wk = require("which-key")
 
-bind("n", "<leader>gr", vim.cmd.OpenInGHRepo, "Open repo in GitHub")
-bind("n", "<leader>gf", vim.cmd.OpenInGHFile, "Open file in GitHub")
-bind("v", "<leader>gf", ":OpenInGHFileLines<CR>", "Open files in GitHub")
+wk.register({
+    ["<leader>g"] = {
+        name = "Open in Github",
+        ["r"] = { vim.cmd.OpenInGHRepo, "Open repo in GitHub" },
+        ["f"] = { vim.cmd.OpenInGHFile, "Open file in GitHub" },
+        ["l"] = { ":OpenInGHFileLines<CR>", "Open lines in GitHub", mode = { "n", "v" } },
+    }
+})
