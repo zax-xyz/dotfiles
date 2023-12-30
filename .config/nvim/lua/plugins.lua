@@ -54,7 +54,7 @@ if !exists('g:vscode')
     Plug 'andweeb/presence.nvim'
     " Plug 'famiu/bufdelete.nvim'
     Plug 'windwp/nvim-autopairs'
-    Plug 'brenoprata10/nvim-highlight-colors'
+    Plug 'zax-xyz/nvim-highlight-colors'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
     " Plug 'rmagatti/session-lens'
