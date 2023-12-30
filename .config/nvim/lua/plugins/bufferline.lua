@@ -1,4 +1,4 @@
-local bind = require("utils").bind
+local wk = require("which-key")
 
 require('bufferline').setup({
     options = {
@@ -6,11 +6,16 @@ require('bufferline').setup({
     },
 })
 
-bind("n", "<C-n>", vim.cmd.BufferLineCycleNext, "Next buffer")
-bind("n", "<C-p>", vim.cmd.BufferLineCyclePrev, "Previous buffer")
+wk.register({
+    ["<C-n>"] = { vim.cmd.BufferLineCycleNext, "Next buffer" },
+    ["<C-p>"] = { vim.cmd.BufferLineCyclePrev, "Previous buffer" },
 
-bind("n", "<C-S-n>", vim.cmd.BufferLineMoveNext, "Move buffer forward")
-bind("n", "<C-S-p>", vim.cmd.BufferLineMovePrev, "Move buffer backwards")
+    ["<C-S-n>"] = { vim.cmd.BufferLineMoveNext, "Move buffer forward" },
+    ["<C-S-p>"] = { vim.cmd.BufferLineMovePrev, "Move buffer backwards" },
 
-bind("n", "<leader>Be", vim.cmd.BufferLineSortByExtension, "Sort buffers by extension")
-bind("n", "<leader>Bd", vim.cmd.BufferLineSortByDirectory, "Sort buffers by directory")
+    ["<leader>B"] = {
+        name = "Sort buffers",
+        e = { vim.cmd.BufferLineSortByExtension, "Sort buffers by extension" },
+        d = { vim.cmd.BufferLineSortByDirectory, "Sort buffers by directory" },
+    },
+})
