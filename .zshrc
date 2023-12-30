@@ -52,7 +52,7 @@ export PATH="$HOME/.local/share/fnm:$PATH"
 cmd-exists fnm && eval "$(fnm env --use-on-cd)"
 cmd-exists keychain && eval $(keychain --eval --quiet id_rsa)
 cmd-exists thefuck && eval $(thefuck --alias)
-cmd-exists oxide && eval "$(zoxide init zsh)"
+cmd-exists zoxide && eval "$(zoxide init zsh)"
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
