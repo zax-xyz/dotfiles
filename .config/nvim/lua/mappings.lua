@@ -99,3 +99,5 @@ bind("", "<leader>P", '"+P', "Paste above from system clipboard")
 
 bind("t", "<S-Space>", "<Space>")
 bind("n", "<leader>o", vim_cmd(":!xdg-open %"), "Open file in system default")
+
+-- bind("n", "<leader>G", vim.cmd.Git, "Git")
