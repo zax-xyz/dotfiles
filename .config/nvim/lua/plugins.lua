@@ -42,6 +42,7 @@ if !exists('g:vscode')
     Plug 'weilbith/nvim-code-action-menu'
     Plug 'nvimdev/lspsaga.nvim'
     Plug 'mrded/nvim-lsp-notify'
+    Plug 'folke/neodev.nvim'
 
     Plug 'numToStr/Comment.nvim'
     Plug 'suy/vim-context-commentstring'

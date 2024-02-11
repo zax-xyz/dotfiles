@@ -1,3 +1,5 @@
+require("neodev").setup()
+
 local vim_cmd = require("utils").vim_cmd
 
 require("mason").setup()
