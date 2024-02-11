@@ -48,7 +48,8 @@ require('lspsaga').setup({
 })
 
 bind("n", "gd", vim_cmd("Lspsaga goto_definition"), "Go to definition")
-bind("n", "gy", vim_cmd("Lspsaga goto_type_defintion"), "Go to type definition")
+bind("n", "<C-LeftMouse>", "<LeftMouse>:Lspsaga goto_definition<CR>", "Go to definition")
+bind("n", "gy", vim_cmd("Lspsaga goto_type_definition"), "Go to type definition")
 bind("n", "gr", vim_cmd("Lspsaga finder"), "Go to references")
 bind("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
 bind("n", "gi", vim_cmd("Lspsaga finder imp"), "Go to implementations")
