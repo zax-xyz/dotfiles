@@ -1,8 +1,8 @@
 local bind = require('utils').bind
 
-vim.g.gui_font_default_size = 10
+vim.g.gui_font_default_size = 12
 vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = 'Iosevka Term'
+vim.g.gui_font_face = 'Iosevka Nerd Font'
 
 vim.g.neovide_transparency = 0.9
 vim.g.neovide_background_color = '#1e1e2e'
