@@ -30,8 +30,7 @@ vim.opt.splitright = true
 
 -- Enable mouse control
 vim.opt.mouse = 'a'
-bind('n', '<ScrollWheelUp>', '<C-Y>', "Scroll up")
-bind('n', '<ScrollWheelDown>', '<C-E>', "Scroll down")
+vim.opt.mousescroll = 'ver:1,hor:3'
 
 if vim.fn.has("termguicolors") == 1 then
     vim.opt.termguicolors = true
