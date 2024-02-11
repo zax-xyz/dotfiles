@@ -62,7 +62,7 @@ if !exists('g:vscode')
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
     " Plug 'rmagatti/session-lens'
-    " Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
+    Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
     Plug 'folke/which-key.nvim'
 
     " Extra wacky shit that goes on the screen
