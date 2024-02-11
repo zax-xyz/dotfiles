@@ -61,4 +61,4 @@ case ":$PATH:" in
 esac
 
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
-export FZF_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
+export FZF_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND"
