@@ -1,6 +1,10 @@
 local telescope = require('telescope.builtin')
 local wk = require('which-key')
 
+require('telescope').setup()
+
+require('telescope').load_extension('fzf')
+
 wk.register({
     ["<leader>f"] = {
         name = "Find (Telescope)",
@@ -13,7 +17,7 @@ wk.register({
             s = { telescope.git_status, "Status" },
         },
         b = { telescope.buffers, "Buffers" },
-        l = { telescope.live_grep, "Live grep" },
+        l = { telescope.live_grep_native, "Live grep" },
         o = { telescope.oldfiles, "Oldfiles" },
         k = { telescope.keymaps, "Keymaps" },
         c = {
@@ -24,5 +28,6 @@ wk.register({
         m = { telescope.marks, "Marks" },
         s = { telescope.spell_suggest, "Spelling suggestions" },
         z = { telescope.current_buffer_fuzzy_find, "Fuzzy find" },
+        n = { ':TermExec cmd="ns"<CR>', "Find files using sk" }
     }
 })
