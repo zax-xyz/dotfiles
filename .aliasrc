@@ -107,10 +107,10 @@ alias v=vim
 
 alias xdgo="xdg-open"
 
-alias py="python"
+alias py="python3"
 alias js="node"
 
-alias pyvenv="python -m venv --system-site-packages"
+alias pyvenv="python3 -m venv --system-site-packages"
 alias pyv="pyvenv venv && source venv/bin/activate"
 
 alias discord="discord --no-sandbox --disable-features=UseOzonePlatform --disable-gpu-driver-bug-workarounds --disable-gpu-driver-workarounds --disable-gpu-vsync --disable-reading-from-canvas --disable-software-rasterizer --enable-accelerated-2d-canvas --enable-accelerated-mjpeg-decode --enable-accelerated-video --enable-features=VaapiVideoEncoder,VaapiVideoDecoder,VaapiIgnoreDriverChecks,CanvasOopRasterization --enable-gpu-compositing --enable-gpu-rasterization --enable-native-gpu-memory-buffers --enable-oop-rasterization --enable-raw-draw --enable-zero-copy --ignore-gpu-blocklist --use-gl=egl"
