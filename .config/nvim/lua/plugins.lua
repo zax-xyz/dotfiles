@@ -43,7 +43,7 @@ if !exists('g:vscode')
     Plug 'nvimdev/lspsaga.nvim'
     Plug 'mrded/nvim-lsp-notify'
 
-    Plug 'tpope/vim-commentary'
+    Plug 'numToStr/Comment.nvim'
     Plug 'suy/vim-context-commentstring'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -112,6 +112,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/tex")
     require("plugins/emmet")
     require("plugins/JavaImp")
+    require('Comment').setup()
     require("plugins/matchup")
     require("plugins/vim_current_word")
     require("plugins/autopairs")
