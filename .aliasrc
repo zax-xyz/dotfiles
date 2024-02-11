@@ -101,6 +101,7 @@ alias elass="cdlass; vim ass.tex"
 alias cditask="cd info/current-task"
 
 alias vim=nvim
+alias v=vim
 
 # alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
