@@ -144,6 +144,10 @@ mkgv() {
     vim
 }
 
+rgl() {
+    rg -p "$@" | less -R
+}
+
 d() {
     dir=$(fd --type directory | sk)
     [ -n "$dir" ] && cd "$dir" || return
