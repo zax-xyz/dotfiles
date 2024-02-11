@@ -64,7 +64,7 @@ bind({"n", "v"}, "<Right>", vim_cmd("Lspsaga diagnostic_jump_next"), "Jump to ne
 bind("n", "K", vim_cmd("Lspsaga hover_doc"), "Hover under cursor")
 bind("n", "<leader>ac", vim_cmd("Lspsaga code_action"), "Code actions")
 
-bind({"n", "t"}, "<C-\\>", vim_cmd("Lspsaga term_toggle"), "Toggle popup terminal")
+-- bind({"n", "t"}, "<C-\\>", vim_cmd("Lspsaga term_toggle"), "Toggle popup terminal")
 
 --- @param bufnr number
 --- @param enabled boolean | nil

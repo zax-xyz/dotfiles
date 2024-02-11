@@ -4,6 +4,6 @@ require("toggleterm").setup {
 
     float_opts = {
         border = 'rounded',
-        winblend = 8,
+        -- winblend = 8,
     },
 }

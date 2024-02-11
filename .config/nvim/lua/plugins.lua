@@ -121,7 +121,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/nvim-ts-autotag")
     require("plugins/auto-session")
     require("plugins/which-key")
-    -- require("plugins/toggleterm")
+    require("plugins/toggleterm")
     require("plugins/lualine")
     require("plugins/gitsigns")
     require("plugins/openingh")
