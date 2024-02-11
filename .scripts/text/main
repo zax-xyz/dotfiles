@@ -39,7 +39,7 @@ printf |
         "superscript") $BASE_DIR/super/super ;;
         "upside down") $BASE_DIR/upside_down/upside_down ;;
         "s p a c e") $BASE_DIR/space/space ;;
-        "S P A C E") $BASE_DIR/space/SPACE ;;
+        "S P A C E") $BASE_DIR/space/space_caps ;;
         "shuffle") $BASE_DIR/shuffle/shuffle ;;
         "reverse") $BASE_DIR/reverse/reverse ;;
         "rot13") $BASE_DIR/caesar/rot13 ;;
