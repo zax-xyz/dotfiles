@@ -47,6 +47,8 @@ if !exists('g:vscode')
     Plug 'suy/vim-context-commentstring'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    Plug 'ibhagwan/fzf-lua'
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ciaranm/detectindent'
     Plug 'andymass/vim-matchup'
@@ -104,7 +106,8 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/treesitter")
     require("plugins/treesitter-context")
     require("plugins/rainbow-delimiters")
-    require("plugins/telescope")
+    -- require("plugins/telescope")
+    require("plugins/fzf-lua")
     require("lsp")
     require("plugins/tex")
     require("plugins/emmet")
