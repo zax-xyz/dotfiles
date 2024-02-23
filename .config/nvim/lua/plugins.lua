@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 
 " Functionality
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'lewis6991/impatient.nvim'
 
