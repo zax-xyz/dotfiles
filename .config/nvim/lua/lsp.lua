@@ -287,13 +287,6 @@ cmp.setup {
     }
 }
 
--- Set up lspconfig.
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
---     capabilities = capabilities
--- }
-
 local formatOnSave = true
 vim.api.nvim_create_user_command('ToggleFormatOnSave', function()
     formatOnSave = not formatOnSave
@@ -333,19 +326,3 @@ null_ls.setup({
 require("mason-null-ls").setup({
     automatic_installation = true,
 })
-
--- require("lsp-inlayhints").setup()
--- require("inlay-hints").setup()
--- vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
--- vim.api.nvim_create_autocmd("LspAttach", {
---     group = "LspAttach_inlayhints",
---     callback = function(args)
---         if not (args.data and args.data.client_id) then
---             return
---         end
-
---         local bufnr = args.buf
---         local client = lsp.get_client_by_id(args.data.client_id)
---         require("inlay-hints").on_attach(client, bufnr)
---     end,
--- })
