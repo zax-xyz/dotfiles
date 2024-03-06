@@ -14,7 +14,7 @@ wk.register({
             b = { fzf.git_branches, "Branches" },
             s = { fzf.git_status, "Status" },
         },
-        b = { fzf.buffers, "Buffers" },
+        -- b = { fzf.buffers, "Buffers" },
         l = { fzf.live_grep, "Live grep" },
         o = { fzf.oldfiles, "Oldfiles" },
         k = { fzf.keymaps, "Keymaps" },

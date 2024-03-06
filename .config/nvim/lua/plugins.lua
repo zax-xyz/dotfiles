@@ -108,7 +108,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/treesitter")
     require("plugins/treesitter-context")
     require("plugins/rainbow-delimiters")
-    -- require("plugins/telescope")
+    require("plugins/telescope")
     require("plugins/fzf-lua")
     require("lsp")
     require("plugins/tex")
