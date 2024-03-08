@@ -42,7 +42,6 @@ if !exists('g:vscode')
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
     Plug 'weilbith/nvim-code-action-menu'
     Plug 'nvimdev/lspsaga.nvim'
-    Plug 'mrded/nvim-lsp-notify'
     Plug 'folke/neodev.nvim'
 
     Plug 'numToStr/Comment.nvim'
@@ -79,7 +78,8 @@ if !exists('g:vscode')
     Plug 'tiagovla/scope.nvim'
     Plug 'lukas-reineke/indent-blankline.nvim'
     " Plug 'lewis6991/satellite.nvim'
-    Plug 'rcarriga/nvim-notify'
+    " Plug 'rcarriga/nvim-notify'
+    Plug 'j-hui/fidget.nvim'
 
     " Language-related plugins
     " Plug 'iloginow/vim-stylus'
@@ -131,5 +131,5 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/scope")
     require("plugins/indent_blankline")
     require("plugins/live-server")
-    require("plugins/nvim-notify")
+    require("fidget").setup()
 end
