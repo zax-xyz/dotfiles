@@ -9,8 +9,12 @@ vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.signcolumn = 'yes'
+
 -- Make command mode tab complete nicer
 vim.opt.wildmode = 'longest,full'
+
+vim.opt.inccommand = 'split'
 
 -- Mappings timeout
 vim.opt.timeoutlen = 350
@@ -45,6 +49,9 @@ end
 
 vim.opt.re = 0
 vim.opt.scrolloff = 3
+
+vim.opt.list = true
+vim.opt.listchars = { trail = '·', nbsp = '␣' }
 
 -- -- Show trailing whitepace
 -- local autocmd = vim.api.nvim_create_autocmd
