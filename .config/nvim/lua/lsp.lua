@@ -312,6 +312,8 @@ vim.api.nvim_create_user_command('ToggleFormatOnSave', function()
     print("Format on save", formatOnSave and "enabled" or "disabled")
 end, {})
 
+vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format() end, {})
+
 local null_ls = require("null-ls")
 
 null_ls.setup({
