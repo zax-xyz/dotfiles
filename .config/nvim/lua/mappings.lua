@@ -14,14 +14,14 @@ for i, dir in ipairs(dirs) do
     bind("n", F"<C-{dir}>", F"<C-W><C-{dir}>", F"Switch to {human_dirs[i]} pane")
 end
 
--- visual line navigation
-local arrow_dirs = {Up = "k", Down = "j"}
----@diagnostic disable-next-line: unused-local
-for key, val in pairs(arrow_dirs) do
-    local lhs = F"<{key}>"
-    bind("", lhs, "g" .. val, F"{key} visual line")
-    bind("i", lhs, F"<Esc>g{val}a", F"{key} visual line")
-end
+-- -- visual line navigation
+-- local arrow_dirs = {Up = "k", Down = "j"}
+-- ---@diagnostic disable-next-line: unused-local
+-- for key, val in pairs(arrow_dirs) do
+--     local lhs = F"<{key}>"
+--     bind("", lhs, "g" .. val, F"{key} visual line")
+--     bind("i", lhs, F"<Esc>g{val}a", F"{key} visual line")
+-- end
 
 bind("", "<leader><leader>", "/<++><CR>c4l", "replace next <++>")
 bind("", "<leader><Tab>", "/<++><CR>", "find next <++>")
@@ -101,3 +101,28 @@ bind("t", "<S-Space>", "<Space>")
 bind("n", "<leader>o", vim_cmd(":!xdg-open %"), "Open file in system default")
 
 -- bind("n", "<leader>G", vim.cmd.Git, "Git")
+
+local bufdelete = require('bufdelete')
+bind("n", "<A-w>", function() bufdelete.bufdelete() end, "Delete buffer")
+
+---@param s string
+---@param substr string
+string.endswith = function(s, substr)
+    return s:sub(-#substr) == substr
+end
+
+---@param s string
+---@param replacements table
+local function replace_ext(s, replacements)
+    for old, new in pairs(replacements) do
+        if s:endswith(old) then
+            return s:sub(1, -#old - 1) .. new
+        end
+    end
+end
+
+bind("n", "<leader>H", function()
+    vim.cmd("e " .. replace_ext(vim.api.nvim_buf_get_name(0), { hpp = "cpp", cpp = "hpp", c = "h", h = "c" }))
+end, "Toggle C/C++ source/header")
+
+bind("", "<C-8>", vim_cmd(':keepjumps normal! mi*`i'))
