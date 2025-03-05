@@ -9,8 +9,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/shell_history
 
-source ~/.aliasrc
-source ~/.functionrc
 
 # Enables better tab completion
 # autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump
@@ -26,12 +24,10 @@ zstyle ':completion:*' menu select
 # Case insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
-# Load plugins
-plugin_dir=~/.local/share/zsh/plugins
-source $plugin_dir/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source $plugin_dir/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $plugin_dir/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $plugin_dir/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+plugins=(fast-syntax-highlighting zsh-history-substring-search zsh-autosuggestions zsh-vi-mode abbrev-alias)
+for plugin in $plugins; do
+    source ~/.local/share/zsh/plugins/$plugin/$plugin.plugin.zsh
+done
 
 # Vim chad 😎
 bindkey -v
@@ -42,7 +38,11 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/.p10k.zsh
+
+abbrev-alias -i
+source ~/.aliasrc
+source ~/.functionrc
 
 cmd-exists() {
     hash $1 2> /dev/null

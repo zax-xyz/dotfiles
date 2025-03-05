@@ -1,6 +1,12 @@
 #!/bin/sh
 # vim: ft=sh
 
+if [ -n "$ZSH_VERSION" ]; then
+    alias abbrev="abbrev-alias -r"
+else
+    alias abbrev="alias"
+fi
+
 # download youtube video as mp3
 alias yta="youtube-dl -x --audio-format 'mp3' --output '%(title)s.%(ext)s'"
 
@@ -8,7 +14,7 @@ alias yta="youtube-dl -x --audio-format 'mp3' --output '%(title)s.%(ext)s'"
 alias :q="exit"
 
 # get to external storage devices easier
-alias cdm='cd /run/media/$USER'
+abbrev cdm='cd /run/media/$USER'
 
 # sxiv-rifle for browsing images in directory after opening single file
 # alias sxiv=sxiv-rifle
@@ -24,73 +30,77 @@ alias less="less -R --mouse"
 
 # ls
 alias ls="eza --group-directories-first"
-alias l="ls -l"
-alias la="ls -a"
-alias lla="la -la"
+abbrev l="ls -l"
+abbrev la="ls -a"
+abbrev lla="la -la"
 
 # git
-alias g="git"
-alias gst="g status"
-alias ga="g add"
-alias gau="ga -u"
-alias gc="g commit"
-alias gca="gc --amend"
-alias gcapf="gca && gpf"
-alias gcapff="gca && gpff"
-alias gcae="gca --no-edit"
-alias gcaepf="gcae && gpf"
-alias gcaepff="gcae && gpff"
-alias gcs="gs -S"
-alias gcsa="gcs --amend"
-alias gcmsg="gc -m"
-alias gcsmsg="gc -S -m"
-alias gp="g push"
-alias gpf="gp --force-with-lease"
-alias gpff="gp --force"
-alias gpl="g pull"
-alias gd="g diff"
-alias gl="g log"
-alias glo="gl --oneline"
-alias glpo='gl --pretty="%C(Yellow)%h  %C(auto)%ad (%C(Green)%cr%C(auto)) %C(Cyan)%an: %C(auto)%s" --date=short'
-alias gcl="g clone"
-alias gch="g checkout"
-alias gchb="gch -b"
-alias grb="g rebase"
-alias yeet="ga -A && gcmsg 'yeet' && gp"
+abbrev g="git"
+abbrev gst="g status"
+abbrev ga="g add"
+abbrev gau="ga -u"
+abbrev gc="g commit"
+abbrev gca="gc --amend"
+abbrev gcapf="gca && gpf"
+abbrev gcapff="gca && gpff"
+abbrev gcae="gca --no-edit"
+abbrev gcaepf="gcae && gpf"
+abbrev gcaepff="gcae && gpff"
+abbrev gcs="gs -S"
+abbrev gcsa="gcs --amend"
+abbrev gcmsg="gc -m"
+abbrev gcm="gc -m"
+abbrev gcsmsg="gc -S -m"
+abbrev gp="g push"
+abbrev gpf="gp --force-with-lease"
+abbrev gpff="gp --force"
+abbrev gpl="g pull"
+abbrev gd="g diff"
+abbrev gl="g log"
+abbrev glo="gl --oneline"
+abbrev glpo='gl --pretty="%C(Yellow)%h  %C(auto)%ad (%C(Green)%cr%C(auto)) %C(Cyan)%an: %C(auto)%s" --date=short'
+abbrev gcl="g clone"
+abbrev gch="g checkout"
+abbrev gchb="gch -b"
+abbrev grb="g rebase"
+abbrev gm="git merge"
+abbrev yeet="ga -A && gcmsg 'yeet' && gp"
+
+abbrev cgr='cd $(git rev-parse --show-toplevel)'
 
 ## dotfiles
 alias dgit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias dg="dgit"
-alias dgst="dg status"
-alias dga="dg add"
-alias dgau="dga -u"
-alias dgc="dg commit"
-alias dgca="dgc --amend"
-alias dgcapf="dgcae && gpf"
-alias dgcapff="dge&& gpff"
-alias dgcae="dgcae --no-edit"
-alias dgcaepf="dgcae && gpf"
-alias dgcaepff="dgcae && gpff"
-alias dgcs="dg commit -S"
-alias dgcsa="dgcs --amend"
-alias dgcmsg="dgc -m"
-alias dgcsmsg="dgcs -m"
-alias dgp="dg push"
-alias dgpf="dgp --force-with-lease"
-alias dgpff="dgp --force"
-alias dgpl="dg pull"
-alias dgd="dg diff"
-alias dgl="dg log"
-alias dglo="dgl --oneline"
-alias dglpo='dgl --pretty="%C(Yellow)%h  %C(auto)%ad (%C(Green)%cr%C(auto)) %C(Cyan)%an: %C(auto)%s" --date=short'
-alias dgch="dg checkout"
-alias dgchb="dgch -b"
-alias dgrb="dg rebase"
+abbrev dg="dgit"
+abbrev dgst="dg status"
+abbrev dga="dg add"
+abbrev dgau="dga -u"
+abbrev dgc="dg commit"
+abbrev dgca="dgc --amend"
+abbrev dgcapf="dgca && gpf"
+abbrev dgcapff="dgca && gpff"
+abbrev dgcae="dgca --no-edit"
+abbrev dgcaepf="dgcae && gpf"
+abbrev dgcaepff="dgcae && gpff"
+abbrev dgcs="dg commit -S"
+abbrev dgcsa="dgcs --amend"
+abbrev dgcmsg="dgc -m"
+abbrev dgcsmsg="dgcs -m"
+abbrev dgp="dg push"
+abbrev dgpf="dgp --force-with-lease"
+abbrev dgpff="dgp --force"
+abbrev dgpl="dg pull"
+abbrev dgd="dg diff"
+abbrev dgl="dg log"
+abbrev dglo="dgl --oneline"
+abbrev dglpo='dgl --pretty="%C(Yellow)%h  %C(auto)%ad (%C(Green)%cr%C(auto)) %C(Cyan)%an: %C(auto)%s" --date=short'
+abbrev dgch="dg checkout"
+abbrev dgchb="dgch -b"
+abbrev dgrb="dg rebase"
 
 # django
-alias djmkmigrate="python manage.py makemigrations --settings=backend.local_settings"
-alias djmigrate="python manage.py migrate --settings=backend.local_settings"
-alias djshell="python manage.py shell --settings=backend.local_settings"
+abbrev djmkmigrate="python manage.py makemigrations --settings=backend.local_settings"
+abbrev djmigrate="python manage.py migrate --settings=backend.local_settings"
+abbrev djshell="python manage.py shell --settings=backend.local_settings"
 
 # get to task
 ## latex assignment
@@ -100,24 +110,23 @@ alias elass="cdlass; vim ass.tex"
 ## info1910 task
 alias cditask="cd info/current-task"
 
-alias vim=nvim
-alias v=vim
+abbrev vim=nvim
+abbrev v=vim
 
 # alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
-alias xdgo="xdg-open"
+abbrev xdgo="xdg-open"
 
-alias py="python3"
-alias js="node"
+abbrev py="python3"
+abbrev js="node"
 
-alias pyvenv="python3 -m venv --system-site-packages"
-alias pyv="pyvenv venv && source venv/bin/activate"
+abbrev pyvenv="python3 -m venv --system-site-packages"
+abbrev pyv="pyvenv venv && source venv/bin/activate"
 
 alias discord="discord --no-sandbox --disable-features=UseOzonePlatform --disable-gpu-driver-bug-workarounds --disable-gpu-driver-workarounds --disable-gpu-vsync --disable-reading-from-canvas --disable-software-rasterizer --enable-accelerated-2d-canvas --enable-accelerated-mjpeg-decode --enable-accelerated-video --enable-features=VaapiVideoEncoder,VaapiVideoDecoder,VaapiIgnoreDriverChecks,CanvasOopRasterization --enable-gpu-compositing --enable-gpu-rasterization --enable-native-gpu-memory-buffers --enable-oop-rasterization --enable-raw-draw --enable-zero-copy --ignore-gpu-blocklist --use-gl=egl"
 
-alias neovide="neovide --multigrid"
+abbrev f="fzf"
+abbrev lg='sk --ansi -i -c '\''rg --color=always --line-number "{}"'\'''
 
-alias f="fzf"
-alias lg='sk --ansi -i -c '\''rg --color=always --line-number "{}"'\'''
 
 alias img="kitty icat"
