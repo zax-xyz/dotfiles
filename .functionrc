@@ -150,15 +150,15 @@ rgl() {
 
 d() {
     dir=$(fd --type directory | sk)
-    [ -n "$dir" ] && cd "$dir" || return
+    [ -n "$dir" ] && cd "$dir" || return 0
 }
 
 e() {
     fn=$(sk)
-    [ -n "$fn" ] && vim "$fn"
+    [ -n "$fn" ] && vim "$fn" || return 0
 }
 
 ns() {
     fn=$(sk)
-    [ -n "$fn" ] && nvr -l "$fn"
+    [ -n "$fn" ] && nvr -l "$fn" || return 0
 }
