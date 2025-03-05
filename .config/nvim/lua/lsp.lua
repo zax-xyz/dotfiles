@@ -73,13 +73,16 @@ bind("n", "<leader>ac", vim_cmd("Lspsaga code_action"), "Code actions")
 --- @param enabled boolean | nil
 local function set_inlay_hints(bufnr, enabled)
     if enabled == nil then
-        enabled = true
+        enabled = false
     end
     local vim_set_inlay_hints = vim.lsp.inlay_hint
+    if vim_set_inlay_hints == nil then
+        return
+    end
     if type(vim_set_inlay_hints) == "table" then
         vim_set_inlay_hints = vim_set_inlay_hints.enable
     end
-    vim_set_inlay_hints(bufnr, enabled)
+    vim_set_inlay_hints(enabled)
 end
 
 vim.api.nvim_create_user_command('ToggleInlayHints', function()
