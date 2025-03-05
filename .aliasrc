@@ -128,5 +128,8 @@ alias discord="discord --no-sandbox --disable-features=UseOzonePlatform --disabl
 abbrev f="fzf"
 abbrev lg='sk --ansi -i -c '\''rg --color=always --line-number "{}"'\'''
 
+alias android-studio="open '/Users/mvo/Applications/Android Studio Jellyfish 2023.3.1 Patch 2.app'"
+abbrev cda="cd ~/Snapchat/Dev/android/snapchat"
 
-alias img="kitty icat"
+abbrev img="kitty icat"
+abbrev adb-shake="adb shell am broadcast -a com.snap.SHAKE_REPORT"
