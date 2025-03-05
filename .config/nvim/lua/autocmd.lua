@@ -38,3 +38,10 @@ end)
 ftAutocmd('tex,markdown,nroff', function()
     vim.opt_local.spell = true
 end)
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = '*.yml.phx',
+    callback = function()
+        vim.opt_local.filetype = 'yaml'
+    end
+})
