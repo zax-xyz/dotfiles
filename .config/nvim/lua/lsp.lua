@@ -212,6 +212,9 @@ lspconfig.bashls.setup(config())
 lspconfig.clangd.setup(config())
 lspconfig.pyright.setup(config())
 lspconfig.rust_analyzer.setup(config())
+lspconfig.gopls.setup(config({
+    cmd = { "/Users/mvo/go/bin/gopls" },
+}))
 lspconfig.sqlls.setup(config())
 
 lspconfig.jsonls.setup(config())
@@ -228,6 +231,10 @@ lspconfig.jdtls.setup(config({
         workspace = HOME .. "/.cache/jdtls/workspace",
     },
 }))
+
+lspconfig.kotlin_language_server.setup(config())
+
+-- lspconfig.sourcekit.setup(config())
 
 lspconfig.texlab.setup(config())
 
