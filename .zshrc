@@ -20,7 +20,6 @@ else
 fi
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
-
 # Case insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
@@ -48,17 +47,11 @@ cmd-exists() {
     hash $1 2> /dev/null
 }
 
-export PATH="$HOME/.local/share/fnm:$PATH"
+export PATH="$HOME/.local/share/pnpm:$HOME/.local/share/fnm:$PATH"
 cmd-exists fnm && eval "$(fnm env --use-on-cd)"
 cmd-exists keychain && eval $(keychain --eval --quiet id_rsa)
 cmd-exists thefuck && eval $(thefuck --alias)
 cmd-exists zoxide && eval "$(zoxide init zsh)"
-
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
 
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 export FZF_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND"
