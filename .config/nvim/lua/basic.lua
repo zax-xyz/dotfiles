@@ -23,7 +23,7 @@ vim.opt.timeoutlen = 350
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevel = 99
-bind('n', '<leader>F', 'za', 'Toggle folding')
+bind('n', '<leader>z', 'za', 'Toggle folding')
 
 -- Open splits at the bottom and right
 vim.opt.splitbelow = true
@@ -51,7 +51,7 @@ vim.opt.re = 0
 vim.opt.scrolloff = 3
 
 vim.opt.list = true
-vim.opt.listchars = { trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- -- Show trailing whitepace
 -- local autocmd = vim.api.nvim_create_autocmd

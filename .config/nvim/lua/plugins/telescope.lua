@@ -1,7 +1,25 @@
 local telescope = require('telescope.builtin')
+local trouble = require("trouble")
 local wk = require('which-key')
 
-require('telescope').setup()
+require('telescope').setup({
+    defaults = {
+        mappings = {
+            i = { ["<c-t>"] = trouble.open_with_trouble },
+            n = { ["<c-t>"] = trouble.open_with_trouble },
+        }
+    },
+    pickers = {
+        buffers = {
+            -- sort_lastused = true,
+            sort_mru = true,
+            ignore_current_buffer = true,
+            mappings = {
+                i = { ["<c-d>"] = "delete_buffer" },
+            },
+        },
+    },
+})
 
 require('telescope').load_extension('fzf')
 
@@ -33,13 +51,6 @@ require('telescope').load_extension('fzf')
 -- })
 
 wk.register({
-    ["<leader>fb"] = {
-        function()
-            telescope.buffers({
-                sort_mru = true,
-                ignore_current_buffer = true
-            })
-        end,
-        "Buffers"
-    },
+    ["<leader>fb"] = { function() telescope.buffers() end, "Buffers" },
+    ["<leader>b"] = { function() telescope.buffers() end, "Buffers" },
 })
