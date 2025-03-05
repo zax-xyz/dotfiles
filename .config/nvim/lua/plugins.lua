@@ -56,7 +56,7 @@ if !exists('g:vscode')
     Plug 'editorconfig/editorconfig-vim'
     Plug 'dominikduda/vim_current_word'
     Plug 'andweeb/presence.nvim'
-    " Plug 'famiu/bufdelete.nvim'
+    Plug 'famiu/bufdelete.nvim'
     Plug 'windwp/nvim-autopairs'
     Plug 'brenoprata10/nvim-highlight-colors'
     Plug 'windwp/nvim-ts-autotag'
@@ -64,6 +64,10 @@ if !exists('g:vscode')
     " Plug 'rmagatti/session-lens'
     Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
     Plug 'folke/which-key.nvim'
+    Plug 'fedepujol/move.nvim'
+    " Plug 'nvimtools/hydra.nvim'
+    " Plug 'smoka7/multicursors.nvim'
+    Plug 'jake-stewart/multicursor.nvim'
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -80,6 +84,7 @@ if !exists('g:vscode')
     " Plug 'lewis6991/satellite.nvim'
     " Plug 'rcarriga/nvim-notify'
     Plug 'j-hui/fidget.nvim'
+    Plug 'folke/trouble.nvim'
 
     " Language-related plugins
     " Plug 'iloginow/vim-stylus'
@@ -87,9 +92,10 @@ if !exists('g:vscode')
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
     " Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
     Plug 'barrett-ruth/live-server.nvim'
-    " Plug 'mattn/emmet-vim'
+    Plug 'mattn/emmet-vim'
     " Plug 'rustushki/JavaImp.vim'
     Plug 'Fymyte/rasi.vim'
+    Plug 'windwp/nvim-ts-autotag'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-context'
@@ -123,6 +129,10 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/nvim-ts-autotag")
     require("plugins/auto-session")
     require("plugins/which-key")
+    require("plugins/move")
+    -- require("hydra").setup()
+    -- require("plugins/multicursors")
+    require("plugins/multicursor")
     require("plugins/toggleterm")
     require("plugins/lualine")
     require("plugins/gitsigns")
@@ -131,5 +141,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/scope")
     require("plugins/indent_blankline")
     require("plugins/live-server")
-    require("fidget").setup()
+    require("nvim-ts-autotag").setup()
+    require("plugins/fidget")
+    require("plugins/trouble")
 end
