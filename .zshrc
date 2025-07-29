@@ -48,7 +48,7 @@ cmd-exists() {
 }
 
 export PATH="$HOME/.local/share/pnpm:$HOME/.local/share/fnm:$PATH"
-cmd-exists fnm && eval "$(fnm env --use-on-cd)"
+cmd-exists fnm && eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled)"
 cmd-exists keychain && eval $(keychain --eval --quiet id_rsa)
 cmd-exists thefuck && eval $(thefuck --alias)
 cmd-exists zoxide && eval "$(zoxide init zsh)"
