@@ -55,3 +55,5 @@ cmd-exists zoxide && eval "$(zoxide init zsh)"
 
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 export FZF_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND"
+
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
