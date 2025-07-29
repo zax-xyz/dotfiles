@@ -14,7 +14,7 @@ vim.opt.signcolumn = 'yes'
 -- Make command mode tab complete nicer
 vim.opt.wildmode = 'longest,full'
 
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = 'nosplit'
 
 -- Mappings timeout
 vim.opt.timeoutlen = 350

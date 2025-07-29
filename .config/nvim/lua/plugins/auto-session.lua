@@ -5,6 +5,6 @@ require("auto-session").setup {
 
 local bind = require("utils").bind
 
-for _, lhs in ipairs({"<leader>as", "<C-s>"}) do
+for _, lhs in ipairs({"<leader>as"}) do
     bind("n", lhs, require("auto-session.session-lens").search_session, "Search sessions")
 end

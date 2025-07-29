@@ -1,13 +1,20 @@
-local bind = require("utils").bind
+local api = require("nvim-tree.api")
 
 require("nvim-tree").setup {
     update_focused_file = {
         enable = true,
         update_root = true,
     },
+    git = {
+        enable = false,
+    },
+    on_attach = function(bufnr)
+        api.config.mappings.default_on_attach(bufnr)
+        vim.keymap.del("n", "<C-e>", { buffer = bufnr })
+    end
 }
 
-local tree = require("nvim-tree.api").tree
+local tree = api.tree
 
 -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#workaround-when-using-rmagattiauto-session
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {

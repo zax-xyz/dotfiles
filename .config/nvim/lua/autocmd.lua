@@ -1,13 +1,33 @@
 local bind = require('utils').bind
 local vim_cmd = require('utils').vim_cmd
 
+local options = {
+    python = vim_cmd('hi link pythonNone Structure'),
+    ['html,css,javascript,typescript,javascriptreact,typescriptreact,rasi'] = {
+        tabstop = 2,
+        softtabstop = 2,
+        shiftwidth = 2,
+    },
+    go = { expandtab = false },
+    plaintex = { filetype = 'tex' },
+    rmd = { filetype = 'markdown' },
+    r = function()
+        bind('i', '<A-->', '<-', 'R variable assignment', { buffer = true })
+    end,
+    arduino = {
+        filetype = 'cpp',
+        syntax = 'arduino',
+    },
+    ['text,markdown,nroff'] = { spell = true },
+}
+
 local function ftAutocmd(filetype, callback)
     vim.api.nvim_create_autocmd('FileType', {
         pattern = filetype,
         callback = callback,
     })
 end
-
+ 
 ftAutocmd('python', vim_cmd('hi link pythonNone Structure'))
 
 -- Indentation

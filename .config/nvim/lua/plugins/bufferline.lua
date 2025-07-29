@@ -1,12 +1,13 @@
 local wk = require("which-key")
 
+vim.diagnostic.config({ update_in_insert = true })
+
 require('bufferline').setup({
     options = {
         close_command = "Bdelete %d",
         right_mouse_command = "Bdelete %d",
         middle_mouse_command = "Bdelete %d",
         diagnostics = "nvim_lsp",
-        diagnostics_update_in_insert = true,
     },
 })
 

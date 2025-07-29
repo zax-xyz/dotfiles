@@ -50,7 +50,7 @@ require('telescope').load_extension('fzf')
 --     }
 -- })
 
-wk.register({
-    ["<leader>fb"] = { function() telescope.buffers() end, "Buffers" },
-    ["<leader>b"] = { function() telescope.buffers() end, "Buffers" },
-})
+-- wk.register({
+--     ["<leader>fb"] = { function() telescope.buffers() end, "Buffers" },
+--     ["<leader>b"] = { function() telescope.buffers() end, "Buffers" },
+-- })

@@ -22,9 +22,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'lewis6991/impatient.nvim'
 
 if !exists('g:vscode')
-    " Plug 'navarasu/onedark.nvim'
     Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
+    " lsp
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'neovim/nvim-lspconfig'
@@ -34,7 +34,7 @@ if !exists('g:vscode')
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'onsails/lspkind.nvim'
-    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'nvimtools/none-ls.nvim'
     Plug 'jayp0521/mason-null-ls.nvim'
     " Plug 'simrat39/inlay-hints.nvim'
     " Plug 'SirVer/ultisnips'
@@ -44,13 +44,10 @@ if !exists('g:vscode')
     Plug 'nvimdev/lspsaga.nvim'
     Plug 'folke/neodev.nvim'
 
-    Plug 'numToStr/Comment.nvim'
-    Plug 'suy/vim-context-commentstring'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
     Plug 'ibhagwan/fzf-lua'
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ciaranm/detectindent'
     Plug 'andymass/vim-matchup'
     Plug 'editorconfig/editorconfig-vim'
@@ -61,36 +58,36 @@ if !exists('g:vscode')
     Plug 'brenoprata10/nvim-highlight-colors'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'rmagatti/auto-session'
-    " Plug 'rmagatti/session-lens'
     Plug 'akinsho/toggleterm.nvim', {'tag': 'v2.*'}
     Plug 'folke/which-key.nvim'
     Plug 'fedepujol/move.nvim'
     " Plug 'nvimtools/hydra.nvim'
-    " Plug 'smoka7/multicursors.nvim'
     Plug 'jake-stewart/multicursor.nvim'
+    Plug 'johmsalas/text-case.nvim'
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
+    "Plug 'sschleemilch/slimline.nvim'
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'tpope/vim-fugitive'
     Plug 'almo7aya/openingh.nvim'
     Plug 'majutsushi/tagbar'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'kyazdani42/nvim-tree.lua'
-    " Plug 'kdheepak/tabline.nvim'
+    Plug 'MunifTanjim/nui.nvim'
+    Plug '3rd/image.nvim'
     Plug 'akinsho/bufferline.nvim'
     Plug 'tiagovla/scope.nvim'
     Plug 'lukas-reineke/indent-blankline.nvim'
-    " Plug 'lewis6991/satellite.nvim'
-    " Plug 'rcarriga/nvim-notify'
     Plug 'j-hui/fidget.nvim'
     Plug 'folke/trouble.nvim'
+    Plug 'Bekaboo/dropbar.nvim'
+    "Plug 'Isrothy/neominimap.nvim'
 
     " Language-related plugins
     " Plug 'iloginow/vim-stylus'
     Plug 'lervag/vimtex'
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-    " Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'}
     Plug 'barrett-ruth/live-server.nvim'
     Plug 'mattn/emmet-vim'
     " Plug 'rustushki/JavaImp.vim'
@@ -120,7 +117,6 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/tex")
     require("plugins/emmet")
     require("plugins/JavaImp")
-    require('Comment').setup()
     require("plugins/matchup")
     require("plugins/vim_current_word")
     require("plugins/autopairs")
@@ -130,11 +126,13 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/auto-session")
     require("plugins/which-key")
     require("plugins/move")
-    -- require("hydra").setup()
-    -- require("plugins/multicursors")
     require("plugins/multicursor")
+    require('textcase').setup()
     require("plugins/toggleterm")
     require("plugins/lualine")
+    -- require('slimline').setup({
+    --     style = 'fg'
+    -- })
     require("plugins/gitsigns")
     require("plugins/openingh")
     require("plugins/bufferline")

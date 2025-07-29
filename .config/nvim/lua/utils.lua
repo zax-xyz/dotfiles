@@ -6,7 +6,7 @@ local M = {}
 --- @param desc string | nil
 --- @param opts table | nil
 M.bind = function(op, lhs, rhs, desc, opts)
-    opts = vim.tbl_extend("force", {noremap = true, desc = desc}, opts or {})
+    opts = vim.tbl_extend("force", { noremap = true, desc = desc }, opts or {})
     vim.keymap.set(op, lhs, rhs, opts)
 end
 
@@ -32,5 +32,17 @@ M.vim_cmd = function(cmd)
         vim.cmd(cmd)
     end
 end
+
+--- @param tbl table
+--- @param f function
+--- @return table
+M.map = function(tbl, f)
+    local t = {}
+    for k,v in pairs(tbl) do
+        t[k] = f(v)
+    end
+    return t
+end
+
 
 return M

@@ -5,6 +5,7 @@ local vim_cmd = require("utils").vim_cmd
 require("mason").setup()
 require("mason-lspconfig").setup({
     automatic_installation = true,
+    automatic_enable = false,
 })
 
 vim.opt.updatetime = 300
@@ -26,14 +27,19 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
     }
 )
 
-local border = { border = "rounded", focusable = false, scope = "line" }
-vim.diagnostic.config({ float = border })
+-- local isNeovide = vim.fn.exists('g:neovide') == 1
 
-lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
-lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
+local border = { border = "rounded", focusable = false, scope = "line" }
+-- if not isNeovide then
+    vim.diagnostic.config({ float = border })
+
+    lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
+    lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
+-- end
 
 require('lspsaga').setup({
     ui = {
+        -- border = isNeovide and "none" or "rounded",
         border = "rounded",
     },
     code_action = {
@@ -45,6 +51,9 @@ require('lspsaga').setup({
     lightbulb = {
         sign = false,
     },
+    symbol_in_winbar = {
+        enable = false,
+    }
 })
 
 bind("n", "gd", vim_cmd("Lspsaga goto_definition"), "Go to definition")
@@ -170,7 +179,7 @@ local tsserver_settings = {
     }
 }
 
-lspconfig.tsserver.setup(config({
+lspconfig.ts_ls.setup(config({
     settings = {
         typescript = tsserver_settings,
         javascript = tsserver_settings,
@@ -327,12 +336,12 @@ null_ls.setup({
     sources = {
         -- null_ls.builtins.code_actions.eslint_d,
         -- null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.diagnostics.shellcheck,
+        -- null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.buf,
         -- null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.prettierd,
         -- null_ls.builtins.formatting.eslint_d,
-        null_ls.builtins.formatting.rustfmt,
+        -- null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.formatting.gofmt,
         -- null_ls.builtins.formatting.lua_format,
         null_ls.builtins.formatting.black,

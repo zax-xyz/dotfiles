@@ -4,17 +4,26 @@ mc.setup()
 
 local bind = require('utils').bind
 
-bind({"n", "v"}, "<up>", function() mc.lineAddCursor(-1) end)
-bind({"n", "v"}, "<down>", function() mc.lineAddCursor(1) end)
--- bind({"n", "v"}, "<a-k>", function() mc.lineAddCursor(-1) end)
--- bind({"n", "v"}, "<a-j>", function() mc.lineAddCursor(1) end)
-bind({"n", "v"}, "<a-k>", function() mc.lineSkipCursor(-1) end)
-bind({"n", "v"}, "<a-j>", function() mc.lineSkipCursor(1) end)
+bind({"n", "v"}, "<up>", function() mc.lineAddCursor(-1) end, "Add cursor above")
+bind({"n", "v"}, "<down>", function() mc.lineAddCursor(1) end, "Add cursor below")
+bind({"n", "v"}, "<a-k>", function() mc.lineSkipCursor(-1) end, "Skip cursor below")
+bind({"n", "v"}, "<a-j>", function() mc.lineSkipCursor(1) end, "Skip cursor above")
 
-bind({"n", "v"}, "<leader>A", mc.matchAllAddCursors)
+-- Add or skip adding a new cursor by matching word/selection
+bind({"n", "x"}, "<c-m>", function() mc.matchAddCursor(1) end, "Add next match cursor")
+bind({"n", "x"}, "<c-s-m>", function() mc.matchAddCursor(-1) end, "Add previous match cursor")
+bind({"n", "x"}, "<c-s>", function() mc.matchSkipCursor(1) end, "Skip next match cursor")
+bind({"n", "x"}, "<c-a-s>", function() mc.matchSkipCursor(-1) end, "Skip previous match cursor")
+
+bind("n", "<c-leftmouse>", mc.handleMouse)
+bind("n", "<c-leftdrag>", mc.handleMouseDrag)
+bind("n", "<c-leftrelease>", mc.handleMouseRelease)
+
+bind({"n", "v"}, "<leader>A", mc.matchAllAddCursors, "Add cursors to all matches")
+bind("n", "<leader>a", mc.alignCursors, "Align cursor columns")
 
 -- Delete the main cursor.
-bind({"n", "v"}, "<leader>x", mc.deleteCursor)
+bind({"n", "v"}, "<leader>x", mc.deleteCursor, "Delete main cursor")
 
 -- Add and remove cursors with control + left click.
 bind("n", "<c-leftmouse>", mc.handleMouse)
@@ -42,6 +51,10 @@ bind("v", "M", mc.matchCursors)
 -- Jumplist support
 bind({"v", "n"}, "<c-i>", mc.jumpForward)
 bind({"v", "n"}, "<c-o>", mc.jumpBackward)
+
+bind("n", "<leader>/A", mc.searchAllAddCursors, "Add cursors to all search results")
+
+bind({"n", "x"}, "<leader>m", mc.operator)
 
 local hl = vim.api.nvim_set_hl
 hl(0, "MultiCursorCursor", { link = "Cursor" })

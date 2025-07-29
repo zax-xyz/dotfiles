@@ -126,3 +126,6 @@ bind("n", "<leader>H", function()
 end, "Toggle C/C++ source/header")
 
 bind("", "<C-8>", vim_cmd(':keepjumps normal! mi*`i'))
+
+bind("n", "gp", "`[v`]", "Select pasted text")
+bind("n", "gP", "`[V`]", "Select pasted lines")
