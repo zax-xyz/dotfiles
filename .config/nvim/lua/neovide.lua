@@ -1,6 +1,6 @@
 local bind = require('utils').bind
 
-vim.g.gui_font_default_size = 12
+vim.g.gui_font_default_size = 9
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = 'Iosevka Nerd Font Mono'
 vim.g.neovide_scroll_animation_length = 0.2
@@ -10,7 +10,7 @@ vim.opt.linespace = 6
 --     vim.g["neovide_padding_" .. dir] = 36
 -- end
 
--- vim.g.neovide_opacity = 0.9
+-- vim.g.neovide_opacity = 0.95
 -- vim.g.neovide_window_blurred = true
 -- vim.g.neovide_background_color = '#1e1e2e'
 

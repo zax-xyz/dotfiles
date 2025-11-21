@@ -81,5 +81,5 @@ element-icon {
 
 element-text {
   horizontal-align: 0.5;
-  font: "Nunito 16";
+  font: "Nunito 11";
 }

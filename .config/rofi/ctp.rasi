@@ -17,7 +17,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Nunito 22";
+  font: "Nunito 12";
   /* text-color: var(text); */
 }
 
@@ -25,14 +25,15 @@ window {
   transparency: "real";
   /* fullscreen: true; */
   /* background-color: #000000cc; */
-  background-color: rgba(30, 30, 46, 0.9);
 }
 
 mainbox {
+  border-radius: 4px;
   padding: 1em;
   spacing: 0.5em;
   border: 1px solid;
   border-color: var(secondary);
+  background-color: rgba(30, 30, 46, 0.9);
 }
 
 inputbar {

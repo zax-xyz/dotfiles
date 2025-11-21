@@ -20,9 +20,7 @@ local tree = api.tree
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     pattern = 'NvimTree*',
     callback = function()
-        local view = require('nvim-tree.view')
-
-        if not view.is_visible() then
+        if not tree.is_visible() then
             tree.open()
         end
     end,
