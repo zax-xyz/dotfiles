@@ -45,11 +45,11 @@ local write_cmd = ":w<CR>"
 ---@diagnostic disable-next-line: unused-local
 local compile_cmd = '~/.scripts/compile "%"'
 ---@diagnostic disable-next-line: unused-local
-local compile_fin = " &> /dev/null & disown<CR><CR>"
-bind("n", "<leader>c", F"{write_cmd}:!true | {compile_cmd} {compile_fin}", "Compile file")
-ft_autocmd("markdown", function()
-    bind("n", "<leader>C", F"{write_cmd}:!{compile_cmd} 1000 {compile_fin}", "Compile file with delay")
-end)
+-- local compile_fin = " &> /dev/null & disown<CR><CR>"
+-- bind("n", "<leader>c", F"{write_cmd}:!true | {compile_cmd} {compile_fin}", "Compile file")
+-- ft_autocmd("markdown", function()
+--     bind("n", "<leader>C", F"{write_cmd}:!{compile_cmd} 1000 {compile_fin}", "Compile file with delay")
+-- end)
 
 bind("", "<leader>s", vim_cmd("setlocal spell!"), "Toggle spellcheck")
 

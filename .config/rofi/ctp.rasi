@@ -17,7 +17,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Nunito 12";
+  font: "Nunito 22";
   /* text-color: var(text); */
 }
 

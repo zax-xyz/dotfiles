@@ -1,6 +1,6 @@
 require("auto-session").setup {
     log_level = "error",
-    auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+    suppressed_dirs = { "~/", "~/Downloads", "/" },
 }
 
 local bind = require("utils").bind

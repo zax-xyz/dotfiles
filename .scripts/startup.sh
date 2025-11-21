@@ -7,12 +7,12 @@ xset dpms 0 0 360 &
 xset s 300 30 &
 xss-lock -n ~/.scripts/dim-screen.sh ~/.scripts/lock.sh &
 xautocfg &
-numlockx &
+# numlockx &
 # ~/.scripts/caps &
 xsetroot -cursor_name left_ptr &
 # ~/.scripts/capslk.sh &
 # fcitx -d &
-redshift &
+# redshift &
 nextcloud &
 nm-applet &
 conky &

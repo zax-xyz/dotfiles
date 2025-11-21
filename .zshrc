@@ -1,3 +1,4 @@
+source ~/.profile
 source ~/.scripts/mocha.sh
 
 P10K_INSTANT_PROMPT_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -8,7 +9,6 @@ source ~/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/shell_history
-
 
 # Enables better tab completion
 # autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump
@@ -52,6 +52,7 @@ cmd-exists fnm && eval "$(fnm env --use-on-cd --version-file-strategy=recursive 
 cmd-exists keychain && eval $(keychain --eval --quiet id_rsa)
 cmd-exists thefuck && eval $(thefuck --alias)
 cmd-exists zoxide && eval "$(zoxide init zsh)"
+[ -e /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 export FZF_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND"

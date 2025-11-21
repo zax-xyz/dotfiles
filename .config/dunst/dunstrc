@@ -1,6 +1,6 @@
 # vim: ft=cfg
 [global]
-font = Lato 10
+font = Lato 9
 
 # Allow a small subset of html markup:
 #   <b>bold</b>

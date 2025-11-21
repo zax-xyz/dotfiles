@@ -64,6 +64,7 @@ if !exists('g:vscode')
     " Plug 'nvimtools/hydra.nvim'
     Plug 'jake-stewart/multicursor.nvim'
     Plug 'johmsalas/text-case.nvim'
+    Plug 'NTBBloodbath/color-converter.nvim'
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -93,6 +94,7 @@ if !exists('g:vscode')
     " Plug 'rustushki/JavaImp.vim'
     Plug 'Fymyte/rasi.vim'
     Plug 'windwp/nvim-ts-autotag'
+    Plug 'luckasRanarison/tailwind-tools.nvim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-context'
@@ -128,6 +130,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/move")
     require("plugins/multicursor")
     require('textcase').setup()
+    require("plugins/color-converter")
     require("plugins/toggleterm")
     require("plugins/lualine")
     -- require('slimline').setup({
@@ -140,6 +143,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/indent_blankline")
     require("plugins/live-server")
     require("nvim-ts-autotag").setup()
+    require("tailwind-tools").setup()
     require("plugins/fidget")
     require("plugins/trouble")
 end

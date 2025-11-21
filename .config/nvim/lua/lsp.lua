@@ -317,7 +317,8 @@ local lspkind = require('lspkind')
 cmp.setup {
     formatting = {
         format = lspkind.cmp_format({
-            mode = "symbol"
+            mode = "symbol",
+            before = require("tailwind-tools.cmp").lspkind_format
         })
     }
 }

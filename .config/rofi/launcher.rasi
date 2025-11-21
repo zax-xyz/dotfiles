@@ -34,7 +34,7 @@ textbox-prompt {
   content: "";
   expand: false;
   background-color: var(lavender);
-  padding: 0.375em 18px 0.375em 12px;
+  padding: 0.375em 1em 0.375em 0.75em;
 }
 
 button {
@@ -81,5 +81,5 @@ element-icon {
 
 element-text {
   horizontal-align: 0.5;
-  font: "Nunito 11";
+  font: "Nunito 16";
 }

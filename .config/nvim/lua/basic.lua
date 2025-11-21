@@ -84,3 +84,5 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 --         vim.fn.clearmatches()
 --     end
 -- })
+
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
