@@ -219,7 +219,9 @@ lspconfig.emmet_language_server.setup(config())
 
 lspconfig.bashls.setup(config())
 lspconfig.clangd.setup(config())
-lspconfig.pyright.setup(config())
+lspconfig.pyright.setup(config({
+    root_dir = vim.loop.cwd()
+}))
 lspconfig.rust_analyzer.setup(config())
 lspconfig.gopls.setup(config({
     cmd = { "/Users/mvo/go/bin/gopls" },
