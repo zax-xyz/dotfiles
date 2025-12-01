@@ -1,0 +1,7 @@
+@layer theme, base, components, utilities;
+
+/* not importing preflight to avoid unwanted changes to popovers */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@import "@catppuccin/tailwindcss/mocha.css";
