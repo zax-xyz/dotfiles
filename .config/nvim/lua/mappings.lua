@@ -27,8 +27,8 @@ bind("", "<leader><leader>", "/<++><CR>c4l", "replace next <++>")
 bind("", "<leader><Tab>", "/<++><CR>", "find next <++>")
 
 local replace_cmd = "s//g<Left><Left>"
-bind("", "<leader>s", ":" .. replace_cmd, ":s command template")
-bind("", "<leader>S", ":%" .. replace_cmd, ":%s command tempalte")
+-- bind("", "<leader>s", ":" .. replace_cmd, ":s command template")
+-- bind("", "<leader>S", ":%" .. replace_cmd, ":%s command tempalte")
 
 bind("", "<leader>n", ":norm ")
 

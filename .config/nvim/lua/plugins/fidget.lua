@@ -5,6 +5,9 @@ fidget.setup({
         window = {
             max_height = 15,
             winblend = 0,
+            avoid = {
+                "NvimTree",
+            },
         },
     },
 })

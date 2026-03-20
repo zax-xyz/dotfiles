@@ -5,12 +5,35 @@ local vim_cmd = require("utils").vim_cmd
 require("mason").setup()
 require("mason-lspconfig").setup({
     automatic_installation = true,
-    automatic_enable = false,
+    ensure_installed = {
+        "bashls",
+        "clangd",
+        "cssls",
+        "cssmodules_ls",
+        "emmet_language_server",
+        "eslint",
+        "gopls",
+        "html",
+        "jdtls",
+        "jsonls",
+        -- "kotlin_language_server",
+        "lua_ls",
+        "oxlint",
+        "pyright",
+        "rust_analyzer",
+        "sqlls",
+        "svelte",
+        "tailwindcss",
+        "texlab",
+        -- "ts_ls",
+        "tsgo",
+    },
+    -- automatic_enable = false,
 })
 
 vim.opt.updatetime = 300
 
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local bind = require('utils').bind
@@ -134,7 +157,7 @@ local function config(_config)
     return merged_config
 end
 
-lspconfig.lua_ls.setup(config({
+vim.lsp.config("lua_ls", config({
     on_init = function(client)
         local path = client.workspace_folders[1].name
         if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
@@ -179,13 +202,19 @@ local tsserver_settings = {
     }
 }
 
-lspconfig.ts_ls.setup(config({
+-- vim.lsp.config("ts_ls", config({
+--     settings = {
+--         typescript = tsserver_settings,
+--         javascript = tsserver_settings,
+--     },
+-- }))
+vim.lsp.config("tsgo", config({
     settings = {
         typescript = tsserver_settings,
         javascript = tsserver_settings,
     },
 }))
-lspconfig.tailwindcss.setup(config({
+vim.lsp.config("tailwindcss", config({
     settings = {
         tailwindCSS = {
             experimental = {
@@ -206,32 +235,33 @@ lspconfig.tailwindcss.setup(config({
         }
     },
 }))
-lspconfig.svelte.setup(config())
-lspconfig.eslint.setup {}
-lspconfig.html.setup(config())
+vim.lsp.config("svelte", config())
+-- vim.lsp.enable("eslint")
+vim.lsp.enable("oxlint")
+vim.lsp.config("html", config())
 -- vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js silent! EslintFixAll]]
 
-lspconfig.texlab.setup(config())
-lspconfig.cssls.setup(config())
-lspconfig.cssmodules_ls.setup(config())
--- lspconfig.emmet_ls.setup(config())
-lspconfig.emmet_language_server.setup(config())
+vim.lsp.config("texlab", config())
+vim.lsp.config("cssls", config())
+vim.lsp.config("cssmodules_ls", config())
+-- vim.lsp.config("emmet_ls", config())
+vim.lsp.config("emmet_language_server", config())
 
-lspconfig.bashls.setup(config())
-lspconfig.clangd.setup(config())
-lspconfig.pyright.setup(config({
+vim.lsp.config("bashls", config())
+vim.lsp.config("clangd", config())
+vim.lsp.config("pyright", config({
     root_dir = vim.loop.cwd()
 }))
-lspconfig.rust_analyzer.setup(config())
-lspconfig.gopls.setup(config({
+vim.lsp.config("rust_analyzer", config())
+vim.lsp.config("gopls", config({
     cmd = { "/Users/mvo/go/bin/gopls" },
 }))
-lspconfig.sqlls.setup(config())
+vim.lsp.config("sqlls", config())
 
-lspconfig.jsonls.setup(config())
+vim.lsp.config("jsonls", config())
 
 local HOME = os.getenv('HOME')
-lspconfig.jdtls.setup(config({
+vim.lsp.config("jdtls", config({
     cmd = {
         -- 💀
         HOME .. '/.local/share/nvim/mason/bin/jdtls',
@@ -243,11 +273,11 @@ lspconfig.jdtls.setup(config({
     },
 }))
 
-lspconfig.kotlin_language_server.setup(config())
+-- vim.lsp.config("kotlin_language_server", config())
 
--- lspconfig.sourcekit.setup(config())
+-- vim.lsp.config("sourcekit", config())
 
-lspconfig.texlab.setup(config())
+vim.lsp.config("texlab", config())
 
 local cmp = require 'cmp'
 
@@ -277,15 +307,34 @@ cmp.setup({
     formatting = {
         fields = { "kind", "abbr", "menu" },
     },
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        -- { name = 'vsnip' }, -- For vsnip users.
-        { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
-    }, {
-        { name = 'buffer' },
-    })
+    sources = cmp.config.sources(
+        {
+            { name = 'copilot', group_index = 2 },
+            { name = 'nvim_lsp', group_index = 2 },
+            { name = 'path', group_index = 2 },
+            { name = 'luasnip', group_index = 2 },
+        }, {
+            { name = 'buffer' },
+        }
+    ),
+    sorting = {
+        priority_weight = 2,
+        comparators = {
+            require("copilot_cmp.comparators").prioritize,
+
+            -- Below is the default comparitor list and order for nvim-cmp
+            cmp.config.compare.offset,
+            -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.locality,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
+    },
 })
 
 -- Set configuration for specific filetype.
@@ -319,10 +368,29 @@ local lspkind = require('lspkind')
 cmp.setup {
     formatting = {
         format = lspkind.cmp_format({
-            mode = "symbol"
+            mode = "symbol",
+            max_width = 50,
+            symbol_map = { Copilot = "" }
         })
-    }
+    },
 }
+
+local has_words_before = function()
+    if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+end
+cmp.setup({
+    mapping = {
+        ["<Tab>"] = vim.schedule_wrap(function(fallback)
+            if cmp.visible() and has_words_before() then
+                cmp.confirm({ select = true })
+            else
+                fallback()
+            end
+        end),
+    },
+})
 
 local formatOnSave = true
 vim.api.nvim_create_user_command('ToggleFormatOnSave', function()

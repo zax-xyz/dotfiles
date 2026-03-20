@@ -51,7 +51,8 @@ vim.opt.re = 0
 vim.opt.scrolloff = 3
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '▎ ', trail = '·', nbsp = '␣' }
 
 -- -- Show trailing whitepace
 -- local autocmd = vim.api.nvim_create_autocmd

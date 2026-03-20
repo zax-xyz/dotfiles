@@ -64,6 +64,15 @@ if !exists('g:vscode')
     " Plug 'nvimtools/hydra.nvim'
     Plug 'jake-stewart/multicursor.nvim'
     Plug 'johmsalas/text-case.nvim'
+    Plug 'MeanderingProgrammer/render-markdown.nvim'
+    Plug 'nvim-pack/nvim-spectre'
+    Plug 'HakonHarnes/img-clip.nvim'
+    Plug 'copilotlsp-nvim/copilot-lsp'
+    Plug 'zbirenbaum/copilot.lua'
+    Plug 'zbirenbaum/copilot-cmp'
+    Plug 'stevearc/dressing.nvim' " for enhanced input UI
+    Plug 'folke/snacks.nvim' " for modern input UI
+    Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
     " Extra wacky shit that goes on the screen
     Plug 'nvim-lualine/lualine.nvim'
@@ -102,6 +111,7 @@ if !exists('g:vscode')
 endif
 
 call plug#end()
+autocmd! User avante.nvim
 ]]
 
 require("impatient")
@@ -128,6 +138,8 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/move")
     require("plugins/multicursor")
     require('textcase').setup()
+    require('plugins/copilot')
+    require('plugins/avante')
     require("plugins/toggleterm")
     require("plugins/lualine")
     -- require('slimline').setup({

@@ -13,9 +13,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
-export GOPATH="/mnt/data/code/go"
+# export GOPATH="/mnt/data/code/go"
 
-export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/bin:$HOME/.local/share/bin:$HOME/.local/share/gem/ruby/3.0.0/bin/:$HOME/.cargo/bin"
+export PATH="/usr/lib/ccache/bin/:$PATH:$GOPATH/bin:$HOME/.local/bin:$HOME/.local/share/bin:$HOME/.local/share/gem/ruby/3.0.0/bin/:$HOME/.cargo/bin:/opt/homebrew/opt/rustup/bin"
 
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im-fcitx
