@@ -10,7 +10,7 @@ vim.opt.linespace = 5
 --     vim.g["neovide_padding_" .. dir] = 36
 -- end
 
--- vim.g.neovide_opacity = 0.9
+-- vim.g.neovide_opacity = 0.95
 -- vim.g.neovide_window_blurred = true
 -- vim.g.neovide_background_color = '#1e1e2e'
 

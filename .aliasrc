@@ -112,6 +112,9 @@ alias elass="cdlass; vim ass.tex"
 ## info1910 task
 alias cditask="cd info/current-task"
 
+alias nvim="fnm exec --using=24 nvim"
+alias neovide="fnm exec --using=24 neovide"
+
 abbrev vim=nvim
 abbrev v=vim
 

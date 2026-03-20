@@ -1,11 +1,19 @@
-gtk-theme-name="Catppuccin-Mocha-Lavender"
-gtk-enable-animations=1
-gtk-primary-button-warps-slider=0
-gtk-toolbar-style=3
-gtk-menu-images=1
-gtk-button-images=1
-gtk-cursor-theme-size=24
-gtk-cursor-theme-name="breeze_cursors"
-gtk-icon-theme-name="Papirus-Dark"
-gtk-font-name="Noto Sans,  10"
+# DO NOT EDIT! This file will be overwritten by nwg-look.
+# Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
+include "/home/chat/.gtkrc-2.0.mine"
+gtk-theme-name="catppuccin-mocha-pink-standard+default"
+gtk-icon-theme-name="Papirus"
+gtk-font-name="Cantarell 11"
+gtk-cursor-theme-name="Breeze5"
+gtk-cursor-theme-size=24
+gtk-toolbar-style=3
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=0
+gtk-menu-images=0
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=0
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintslight"
+gtk-xft-rgba="rgb"

@@ -1,7 +1,11 @@
 #!/bin/sh
-bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
+# monitor=$(xrandr | grep 'primary' | cut -d' ' -f1)
+monitor="$1"
+bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10
 for desktop in $(bspc query -D); do
-    bspc desktop "$desktop" --to-monitor eDP1
+    bspc desktop "$desktop" --to-monitor "$monitor"
 done
-bspc monitor HDMI2 --remove
-bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
+for m in $(bspc query -M --names | grep -v "$monitor"); do
+    bspc monitor "$m" --remove
+done
+bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10

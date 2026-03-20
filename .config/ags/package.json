@@ -1,0 +1,19 @@
+{
+    "scripts": {
+        "watch:css": "postcss -o assets/styles.css assets/input.css -w",
+        "build:css": "postcss -o assets/styles.css assets/input.css"
+    },
+    "dependencies": {
+        "@tailwindcss/postcss": "^4.1.16",
+        "ags": "*",
+        "clsx": "^2.1.1",
+        "gnim": "*",
+        "postcss": "^8.5.6",
+        "postcss-cli": "^11.0.1",
+        "postcss-preset-env": "^10.4.0",
+        "tailwindcss": "^4.1.16"
+    },
+    "devDependencies": {
+        "@catppuccin/tailwindcss": "^1.0.0"
+    }
+}

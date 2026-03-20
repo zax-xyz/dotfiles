@@ -370,7 +370,8 @@ cmp.setup {
         format = lspkind.cmp_format({
             mode = "symbol",
             max_width = 50,
-            symbol_map = { Copilot = "" }
+            symbol_map = { Copilot = "" },
+            before = require("tailwind-tools.cmp").lspkind_format,
         })
     },
 }

@@ -1,5 +1,5 @@
 @import "config"
 
 * {
-    font: "monospace 10.5";
+    font: "monospace 20";
 }
