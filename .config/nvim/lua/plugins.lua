@@ -42,7 +42,8 @@ if !exists('g:vscode')
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
     Plug 'weilbith/nvim-code-action-menu'
     Plug 'nvimdev/lspsaga.nvim'
-    Plug 'folke/neodev.nvim'
+    "Plug 'folke/neodev.nvim'
+    Plug 'folke/lazydev.nvim'
 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -105,7 +106,7 @@ if !exists('g:vscode')
     Plug 'windwp/nvim-ts-autotag'
     Plug 'luckasRanarison/tailwind-tools.nvim'
 
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': 'master'}
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'HiPhish/rainbow-delimiters.nvim'
 
@@ -155,7 +156,7 @@ if vim.fn.exists('g:vscode') == 0 then
     require("plugins/indent_blankline")
     require("plugins/live-server")
     require("nvim-ts-autotag").setup()
-    require("tailwind-tools").setup()
+    -- require("tailwind-tools").setup()
     require("plugins/fidget")
     require("plugins/trouble")
 end

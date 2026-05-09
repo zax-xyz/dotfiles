@@ -1,11 +1,11 @@
-require("neodev").setup()
+-- require("neodev").setup()
 
 local vim_cmd = require("utils").vim_cmd
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-    automatic_installation = true,
-    ensure_installed = {
+    -- automatic_installation = true,
+    automatic_enable = {
         "bashls",
         "clangd",
         "cssls",
@@ -33,22 +33,31 @@ require("mason-lspconfig").setup({
 
 vim.opt.updatetime = 300
 
--- local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local bind = require('utils').bind
 local lsp = vim.lsp
 
-lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
-    lsp.diagnostic.on_publish_diagnostics, {
-        -- virtual_text = {
-        --     format = function(diagnostic)
-        --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
-        --     end
-        -- },
-        update_in_insert = true,
-    }
-)
+-- lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+--     lsp.diagnostic.on_publish_diagnostics, {
+--         -- virtual_text = {
+--         --     format = function(diagnostic)
+--         --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
+--         --     end
+--         -- },
+--         update_in_insert = true,
+--     }
+-- )
+
+-- lsp.handlers["textDocument/publishDiagnostics"] = lsp.diagnostic.on_publish_diagnostics({
+--         -- virtual_text = {
+--         --     format = function(diagnostic)
+--         --         return string.format("%s: %s", diagnostic.source, diagnostic.message)
+--         --     end
+--         -- },
+--         update_in_insert = true,
+--     }
+-- )
 
 -- local isNeovide = vim.fn.exists('g:neovide') == 1
 
@@ -56,9 +65,11 @@ local border = { border = "rounded", focusable = false, scope = "line" }
 -- if not isNeovide then
     vim.diagnostic.config({ float = border })
 
-    lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border)
-    lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border)
+    lsp.handlers["textDocument/signatureHelp"] = lsp.buf.signature_help(border)
+    lsp.handlers["textDocument/hover"] = lsp.buf.hover(border)
 -- end
+
+vim.opt.winborder = 'rounded'
 
 require('lspsaga').setup({
     ui = {
@@ -157,38 +168,46 @@ local function config(_config)
     return merged_config
 end
 
-vim.lsp.config("lua_ls", config({
-    on_init = function(client)
-        local path = client.workspace_folders[1].name
-        if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
-            client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
-                Lua = {
-                    runtime = {
-                        -- Tell the language server which version of Lua you're using
-                        -- (most likely LuaJIT in the case of Neovim)
-                        version = 'LuaJIT'
-                    },
-                    -- Make the server aware of Neovim runtime files
-                    workspace = {
-                        checkThirdParty = false,
-                        library = {
-                            vim.env.VIMRUNTIME,
-                            -- Depending on the usage, you might want to add additional paths here.
-                            -- E.g.: For using `vim.*` functions, add vim.env.VIMRUNTIME/lua.
-                            require("neodev.config").types(),
-                            "${3rd}/luv/library",
-                            "${3rd}/busted/library",
-                        }
-                        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-                        -- library = vim.api.nvim_get_runtime_file("", true)
-                    },
-                    hint = { enable = true },
-                },
-            })
-        end
-        return true
-    end,
-}))
+require('lazydev').setup({
+    library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    }
+})
+
+-- vim.lsp.config("lua_ls", config({
+--     on_init = function(client)
+--         local path = client.workspace_folders[1].name
+--         if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+--             client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+--                 Lua = {
+--                     runtime = {
+--                         -- Tell the language server which version of Lua you're using
+--                         -- (most likely LuaJIT in the case of Neovim)
+--                         version = 'LuaJIT'
+--                     },
+--                     -- Make the server aware of Neovim runtime files
+--                     workspace = {
+--                         checkThirdParty = false,
+--                         library = {
+--                             vim.env.VIMRUNTIME,
+--                             -- Depending on the usage, you might want to add additional paths here.
+--                             -- E.g.: For using `vim.*` functions, add vim.env.VIMRUNTIME/lua.
+--                             require("neodev.config").types(),
+--                             "${3rd}/luv/library",
+--                             "${3rd}/busted/library",
+--                         }
+--                         -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+--                         -- library = vim.api.nvim_get_runtime_file("", true)
+--                     },
+--                     hint = { enable = true },
+--                 },
+--             })
+--         end
+--         return true
+--     end,
+-- }))
 
 local tsserver_settings = {
     inlayHints = {
@@ -371,7 +390,7 @@ cmp.setup {
             mode = "symbol",
             max_width = 50,
             symbol_map = { Copilot = "" },
-            before = require("tailwind-tools.cmp").lspkind_format,
+            -- before = require("tailwind-tools.cmp").lspkind_format,
         })
     },
 }
@@ -418,7 +437,7 @@ null_ls.setup({
         null_ls.builtins.formatting.black,
     },
     on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
+        if client:supports_method("textDocument/formatting") then
             local augroup = vim.api.nvim_create_augroup("formatOnSave", { clear = false })
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
