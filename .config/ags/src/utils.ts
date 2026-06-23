@@ -1,5 +1,6 @@
 import GLib from "gi://GLib";
 import { Accessor } from "gnim";
+import { twMerge } from "tailwind-merge";
 
 export const pathToURI = (path: string): string => {
   switch (true) {
@@ -24,3 +25,9 @@ export const toAccessor = <T>(val: T | Accessor<T>): Accessor<T> =>
  * Mimics tailwind default spacing scale
  */
 export const spacing = (value: number): number => value * 4;
+
+export const twMergeProp = (
+  baseClass: string,
+  extend?: string | Accessor<string>,
+): string | Accessor<string> =>
+  extend === undefined ? baseClass : toAccessor(extend).as(ext => twMerge(baseClass, ext));

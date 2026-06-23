@@ -1,6 +1,6 @@
 source ~/.profile
 source ~/.scripts/mocha.sh
-eval $(ssh-agent)
+# eval $(ssh-agent)
 
 P10K_INSTANT_PROMPT_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 [[ -r "$P10K_INSTANT_PROMPT_PATH" ]] && source "$P10K_INSTANT_PROMPT_PATH"
@@ -48,7 +48,8 @@ cmd-exists() {
     hash $1 2> /dev/null
 }
 
-export PATH="$HOME/.local/share/pnpm:$HOME/.local/share/fnm:$PATH"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$HOME/.local/share/fnm:$PATH"
 cmd-exists fnm && eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled)"
 cmd-exists keychain && eval $(keychain --eval --quiet id_rsa)
 cmd-exists thefuck && eval $(thefuck --alias)
@@ -59,11 +60,3 @@ export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || r
 export FZF_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND"
 
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-export PATH="/opt/atlassian/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-source ~/.afm-git-configrc
-if [ -f "$HOME/.afm-bin-path-manager.zsh" ]; then source "$HOME/.afm-bin-path-manager.zsh"; fi

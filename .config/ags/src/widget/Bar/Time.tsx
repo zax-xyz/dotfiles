@@ -9,7 +9,7 @@ import { spacing } from "../../utils";
 export const Time = () => {
   const time = createPoll([], 1000, () => {
     const dt = GLib.DateTime.new_now_local();
-    return [dt.format("%H:%M")!, dt.format("%a %d %b")!];
+    return [dt.format("%H:%M:%S")!, dt.format("%a %d %b")!];
   });
 
   const [showCalendar, setShowCalendar] = createState(false);

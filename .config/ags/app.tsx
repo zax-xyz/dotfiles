@@ -2,7 +2,7 @@ import { createBinding, For, This } from "ags";
 import app from "ags/gtk4/app";
 
 import twStyle from "./assets/styles.css";
-import { Bar } from "./src/widget/Bar";
+import { Bar } from "./src/widget/Bar/Bar";
 import style from "./style.scss";
 
 app.start({

@@ -1,4 +1,4 @@
-import { createBinding } from "ags";
+import { createBinding, With } from "ags";
 import AstalBattery from "gi://AstalBattery";
 
 import { spacing } from "../../utils";
@@ -23,7 +23,7 @@ export const Battery = () => {
   return (
     <box class="battery" visible={createBinding(bat, "isPresent")}>
       <image iconName={createBinding(bat, "batteryIconName")} pixelSize={14} />
-      <label label={percentage.as(p => `${Math.floor(p * 100)} %`)} />
+      <label label={percentage.as(p => `${Math.floor(p * 100)}%`)} />
       {/* <With value={timeLeft}> */}
       {/*   {timeLeft => <label visible={percentage.as(p => p < 1)} label={timeLeft} />} */}
       {/* </With> */}
