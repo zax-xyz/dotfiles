@@ -1,0 +1,29 @@
+binds {
+    Ctrl+grave hotkey-overlay-title="Notifications: Toggle" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Alt+space { spawn "dms" "ipc" "notifications" "dismissAllPopups"; }
+    Mod+Ctrl+D hotkey-overlay-title="Default Launcher: Toggle" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Ctrl+P hotkey-overlay-title="Color Picker: Toggle" { spawn "dms" "ipc" "call" "color-picker" "toggle"; }
+    Mod+Ctrl+Q allow-when-locked=true hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Ctrl+Shift+L allow-when-locked=true hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Ctrl+Shift+S { spawn "dms" "ipc" "call" "quickCapture" "screenshot" "region" "edit"; }
+    Mod+D hotkey-overlay-title="Spotlight Bar: Toggle" { spawn "dms" "ipc" "call" "spotlight-bar" "toggle"; }
+    Mod+Shift+C hotkey-overlay-title="Clipboard: Toggle" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+Shift+N hotkey-overlay-title="Notifications: Toggle" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Shift+P hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+    Mod+V hotkey-overlay-title="Clipboard: Toggle" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+Z hotkey-overlay-title="Settings: Open" { spawn "dms" "ipc" "call" "settings" "open"; }
+    Mod+space hotkey-overlay-title="Spotlight Bar: Toggle" { spawn "dms" "ipc" "call" "spotlight-bar" "toggle"; }
+    Mod+Ctrl+Shift+F { maximize-window-to-edges; }
+    Mod+S { toggle-window-floating; }
+    Mod+T { toggle-column-tabbed-display; }
+    Mod+E hotkey-overlay-title="Emoji menu" { spawn "emote"; }
+    Mod+N hotkey-overlay-title="Open file manager" { spawn "nautilus"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Shift+D { spawn "vesktop"; }
+    Mod+Shift+Return hotkey-overlay-title="Open floating terminal" { spawn "kitty" "--class" "WM_FLOATING"; }
+    Mod+Shift+S { spawn "omasnap"; }
+    Mod+W hotkey-overlay-title="Open web browser: Zen" { spawn "zen-browser"; }
+    Print { spawn "omasnap"; }
+    Ctrl+Down repeat=false { toggle-overview; }
+    Ctrl+Up repeat=false { toggle-overview; }
+}

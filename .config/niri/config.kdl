@@ -1,0 +1,160 @@
+spawn-sh-at-startup "oniri --tiling-layout --reclaim-space"
+// spawn-sh-at-startup "~/.scripts/audio_inhibit.sh"
+
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+}
+
+// https://niri-wm.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        xkb {
+            // You can set rules, model, layout, variant and options.
+            // For more information, see xkeyboard-config(7).
+
+            // For example:
+            // layout "us,ru"
+            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+
+            // If this section is empty, niri will fetch xkb settings
+            // from org.freedesktop.locale1. You can control these using
+            // localectl set-x11-keymap.
+        }
+
+        numlock
+
+        repeat-delay 200
+        repeat-rate 30
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        scroll-factor 0.15
+        click-method "clickfinger"
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+
+    trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // scroll-button-lock
+        // middle-emulation
+    }
+
+    tablet {
+        map-to-focused-output
+    }
+
+    // warp-mouse-to-focus
+
+    focus-follows-mouse
+}
+
+clipboard {
+    disable-primary
+}
+
+// https://niri-wm.github.io/niri/Configuration:-Layout
+layout {
+    gaps 4
+
+    // When to center a column when changing focus, options are:
+    // - "never", default behavior, focusing an off-screen column will keep at the left
+    //   or right edge of the screen.
+    // - "always", the focused column will always be centered.
+    // - "on-overflow", focusing a column will center it if it doesn't fit
+    //   together with the previously focused column.
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // preset-window-heights { }
+
+    default-column-width { proportion 0.66667; }
+
+    focus-ring {
+        off
+        width 1
+        active-gradient from="rgb(137,180,250)" to="rgb(203,166,247)" angle=135
+    }
+
+    border {
+        width 1
+        inactive-color "#313244"
+        urgent-color "#f38ba8"
+        active-gradient from="rgb(137, 180, 250)" to="#cba6f7" angle=135
+    }
+
+    shadow {
+        on
+        softness 15
+        spread -3
+        offset x=0 y=4
+        color "rgba(0, 0, 0, 0.25)"
+    }
+
+    struts {
+        left 4
+        right 4
+        top 4
+        bottom 4
+    }
+
+    tab-indicator {
+        width 3
+        gap 2
+        gaps-between-tabs 3
+
+        active-color "#f5c2e7"
+        inactive-color "#6c7086"
+    }
+}
+
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// https://niri-wm.github.io/niri/Configuration:-Animations
+animations {
+    // off
+    // slowdown 3.0
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+include "binds.kdl"
+include "windowrules.kdl"
+
+// DMS Include Configs
+include "dms/alttab.kdl"
+include "dms/binds.kdl"
+include "dms/colors.kdl"
+include "dms/cursor.kdl"
+include "dms/layout.kdl"
+include "dms/outputs.kdl"
+include "dms/windowrules.kdl"
+include "dms/wpblur.kdl"

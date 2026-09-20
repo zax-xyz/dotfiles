@@ -1,0 +1,41 @@
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id=r#"^Proton Pass$"#
+
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id="^WM_FLOATING$"
+    open-floating true
+}
+
+layer-rule {
+    match namespace="^rofi$"
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id=r#"org.quickshell$"#
+    open-floating true
+}
