@@ -1,7 +1,8 @@
 local map = require("utils").map
-local colors = require('catppuccin.palettes.mocha')
+local colors = require('catppuccin.palettes').get_palette()
 
-local isNeovide = vim.fn.exists('g:neovide') == 1
+-- local isNeovide = vim.fn.exists('g:neovide') == 1
+local isNeovide = false
 local left = isNeovide and '' or ''
 local right = isNeovide and '' or ''
 

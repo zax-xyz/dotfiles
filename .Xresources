@@ -68,3 +68,5 @@ st.cursorColor: #b4befe
 ! white
 *color7: #bac2de
 *color15: #a6adc8
+Xcursor.theme: Breeze5_Snow
+Xcursor.size: 24

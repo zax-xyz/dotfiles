@@ -23,6 +23,7 @@ Plug 'lewis6991/impatient.nvim'
 
 if !exists('g:vscode')
     Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+    Plug 'navarasu/onedark.nvim'
 
     " lsp
     Plug 'williamboman/mason.nvim'
@@ -99,7 +100,8 @@ if !exists('g:vscode')
     " Plug 'iloginow/vim-stylus'
     Plug 'lervag/vimtex'
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-    Plug 'barrett-ruth/live-server.nvim'
+    " Plug 'barrett-ruth/live-server.nvim'
+    Plug 'G00380316/live-server.nvim'
     Plug 'mattn/emmet-vim'
     " Plug 'rustushki/JavaImp.vim'
     Plug 'Fymyte/rasi.vim'

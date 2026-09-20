@@ -1,4 +1,4 @@
-local colors = require('catppuccin.palettes.mocha')
+local colors = require('catppuccin.palettes').get_palette()
 
 require("toggleterm").setup {
     open_mapping = [[<c-\>]],
